@@ -1,0 +1,189 @@
+
+@font-face {
+  font-family: "REAPangea";
+  font-style: normal;
+  font-weight: normal;
+  src:url("fonts/rea-pangea/REAPangea-LightWeb.woff") format("woff");
+  src:url("fonts/rea-pangea/REAPangea-LightWeb.woff2") format("woff2");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "REAPangea";
+  font-style: normal;
+  font-weight: normal;
+  src:url("fonts/rea-pangea/REAPangea-RegularWeb.woff") format("woff");
+  src:url("fonts/rea-pangea/REAPangea-RegularWeb.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "REAPangea";
+  font-style: normal;
+  font-weight: normal;
+  src:url("fonts/rea-pangea/REAPangea-MediumWeb.woff") format("woff");
+  src:url("fonts/rea-pangea/REAPangea-MediumWeb.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "REAPangea";
+  font-style: normal;
+  font-weight: normal;
+  src:url("fonts/rea-pangea/REAPangea-SemiBoldWeb.woff") format("woff");
+  src:url("fonts/rea-pangea/REAPangea-SemiBoldWeb.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "REAPangea";
+  font-style: normal;
+  font-weight: normal;
+  src:url("fonts/rea-pangea/REAPangea-BoldWeb.woff") format("woff");
+  src:url("fonts/rea-pangea/REAPangea-BoldWeb.woff2") format("woff2");
+  font-weight: 900;
+}
+
+@font-face {
+	font-family: "REAPangeaText";
+	font-style: normal;
+	font-weight: normal;
+	src:url("fonts/rea-pangea/REAPangeaText-LightWeb.woff") format("woff");
+	src:url("fonts/rea-pangea/REAPangeaText-LightWeb.woff2") format("woff2");
+	font-weight: 100;
+  }
+  
+  @font-face {
+	font-family: "REAPangeaText";
+	font-style: normal;
+	font-weight: normal;
+	src:url("fonts/rea-pangea/REAPangeaText-RegularWeb.woff") format("woff");
+	src:url("fonts/rea-pangea/REAPangeaText-RegularWeb.woff2") format("woff2");
+	font-weight: 300;
+  }
+  
+  @font-face {
+	font-family: "REAPangeaText";
+	font-style: normal;
+	font-weight: normal;
+	src:url("fonts/rea-pangea/REAPangeaText-MediumWeb.woff") format("woff");
+	src:url("fonts/rea-pangea/REAPangeaText-MediumWeb.woff2") format("woff2");
+	font-weight: 500;
+  }
+  
+  @font-face {
+	font-family: "REAPangeaText";
+	font-style: normal;
+	font-weight: normal;
+	src:url("fonts/rea-pangea/REAPangeaText-SemiBoldWeb.woff") format("woff");
+	src:url("fonts/rea-pangea/REAPangeaText-SemiBoldWeb.woff2") format("woff2");
+	font-weight: 700;
+  }
+  
+  @font-face {
+	font-family: "REAPangeaText";
+	font-style: normal;
+	font-weight: normal;
+	src:url("fonts/rea-pangea/REAPangeaText-BoldWeb.woff") format("woff");
+	src:url("fonts/rea-pangea/REAPangeaText-BoldWeb.woff2") format("woff2");
+	font-weight: 900;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_100-webfont.eot');
+	src: url('fonts/MuseoSans_100-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_100-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_100-webfont.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_100_Italic-webfont.eot');
+	src: url('fonts/MuseoSans_100_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_100_Italic-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_100_Italic-webfont.ttf') format('truetype');
+	font-weight: 100;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_300-webfont.eot');
+	src: url('fonts/MuseoSans_300-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_300-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_300-webfont.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_300_italic-webfont.eot');
+	src: url('fonts/MuseoSans_300_italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_300_italic-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_300_italic-webfont.ttf') format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_500-webfont.eot');
+	src: url('fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_500-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_500-webfont.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_500_Italic-webfont.eot');
+	src: url('fonts/MuseoSans_500_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_500_Italic-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_500_Italic-webfont.ttf') format('truetype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_700-webfont.eot');
+	src: url('fonts/MuseoSans_700-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_700-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_700-webfont.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_700_italic-webfont.eot');
+	src: url('fonts/MuseoSans_700_italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_700_italic-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_700_italic-webfont.ttf') format('truetype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_900-webfont.eot');
+	src: url('fonts/MuseoSans_900-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_900-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_900-webfont.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src: url('fonts/MuseoSans_900_Italic-webfont.eot');
+	src: url('fonts/MuseoSans_900_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_900_Italic-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_900_Italic-webfont.ttf') format('truetype');
+	font-weight: 900;
+	font-style: italic;
+}

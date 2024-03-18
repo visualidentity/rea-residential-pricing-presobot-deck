@@ -1,0 +1,5 @@
+{% macro title(copy='', class='') %}
+<div class="content-title{% if class %} {{ class }}{% endif %}">
+	<h3>{{ copy }}</h3>
+</div>
+{% endmacro %}

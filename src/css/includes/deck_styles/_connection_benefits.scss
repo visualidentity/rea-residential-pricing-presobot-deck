@@ -1,0 +1,55 @@
+.connection_benefits_column {
+	padding-left: 143px !important;
+	// max-width: 500px;
+}
+
+.connection_benefits_section {
+	max-width: 540px;
+	margin: 0 auto;
+}
+
+.connection_benefits--list {
+
+	& ul {
+		max-width: 540px;
+		padding-left: 20px;
+		& li {
+			list-style-type: disc;
+ 			list-style-position: outside;
+ 			list-style-image: none;
+ 			color: colour(pebble);
+ 		}
+	}
+
+	& li.connection_benefits--list__item {
+			font-size: 22px;
+			line-height: 30px;
+			margin: 0;
+			padding: 0;
+			color: colour(pebble);
+	}
+}
+
+.connection_benefits--heading {
+	padding-bottom: 30px;
+}
+
+.connection_benefits--text {
+	& p {
+		font-size: 22px;
+		line-height: 30px;
+	}
+	padding-bottom: 30px;
+}
+
+.connection_benefits--image {
+	@include retina-background-image("img/rent_product/lights", "jpg");
+	display: block;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 643px;
+    height: 416px;
+    float: right;
+    margin-right: 72px;
+}

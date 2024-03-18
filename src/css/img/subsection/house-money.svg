@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <desc>Created with Sketch.</desc>
+    <g id="Agent-Search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Agent-Search---Slide-06" transform="translate(-1627.000000, -396.000000)">
+            <g id="brand-exposure" transform="translate(1544.000000, 396.000000)">
+                <g id="icons-/-sold-record---pebble" transform="translate(83.000000, 0.000000)">
+                    <path d="M43.75,87.5 C19.5875422,87.5 0,67.9124578 0,43.75 C0,19.5875422 19.5875422,0 43.75,0 C67.9124578,0 87.5,19.5875422 87.5,43.75 C87.5,67.9124578 67.9124578,87.5 43.75,87.5 Z M43.75,85 C66.5317459,85 85,66.5317459 85,43.75 C85,20.9682541 66.5317459,2.5 43.75,2.5 C20.9682541,2.5 2.5,20.9682541 2.5,43.75 C2.5,66.5317459 20.9682541,85 43.75,85 Z" id="Oval-5" fill="#828D99" fill-rule="nonzero"></path>
+                    <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(22.000000, 20.000000)">
+                        <path d="M31,12.5144801 L18.8695652,0 L13.4782609,5.51724138 L13.4782609,4.13793103 L13.4782609,2.92551724 C13.4782609,2.07586207 12.7976087,1.37931034 11.9673478,1.37931034 L6.90221739,1.37931034 C6.07195652,1.37931034 5.39130435,2.07586207 5.39130435,2.92551724 L5.39130435,13.7931034 L0,19.3103448 L4.04347826,19.3103448 L4.04347826,37.2413793 C4.04347826,38.7586207 5.25652174,40 6.73913043,40 L18.3110427,40" id="Path-Copy-2" stroke="#828D99" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <g id="icon---payments-&amp;-invoices-copy" transform="translate(17.000000, 11.000000)">
+                            <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="34" height="36"></rect>
+                            <ellipse id="Oval-5" stroke="#00A4C7" stroke-width="1.5" cx="15.3" cy="18.4064516" rx="11.9" ry="12.6"></ellipse>
+                            <line x1="15.3" y1="11.7" x2="15.3" y2="26.1" id="Stroke-4924" stroke="#00A4C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                            <path d="M12.75,21.6 C12.75,23.0913 13.8924,24.3 15.3,24.3 C16.7076,24.3 17.85,23.0913 17.85,21.6 C17.85,20.1087 16.7076,18.9 15.3,18.9 C13.8924,18.9 12.75,17.6913 12.75,16.2 C12.75,14.7087 13.8924,13.5 15.3,13.5 C16.7076,13.5 17.85,14.7087 17.85,16.2" id="Stroke-4925" stroke="#00A4C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

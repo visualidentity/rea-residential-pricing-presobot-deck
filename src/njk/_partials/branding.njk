@@ -1,0 +1,18 @@
+{#
+	Product Strip - Header
+#}
+{% macro product_strip_branding(options) %}
+	<div class="product-strip-branding brand-bg {{ options.classes }}">
+		<div class="customer-logo brand-logo {{ options.logo_classes }}"></div>
+	</div>
+{% endmacro %}
+
+{% macro agent_circle(options) %}
+	<div class="agent-circle {% if options.gender %}{{ options.gender }}{% else %}woman{% endif %}"></div>
+{% endmacro %}
+
+{% macro branded_button(options) %}
+	<div class="branded-button brand-bg {{ options.classes }}">
+		{{ options.text }}
+	</div>
+{% endmacro %}

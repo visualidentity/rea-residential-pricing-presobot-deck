@@ -1,0 +1,32 @@
+
+{% macro content(options) %}
+  <div class="image-text-overlay-content image-text-overlay-content--align-{{options.align}}">
+      <div class="image-text-overlay-descriptions-container">
+        <span class="close overlay-btn overlay-btn-{{options.index}}"></span>
+        {% if options.data.image %}
+          <div class="image-text-overlay-descriptions-image-container">
+            <div class="image-text-overlay-descriptions-image image-text-overlay-descriptions-image--{{options.data.image}}" data-companywide-dynamic-image="feature-columns-overlay__image__{{options.index}}">
+            </div>
+            {% if options.data.disclaimer %}
+              <div class="image-text-overlay-disclaimer">
+                {{options.data.disclaimer | safe}}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="image-text-overlay-descriptions-content">
+          <div class="image-text-overlay-category-title" data-companywide-editable="feature-columns-overlay__title__{{options.index}}">
+              {{ options.data.title }}
+          </div>
+          <div class="image-text-overlay-category-text" data-companywide-editable="feature-columns-overlay__text__{{options.index}}">
+            {{options.data.text | safe}}
+          </div>
+          {% if options.data.cta %}
+            <div data-toolbar="format" class="image-text-overlay-category-cta">
+              <a href="{{options.data.cta.href}}" class="cta" target="_blank">{{options.data.cta.title}}</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+  </div>
+{% endmacro %}

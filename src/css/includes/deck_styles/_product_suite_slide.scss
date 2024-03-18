@@ -1,0 +1,232 @@
+article.product-suite-slide {
+
+	.display {
+		height: 759px;
+		margin: 0 auto;
+		position: relative;
+		width: 511px;
+
+		margin: 0;
+		left: 579px;
+
+		.product {
+			@include retina-background-image("../css/img/product-suite/bg-product-suite", "jpg");
+			background-size: 511px 759px;
+			border: 1px solid colour(pebble-15);
+			height: 759px;
+			position: relative;
+			width: 511px;
+		}
+
+		.agent-colour { position: absolute; }
+		.agent-logo {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: left center;
+			position: absolute;
+		}
+
+		.exclusive-showcase {
+			position: absolute;
+			top: 282px;
+			right: 81px;
+			width: 107px;
+			height: 213px;
+
+			.header {
+				width: 100%;
+				left: 0px;
+			}
+
+			.agent-logo {
+				left: 0px;
+				width: 100%;
+				background-position: center center;
+			}
+
+			.top-header {
+				height: 24px;
+				top: 0px;
+
+				.agent-text {
+					border-bottom: 1px solid;
+					display: block;
+					font-size: 4px;
+					line-height: 6px;
+					margin: 2px 2px 0px 2px;
+					text-align: center;
+					width: auto;
+				}
+
+				.agent-logo {
+					top: 10px;
+					height: 12px;
+				}
+			}
+
+			.bottom-header {
+				height: 14px;
+				bottom: 0px;
+
+				.agent-logo {
+					top: 1px;
+					height: 11px;
+				}
+			}
+		}
+
+		.premiere-header,
+		.highlight-header,
+		.feature-header {
+			width: 229px;
+			left: 84px;
+		}
+
+		.premiere-header {
+			top: 147px;
+			height: 16px;
+
+			.agent-logo {
+				top: 2px;
+				left: 2px;
+				width: 78px;
+				height: 12px;
+			}
+		}
+
+		.highlight-header {
+			top: 375px;
+			height: 16px;
+
+			.agent-logo {
+				top: 2px;
+				left: 2px;
+				width: 78px;
+				height: 12px;
+			}
+		}
+
+		.feature-header {
+			top: 575px;
+			height: 11px;
+
+			.agent-logo {
+				top: 2px;
+				left: 2px;
+				width: 78px;
+				height: 9px;
+			}
+		}
+	}
+
+
+	.connector-line-label {
+		h6,
+		.navbtn { cursor: pointer; }
+		&.no-jumpto {
+			.navbtn { display: none; }
+		}
+		.navbtn {
+			position: absolute;
+			top: -7px;
+		}
+		ul {
+			margin-left: 1.3em;
+			li {
+				list-style-type: disc;
+			}
+		}
+	}
+
+	.sold-label,
+	.premiere-label,
+	.highlight-label,
+	.feature-label {
+		left: -199px;
+
+		.connector-line-container {
+			width: 302px;
+		}
+
+		.navbtn { left: -34px; }
+	}
+
+	.sold-label {
+		top: 48px;
+
+		.connector-line-container { width: 394px; }
+	}
+	.premiere-label { top: 194px; }
+	.highlight-label { top: 408px; }
+	.feature-label { top: 596px; }
+
+	.lead-gen-label,
+	.exclusive-label {
+		right: -211px;
+
+		.connector-line-container {
+			width: 325px;
+		}
+
+		.navbtn { right: -34px; }
+	}
+
+	.lead-gen-label { top: 192px; }
+	.exclusive-label { top: 386px; }
+
+
+
+
+
+	// --------------------------------------------------------
+	// Animation
+	// --------------------------------------------------------
+	.currentpage, &.animation-complete, &.ie9 {
+		$iterate: 125ms;
+		$start: 150ms;
+		$gap: 150ms;
+		$delay: 0ms;
+
+		.labels {
+			@for $i from 1 through 10 {
+				.connector-line-label {
+					&.label-#{$i} {
+						// opacity
+						@include transition-delay($delay + $start);
+						.connector-line-container, .extra-connector-line-container {
+							// opacity
+							@include transition-delay($delay + $start);
+						}
+						.connector-line, .extra-connector-line {
+							// width/height
+							@include transition-delay($delay + $start + $iterate);
+						}
+
+						// extra-delay
+						.connector-line-container.extra-delay, .extra-connector-line-container.extra-delay {
+							// opacity
+							@include transition-delay($delay + $start + 250ms);
+							.connector-line {
+								// width/height
+								@include transition-delay($delay + $start + $iterate + 250ms);
+							}
+						}
+
+						// connection-2
+						.connector-line-container.connection-2, .extra-connector-line-container.connection-2 {
+							// opacity
+							@include transition-delay($delay + $start + 500ms);
+							.connector-line {
+								// width/height
+								@include transition-delay($delay + $start + $iterate + 500ms);
+							}
+						}
+
+						$delay: $delay + $gap;
+					}
+				}
+			}
+		}
+	}
+
+}

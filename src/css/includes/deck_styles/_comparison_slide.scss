@@ -1,0 +1,582 @@
+@import "../css/slides_common.scss";
+
+/*----------------------------------------------------------------------------*/
+/* More buyers use online ----------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+/*
+
+  Notes
+  ----------------------------------------------------------------------------
+  z-index: Don't set set it higher than 100 so that it doesn't interfere with the App UI
+
+*/
+
+// SalesPreso modes-specific
+
+.screenshot {
+	#slideshow {
+		.comparison-slide {
+			&.subslide-2 {
+				.comparison-suns.major-sun {
+					.connector-line-container.left, .connector-line-container.right, .extra-connector-line-container.left, .extra-connector-line-container.right {
+						opacity: 1;
+					}
+					.realestate-planet {
+						.planet { opacity: 1; @include scale(1); }
+					}
+					.planet-label {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+// --------------------------------------------------------
+
+#slideshow {
+	.comparison-slide {
+
+		// --------------------------------------------------------
+		// animation keyframes
+		// --------------------------------------------------------
+
+		@include keyframes(scale_in_planet) {
+			0% {
+				opacity: 1;
+				@include scale(0);
+				@include animation-timing-function(ease-out);
+			}
+			65% {
+				opacity: 1;
+				@include scale(1.2);
+				@include animation-timing-function(ease-in-out);
+			}
+			100% {
+				opacity: 1;
+				@include scale(1);
+				@include animation-timing-function(ease-in-out);
+			}
+		}
+
+		@include keyframes(scale_out_planet) {
+			0% {
+				@include scale(1);
+				@include animation-timing-function(ease-in-out);
+			}
+			100% {
+				@include scale(0);
+				@include animation-timing-function(ease-in-out);
+			}
+		}
+
+		// --------------------------------------------------------
+		// animation-complete class
+		// --------------------------------------------------------
+		
+		&.animation-complete, &.ie9 {
+
+			.connector-line-container.left, .connector-line-container.right, .extra-connector-line-container.left, .extra-connector-line-container.right {
+				opacity: 0;
+			}
+
+			.roundbutton.up {
+				opacity: 0.3;
+			}
+
+			.content {
+				.comparison-galaxy {
+					@include transform(rotate(0deg) translateZ(110px));
+				}
+			}
+			.comparison-suns.minor-sun, .comparison-suns.major-sun {
+				.realestate-planet {
+					.planet { @include scale(0); }
+				}
+				.planet-label {
+					opacity: 0;
+				}
+			}
+			.comparison-galaxy {
+				.realestate-planet {
+					.planet-label {
+						opacity: 1;
+					}
+				}
+			}
+
+			&.subslide-1 {
+				.comparison-suns.minor-sun, .comparison-suns.major-sun {
+					.realestate-planet {
+						.planet { @include scale(0); }
+					}
+					.planet-label {
+						opacity: 0;
+					}
+				}
+			}
+
+			&.subslide-2 {
+
+				.roundbutton.up {
+					opacity: 1;
+				}
+				.comparison-galaxy {
+					.realestate-planet {
+						.planet-label {
+							opacity: 0;
+						}
+					}
+				}
+				.comparison-suns.minor-sun {
+					.connector-line-container.left, .connector-line-container.right, .extra-connector-line-container.left, .extra-connector-line-container.right {
+						opacity: 1;
+					}
+					.realestate-planet {
+						.planet { opacity: 1; @include scale(1); }
+					}
+					.planet-label {
+						opacity: 1;
+					}
+				}
+				.comparison-suns.major-sun {
+					.connector-line-container.left, .connector-line-container.right, .extra-connector-line-container.left, .extra-connector-line-container.right {
+						opacity: 1;
+					}
+					.realestate-planet {
+						.planet { opacity: 1; @include scale(1); }
+					}
+					.planet-label {
+						opacity: 1;
+					}
+				}
+			}
+
+			.content {
+				// This information has been moved to Common Components
+
+			}
+
+		}
+
+		// --------------------------------------------------------
+
+		&.comparison-state {
+			.planet-label sup {
+				display: none;
+			}
+		}
+
+		.content {
+
+			.comparison-system {
+				position: absolute;
+				top: 44px;
+				left: $pagepad;
+
+				height: 658px;
+
+				margin: 0;
+				padding: 0;
+
+				// top labels
+				// The tallest pointers are required on the edges to allow for
+				// optimal overlap without labels crossing over pointers.
+				// Also gives more room to the far right largest planet.
+				&.planet-2, &.planet-6, &.planet-10 {
+					.planet-label { top: 0px; }
+					.connector-line-container { height: 120px; }
+					.connector-line-container.single { height: 256px; }
+					.connector-line-container.double { height: 230px; }
+					.connector-line-container.triple { height: 204px; }
+					.connector-line-container.quadruple { height: 178px; }
+				}
+				&.planet-4, &.planet-8 {
+					.planet-label { top: 78px; }
+					.connector-line-container { height: 152px; }
+					.connector-line-container.single { height: 178px; }
+					.connector-line-container.double { height: 152px; }
+					.connector-line-container.triple { height: 126px; }
+					.connector-line-container.quadruple { height: 100px; }
+				}
+
+				// bottom labels
+				&.planet-1, &.planet-5, &.planet-9 {
+					.planet-label { top: 602px; }
+					.connector-line-container { height: 259px; }
+				}
+				&.planet-3, &.planet-7 {
+					.planet-label { top: 501px; }
+					.connector-line-container { height: 158px; }
+				}
+
+				// &.planet-10, &.right-align-text {
+				// 	.planet-label { text-align: right; right: 0px; }
+				// }
+
+				// FIXME: Get a real style guide of colours
+				&.planet-1 .planet { background-color: #c60033; }
+				&.planet-2 .planet { background-color: #fb5108; }
+				&.planet-3 .planet { background-color: #d30020; }
+				&.planet-4 .planet { background-color: #ec4c51; }
+				&.planet-5 .planet { background-color: #0a4f91; }
+				&.planet-6 .planet { background-color: #ef6912; }
+				&.planet-7 .planet { background-color: #14a0dd; }
+				&.planet-8 .planet { background-color: #2b86b7; }
+				&.planet-9 .planet { background-color: #d70008; }
+				&.planet-10 .planet { background-color: #81c333; }
+
+				&.minor-sun .planet, &.domain-sun .planet { background-color: colour(domain-green); }
+				&.major-sun .planet, &.rea-sun .planet { background-color: colour(red); }
+
+			}
+
+			.comparison-galaxy {
+				z-index: 11;
+				// @include translateZ(110px);
+				opacity: 0;
+				@include transform(rotate(90deg) translateZ(110px));
+				@include transform-origin(-125px 267px);
+			}
+
+			.comparison-suns {
+				z-index: 10;
+				@include translateZ(100px);
+			}
+
+			.comparison-suns {
+				width: 1008px;
+				.planet-label {
+					width: 500px;
+					right: -500px;
+					padding-left: 12px;
+					text-align: left;
+				}
+				.realestate-planet {
+					position: absolute;
+					left: 0px;
+					.planet {
+						@include scale(0);
+						@include transform-origin(left center);
+					}
+				}
+				&.major-sun {
+					.planet-label {
+						bottom: 356px;
+						h6 { font-size: 30px; line-height: 36px; }
+					}
+					.connector-line-container {
+						top: 285px;
+						left: 680px;
+						width: 315px;
+					}
+				}
+				&.minor-sun {
+					.planet-label {
+						top: 391px;
+					}
+					.connector-line-container {
+						top: 405px;
+						left: 672px;
+						width: 323px;
+					}
+				}
+			}
+
+			.planet-container {
+				width: 100%;
+				height: 100%;
+
+				// vertically center the planet
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.planet {
+				position: relative;
+				// temporary. Will be absolute positioned, this is to be able to view properly.
+				display: inline-block;
+				background-color: colour(purple);
+				@include border-radius(50%);
+			}
+
+			.connector-line-container, .extra-connector-line-container {
+				position: absolute;
+				.connector-line, .extra-connector-line {
+					background-color: colour(bluestone);
+					&:before {
+						background-color: colour(bluestone);
+					}
+				}
+			}
+
+			.planet-label {
+				position: absolute;
+				opacity: 0;
+			}
+
+			.realestate-planet {
+				position: absolute;
+				top: 0px;
+				height: 100%;
+
+				// vertically center the planet in its space
+				display: table;
+			}
+
+			.roundbutton-container {
+				position: absolute;
+				bottom: 323px;
+				right: $pagepad;
+				opacity: 0;
+				z-index: 30;
+				@include translateZ(300px);
+			}
+
+			&.slide-constant {
+				.no-data {
+					position: absolute;
+					top: 360px;
+					left: 0px;
+					width: 100%;
+					text-align: center;
+				}
+			}
+
+			// --------------------------------------------------------
+			// modern browser animation
+			// --------------------------------------------------------
+			// animation for modern browsers goes here
+			// @include animation(name duration easing delay iterations direction fill-mode);
+			// @include animation(fade_in 500ms ease-in 200ms 1 normal forwards);
+
+			&.currentpage {
+
+			}  /* EO Current page */
+			
+
+		} /* EO Content */
+
+		.roundbutton.up {
+			opacity: 0.3;
+		}
+
+		&.subslide-1 {
+			// subslide 1
+
+			.comparison-suns.minor-sun {
+				.connector-line-container.left, .connector-line-container.right, .extra-connector-line-container.left, .extra-connector-line-container.right {
+					opacity: 0;
+				}
+			}
+
+			.connector-line-container.up, .connector-line-container.down {
+				opacity: 1;
+				@include transition(opacity 250ms ease-in);
+				.connector-line {
+					@include transition(height 500ms ease-out);
+					height: 100%;
+				}
+			}
+
+			$iterate: 250ms;
+			$start: 750ms;
+			$gap: 100ms;
+			$delay: 0ms;
+
+			@for $i from 1 through 10 {
+				.planet-#{$i} {
+					.realestate-planet {
+						@include transition(left 500ms ease-in-out $delay);
+					}
+					.planet {
+						@include transition(width 500ms ease-in-out $delay, height 500ms ease-in-out $delay);
+					}
+					$delay: $delay + $gap;
+				}
+			}
+
+			$gap: 1000ms;
+
+			@for $i from 1 through 10 {
+				.planet-#{$i} {
+					.planet-label {
+						@include transition(opacity 250ms ease-out ($delay + 500ms));
+						opacity: 1;
+					}
+					.connector-line-container {
+						@include transition-delay($delay);
+						.connector-line {
+							@include transition-delay($delay + $iterate);
+						}
+					}
+					$delay: $delay + $gap;
+				}
+			}
+
+			.comparison-galaxy {
+				opacity: 1;
+				@include transition(opacity 500ms $easeout, transform 750ms $easeOutQuart);
+				@include transform(rotate(0deg) translateZ(110px));
+				// @include rotate(0deg);
+				&:nth-child(12) { @include transition-delay(50ms); }
+				&:nth-child(11) { @include transition-delay(200ms); }
+				&:nth-child(10) { @include transition-delay(400ms); }
+				&:nth-child(9) { @include transition-delay(250ms); }
+				&:nth-child(8) { @include transition-delay(350ms); }
+				&:nth-child(7) { @include transition-delay(100ms); }
+				&:nth-child(6) { @include transition-delay(300ms); }
+				&:nth-child(5) { @include transition-delay(450ms); }
+				&:nth-child(4) { @include transition-delay(150ms); }
+				&:nth-child(3) { @include transition-delay(500ms); }
+			}
+
+			&.subsequent-play {
+				.comparison-suns.minor-sun {
+					.planet {
+						@include scale(1);
+						@include animation(scale_out_planet 500ms 500ms forwards);
+					}
+					.planet-label {
+						@include transition(opacity 250ms ease-out 100ms);
+						opacity: 0;
+					}
+					.connector-line-container {
+						@include transition-delay(350ms);
+						@include transition-duration(0ms);
+						.connector-line { @include transition(width 250ms ease-out 100ms); width: 0%; }
+					}
+					.extra-connector-line-container {
+						@include transition-delay(600ms);
+						@include transition-duration(0ms);
+						.extra-connector-line { @include transition(width 250ms ease-out 350ms); width: 0%; }
+					}
+				}
+				.comparison-suns.major-sun {
+					.planet-label {
+						@include transition(opacity 250ms ease-out 0ms);
+						opacity: 0;
+					}
+					.planet {
+						@include scale(1);
+						opacity: 1;
+						@include animation(scale_out_planet 500ms 600ms forwards);
+					}
+					.connector-line-container.left, .connector-line-container.right {
+						opacity: 0;
+						@include transition(opacity 0ms ease-in 350ms);
+						.connector-line { @include transition(width 250ms ease-out 100ms); width: 0%; }
+					}
+
+					.extra-connector-line-container.left, .extra-connector-line-container.right {
+						opacity: 0;
+						@include transition(opacity 0ms ease-in 600ms);
+						.extra-connector-line { @include transition(width 250ms ease-out 350ms); width: 0%; }
+					}
+				}
+			}
+
+			.roundbutton-container {
+				z-index: 5;
+				@include translateZ(5px);
+				@include transition(opacity 250ms ease-in 100ms);
+				opacity: 0;
+			}
+		}
+
+		&.subslide-2 {
+
+			.roundbutton.up {
+				opacity: 1;
+			}
+
+			// subslide 2
+
+			$iterate: 250ms;
+			$start: 150ms;
+			$gap: 50ms;
+			$delay: 500ms;
+
+			.comparison-galaxy {
+				opacity: 1;
+				@include transform(rotate(0deg) translateZ(110px));
+			}
+
+			@for $i from 1 through 10 {
+				.planet-#{$i} {
+					.realestate-planet {
+						@include transition(left 500ms ease-in-out $delay);
+					}
+					.planet {
+						@include transition(width 500ms ease-in-out $delay, height 500ms ease-in-out $delay);
+					}
+					.planet-label {
+						@include transition(opacity 150ms ease-out $delay);
+						opacity: 0;
+					}
+					.connector-line-container {
+						@include transition-delay($delay + $start);
+						.connector-line {
+							@include transition-delay($delay + $start);
+						}
+					}
+					$delay: $delay - $gap;
+				}
+			}
+
+			.connector-line-container.up, .connector-line-container.down { opacity: 0; }
+
+			.comparison-suns {
+				&.minor-sun {
+					.planet-label {
+						@include transition(opacity 250ms ease-out 2250ms);
+						opacity: 1;
+					}
+					.planet {
+						@include scale(0);
+						opacity: 0;
+						@include animation(scale_in_planet 500ms 1500ms forwards);
+					}
+					.connector-line-container.left, .connector-line-container.right {
+						opacity: 1;
+						@include transition(opacity 250ms ease-in 2000ms);
+						.connector-line { @include transition(width 500ms ease-out 2000ms); width: 100%; }
+					}
+
+					.extra-connector-line-container.left, .extra-connector-line-container.right {
+						opacity: 1;
+						@include transition(opacity 250ms ease-in 1600ms);
+						.extra-connector-line { @include transition(width 500ms ease-out 1600ms); width: 100%; }
+					}
+				}
+				&.major-sun {
+					.planet-label {
+						@include transition(opacity 250ms ease-out 2750ms);
+						opacity: 1;
+					}
+					.planet {
+						@include scale(0);
+						opacity: 0;
+						@include animation(scale_in_planet 500ms 2500ms forwards);
+					}
+					.connector-line-container.left, .connector-line-container.right {
+						opacity: 1;
+						@include transition(opacity 250ms ease-in 3000ms);
+						.connector-line { @include transition(width 500ms ease-out 3000ms); width: 100%; }
+					}
+
+					.extra-connector-line-container.left, .extra-connector-line-container.right {
+						opacity: 1;
+						@include transition(opacity 250ms ease-in 2500ms);
+						.extra-connector-line { @include transition(width 500ms ease-out 2500ms); width: 100%; }
+					}
+				}
+			}
+
+		}
+
+	}
+
+}

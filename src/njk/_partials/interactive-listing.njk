@@ -1,0 +1,24 @@
+{% macro interactive_listing(options) %}
+	<div class="interactive-listing">
+		<h4 style="border-bottom: 1px solid {{ options.arrowColour }};">{{ options.title | safe | nl2br }}</h4>
+		<div class="arrow-square" style="border-right: 1px solid {{ options.arrowColour }}; border-bottom: 1px solid {{ options.arrowColour }};"></div>
+		<ul>
+			{% for item in options.items %}
+			<li>
+				<div class="listing listing-{{ loop.index0 }}">
+					<div class="listing-icon listing-icon--{{ item.icon }}" {{item.attr}}>
+						<div class="button" tabindex="{{ loop.index0 }}" >
+							<span class="addition" style="background: {{ options.buttonColour }};">+</span>
+						</div>
+					</div>
+					<div class="listing-text">
+						<h5>{{ item.heading }}</h5>
+						<p class="listing-text__subheading">{{ item.subheading }}</p>
+						<p class="listing-text__caption">{{ item.caption }}</p>
+					</div>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endmacro %}

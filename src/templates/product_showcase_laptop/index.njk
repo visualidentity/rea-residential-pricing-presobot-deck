@@ -1,0 +1,135 @@
+{% set options = {
+	article_classes: "template-product-showcase-laptop",
+	ribbonless: true,
+	cweKey: "template_product_showcase_laptop"
+} %}
+
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	arrowColour: "blue",
+	animated: true,
+	includeReLogo: true,
+	cweKey: "template_product_showcase_laptop"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-center.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% block content %}
+
+	{# import 'block' macro #}
+	{% import "./njk/_partials/product.njk" as product %}
+	{% import "./njk/_partials/block.njk" as block_wrapper %}
+	{% import "./njk/_partials/branding.njk.js" as branding_js %}
+	{% import "./njk/_partials/animated_subsection.njk" as content %}
+	{% import "./njk/_partials/subsection-images.njk" as images %}
+	{% import "./sections/property_management/slides/premiere_property_rent/paths/paths.njk" as line %}
+	{# set content #}
+
+	{% set sections = [
+		{
+			'id': 1,
+			'position': 1,
+			'icon': 'editable',
+			'title': 'Feature 1',
+			'animation': {
+				'x': 600,
+				'y': -63,
+				'scale': 1.56
+			} 
+		},
+		{
+			'id': 4,
+			'position': 2, 
+			'icon': 'editable',
+			'title': 'Feature 2', 
+			'animation': {
+				'x': 420,
+				'y': -50,
+				'scale': 1
+			}
+		},
+		{
+			'id': 2,
+			'position': 3,
+			'icon': 'editable',
+			'title': 'Feature 3', 
+			'animation': {
+				'x': 620,
+				'y': -50,
+				'scale': 1.56
+			}
+		},
+		{
+			'id': 3,
+			'position': 4,
+			'icon': 'editable',
+			'title': 'Feature 4',
+			'animation': { 
+				'x': 165,
+				'y': -15,
+				'scale': 1.56
+			}
+		}
+	] %}
+
+
+	{{content.product_lockup({
+		staticImage: {
+			wrapper: 'laptop',
+			dimensions: '763px x 444px'
+		},
+		subsections: sections,
+		cweKey: 'template_product_showcase_laptop'
+	})}}
+
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{
+				type: "Source",
+				text: "Source and disclaimer copy."
+			}
+		],
+		disclaimer_target: true,
+		cweKey: "template_product_showcase_laptop"
+	}) }}
+{% endblock %}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+	var $header = $('.slide-header-center', $pageContainer);
+	var $titleDivider = $('.arrow', $header);
+	var $subtitle = $('.slide-header-center__subtitle', $header);
+	var $subsectionNav = $('.subsection__navigation', $pageContainer);
+	var $productImage = $('.subsection__image', $pageContainer);
+
+	var animators = [
+		$titleDivider,
+		$subtitle,
+		$subsectionNav,
+		$productImage
+	];
+
+	// Trigger slide animations
+	_.each(animators, animator => {
+		animator.addClass('launched');
+	});
+{% endblock %}
+
+
+{% block js_rendered %}
+	{% import "./index.njk.js" as js %}
+	{{ branding_js.rendered() }}
+{% endblock %}
+

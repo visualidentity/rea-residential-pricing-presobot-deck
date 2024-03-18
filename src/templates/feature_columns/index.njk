@@ -1,0 +1,220 @@
+{% set options = {
+	article_classes: "template-feature-columns",
+	ribbonless: true,
+	cweKey: "template_feature_columns"
+} %}
+
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	arrowColour: "red",
+	animated: true,
+	includeReLogo: true,
+	cweKey: "template_feature_columns"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-center.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+
+{% import "./njk/_partials/image-text-overlay.njk" as overlayContent %}
+
+{% block content %}
+  <div class="template-feature-columns-bg"></div>
+
+	{# import 'block' macro #}
+	{% import "./njk/_partials/branding.njk.js" as branding_js %}
+	{# set content #}
+
+  {% set grid_4 = [{
+    bg: "#E4002B",
+    classes: "",
+    title: 'Title',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    items: [{
+      title: 'Test title',
+      overlay: {
+        title: 'Test overlay title',
+        text: 'Test text',
+        image: '/src/templates/feature_columns/img/laptop.png',
+        cta: {
+          title: 'Find out more',
+          href: 'http://google.com'
+        }
+      }
+    },{
+      title: 'Test title 2',
+      overlay: {
+        title: 'Test overlay title 2',
+        text: 'Test text 2',
+        image: '/src/templates/feature_columns/img/laptop.png',
+        cta: {
+          title: 'Find out more',
+          href: 'http://google.com'
+        }
+      }
+    }]
+  },{ 
+    bg: "#697684",
+    classes: "",
+    title: 'Title 2b',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    items: [{
+      title: 'Test title 2b',
+      overlay: {
+        title: 'Test overlay title 2b',
+        text: 'Test text 2b',
+        image: '/src/templates/feature_columns/img/laptop.png',
+        cta: {
+          title: 'Find out more',
+          href: 'http://google.com'
+        }
+      }
+    }]
+  },{ 
+    bg: "#E4002B",
+    classes: "",
+    title: 'Title 3b',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    items: [{
+      title: 'Test title 3b',
+      overlay: {
+        title: 'Test overlay title 3b',
+        text: 'Test text 3b',
+        image: '/src/templates/feature_columns/img/laptop.png',
+        cta: {
+          title: 'Find out more',
+          href: 'http://google.com'
+        }
+      }
+    }]
+  },{ 
+    bg: "#697684",
+    classes: "",
+    title: 'Title 4b',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    items: [{
+      title: 'Test title 4b',
+      overlay: {
+        title: 'Test overlay title 4b',
+        text: 'Test text 4b',
+        image: '/src/templates/feature_columns/img/laptop.png',
+        cta: {
+          title: 'Find out more',
+          href: 'http://google.com'
+        }
+      }
+    }]
+  }]%}
+
+  {% set index = 1 %}
+
+  {% set grid_size = "column-group--" + grid_4.length %}
+
+    <div class="feature-columns column-group {{ grid_size }} column-group--animated">
+      {% for item in grid_4 %}
+        <div class="column column--span-1 feature-columns__item">
+          <div class="feature-columns__header"{% if item.bg %} style="background-color: {{item.bg}}"{% endif%}>
+            <div class="feature-columns__header__icon" data-companywide-dynamic-image="feature-columns__icon__{{loop.index}}">
+            </div>
+            <h4 data-companywide-editable="feature-columns__title__{{loop.index}}">{{item.title}}</h4>
+          </div>
+          <div class="feature-columns__list">
+            {% for childItem in item.items %}
+              <div class="feature-columns__list-item overlay-btn overlay-btn-{{index}}">
+                <span data-companywide-editable="feature-columns__text__{{index}}-{{loop.index}}">{{childItem.title}}</span>
+              </div>
+              {% set index = index + 1 %}
+            {% endfor %}
+          </div>
+        </div>
+        
+      {% endfor %}
+
+    </div>
+
+    <!-- overlay -->
+    {% set overlayIndex = 1 %}
+    {% set columnIndex = 0 %}
+    
+    {% import "./njk/_partials/overlay.njk" as overlay %}
+
+    {% for item in grid_4 %}
+      {% set columnIndex = columnIndex + 1 %}
+
+      {% for childItem in item.items %}
+
+        {% set overlayAlign = 'right' %}
+        
+
+        {% if grid_4.length < 4 %}
+          {% set overlayAlign = 'center' %}
+        {% endif %}
+
+        {% if grid_4.length > 3 and columnIndex == 1 %}
+          {% set overlayAlign = 'left' %}
+
+        {% endif %}
+
+          {{overlay.overlay({
+              num: overlayIndex,
+              auto_responder: true,
+              content: overlayContent.content({
+                index: overlayIndex,
+                align: overlayAlign,
+                data: childItem.overlay
+              })
+          })}}
+          {% set overlayIndex = overlayIndex + 1 %}
+      {% endfor %}
+    {% endfor %}
+
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		cweKey: "template_feature_columns"
+	}) }}
+{% endblock %}
+
+
+{% block js_ready %}
+	attachSlideEvents(["popup"]);
+	var $header = $('.slide-header-center', $pageContainer);
+	var $titleDivider = $('.arrow', $header);
+	var $subtitle = $('.slide-header-center__subtitle', $header);
+	var $subsectionNav = $('.subsection__navigation', $pageContainer);
+	var $productImage = $('.subsection__image', $pageContainer);
+
+	var animators = [
+		$titleDivider,
+		$subtitle,
+		$subsectionNav,
+		$productImage
+	];
+
+	// Trigger slide animations
+	_.each(animators, animator => {
+		animator.addClass('launched');
+	});
+{% endblock %}
+
+
+{% block js_rendered %}
+	{% import "./index.njk.js" as js %}
+	{{ branding_js.rendered() }}
+      {# var $close = $('.overlay', $pageContainer);
+      $overlay.on('click', function (e) {
+          if($overlay.hasClass('active')) {
+            Bridge.Event.trigger("slide:closeAllPopups");
+          }
+      }); #}
+{% endblock %}
+

@@ -1,0 +1,64 @@
+{% set options = {
+	id: "premiere_plus_video",
+	article_classes: "",
+	ribbonless: true
+} %}
+
+{% set optionsHeader = {
+	includeReLogo: false
+} %}
+
+{% extends "./njk/base.njk" %}
+
+
+
+{% import "./njk/_partials/header-border.njk" as header %}
+{% block header_block %}
+	<header>
+		<dl class="breadcrumb breadcrumb--purple">
+			<dd class="icon icon--property-ads">Property Advertising</dd>
+		</dl>
+		<div class="slide-header-border__content text-left">
+			<h1  class="slide-header-border__h1 o-transition--fade-up" data-companywide-editable="premiere_plus_video_title_editable_1cNO562GsI">Discover the benefits of Premiere+</h1>
+		</div>
+	</header>
+{% endblock %}
+
+{% block content %}
+	<div class="premiere_plus_video-content o-transition--fade-up o-transition__delay--200" data-video-container data-companywide-editable="premiere_plus_video_video_editable_NBdkUm20KF" data-toolbar="link">
+		<a href="https://youtu.be/Q2wmwSA4ykQ" target="_blank" class="link-for-pdf">Youtube link</a>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<footer class="slide-footer">
+		<div class="rea-logo o-transition--fade-up o-transition__delay--300" />
+	</footer>
+{% endblock %}
+
+{% block js_ready %}
+ 	if(!$("body").hasClass("edit-mode")) {
+ 		
+ 		var getIDFromYT = function(url) {
+            var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            var videoId = match ? match[2] : false;
+            if(!videoId) {
+                console.warn('videoOverlay: Unable to get videoID from URL: ' + url + ". Video will not load");
+                return false;
+            }
+            return videoId;
+        };
+
+ 		var $videoContainer = $pageContainer.find("[data-video-container]"),
+ 			$link = $videoContainer.find("a"),
+ 			$url = getIDFromYT($link.attr("href")),
+ 			$iframe = $pageContainer.find("[data-video-iframe]");
+
+ 		$videoContainer.append("<iframe width='1320' height='743.45' src='https://www.youtube.com/embed/"+$url+"' frameborder='0' border='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen data-video-iframe></iframe>");
+
+ 		
+    }
+{% endblock %}
+
+

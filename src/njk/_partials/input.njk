@@ -1,0 +1,43 @@
+{% macro text(options) %}
+		<div class="input-container {{options.classes}} input--text {% if options.disabled %} input--disabled {% endif %}">
+			<input
+				type="text"
+				id="{{options.id}}"
+				placeholder="{{options.placeholder}}"
+				value="{{options.value}}"
+				{% if options.disabled %} disabled {% endif %}
+				data-input-text
+				tabindex="-1"
+				autocomplete="off"
+			 />
+			 <div class="input_text-autocomplete"></div>
+		</div>
+{% endmacro %}
+
+{% macro dropdown(options) %}
+	<div class="input-container-flex">
+		<div class="input-container input--dropdown {% if options.disabled %} input--disabled {% endif %} {{options.classes}}" data-m-select data-selected="All">
+			<h6 class="input-label">{{options.placeholder}}</h6>
+			<div id="dropdown_group" class="dropdown">
+				<div class="dropdown-icon"></div>
+			</div>
+		</div>
+		{% if options.addCta %}
+			<button class="add-button" data-add>Add</button>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro tabs(options) %}
+	<div class="input-container input--tabs" data-tabs data-selected="buy">
+		{% if options.customTabs %}
+			{{options.customTabs()}}
+		{% else  %}
+			<span id="buy" data-value="Buy" class="input__tab input__tab--buy" >Buy</span>
+			<span id="rent" data-value="Rent" class="input__tab input__tab--rent">Rent</span>
+			{% if options.sold %}
+				<span id="sold" data-value="Sold" class="input__tab input__tab--sold">Sold</span>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endmacro %}

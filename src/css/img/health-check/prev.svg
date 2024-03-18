@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <rect id="Rectangle-3" fill="#333F48" x="0" y="0" width="56" height="56"></rect>
+            <polyline id="Path-3" stroke="#FFFFFF" stroke-width="2" transform="translate(27.750000, 27.659091) scale(1, -1) rotate(-270.000000) translate(-27.750000, -27.659091) " points="17.3333333 22.5454545 27.75 32.7727273 38.1666667 22.5454545"></polyline>
+        </g>
+    </g>
+</svg>

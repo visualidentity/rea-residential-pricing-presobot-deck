@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-multiple-channels---pebble" transform="translate(1.000000, 1.000000)">
+            <g>
+                <circle id="Oval-5" stroke="#828D99" stroke-width="1.5" cx="34" cy="34" r="34"></circle>
+                <g id="Page-Large" transform="translate(20.658203, 24.314007)" stroke="#00A4C7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                    <polygon id="Page" points="19.3930908 24.8105583 0.654962413 24.8105583 0.654962413 0.11029811 12.5792259 0.11029811 19.3930908 6.92416298"></polygon>
+                    <polyline id="cnr" points="12.5792259 0.11029811 12.5792259 6.92416298 19.3930908 6.92416298"></polyline>
+                </g>
+                <g id="Page-Copy" transform="translate(29.299038, 17.148438)" stroke="#00A4C7" stroke-width="1.5">
+                    <polyline id="cnr" stroke-linecap="round" stroke-linejoin="round" points="11.4153882 0.271531432 11.4153882 6.28353515 17.5988301 6.28353515"></polyline>
+                    <polyline id="Path-5" points="11.2282437 22.6503968 17.6640974 22.6503968 17.6640974 6.31535356 11.3194104 0.180271695 0.677648496 0.180271695 0.677648496 7.02523047"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

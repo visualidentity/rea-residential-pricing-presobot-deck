@@ -1,0 +1,54 @@
+<article id="ignite_features_v2">
+	{% import "./njk/_partials/header-border-breadcrumb.njk" as header %}
+
+  {{ header.render({
+		title: 'As part of your subscription,</br> you can power your business with',
+		color: 'steel',
+		contentClasses: 'o-transition__children o-transition__children--fade-up',
+		cweKey: 'ignite_features_v2_header',
+		breadcrumb: {
+			text: 'Agency Services',
+			icon: 'agency-services',
+			classes: 'breadcrumb--steel'
+		}
+	}) }}
+
+  <div class="sub-bg"></div>
+
+  <section class="subslide-container">
+    <div id="subslide-1" class="page01 subslide content active">
+      <div class="o-transition--fade-up o-transition__delay--250">
+        <div class="subslide__body">
+          <div class="column--1">
+            <div class="item item--1">
+              <p class="title">Powerful insights at your fingertips</p>
+              <p class="description">Understand your Agency's performance, get to know your competition and find out what other properties your audience is engaging with. </p>
+            </div>
+            <div class="item item--2">
+              <p class="title">Digital tools to help you work smarter </p>
+              <p class="description">Access to realestate.com.au's exclusive reporting and product suite including Premiere+, Seller Leads, Rental Applications and Inspections.</p>
+            </div>
+            <div class="item item--3">
+              <p class="title">Choose how you access Ignite</p>
+              <p class="description">Have complete flexibility with how you access Ignite. Download the Ignite app, log in via desktop, or integrate with your own CRM.</p>
+            </div>
+            <a class="cta-link" href="https://ignite.realestate.com.au/">Sign up to Ignite today</a>
+          </div>
+          <div class="column--2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="subslide-2" class="page02 subslide content">
+      <span class="close-btn"></span>
+    </div>
+  </section>
+
+  <footer class="slide-footer">
+		<div class="rea-logo" />
+	</footer>
+</article>
+
+<script type="text/javascript">
+	{% include './sections/fy25_presobot/slides/ignite_features_v2/slide.js' %}
+</script>

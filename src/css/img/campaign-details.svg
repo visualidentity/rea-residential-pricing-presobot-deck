@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="104px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>icons /campaign details - pebble</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Private-Landlords-Listing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PLL---Slide-02" transform="translate(-465.000000, -777.000000)">
+            <g id="3" transform="translate(407.000000, 739.000000)">
+                <g id="icons-/campaign-details---pebble" transform="translate(59.000000, 39.000000)">
+                    <circle id="Oval" stroke="#828D99" stroke-width="2" cx="51" cy="51" r="51"></circle>
+                    <path d="M62.8,37.6945481 L45.8956522,20.8 L38.3826087,28.2482759 L38.3826087,26.3862069 L38.3826087,24.7494483 C38.3826087,23.6024138 37.434087,22.662069 36.2770783,22.662069 L29.2185739,22.662069 C28.0615652,22.662069 27.1130435,23.6024138 27.1130435,24.7494483 L27.1130435,39.4206897 L19.6,46.8689655 L25.2347826,46.8689655 L25.2347826,71.0758621 C25.2347826,73.1241379 26.9252174,74.8 28.9913043,74.8 L45.117324,74.8" id="Path-Copy" stroke="#E4002B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <g id="icon---payments-&amp;-invoices" transform="translate(42.400000, 36.400000)" fill="#FFFFFF" opacity="0">
+                        <rect id="Rectangle-17" x="0" y="0" width="48" height="48"></rect>
+                    </g>
+                    <path d="M64,45.1 L85.9553859,45.1" id="Stroke-7501" stroke="#828D99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M64,54.7 L85.9553859,54.7" id="Stroke-7502" stroke="#828D99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M64,64.3 L85.9553859,64.3" id="Stroke-7503" stroke="#828D99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M59.2,46 C59.2,47.3248 58.1248,48.4 56.8,48.4 C55.4752,48.4 54.4,47.3248 54.4,46 C54.4,44.6752 55.4752,43.6 56.8,43.6 C58.1248,43.6 59.2,44.6752 59.2,46 L59.2,46 Z" id="Stroke-7504" stroke="#828D99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M59.2,55.6 C59.2,56.9248 58.1248,58 56.8,58 C55.4752,58 54.4,56.9248 54.4,55.6 C54.4,54.2752 55.4752,53.2 56.8,53.2 C58.1248,53.2 59.2,54.2752 59.2,55.6 L59.2,55.6 Z" id="Stroke-7505" stroke="#828D99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M59.2,64 C59.2,65.3248 58.1248,66.4 56.8,66.4 C55.4752,66.4 54.4,65.3248 54.4,64 C54.4,62.6752 55.4752,61.6 56.8,61.6 C58.1248,61.6 59.2,62.6752 59.2,64 L59.2,64 Z" id="Stroke-7506" stroke="#828D99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

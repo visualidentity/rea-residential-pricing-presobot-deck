@@ -1,0 +1,64 @@
+{% import "../input.njk" as inputs %}
+
+{% macro with_control_block(options) %}
+	{% if not options.hideControl %}
+		<div class="agent-branded-new__control-key">
+			{% if options.key %}
+				<div class="control-block-new__keys">
+					<div class="control-block-new__key control-block__key--you">{{options.key.valueOne}}</div>
+					<div class="control-block-new__key control-block__key--market">{{options.key.valueTwo}}</div>
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+	<div class="agent-branded-new">
+
+		<div class="agent-branded-new__control-block {% if options.hideControl %}agent-branded-new__control-block--hide-controls{% endif %} {% if options.joined %} agent-branded-new__control-block--joined {% endif %}{% if options.hideStrip %} agent-branded-new__control-block--hide-strip{% endif %}">
+			{% if not options.hideStrip %}
+			<div class="branded-ph-new product-strip-branding brand-bg {% if options.noArrow %} branded-ph-new--no-arrow {% endif %}" >
+				<div class="product-strip-branding__logo brand-logo"></div>
+				{% if options.tabs %}
+					{{inputs.tabs(options.tabs)}}
+				{% endif %}
+				{% if options.refresh === true %}
+				<span class="agent-branded-new__control-block__refresh removable-refresh-btn" data-refresh-block></span>
+				{% endif %}
+				<span class="agent-branded-new__control-block__loading"></span>
+			</div>
+			{% endif %}
+			{% if not options.hideControl %}
+				<div class="agent-branded-new__control-content">
+					{{options.controlBlock.content}}
+				</div>
+			{% endif %}
+		</div>
+		{% if options.suburbBar %}
+			{% include "./suburb-bar-new.njk" %}
+		{% endif %}
+		{% if options.dateBar %}
+			{% include "./date-bar-new.njk" %}
+		{% endif %}
+		<div class="agent-branded-new__content agent-branded-new__content--control-block {{options.classes}} {% if options.background == true %} agent-branded-new__content--background {% endif %} {% if options.joined %} agent-branded-new__content--joined{% endif %}">
+			{% for item in options.content %}
+				{{item|safe}}
+			{% endfor %}
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro without_control_block(options) %}
+	<div class="agent-branded-new">
+		<div class="agent-branded-new__content {{options.classes}} {% if options.background == true %} agent-branded-new__content--background {% endif %}">
+			<div class="branded-ph-new product-strip-branding brand-bg {% if options.noArrow %} branded-ph-new--no-arrow {% endif %}">
+				<div class="product-strip-branding__logo brand-logo"></div>
+				{% if options.tabs %}
+					{{inputs.tabs({sold: true})}}
+				{% endif %}
+				<span class="agent-branded-new__control-block__loading"></span>
+			</div>
+			{% for item in options.content %}
+				{{item}}
+			{% endfor %}
+		</div>
+	</div>
+{% endmacro %}

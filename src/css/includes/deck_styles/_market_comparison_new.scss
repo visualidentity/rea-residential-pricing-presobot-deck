@@ -1,0 +1,43 @@
+.comparison-new {
+
+}
+
+.comparison-new-block {
+	width: 100%;
+	margin: 26px 62px 15px 62px;
+}
+
+.comparison-new__title {
+	min-height: 65px;
+	font-weight: 600;
+	font-size: 26px;
+	line-height: 33px;
+}
+
+.comparison-new__stat {
+	min-height: 65px;
+	font-weight: 100;
+	font-size: 36px;
+	line-height: 46px;
+}
+
+.comparison-new-block {
+
+}
+
+.comparison-new .chart__bar {
+	height: 30px;
+	margin: 0;
+	padding: 0;
+
+	&.full {
+		width: 100% !important;
+	}
+	
+	&:after {
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 28px;
+		left: 102%;
+	}
+}

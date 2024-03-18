@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="87px" height="87px" viewBox="0 0 87 87" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icons / performance</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-data" transform="translate(1.000000, 1.000000)">
+            <g id="icons-/-multiple-channels---pebble" stroke="#828D99">
+                <circle id="Oval-5" stroke-width="1.5" cx="42.5" cy="42.5" r="42.5"></circle>
+            </g>
+            <g id="Group" transform="translate(23.750000, 21.250000)" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0.625,39.375 L36.875,39.375" id="Stroke-4867" stroke="#00A4C7" stroke-width="1.5"></path>
+                <polygon id="Stroke-4868" stroke="#00A4C7" stroke-width="1.5" points="8.125 31.875 3.125 31.875 3.125 39.375 8.125 39.375"></polygon>
+                <polygon id="Stroke-4869" stroke="#00A4C7" stroke-width="1.5" points="16.875 23.125 11.875 23.125 11.875 39.375 16.875 39.375"></polygon>
+                <polygon id="Stroke-4870" stroke="#00A4C7" stroke-width="1.5" points="25.625 26.875 20.625 26.875 20.625 39.375 25.625 39.375"></polygon>
+                <polygon id="Stroke-4871" stroke="#00A4C7" stroke-width="1.5" points="34.375 15.625 29.375 15.625 29.375 39.375 34.375 39.375"></polygon>
+                <path d="M35,2.5 C35,3.535 34.16,4.375 33.125,4.375 C32.09,4.375 31.25,3.535 31.25,2.5 C31.25,1.465 32.09,0.625 33.125,0.625 C34.16,0.625 35,1.465 35,2.5 L35,2.5 Z" id="Stroke-4872" stroke="#828D99" stroke-width="1.5"></path>
+                <path d="M25.625,13.75 C25.625,14.785 24.785,15.625 23.75,15.625 C22.715,15.625 21.875,14.785 21.875,13.75 C21.875,12.715 22.715,11.875 23.75,11.875 C24.785,11.875 25.625,12.715 25.625,13.75 L25.625,13.75 Z" id="Stroke-4873" stroke="#828D99" stroke-width="1.5"></path>
+                <path d="M16.25,10 C16.25,11.035 15.41,11.875 14.375,11.875 C13.34,11.875 12.5,11.035 12.5,10 C12.5,8.965 13.34,8.125 14.375,8.125 C15.41,8.125 16.25,8.965 16.25,10 L16.25,10 Z" id="Stroke-4874" stroke="#828D99" stroke-width="1.5"></path>
+                <path d="M6.875,18.125 C6.875,19.16 6.035,20 5,20 C3.965,20 3.125,19.16 3.125,18.125 C3.125,17.09 3.965,16.25 5,16.25 C6.035,16.25 6.875,17.09 6.875,18.125 L6.875,18.125 Z" id="Stroke-4875" stroke="#828D99" stroke-width="1.5"></path>
+                <path d="M6.412375,16.900625 L12.961125,11.225625" id="Stroke-4876" stroke="#828D99" stroke-width="1.5"></path>
+                <path d="M16.1145,10.69575 L22.0095,13.0545" id="Stroke-4877" stroke="#828D99" stroke-width="1.5"></path>
+                <path d="M24.94625,12.3145 L31.92625,3.93825" id="Stroke-4878" stroke="#828D99" stroke-width="1.5"></path>
+            </g>
+        </g>
+    </g>
+</svg>

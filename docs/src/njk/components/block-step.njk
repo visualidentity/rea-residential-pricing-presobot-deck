@@ -1,0 +1,46 @@
+<style>
+	.block-step__icon {
+		background-image: url("{{ src.deck_src }}/css/img/connection-services/icon-connection-request.svg");
+		background-size: auto 140px;
+	}
+</style>
+
+{% set example = {
+	title: "Block - Step",
+	id: "block_step",
+	example: block_wrapper.block_step({
+		classes: "",
+		icon: "icon-connection-request",
+		iconClasses: "",
+		title: "Request a Connection in Mandarin",
+		titleClasses: "",
+		copy: "We can provide you with a Mandarin\nversion of the Connection services\nrequest form, to share with your\ntenants and buyers.",
+		copyClasses: "",
+		step: "1"
+	}),
+	full: false,
+	example_classes: "",
+	code_array: [{
+			language: 'django',
+			code: '
+block_wrapper.block_step({
+	classes: "",
+	icon: "icon-connection-request",
+	iconClasses: "",
+	title: "Request a Connection in Mandarin",
+	titleClasses: "",
+	copy: "We can provide you with a Mandarin \/n\nversion of the Connection services \/n\nrequest form, to share with your \/n\ntenants and buyers.",
+	copyClasses: "",
+	step: "1"
+})
+			',
+			desc: "
+				The modifier classes to adjust the alignment of the icon, title size, copy size and margins can be found in <span class='path'>css/includes/deck_styles/_block.scss</span><br>
+				The icon should be added to the folder <span class='path'>css/img/connection-services</span><br>
+				The background-size of the icon is controlled within the specific <span class='path'>slide.scss</span> file.
+			"
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

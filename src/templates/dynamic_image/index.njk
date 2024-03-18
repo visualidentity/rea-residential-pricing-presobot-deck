@@ -1,0 +1,51 @@
+{% set options = {
+	article_classes: "branded_layout dynamic-image-template",
+	cweKey: "template_dynamic_image"
+} %}
+
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	classes: "slide-header--min-height",
+	cweKey: "template_dynamic_image"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% import "./njk/_partials/branding.njk.js" as branding_js %}
+
+{% macro dynamic_image() %}
+<div class="c-editable-image" data-companywide-dynamic-image="template_dynamic_image"></div>
+{% endmacro %}
+
+{% block content %}
+    {% import "./njk/_partials/agent_branded/layout.njk" as layout %}
+
+	{% set grid_1_1 = {
+		bg_colour: "",
+		size: "1",
+		collapsed: false,
+		classes: "column--rounded-corners column-group--animated column-group--height-full",
+		columns: [
+			{
+				bg_colour: "l-grey",
+				classes: "",
+				size: "1",
+				content: dynamic_image()
+			}
+		]
+	}
+	%}
+
+	{# import grid macro #}
+	{% import "./njk/_partials/grid.njk" as grid %}
+
+	{{ grid.column_group(grid_1_1) }}
+{% endblock %}

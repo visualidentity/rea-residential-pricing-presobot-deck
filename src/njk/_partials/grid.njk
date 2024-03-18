@@ -1,0 +1,42 @@
+{# Grid macro #}
+{% macro column_group(options) %}
+
+	{% if options.size %}
+		{% set grid_size = "column-group--" + options.size %}
+	{% else %}
+		{% set grid_size = "column-group--9" %}
+	{% endif %}
+
+
+	<div class="column-group {{ grid_size }} {% if options.collapsed %}column-group--collapsed{% endif %} {% if options.removable %}column-group--removable{% endif %} {% if options.bg_colour %}column-group--bg-{{ options.bg_colour }}{% endif %} {% if options.classes %}{{ options.classes }}{% endif %}">
+		{% for item in options.columns %}
+			{{ column(item, options.removable) }}
+		{% endfor %}
+
+		{% if options.content %}
+			{{ options.content }}
+		{% endif %}
+	</div>
+{% endmacro %}
+
+
+
+
+{# Column macro #}
+{% macro column(item, removable) %}
+	<div class="column column--span-{% if item.size %}{{ item.size }}{% else %}1{% endif %} {% if item.bg_colour %}column--bg-{{ item.bg_colour }}{% endif %} {% if item.classes %}{{ item.classes }}{% endif %}">
+
+		{% if item.content %}
+			{{ item.content }}
+		{% elseif item.content_list %}
+			{% for item in item.content_list %}
+				{{ item.content }}
+			{% endfor %}
+		{% endif %}
+
+		{% if removable %}
+			<div class="remove-icon removable-asset-btn"></div>
+		{% endif %}
+
+	</div>
+{% endmacro %}

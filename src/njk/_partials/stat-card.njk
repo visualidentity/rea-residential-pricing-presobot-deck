@@ -1,0 +1,24 @@
+{% macro stat_card(options) %}
+  <div class="stat-card{% if options.classes %} {{options.classes}}{% endif%}">
+    {% if options.close %}
+      <span class="stat-card__close remove-icon removable-asset-btn" data-val="{{options.value}}">Close</span>
+    {% endif %}
+    <h5>{{options.title}}</h5>
+    <div class="stat-card__row">
+      <div class="stat-card__left">
+        <p>{{options.text}}</p>
+        {% if options.cta %}
+          <a href="{{options.cta.href}}" target="_blank" class="stat-card__cta">{{options.cta.title}}</a>
+        {% endif %}
+      </div>
+      <div class="stat-card__right">
+        <span class="stat-card__stat stat-card__stat--{{options.stat_type}}">
+          {{options.stat}}
+        </span>
+        {% if options.disclaimer %}
+          <p class="stat-card__disclaimer">{{options.disclaimer | safe}}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endmacro %}

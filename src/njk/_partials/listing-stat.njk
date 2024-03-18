@@ -1,0 +1,29 @@
+{% macro listing_stat(options) %}
+	<div class="listing-stat {{options.classes}}">
+		{% if options.title %}
+			<h6 class="listing-stat__title">{{ options.title }}</h6>
+		{% endif %}
+		<h4 class="listing-stat__value">
+			{% if options.defaultValue %}
+				{% if '%' in options.defaultValue %}
+					{{ options.defaultValue|replace('%','')|round }}%
+				{% else %}
+					{{ options.defaultValue }}
+				{% endif %}
+			{% else %}
+				0
+			{% endif %}
+		</h4>
+	</div>
+{% endmacro %}
+
+{% macro listing_stat_group(options) %}
+	<div class="listing-stat-group {{options.classes}}" data-listing-stat data-value="{{options.title}}">
+		<h4 class="listing-stat-group__title">
+			{{options.title}}
+		</h4>
+		{% for item in options.items %}
+			{{item}}
+		{% endfor %}
+	</div>
+{% endmacro %}

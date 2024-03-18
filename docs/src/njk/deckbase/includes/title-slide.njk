@@ -1,0 +1,13 @@
+{% set options = {
+	id: "example_section",
+	subslides: false,
+	article_classes: "title-slide",
+	content_classes: ""
+} %}
+
+{% extends "src/njk/base-section-title.njk" %}
+
+{% import "src/njk/_partials/section-title.njk" as section_title %}
+{% block content %}
+	{{ section_title.title("Title", "Sub Title") }}
+{% endblock %}

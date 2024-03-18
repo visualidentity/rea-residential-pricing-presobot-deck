@@ -1,0 +1,45 @@
+{% macro table_listing(options) %}
+	{% if options.refreshBtn %}<div class="removable-refresh-btn new-removable-refresh-btn"><span></span></div> {% endif %}
+	<div class="table-listing">
+		<table>
+			<tr class="{% if options.columnHeading.className %}{{options.columnHeading.className}}{% endif %}">
+				{% if options.columnHeading %}
+					{% if options.columnHeading.results %}
+						{% for heading in options.columnHeading.results %}
+							<th {% if options.removeableColumn %} class="{% if loop.index != 1 %}removable-sub{% endif %}" {% endif %} {% if loop.index != 1 %}val="{{loop.index}}"{% endif %}>
+								<span {% if heading and options.cweKey %} data-companywide-editable="{{options.cweKey}}_heading_{{loop.index}}_editable"{% endif %}>{{ heading|safe }}</span>
+							</th>
+						{% endfor %}
+					{% else %}
+						{% for heading in options.columnHeading %}
+							<th {% if options.removeableColumn %} class="{% if loop.index != 1 %}removable-sub{% endif %}" {% endif %} {% if loop.index != 1 %}val="{{loop.index}}"{% endif %}>
+								<span {% if heading and options.cweKey %} data-companywide-editable="{{options.cweKey}}_heading_{{loop.index}}_editable"{% endif %}>{{ heading|safe }}</span>
+							</th>
+						{% endfor %}
+					{% endif %}
+				{% endif %}
+			</tr>
+			{% for row in options.tableRow %}
+				<tr {% if row.className %} class="{{row.className}}" {% endif %} {% if row.removeableRow %} val="{{loop.index}}" {% if row.removableRowNumber %}removableRowNumber="{{row.removableRowNumber}}"{% endif %}{% endif %}>
+					<td>
+						<div {% if row.title and options.cweKey %} data-companywide-editable="{{options.cweKey}}_row_title_{{loop.index}}_editable" data-toolbar="style superscript removeformat"{% endif %}>
+						{{ row.title|safe }}
+						</div>
+					</td>
+					{% set outer_loop = loop %}
+					{% for result in row.results %}
+						{% if (result === "tick") or (result === "cross") or (result === "dash") or (result === 'upper-position') or (result === 'middle-position') or (result === 'low-position') or (result === 'lower-position') or (result === 'large-size') or (result === 'medium-size') or (result === 'small-size') or (result === 'smaller-size') or (result === 'rotate-15') or (result === 'rotate-30') or (result === 'check') or (result === 'x-mark') %}
+							<td val="{{loop.index}}" class={{ result }}></td>
+						{% else %}
+							<td val="{{loop.index}}">
+								<div {% if result and options.cweKey %} data-companywide-editable="{{options.cweKey}}_row_{{outer_loop.index}}_result_{{loop.index}}_editable" data-toolbar="style superscript removeformat"{% endif %}>
+									{{ result|safe }}
+								</div>
+							</td>
+						{% endif %}
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endmacro %}

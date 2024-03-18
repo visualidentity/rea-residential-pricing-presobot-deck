@@ -1,0 +1,51 @@
+{% macro audience_block(options) %}
+  <div class="audience-block{% if options.classes %} {{options.classes}}{% endif %}">
+    <h4 class="audience-block__title">{{options.title | safe}}</h4>
+    <div class="audience-block__stat">
+      {% if options.content %}
+        {{ options.content }}
+      {% endif %}
+    </div>
+    <div class="audience-block__footer">
+      {{options.footer | safe}}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro vertical_graph(options)%}
+	<div class="vertical-bar">
+    <div class="vertical-bar__items">
+      {% for item in options.content %}
+        <div class="vertical-bar__item vertical-bar__item--{{item.id}}" data-value="{{item.value| replace(",", "") }}" style="background-color: {{item.colour}}"></div>
+      {% endfor %}
+    </div>
+    <div class="vertical-bar__key">
+      {% for item in options.content %}
+        <div class="vertical-bar__key__item vertical-bar__key__item--{{item.id}}">
+          <span class="vertical-bar__key__title">{{item.title | safe}}</span>
+          <span class="vertical-bar__key__val" style="color: {{item.colour}}">0<span>
+        </div>
+      {% endfor %}
+    </div>
+	</div>
+{% endmacro %}
+
+{% macro icon_stat(options)%}
+	<div class="icon-stat">
+    {% if options.iconClass %}
+      <div class="icon-stat__icon icon-stat__icon--{{options.iconClass}}"></div>
+    {% endif %}
+    <h3 class="icon-stat__value">{{options.value}}</h3>
+    <p class="icon-stat__text">{{options.text | safe}}</p>
+	</div>
+{% endmacro %}
+
+{% macro time_stat(options)%}
+	<div class="time-stat">
+    <div class="time-stat__icon"></div>
+    <div class="time-stat__container">
+      <h3 class="time-stat__value">{{options.value}}x</h3>
+      <p class="time-stat__text">{{options.text}}</p>
+    </div>
+	</div>
+{% endmacro %}

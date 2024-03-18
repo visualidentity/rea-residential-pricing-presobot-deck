@@ -1,0 +1,8 @@
+{% macro image_text_card(options) %}
+  <div class="title-image-text-card">
+    <h5 data-companywide-editable="title-image-text-card__title__{{options.id}}">{{options.title | safe}}</h5>
+    <div class="title-image-text-card__image{% if options.image %} title-image-text-card__image--{{options.image}}{% endif %}" data-companywide-dynamic-image="title-image-text-columns__image__{{options.id}}">
+    </div>
+    <div class="title-image-text-card__text" data-companywide-editable="title-image-text-card__text__{{options.id}}">{{options.text | safe}}</div>
+  </div>
+{% endmacro %}

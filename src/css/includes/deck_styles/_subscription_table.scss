@@ -1,0 +1,113 @@
+.subscription {
+	padding-top: 30px;
+	margin: 0 auto;
+	width: 1035px;
+	padding-bottom: 55px;
+}
+
+.subscription__heading {
+
+	&--items {
+		font-size: 20px;
+		color: colour(pebble);
+		text-align: left;
+		width: 682px;
+		display: inline-block;
+		vertical-align: top;
+		margin-bottom: 20px;
+	}
+
+	&--discussion {
+		font-size: 20px;
+		color: colour(pebble);
+		text-align: center;
+		width: 112px;
+		margin: 0px 30px;
+		display: inline-block;
+		vertical-align: top;
+		margin-bottom: 20px;
+	}
+
+	&--achieved {
+		font-size: 20px;
+		color: colour(pebble);
+		text-align: center;
+		width: 112px;
+		margin: 0px 30px;
+		vertical-align: top;
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+}
+.checkbox_row[data-value="1"] {
+	.subscription__box.achieved {
+		width: 30px;
+		height: 30px;
+		margin: 0 auto;
+		vertical-align: middle;
+		@include retina-background-image("img/checkbox_checked", "png");
+		background-position: center center;
+		background-size: 30px 30px;
+		background-repeat: no-repeat;
+	}
+}
+
+.checkbox_row[data-value="0"] {
+	.subscription__box.discussion {
+		width: 30px;
+		height: 30px;
+		margin: 0 auto;
+		vertical-align: middle;
+		@include retina-background-image("img/checkbox_checked", "png");
+		background-position: center center;
+		background-size: 30px 30px;
+		background-repeat: no-repeat;
+	}
+}
+.subscription__item {
+	width: 682px;
+	border: 1px solid colour(pebble);
+	border-radius: 10px;
+	margin-bottom: 10px;
+	display:inline-block;
+
+	&--text {
+		font-size: 24px;
+		color: colour(pebble);
+		padding: 12px 0px 12px 30px;
+	}
+}
+
+.checkbox_row {
+	display: inline-block;
+}
+
+.subscription__image {
+	width: 112px;
+	height: 24px;
+	margin: 0px 30px;
+	display: inline-block;
+}
+
+
+.subscription__box--not-checked {
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	vertical-align: middle;
+	@include retina-background-image("./img/checkbox_not-checked", "png");
+	background-position: center center;
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+}
+
+.subscription__box--checked {
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	vertical-align: middle;
+	@include retina-background-image("./img/checkbox_checked", "png");
+	background-position: center center;
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+}

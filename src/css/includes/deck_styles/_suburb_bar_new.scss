@@ -1,0 +1,87 @@
+.suburb-bar-new {
+	background: #F0F0F0;
+	height: 59px;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 28px;
+	color: #3E3B41;
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+}
+
+.suburb-bar-new__title {
+	display: inline-block;
+	margin-left: 62px;
+	margin-top: 15px;
+	vertical-align: middle;
+}
+
+.suburb-bar-new__suburbs {
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
+.suburb-bar-new__item,
+.suburb-bar-new__default {
+    position: relative;
+    display: inline-block;
+    margin-right: 42px;
+    vertical-align: middle;
+}
+
+.suburb-bar-new__item {
+	text-transform: capitalize;
+}
+
+.suburb-bar-new__item:after{
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -27px;
+    top: -1px;
+    background-image: url("img/suburb_close.svg");
+}
+.suburb-bar-new__controls {
+	position: absolute;
+	top: 12px;
+	right: 80px;
+	&.hidden {
+		display: none;
+	}
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer;
+	}
+
+}
+
+.suburb-bar-new__prev {
+	width: 15px;
+	height: 23px;
+	background-image: url("img/white-arrow-prev.svg");
+	margin-right: 7px;
+}
+
+.suburb-bar-new__next {
+	width: 15px;
+	height: 23px;
+	background-image: url("img/white-arrow-next.svg");
+	margin-left: 7px;
+}
+
+.suburb-bar-new .agent-branded__control-block__refresh {
+	top: 16px;
+	right: 20px;
+	width: 30px;
+	height: 26px;
+	background-image: url('img/refresh-new-dark.svg');
+	background-size: contain;
+}

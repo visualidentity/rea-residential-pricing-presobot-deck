@@ -1,0 +1,112 @@
+// Leaderboard
+.top-rent-image {
+	@include aspect-ratio(497, 63, 'top-rent-image');
+
+	// DEBUG
+	background: color(bluestone);
+
+	.open-sign {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-size: auto percentage(45/63);
+		background-position: percentage(250/497) center;
+		background-repeat: no-repeat;
+		background-image: url("img/rentimage/open.svg");
+	}
+
+	.contact {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-size: auto percentage(45/63);
+		background-position: percentage(475/497) center;
+		background-repeat: no-repeat;
+		background-image: url("img/rentimage/contact.svg");
+	}
+
+	&.light-background {
+		.open-sign { background-image: url("img/rentimage/open-dark.svg"); }
+		.contact { background-image: url("img/rentimage/contact-dark.svg"); }
+	}
+}
+
+.top-rent-image__logo {
+	// expected padding from left + center image
+	background-position: percentage(7/497) center;
+	background-repeat: no-repeat;
+	// auto width, height of image divided by height of container
+	background-size: auto percentage(32/63);
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	// DEBUG
+	// background-image: url("https://i3.au.reastatic.net/agencylogo/WIDMVL/12/20171201094110.gif");
+	// background-image: url("https://i1.au.reastatic.net/agencylogo/MFGSOU/12/20160824093945.gif");
+	background-image: url("https://i1.au.reastatic.net/agencylogo/XBSRIC/12/20180128211600.gif");
+}
+
+.side-rent-image {
+	@include aspect-ratio(300, 600, 'side-rent-image');
+
+	// DEBUG
+	background: color(bluestone);
+
+	.open-sign {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-size: percentage(200/300) auto;
+		background-position: center percentage(250/600);
+		background-repeat: no-repeat;
+		background-image: url("img/rentimage/open.svg");
+	}
+
+	.contact {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-size: percentage(200/300) auto;
+		background-position: center percentage(410/436);
+		background-repeat: no-repeat;
+		background-image: url("img/rentimage/contact.svg");
+	}
+
+	&.light-background {
+		.open-sign { background-image: url("img/rentimage/open-dark.svg"); }
+		.contact { background-image: url("img/rentimage/contact-dark.svg"); }
+	}
+}
+
+.side-rent-image__logo {
+	// expected padding from left + center image
+	background-position: center percentage(20/600);
+	background-repeat: no-repeat;
+	// auto width, height of image divided by height of container
+	background-size: percentage(250/300) auto;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	// DEBUG
+	// background-image: url("https://i3.au.reastatic.net/agencylogo/WIDMVL/12/20171201094110.gif");
+	// background-image: url("https://i1.au.reastatic.net/agencylogo/MFGSOU/12/20160824093945.gif");
+	background-image: url("https://i1.au.reastatic.net/agencylogo/XBSRIC/12/20180128211600.gif");
+}

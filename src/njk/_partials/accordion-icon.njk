@@ -1,0 +1,25 @@
+{% macro accordion_icon(accordionContent) %}
+  <div class="subslide-container accordion-icon--wrapper">
+      {% if accordionContent.colappsedAll === true %} 
+          <div id="subslide-1" class="page01 subslide content accordion accordion--icon active"></div>
+          {% for accordion in accordionContent.accordions %}
+              <div id="subslide-{{loop.index+1}}" class="page{% if loop.index < 10 %}0{{loop.index+1}}{% else %}{{loop.index+1}}{% endif %} subslide content accordion accordion--icon">
+                 <h4 class="accordion-title accordion-title-{{accordion.icon}}" data-accordion-subslide="{{loop.index+1}}" {% if accordion.editableId %} data-companywide-editable="accordion-title-{{accordion.editableId | safe}}" {% endif %}>{{accordion.title | safe}}</h4>
+                  <div class="accordion-content" data-accordion-content-subslide {% if accordion.editableId %} data-companywide-editable="accordion-content-{{accordion.editableId | safe}}" data-toolbar="color superscript removeformat" {% endif %}>
+                  {{accordion.text | safe}}
+                </div>
+              </div>
+          {% endfor %}
+      {% else %}
+          {% for accordion in accordionContent.accordions %}
+            <div id="subslide-{{loop.index}}" class="page{% if loop.index < 10 %}0{{loop.index}}{% else %}{{loop.index}}{% endif %} subslide content accordion accordion--icon {% if loop.index === 1%} active {% endif%}">
+               <h4 class="accordion-title accordion-title-{{accordion.icon}}" data-accordion-subslide="{{loop.index}}" {% if accordion.editableId %} data-companywide-editable="accordion-title-{{accordion.editableId | safe}}" {% endif %}>{{accordion.title | safe}}</h4>
+                <div class="accordion-content {% if loop.index === 1%} active {% endif%}" data-accordion-content-subslide {% if accordion.editableId %} data-companywide-editable="accordion-content-{{accordion.editableId | safe}}" data-toolbar="color superscript removeformat" {% endif %}>
+                {{accordion.text | safe}}
+              </div>
+            </div>
+        {% endfor %}
+      {% endif %}
+      
+  </div>
+{% endmacro %}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="184px" height="84px" viewBox="0 0 184 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>target email icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Spring-Campaign" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Spring-Campaign----Slide-02---version-3" transform="translate(-868.000000, -384.000000)">
+            <g id="2" transform="translate(725.000000, 386.000000)">
+                <g id="target-email-icon" transform="translate(145.000000, 0.000000)">
+                    <g id="icon---email" transform="translate(76.862745, 20.800000)">
+                        <path d="M99.6078431,32.0016 L64.9615686,32.0016 C62.745098,32.0016 61.1764706,30.2272 61.1764706,28.0016 L61.1764706,4.0016 C61.1764706,1.6016 62.745098,0.0016 65.0980392,0.0016 L99.6078431,0.0016 C101.960784,0.0016 103.529412,1.6016 103.529412,4.0016 L103.529412,28.0016 C103.529412,30.2272 101.791373,32.0016 99.6078431,32.0016 Z" id="Stroke-3776" stroke="#565F73" stroke-width="1.56862745" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <polygon id="Path" fill="#697684" transform="translate(24.705882, 17.200000) rotate(-270.000000) translate(-24.705882, -17.200000) " points="23.4258824 -7.50588235 25.9858824 -7.50588235 25.9858824 41.9058824 23.4258824 41.9058824"></polygon>
+                        <polyline id="Path-2" stroke="#697684" stroke-width="2.35294118" points="43.5294118 9.6 50.9803922 17.2 43.5294118 24.8"></polyline>
+                        <polyline id="Stroke-3777" stroke="#565F73" stroke-width="1.56862745" stroke-linejoin="round" points="102.509176 1.1656 83.1366275 16.8008 62.1970196 1.1656"></polyline>
+                    </g>
+                    <g id="icon---laptop" stroke="#565F73" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.35294118">
+                        <path d="M7.84313725,68 L7.84313725,7.28571429 C7.84313725,3.25914286 10.854902,0 14.5658263,0 L95.2380952,0 C98.9490196,0 101.960784,3.25914286 101.960784,7.28571429 L101.960784,68" id="Stroke-5625"></path>
+                        <path d="M42.9667519,68 L0,68 L0,76 C0,78.208 2.13878943,80 4.77408355,80 L105.029838,80 C107.669906,80 109.803922,78.208 109.803922,76 L109.803922,68 L66.8371697,68 L42.9667519,68 Z" id="Stroke-5626"></path>
+                        <polygon id="Stroke-5624" points="94.1176471 60 54.9019608 60 15.6862745 60 15.6862745 8 94.1176471 8"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+{% macro header_legend(options) %}
+	<div class="header-legend{% if options.classes %} {{options.classes}}{% endif %}">
+		<h3>{{options.title}}</h3>
+		{% if options.legend %}
+			<div class="header-legend__items">
+				{% for item in options.legend %}
+					<span class="header-legend__item">
+						<span class="header-legend__item-dot"{% if item.dotColour %} style="background-color: {{item.dotColour}}"{% endif %}></span>
+						<span class="header-legend__item-text">{{item.text}}</span>
+					</span>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}

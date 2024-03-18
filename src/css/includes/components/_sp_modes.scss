@@ -1,0 +1,106 @@
+
+// --------------------------------------------------------
+// SP Modes
+// --------------------------------------------------------
+
+// MASTER ONLY
+// --------------------------------------------------------
+.master {
+	#slideshow {
+		article {
+			.disable-master-controls {
+				display: block;
+			}
+		}
+	}
+	&.livepreso {
+		#slideshow {
+			article {
+				.disable-master-controls {
+					display: none;
+				}
+			}
+		}
+	}
+}
+// EO MASTER ONLY
+
+// SHARE ONLINE PRESO ONLY
+// --------------------------------------------------------
+.share_online #slideshow {
+	article {
+		.disable-master-controls {
+			display: none;
+		}
+	}
+}
+// EO SHARE ONLINE PRESO ONLY
+
+
+// CLIENT ONLY
+// --------------------------------------------------------
+.client #slideshow {
+	article {
+		.navbtn, .flat-btn, .solid-btn, .navbtn-target, .clickable, .disclaimer-target, .overlay-btn, .close-overlay-btn, .jump-to, .is-clickable, .subslide-button {
+			cursor: default !important;
+		}
+		.disable-master-controls {
+			display: none;
+		}
+	}
+} // EO CLIENT ONLY
+
+
+// SCREENSHOT ONLY
+// --------------------------------------------------------
+.screenshot {
+	
+	// screenshotting for thumbnails
+	&.screenshot-thumbnail {
+		#slideshow {
+			article {
+				footer {
+					.disclaimer {
+						visibility: hidden;
+						.disclaimer-body {
+							visibility: hidden;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	// Screenshotting for PDFs
+	&.screenshot-full {
+		#slideshow {
+			article {
+				.navbtn,
+				.overlay-btn,
+				.navbtn-target {
+					display: none !important;
+				}
+			}
+		}
+	} //EO .screenshot-full
+	
+	#slideshow {
+		article {
+			footer {
+				.disclaimer {
+					.disclaimer-copy {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	
+	.presoSlide.next {
+		display: none;
+	}
+
+	.arrow-square {
+		display: none;
+	}
+} // EO SCREENSHOT ONLY

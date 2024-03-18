@@ -1,0 +1,39 @@
+{% macro grid(options) %}
+  <div class="icon-text-modal">
+    <div class="icon-text-modal__aside">
+      <div class="icon-text-modal__aside-container">
+        <h4 data-companywide-editable="{{options.sideContent.id}}__title">{{options.sideContent.title}}</h4>
+        <h5 data-companywide-editable="{{options.sideContent.id}}__text">{{options.sideContent.text}}</h5>
+      </div>
+    </div>
+    <div class="icon-text-modal__main">
+      {% for iconRow in options.mainContent %}
+        <div class="icon-text-modal__row">
+          <h4 class="icon-text-modal__title" data-companywide-editable="{{iconRow.id}}__title">{{iconRow.title}}</h4>
+          <h5 class="icon-text-modal__subtitle" data-companywide-editable="{{iconRow.id}}__text">{{iconRow.text}}</h5>
+          <ul class="icon-text-modal__list">
+            {% for item in iconRow.columns %}
+              <li class="icon-text-modal__list-item icon-text-modal__list-item--{{loop.index}}">
+                <div class="icon-text-modal__icon-container">
+                  <div class="icon-text-modal__icon icon-text-modal__icon--{{item.icon}}" data-companywide-dynamic-image="{{item.id}}__image" data-modal-toggle="{{item.id}}__modal"></div>
+                  <span class="icon-text-modal__icon-plus" data-modal-toggle="{{item.id}}__modal"></span>
+                  <div class="icon-text-modal__modal__bg" data-modal-toggle="{{item.id}}__modal" data-modal-item="{{item.id}}__modal"></div>
+                  <div class="icon-text-modal__modal" data-modal-item="{{item.id}}__modal">
+                    <div class="icon-text-modal__modal__inner">
+                      <span class="icon-text-modal__modal__close" data-modal-toggle="{{item.id}}__modal"></span>
+                      <div class="icon-text-modal__modal__content">
+                        <h5 class="icon-text-modal__modal__title" data-companywide-editable="{{item.id}}__modal-title">{{item.modal.title}}</h5>
+                        <h5 class="icon-text-modal__modal__text" data-companywide-editable="{{item.id}}__modal-text">{{item.modal.text}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="icon-text-modal__icon__title" data-companywide-editable="{{item.id}}__title">{{item.title}}</h5>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}

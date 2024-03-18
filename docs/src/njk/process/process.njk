@@ -1,0 +1,114 @@
+<div class="docs-block">
+	<h2 class="example_title">Reviewing a branch</h2>
+	<h2 class="example_subtitle">When work is ready for review:</h2>
+	<ol>
+		<li>Content Creator ensures all current commits are pushed to the relevant branch</li>
+		<li>Rerun gulp (for a clean `dist` directory)</li>
+		<li>Login to the Staging server</li>
+		<li>Navigate to the Publish tab<br><img src="img/process/cms-publish-message.png"></li>
+		<li>Include a relevant version message and click "upload"<br><em>depending on the size of the content, this can take upwards of 20 minutes</em></li>
+		<li>Once the upload is complete, the maintainer will receive an email, and the CMS/PresoManager will display a modal notifying of the completed upload
+			<ol>
+				<li>If you select to preview the deck version the CMS/PresoManager will switch from "Local Version" to the relevant deck version now on the server</li>
+				<li>If not, use the "Local Version" dropdown to select the relevant deck version</li>
+			</ol>
+			<img src="img/process/cms-deck-versions.png"></li>
+		<li>Test the deck version.
+			<ol>
+				<li>PresoManager/CMS: navigate through the slides as usual</li>
+				<li>SalesPreso app: select the relevant deck version from the dropdown</li>
+			</ol>
+			<img width="640px" src="img/process/sp-deck-version-dropdown.jpg">
+			<br>
+			<br>
+			When you are ready for the client to review
+		</li>
+		<li>Navigate back to the Publish tab in the CMS/PresoManager</li>
+		<li>Change the "Approval Status" to "Approved" and click "save"<br><img src="img/process/cms-approval-status.png"></li>
+		<li>Notify the relevant Content Admin of the deck version number ready for review</li>
+	</ol>
+
+	<hr>
+	<h2 class="example_title">Releasing a Wave</h2>
+	<p>To ensure that any work on the `dev` branch not in the current branch is included and tested, it is required to perform another review of the latest branch on Staging after it is merged into `dev`. eg. If a hotfix was released to `dev`, this extra review gives Content Creators and Content Admins the opportunity to test the latest branch against any changes in `dev` that may not have made it onto that branch.</p>
+
+	<h2 class="example_subtitle">Once the branch is ready for release:</h2>
+	<ol>
+		<li>Merge the `feat` branch into `dev`</li>
+		<li>Login to the Staging server</li>
+		<li>Navigate to the Publish tab</li>
+		<li>Enter a relevant upload message and "upload"</li>
+		<li>Test the deck version (both in CMS/PresoManager & SalesPreso)</li>
+		<li>Update the "Approval Status" to "Approved" and click "save"</li>
+		<li>Notify the relevant Content Admin of the deck version number ready for review</li>
+	</ol>
+
+	<h2 class="example_subtitle">After Content Admin has given their approval:</h2>
+	<ol>
+		<li>Merge `dev` into `master` (no fast-forward, --no-ff)</li>
+		<li>Login to the Production server</li>
+		<li>Navigate to the Publish tab</li>
+		<li>Enter a relevant upload message and "Upload"</li>
+		<li>Test the deck version in the CMS/PresoManager</li>
+		<li>Update the "Approval Status" to "Client Approval"</li>
+		<li>Notify the relevant Content Admin of the deck version number ready for final testing</li>
+		<li>REA's Content Admins will now to approve the deck version using HQ</li>
+	</ol>
+
+	<hr>
+	<h2 class="example_title">Releasing a prod-fix:</h2>
+	<ol>
+		<li>Create new branch from `master`</li>
+		<li>Apply fix to the new `hotfix` branch</li>
+		<li>Upload to Staging</li>
+		<li>Update the "Approval Status" to "Approved"</li>
+		<li>Pass to Content Admin with relevant deck version number for testing</li>
+	</ol>
+
+	<h2 class="example_subtitle">Once Content Admin approval received:</h2>
+	<ol>
+		<li>Merge fix into `master` branch</li>
+		<li>Upload to Production</li>
+		<li>Update the "Approval Status" to "Client Approval"</li>
+		<li>Content Admin to approve the deck version using HQ</li>
+		<li>Merge into `dev` & any current branches</li>
+		<li>Test again</li>
+	</ol>
+
+	<hr>
+	<h2 class="example_title">Cheat sheet</h2>
+
+	<h2 class="example_subtitle">Reviewing a branch:</h2>
+	<ol>
+		<li>Upload branch to Staging</li>
+		<li>Content Creator updates "Approval Status" to "Approved"</li>
+		<li>Pass deck version number to Content Admin for review</li>
+	</ol>
+
+	<h2 class="example_subtitle">Once Content Admin approval received:</h2>
+	<ol>
+		<li>Merge branch into `dev` branch</li>
+		<li>Upload `dev` branch to Staging</li>
+		<li>Content Creator updates "Approval Status" to "Approved"</li>
+		<li>Pass deck version number to Content Admin for review</li>
+	</ol>
+
+
+	<h2 class="example_subtitle">Once Content Admin approval received:</h2>
+	<ol>
+		<li>Merge `dev` into `master`</li>
+		<li>Upload `master` branch to Production</li>
+		<li>Content Creator updates "Approval Status" to "Client Approval"</li>
+		<li>Pass deck version number to Content Admin for review</li>
+		<li>Content Admin to approve the deck version using HQ</li>
+	</ol>
+
+	<hr>
+	<h2 class="example_title">SalesPreso gitflow process</h2>
+	<a href="http://developers.salespreso.com/docs/cms/sections/guides/workflow/git_workflow.html" target="_blank">developers.salespreso.com gitflow process</a>
+
+	<h2 class="example_subtitle">&nbsp;</h2>
+
+	<h2 class="example_title">SalesPreso testing checklist</h2>
+	<a href="http://developers.salespreso.com/docs/cms/sections/reference/testing_checklist.html" target="_blank">developers.salespreso.com testing checklist</a>
+</div>

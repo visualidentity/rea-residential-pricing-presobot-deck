@@ -1,0 +1,146 @@
+{# slide options #}
+{% set options = {
+	article_classes: "bg-l-grey-50 template-one-four-grid",
+	cweKey: "template_one_four_grid"
+} %}
+
+{# header options #}
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	classes: "slide-header--min-height",
+	cweKey: "template_one_four_grid"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% block content %}
+
+	{% import "./njk/_partials/property-stat.njk" as stat %}
+
+	{% set grid_8_1 = {
+		bg_colour: "",
+		size: "8",
+		collapsed: false,
+		classes: "column--rounded-corners column-group--animated column-group--height-half",
+		columns: [
+			{
+				bg_colour: "red",
+				size: "8",
+				content: stat.property_stat({
+					classes: "light-text largest inline-property-stat",
+					icon: {
+						width: 360,
+						height: 250,
+						margin: 0,
+						class: 'c-editable-image--empty-white'
+					},
+					number: '76%',
+					text2: 'Description<br>block',
+					cweKey: 'template_one_four_grid_stat_1'
+				})
+			}
+		]
+	}
+	%}
+
+	{% set grid_8_2 = {
+		bg_colour: "",
+		size: "8",
+		collapsed: false,
+		classes: "column--rounded-corners column-group--animated column-group--height-half dynamic-grid",
+		columns: [
+			 {
+				bg_colour: "white",
+				size: "2",
+				content: stat.property_stat({
+					classes: "smallest",
+					icon: {
+						width: 300,
+						height: 115,
+						margin: 30
+					},
+					number: '00%',
+					text: 'Description',
+					cweKey: 'template_one_four_grid_stat_2'
+				})
+			}, {
+				bg_colour: "white",
+				size: "2",
+				content: stat.property_stat({
+					classes: "smallest",
+					icon: {
+						width: 300,
+						height: 115,
+						margin: 30
+					},
+					number: '00%',
+					text: 'Description',
+					cweKey: 'template_one_four_grid_stat_3'
+				})
+			}, {
+				bg_colour: "white",
+				size: "2",
+				content: stat.property_stat({
+					classes: "smallest",
+					icon: {
+						width: 300,
+						height: 115,
+						margin: 30
+					},
+					number: '00%',
+					text: 'Description',
+					cweKey: 'template_one_four_grid_stat_4'
+				})
+			}, {
+				bg_colour: "white",
+				size: "2",
+				content: stat.property_stat({
+					classes: "smallest",
+					icon: {
+						width: 300,
+						height: 115,
+						margin: 30
+					},
+					number: '00%',
+					text: 'Description',
+					cweKey: 'template_one_four_grid_stat_5'
+				})
+			}
+		]
+	}
+	%}
+
+	{# import grid macro #}
+	{% import "./njk/_partials/grid.njk" as grid %}
+
+	{{ grid.column_group(grid_8_1) }}
+	{{ grid.column_group(grid_8_2) }}
+
+
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{
+				type: "Source",
+				text: "Source and disclaimer copy."
+			}
+		],
+		disclaimer_target: true,
+		cweKey: "template_one_four_grid"
+	}) }}
+{% endblock %}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+{% endblock %}

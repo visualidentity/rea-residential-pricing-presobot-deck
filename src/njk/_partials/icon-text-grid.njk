@@ -1,0 +1,17 @@
+{% macro grid(options) %}
+  <div class="icon-text-grid l-grid-animate">
+    {% for row in options.rows %}
+      <div class="icon-text-grid__item l-grid-animate__item">
+        <h4 data-companywide-editable="{{row.id}}" class="icon-text-grid__title">{{row.title}}</h4>
+        <div class="icon-text-grid__row l-grid__row l-grid--col-gap-30">
+          {% for column in row.columns %}
+            <div class="icon-text-grid__col l-grid__col l-grid__col--span-{{12 / row.columns | length}}">
+              <div class="icon-text-grid__img icon-text-grid__img--{{column.icon}}" data-companywide-dynamic-image="{{column.id}}__image"></div>
+              <h4 data-companywide-editable="{{column.id}}__title" class="icon-text-grid__col__title">{{column.title}}</h4>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endmacro %}

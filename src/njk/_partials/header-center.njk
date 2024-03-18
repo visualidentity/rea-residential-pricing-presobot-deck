@@ -1,0 +1,23 @@
+{% macro title(options, optionsHeader) %}
+	<header class="slide-header-center {% if (options.cweKey) %}slide-header-center--min-height{% endif %} {% if optionsHeader.animated %} animated {% endif %} {{ optionsHeader.classes }}">
+		{% if optionsHeader.includeReLogo %}
+			{% include "./re-logo.njk" %}
+		{% endif %}
+		{% if optionsHeader.includeIgniteLogo %}
+			{% include "./ignite-logo.njk" %}
+		{% endif %}
+		{% if optionsHeader.includeReachLogo %}
+			{% include "./reach-logo.njk" %}
+		{% endif %}
+		{% if optionsHeader.includeAdvantageLogo %}
+			{% include "./advantage-logo.njk" %}
+		{% endif %}
+		<div class="slide-header-center__content">
+			<h1 class="slide-header-center__title {{ optionsHeader.titleClasses }}" {% if (options.cweKey) %}data-companywide-editable="{{options.cweKey}}_title"{% endif %}>{{ optionsHeader.title | safe | nl2br }}</h1>
+			<span class="arrow arrow-{{ optionsHeader.arrowColour }} {{ optionsHeader.arrowClasses }}"></span>
+			{% if optionsHeader.subtitle %}
+			<p class="slide-header-center__subtitle {{ optionsHeader.subtitleClasses }}" {% if (options.cweKey) %}data-companywide-editable="{{options.cweKey}}_subtitle" data-toolbar="style superscript removeformat"{% endif %}>{{ optionsHeader.subtitle | safe | nl2br }}</p>
+			{% endif %}
+		</div>
+	</header>
+{% endmacro %}

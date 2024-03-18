@@ -1,0 +1,663 @@
+
+// CLIENT ONLY
+// --------------------------------------------------------
+.client #slideshow {
+	article.table-slide {
+		.remove-icon, .reset-icon, .interactive-table__reset, .editable-table__add, .column-trigger, .row-trigger {
+			cursor: default !important;
+		}
+	}
+} // EO CLIENT ONLY
+
+// PREVIEW ONLY
+// --------------------------------------------------------
+.preview #slideshow,
+.present #slideshow {
+	article.table-slide {
+		.remove-icon, .reset-icon, .add-btn, .interactive-table__reset, .interactive-table__customise {
+			display: block !important;
+		}
+		.editable-table__add {
+			display: table-cell !important;
+		}
+	}
+} // EO CLIENT ONLY
+
+#slideshow {
+	article.table-slide {
+
+		.content-title {
+			position: relative;
+			padding-bottom: 46px;
+		}
+
+		// INTERACTIVE TABLES
+		// --------------------------------------------------------
+		.interactive-table__title {
+			position: relative;
+			padding-bottom: 14px;
+		}
+
+		.interactive-table__reset {
+			position: absolute;
+			top: 46px;
+			right: 0;
+		}
+
+		.interactive-table {
+			position: relative;
+
+			width: 100%; // 1680
+			$col-primary-width: 14%;
+			$col-width: 8.6%;
+
+			&.columns-11 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 11 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 10;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-10 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 9;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-9 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 8;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-8 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 7;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-7 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 6;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-6 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 5;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-5 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 4;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-4 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 3;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-3 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			$col-padding: $col-width / 2;
+			$col-primary-width: $col-primary-width + $col-padding;
+			$col-width: $col-width + $col-padding;
+
+			&.columns-2 {
+				.col-0 {
+					left: 0;
+					width: $col-primary-width;
+				}
+
+				@for $i from 1 through 10 {
+					.col-#{$i} {
+						left: $col-primary-width + (($i - 1) * $col-width);
+						width: $col-width;
+					}
+				}
+			}
+
+			&.columns-1 {
+				.col-0 {
+					left: 0;
+					width: 100%;
+				}
+			}
+
+			.interactive-table__reset {
+				cursor: pointer;
+
+				.reset-icon {
+					position: absolute;
+					top: 14px;
+					left: $gutter-default;
+				}
+
+				h6 {
+					padding-left: 35px;
+				}
+			}
+
+			.column-trigger, .row-trigger {
+				cursor: pointer;
+			}
+
+			.interactive-table__row {
+				position: absolute;
+				left: 0;
+				height: $row-height + $border-height;
+				width: 100%;
+				@include box-sizing(border-box);
+				border-bottom: 2px solid colour(pebble-50);
+				background-color: colour(pebble-15);
+
+				&:first-child {
+					// background-color: purple;
+					border-top-left-radius: $border-radius-l;
+					border-top-right-radius: $border-radius-l;
+				}
+
+				&:nth-last-child(2) {
+					// background-color: red;
+					border-bottom-left-radius: $border-radius-l;
+					border-bottom-right-radius: $border-radius-l;
+					border-bottom: none;
+				}
+
+				&:last-child {
+					border-bottom: 0;
+				}
+
+				&.no-border {
+					border-bottom: 0px;
+				}
+
+				&.header {
+					.interactive-table__cell.col-0 {
+						h6 {
+							text-align: center;
+						}
+					}
+				}
+
+				&.total-row {
+					background-color: colour(bluestone);
+					border: none;
+
+					.interactive-table__cell {
+						background-color: colour(bluestone);
+						color: colour(white);
+						&:before {
+							content: "";
+							position: absolute;
+							top: 0;
+							left: -1px;
+							width: 2px;
+							height: 100%;
+							background-color: colour(bluestone);
+						}
+
+						&:first-child {
+							padding-left: 12px;
+							&:before { display: none; }
+						}
+					}
+				}
+
+				&.interactive-table__customise {
+					background: none;
+					border-bottom: none;
+					height: 50px;
+					h6 {
+						line-height: 52px;
+					}
+
+					.remove-icon {
+						left: calc(50% - ((#{$gutter-default} - 23px) / 2));
+						margin-top: 12px;
+						right: auto;
+						top: 7px;
+					}
+				}
+
+				@include transition(top 500ms $easeout);
+
+				@for $i from 0 through 30 {
+					&.row-#{$i} {
+						top: $i * ($row-height + $border-height);
+					}
+				}
+
+				.interactive-table__cell.row-trigger {
+					position: relative;
+					.remove-icon {
+						position: absolute;
+						top: 7px;
+						left: -39px;
+						right: auto;
+					}
+				}
+			}
+
+			.interactive-table__cell {
+				position: absolute;
+				top: 0;
+				height: $row-height;
+				@include box-sizing(border-box);
+				// background-color: colour(white);
+
+				display: table;
+
+				@include transition(
+					left 500ms $easeout,
+					width 500ms $easeout
+				);
+
+					padding-left: $gutter-default;
+				&:first-child {
+						padding-left: $gutter-default;
+				}
+
+				h6 {
+					font-size: 17px;
+					line-height: 1;
+					width: 100%;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+
+					display: table-cell;
+					text-align: center;
+					vertical-align: middle;
+				}
+
+				&.col-0 {
+					h6 {
+						text-align: left;
+					}
+				}
+
+				&.icon-yes,
+				&.icon-no {
+					background-repeat: no-repeat;
+				}
+
+				&.icon-yes {
+					background-image: url("../css/img/tables/icon-yes.svg");
+					background-size: 22px auto;
+					background-position: calc(50% + 11px) center;
+				}
+
+				&.icon-no {
+					background-image: url("../css/img/tables/icon-no.svg");
+					background-size: 16px auto;
+					background-position: calc(50% + 8px) center;
+				}
+
+				&.blue-column {
+					color: colour(white);
+					h6 {
+						font-family: $font;
+					}
+					&:before {
+						position: absolute;
+						top: -2px;
+						left: 0;
+						width: 100%;
+						height: 2px;
+						background-color: colour(white);
+						display: block;
+						content: "";
+					}
+					&:after {
+						position: absolute;
+						bottom: -2px;
+						height: 2px;
+						width: 100%;
+						left: 0;
+						background-color: colour(white);
+						display: block;
+						content: "";
+					}
+					h6 {
+						background-color: colour(bluestone);
+						padding-left: 20px;
+						@include box-sizing(border-box);
+					}
+				}
+			}
+
+			&.transparent {
+				.interactive-table__cell {
+					background-color: transparent;
+				}
+			}
+		}
+
+		// Interactivity
+		// Hide buttons when presenting and reviewing
+		// SHould only be visible/active in preview/prep mode
+		.remove-icon, .reset-icon, .interactive-table__reset, .interactive-table__customise {
+			display: none;
+		}
+
+		// animation setup
+		.interactive-table {
+			top: 15px;
+			opacity: 0;
+
+			// height transition is required for multiple tables on one slide
+			// If one table changes height, it needs to transition smoothly so
+			// proceeding tables can line up.
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					@include transition(
+						top 500ms $easeout (($i - 1) * 125ms),
+						opacity 500ms $easeout (($i - 1) * 125ms),
+						height 500ms $easeout 0ms
+					);
+				}
+			}
+		}
+
+		.content-title, .interactive-table__title, .interactive-table__reset {
+			top: 15px;
+			opacity: 0;
+
+			@include transition(
+				top 500ms $easeout,
+				opacity 500ms $easeout
+			);
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					@include transition-delay(($i - 1) * 125ms);
+				}
+			}
+		}
+
+		.currentpage {
+			.content-title, .interactive-table__title, .interactive-table__reset, .interactive-table {
+				top: 0px;
+				opacity: 1;
+			}
+		}
+
+		&.animation-complete, &.ie9 {
+			.content-title, .interactive-table__title, .interactive-table__reset, .interactive-table {
+				top: 0px;
+				opacity: 1;
+				@include transition(none !important);
+			}
+		}
+
+		// IE9 and IE10 require slight opacity for them to recognise hit areas
+		&.ie9, &.ie10 {
+			.remove-icon, .reset-icon, .interactive-table__reset, .column-trigger, .row-trigger {
+				&:after {
+					background-color: rgba(colour(white), 0.001);
+				}
+			}
+		}
+
+		// EO interactive tables
+
+		// EDITABLE TABLES
+		// --------------------------------------------------------
+		.editable-table {
+			position: relative;
+
+			width: 100%; // 1680
+
+			th, td {
+				text-align: left;
+				padding: 7px 0;
+				vertical-align: top;
+			}
+
+			.editable-table__add {
+				cursor: pointer;
+			}
+
+			.editable-table__cell {
+				position: relative;
+				@include box-sizing(border-box);
+				background-color: colour(white);
+				border-bottom: 2px solid colour(pebble);
+				padding-left: 20px;
+
+				&:first-child {
+					padding-left: 0px;
+				}
+
+				.add-btn, .remove-icon {
+					position: absolute;
+					top: 7px;
+					left: -39px;
+					right: auto;
+					cursor: pointer;
+				}
+
+				&.editable-table__add {
+					border-bottom: none;
+				}
+
+				&.blue-column {
+					color: colour(white);
+					h6 {
+						font-family: $font;
+					}
+					&:before {
+						position: absolute;
+						top: -2px;
+						left: 0;
+						width: 100%;
+						height: 2px;
+						background-color: colour(white);
+						display: block;
+						content: "";
+					}
+					&:after {
+						position: absolute;
+						bottom: -2px;
+						height: 2px;
+						width: 100%;
+						left: 0;
+						background-color: colour(white);
+						display: block;
+						content: "";
+					}
+					h6 {
+						background-color: colour(bluestone);
+						padding-left: 20px;
+						@include box-sizing(border-box);
+					}
+				}
+			}
+
+			&.transparent {
+				.editable-table__cell {
+					background-color: transparent;
+				}
+			}
+		}
+
+		// Interactivity
+		// Hide buttons when presenting and reviewing
+		// SHould only be visible/active in preview/prep mode
+		.remove-icon, .add-btn, .editable-table__add, .editable-table__customise {
+			display: none;
+		}
+
+		// animation setup
+		.editable-table {
+			top: 15px;
+			opacity: 0;
+
+			// height transition is required for multiple tables on one slide
+			// If one table changes height, it needs to transition smoothly so
+			// proceeding tables can line up.
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					@include transition(
+						top 500ms $easeout (($i - 1) * 125ms),
+						opacity 500ms $easeout (($i - 1) * 125ms),
+						height 500ms $easeout 0ms
+					);
+				}
+			}
+		}
+
+		.content-title, .editable-table__title {
+			top: 15px;
+			opacity: 0;
+
+			@include transition(
+				top 500ms $easeout,
+				opacity 500ms $easeout
+			);
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					@include transition-delay(($i - 1) * 125ms);
+				}
+			}
+		}
+
+		.currentpage {
+			.content-title, .editable-table__title, .editable-table {
+				top: 0px;
+				opacity: 1;
+			}
+		}
+
+		&.animation-complete, &.ie9 {
+			.content-title, .editable-table__title, .editable-table {
+				top: 0px;
+				opacity: 1;
+				@include transition(none !important);
+			}
+		}
+
+		// IE9 and IE10 require slight opacity for them to recognise hit areas
+		&.ie9, &.ie10 {
+			.remove-icon, .add-btn, .column-trigger, .row-trigger {
+				&:after {
+					background-color: rgba(colour(white), 0.001);
+				}
+			}
+		}
+		// EO Editable tables
+
+	} /* EO Article */
+}

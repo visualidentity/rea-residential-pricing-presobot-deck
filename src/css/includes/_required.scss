@@ -1,0 +1,14 @@
+
+/* Hide objects ----------------------------------------- */
+
+.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+@import 'required/disclaimer';
+@import 'required/editable_slide';
+@import 'required/overlay';
+@import 'required/subslides';
+@import 'required/buttons';
+@import 'required/jquery_ui';

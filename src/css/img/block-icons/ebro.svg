@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="116px" height="116px" viewBox="0 0 116 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>ebro-all icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Spring-Campaign" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Spring-Campaign----Slide-01" transform="translate(-1491.000000, -637.000000)">
+            <g id="3" transform="translate(1279.000000, 377.000000)">
+                <g id="ebro-all-icon" transform="translate(213.000000, 261.000000)">
+                    <circle id="Oval" stroke="#697684" stroke-width="2" cx="57" cy="57" r="57"></circle>
+                    <g id="icon---leads" transform="translate(23.000000, 19.000000)">
+                        <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="70" height="70"></rect>
+                        <path d="M60.375,60.329675 L9.625,60.329675 L9.625,46.376925 L27.125,46.376925 L27.125,48.011425 C27.125,49.876925 28.875,51.626925 30.625,51.626925 L40.25,51.626925 C42,51.626925 44.625,49.876925 44.625,48.126925 L44.625,46.376925 L60.375,46.376925 L60.375,60.329675 L60.375,60.329675 Z" id="Stroke-3805" stroke="#E4002B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <polyline id="Stroke-3806" stroke="#E4002B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" points="43.75 32.37675 52.5 32.37675 60.375 46.37675"></polyline>
+                        <polyline id="Stroke-3807" stroke="#E4002B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" points="9.625 46.37675 17.5 32.37675 24.5 32.37675"></polyline>
+                        <line x1="34.125" y1="34.12675" x2="34.125" y2="9.62675" id="Stroke-3808" stroke="#E4002B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <polyline id="Stroke-3809" stroke="#E4002B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" points="42.875 25.37675 34.125 34.12675 25.375 25.37675"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

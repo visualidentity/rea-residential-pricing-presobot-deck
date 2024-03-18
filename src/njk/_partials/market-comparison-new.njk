@@ -1,0 +1,111 @@
+
+{% import "./pie.njk" as pie %}
+{% macro comparison(options) %}
+	<div class="comparison-new" {% if not options.values %}data-m-comparison-new {% if options.pie %} data-pie-chart {% endif %}{% endif %}>
+		<h6 class="comparison-new__title">
+			{{ options.title | safe }}
+			{% if options.close === true %}
+				<span class="remove-icon removable-asset-btn"></span>
+			{% endif %}
+		</h6>		
+		{% if options.pie %}
+			{% if options.values %}
+				<div class="comparison-new__pie--container">
+					{% for item in options.values %}
+						<div class="comparison-new__pie" data-m-comparison-new data-pie-chart>
+							{{local_pie_block(item, loop.index)}}
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{local_pie_block(options)}}
+			{% endif %}
+
+		{% else %}
+			<div class="comparision-new__chart">
+				<div class="chart__bar chart__bar--one" {% if options.type == "percentile" %} data-percentile {% endif %} {% if options.type == "currency" %} data-currency {% endif %} data-value="{{options.valueOne}}"></div>
+				<div class="chart__bar chart__bar--two" {% if options.type == "percentile" %} data-percentile {% endif %} data-value="{{options.valueTwo}}"></div>
+				{% if options.info %}
+					<span class="info--comparison-new">
+						<span class="info-text"></span>
+					</span>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro local_pie_block(options, i) %}
+	{{pie.pie_block("depth_pie")}}
+	<div class="pie__stats">
+		{% if options.title %}
+			<span class="pie__title">{{options.title}}</span>
+		{% endif %}
+		<span class="pie__stat pie__stat--one{% if i %} pie__stat--index-1{% endif %}" data-value="{{options.valueOne|round(0)}}">{{options.valueOne|round}}%</span>
+		{% if options.compare != false %}<span class="pie__stat pie__stat--two{% if i %} pie__stat--index-1{% endif %}">100%</span>{% endif %}
+		{% if options.info %}
+			<span class="info--comparison-new">
+				<span class="info-text"></span>
+			</span>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro comparison_block(options) %}
+	<div class="comparison-new-block{% if options.classes %} {{options.classes}}{% endif %}" data-m-comparison-new val="{{options.value}}">
+		{% if options.close === true %}
+			<span class="remove-icon removable-asset-btn"></span>
+		{% endif %}
+		{% if options.lead %}
+			<div class="comparison-new__lead">
+				{{ options.lead }}
+			</div>
+		{% endif %}
+		{% if options.stats %}
+			<div class="comparison-new-container">
+				{% for item in options.stats %}
+					<div class="comparison-new">
+						<h6 class="comparison-new__title">{{ item.title | safe }}</h6>
+						<div class="comparision-new__chart {% if item.singleStat %} comparision-new__chart--single-stat {% endif %}">
+							{% if item.valueOne %}
+								<div class="chart__bar chart__bar--one" {% if item.type == "percentile" %} data-percentile {% endif %} {% if item.type == "currency" %} data-currency {% endif %} data-value="{{item.valueOne}}"></div>
+							{% endif %}
+							{% if item.valueTwo %}
+								<div class="chart__bar chart__bar--two" {% if item.type == "percentile" %} data-percentile {% endif %} data-value="{{item.valueTwo}}"></div>
+							{% endif %}
+							{% if item.info %}
+								<span class="info--comparison-new">
+									<span class="info-text"></span>
+								</span>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+
+{% macro comparison_stat(options) %}
+	<div class="comparison-new-block{% if options.classes %} {{options.classes}}{% endif %}">
+		<div class="comparison-new" data-m-comparison-new val="{{options.value}}">
+			<h6 class="comparison-new__title">
+				{{ options.title | safe }}					
+			</h6>
+				{% if options.close === true %}
+					<span class="remove-icon removable-asset-btn"></span>
+				{% endif %}
+			<div class="comparision-new__chart comparision-new__chart--single-stat">
+				<div class="comparison-new__stat" data-value="{{options.stat.value}}">
+				{{options.stat.value}}
+				</div>
+				{% if options.info %}
+					<span class="info--comparison-new">
+						<span class="info-text">{{options.info}}</span>
+					</span>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endmacro %}

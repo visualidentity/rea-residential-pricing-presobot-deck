@@ -1,0 +1,57 @@
+<style>
+	.example .block-benefits-checklist .block-benefits-checklist__item:before {
+		background-image: url("{{ src.deck_src }}/css/img/benefits/icon-checklist.svg");
+	}
+</style>
+
+{% set example = {
+	title: "Block - benefits checklist",
+	id: "block_benefits_checklist",
+	example: block_wrapper.block_benefits_checklist({
+		bg_colour: "bluestone",
+		title: "For you",
+		items: [
+			{
+				copy: "Additional revenue stream for your agency:\n<span class='block-benefits-checklist__item--small'>· Earn up to $165 cash payment for successful utility connections*</span>"
+			},
+			{
+				copy: "Free of charge for you and your customers"
+			},
+			{
+				copy: "Complete 1form integration"
+			},
+			{
+				copy: "Opportunity to extend your services to your customers to make their entire moving process easy and hassle free"
+			}
+		]
+	}),
+	full: false,
+	example_classes: "",
+	code_array: [{
+			language: 'django',
+			code: '
+block_wrapper.block_benefits_checklist({
+	title: "For you",
+	items: [
+		{
+			copy: "Additional revenue stream for your agency:\n<span class=\'block-benefits-checklist__item--small\'>· Earn up to $165 cash payment for successful utility connections*</span>"
+		},
+		{
+			copy: "Free of charge for you and your customers"
+		},
+		{
+			copy: "Complete 1form integration"
+		},
+		{
+			copy: "Opportunity to extend your services to your customers to\nmake their entire moving process easy and hassle free"
+		}
+	]
+})
+			',
+			desc: "
+			"
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

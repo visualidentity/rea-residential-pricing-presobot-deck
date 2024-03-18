@@ -1,0 +1,30 @@
+<style>
+	.example .block-service-icon .block-service-icon__icon {
+		background-image: url("{{ src.deck_src }}/css/img/connection-services/icon-pay-tv.svg");
+	}
+</style>
+
+{% set example = {
+	title: "Block - service icon",
+	id: "block_service_icon",
+	example: block_wrapper.block_service_icon({
+		title: "Pay TV"
+	}),
+	full: false,
+	example_classes: "",
+	code_array: [{
+			language: 'django',
+			code: '
+block_wrapper.block_service_icon({
+	title: "Pay TV"
+})
+			',
+			desc: "
+				The icon should be added to <span class='path'>css/img/connection-services</span> and added to the icon list inside of <span class='path'>css/includes/deck_styles/components/block.scss</span>.<br>
+				<p>The title that is passed through in the title parameter is converted to lowercase and hyphens replace spaces in order to grab the relevant icon. For example, title: 'Pay TV' is converted to look for the filename 'pay-tv.svg'.
+			"
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

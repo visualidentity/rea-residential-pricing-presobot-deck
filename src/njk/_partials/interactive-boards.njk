@@ -1,0 +1,31 @@
+{% macro interactive_boards(options) %}
+	<div class="grid-parent">
+		{% for item in options %}
+			<section id="subslide-{{ loop.index }}" class="board-{{ loop.index }} board" tabindex="{{ loop.index }}">
+				<h4>{{ item.title }}</h4>
+				<div {% if item.caption %} class="board-image board-image--{{ loop.index }}" {% else %} class="board-image--full-width board-image--{{ loop.index }}" {% endif %}>
+					<!-- -->
+				</div>
+				{% if item.caption %}
+					<div class="board-caption">
+						{{ item.caption|safe }}
+					</div>
+				{% endif %}
+				{% if item.listing %}
+					<div class="board-listing--one">
+					{{ item.listing|safe }}
+					</div>
+					<div class="board-listing--two">
+						{{ item.listingTwo|safe }}
+					</div>
+				{% endif %}
+				<div class="board-exit"></div>
+				{% if item.disclaimer %}
+					<div class="disclaimer">
+						{{ item.disclaimer|safe }}
+					</div>
+				{% endif %}
+			</section>
+		{% endfor %}
+	</div>
+{% endmacro %}

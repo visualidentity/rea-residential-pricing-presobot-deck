@@ -1,0 +1,220 @@
+.summer-stats {
+	&.summer-stats--vertical {
+		width: 859px;
+		.summer-stats__list {
+			display: flex;
+			flex-direction: column;
+			.summer-stats__list-item {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				padding-left: 196px;
+				text-align: left;
+				padding-top: 54px;
+				padding-bottom: 52px;
+				border-bottom: 1px solid #B6B6B6;
+				&:last-child {
+					border-bottom: none;
+				}
+				.summer-stats__list-item-icon {
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					&.summer-stats__list-item-icon--audience {
+						left: 16px;
+						width: 101.37px;
+						height: 101.3px;
+						background-image: url('../css/img/summer-stats/audience.svg');
+						background-size: cover;
+					}
+					&.summer-stats__list-item-icon--visits {
+						width: 151.57px;
+						height: 72.17px;
+						background-image: url('../css/img/summer-stats/visits.svg');
+						background-size: cover;
+					}
+					&.summer-stats__list-item-icon--app {
+						width: 90px;
+						height: 138px;
+						background-image: url('../css/img/summer-stats/app.svg');
+						background-size: cover;
+						left: 85px;
+						transform: translate(-50%, -50%);
+					}
+					&.summer-stats__list-item-icon--buyer-enquiries {
+						width: 105.33px;
+						height: 127.3px;
+						background-image: url('../css/img/summer-stats/buyer-enquiries.svg');
+						background-size: cover;
+					}
+					&.summer-stats__list-item-icon--home-visits {
+						width: 114px;
+						height: 113px;
+						background-image: url('../css/img/summer-stats/home-visits.svg');
+						background-size: cover;
+					}
+					&.summer-stats__list-item-icon--home-enquiries {
+						width: 117px;
+						height: 111px;
+						background-image: url('../css/img/summer-stats/home-enquiries.svg');
+						background-size: cover;
+					}
+					&.summer-stats__list-item-icon--content-visits {
+						width: 94.24px;
+						height: 95.69px;
+						background-image: url('../css/img/summer-stats/content-visits.svg');
+						background-size: cover;
+					}
+					&.summer-stats__list-item-icon--person {
+						width: 50px;
+						height: 96px;
+						background-image: url('../css/img/summer-stats/person.svg');
+						background-size: cover;
+					}
+					&.summer-stats__list-item-icon--clock {
+						width: 92px;
+						height: 92px;
+						background-image: url('../css/img/summer-stats/clock.svg');
+						background-size: cover;
+					}
+				}
+				.summer-stats__list-item-name {
+					font-weight: 600;
+					font-size: 28px;
+					line-height: 30px;
+					font-family: $font-base-semiBold;
+					color: #3E3B41;
+					margin-bottom: 7px;
+				}
+				.summer-stats__list-item-value {
+					font-weight: 600;
+					font-size: 60px;
+					line-height: 60px;
+					color: #3E3B41;
+					font-family: $font-base-semiBold;
+					margin-bottom: 7px;
+				}
+				.summer-stats__list-item-description {
+					font-weight: 400;
+					font-size: 22px;
+					line-height: 28px;
+					color: #3E3B41;
+					font-family: $font-base-regular;
+				}
+			}
+		}
+	}
+
+	&.summer-stats--horizontal {
+		display: inline-flex;
+		background: #F8F8F8;
+		border-radius: 10px;
+		.summer-stats__list {
+			display: flex;
+			padding-top: 79px;
+			padding-bottom: 49px;
+			.summer-stats__list-item {
+				width: 419px;
+				min-height: 504px;
+				border-right: 1px solid #B6B6B6;
+				display: flex;
+				flex-direction: column;
+				&:last-child {
+					border-right: none;
+				}
+				.summer-stats__list-item-icon {
+					height: 222px;
+					background-repeat: no-repeat;
+					background-position: center;
+					&.summer-stats__list-item-icon--audience {
+						background-image: url('../css/img/summer-stats/audience.svg');
+						background-size: 101.37px 101.3px;
+					}
+					&.summer-stats__list-item-icon--visits {
+						background-image: url('../css/img/summer-stats/visits.svg');
+						background-size: 151.57px 72.17px;
+					}
+					&.summer-stats__list-item-icon--app {
+						background-image: url('../css/img/summer-stats/app.svg');
+						background-size: 90px 138px;
+					}
+					&.summer-stats__list-item-icon--buyer-enquiries {
+						background-image: url('../css/img/summer-stats/buyer-enquiries.svg');
+						background-size: 105.33px 127.3px;
+					}
+					&.summer-stats__list-item-icon--home-visits {
+						background-image: url('../css/img/summer-stats/home-visits.svg');
+						background-size: 114px 113px;
+						background-position: center 100px;
+					}
+					&.summer-stats__list-item-icon--home-enquiries {
+						background-image: url('../css/img/summer-stats/home-enquiries.svg');
+						background-size: 117px 111px;
+						background-position: center 100px;
+					}
+					&.summer-stats__list-item-icon--content-visits {
+						background-image: url('../css/img/summer-stats/content-visits.svg');
+						background-size: 94.24px 95.69px;
+						background-position: center 110px;
+					}
+					&.summer-stats__list-item-icon--person {
+						background-image: url('../css/img/summer-stats/person.svg');
+						background-size: 50px 96px;
+						background-position: center 100px;
+					}
+					&.summer-stats__list-item-icon--clock {
+						background-image: url('../css/img/summer-stats/inspection.svg');
+						background-size: 92px 92px;
+						background-position: center 110px;
+					}
+					&.summer-stats__list-item-icon--inspection {
+						background-image: url('../css/img/summer-stats/inspection.svg');
+						background-size: 87.25px 111px;
+						background-position: center 90px;
+					}
+					&.summer-stats__list-item-icon--property {
+						background-image: url('../css/img/summer-stats/click_property.svg');
+						background-size: 114.78px 92.26px;
+						background-position: center 100px;
+					}
+					&.summer-stats__list-item-icon--people {
+						background-image: url('../css/img/summer-stats/people.svg');
+						background-size: 114.78px 92.26px;
+						background-position: center 100px;
+					}
+					&.summer-stats__list-item-icon--message-phone {
+						background-image: url('../css/img/summer-stats/message-phone.svg');
+						background-size: 114.78px 92.26px;
+						background-position: center 100px;
+					}
+				}
+				.summer-stats__list-item-name {
+					font-weight: 600;
+					font-size: 32px;
+					line-height: 43.2px;
+					font-family: $font-base-medium;
+					color: #3E3B41;
+					text-align: center;
+					margin-bottom: 7px;
+				}
+				.summer-stats__list-item-value {
+					font-weight: 600;
+					font-size: 90px;
+					line-height: 80px;
+					text-align: center;
+					color: #3E3B41;
+					margin-bottom: 7px;
+				}
+				.summer-stats__list-item-description {
+					font-weight: 400;
+					font-size: 22px;
+					line-height: 28px;
+					color: #3E3B41;
+					font-family: $font-base-regular;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

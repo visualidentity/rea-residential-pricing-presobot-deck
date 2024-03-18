@@ -1,0 +1,43 @@
+
+{% set code = '
+{% import "src/njk/_partials/grid.njk" as grid %}
+
+{% set grid_4 = {
+	bg_colour: "",
+	size: "4",
+	collapsed: false,
+	classes: "",
+	columns: [
+		{
+			bg_colour: "pebble",
+			classes: "",
+			size: "2"
+		},
+		{
+			bg_colour: "pebble",
+			classes: "",
+			size: "1"
+		},
+		{
+			bg_colour: "pebble",
+			classes: "",
+			size: "1"
+		}
+	]
+	}
+%}
+
+{{ grid.column_group(grid_4) }}
+' %}
+
+
+{% set example = {
+	title: "4 Column Grid",
+	id: "gridfour",
+	include: src.docs + "/njk/grids/includes/grid-four.njk",
+	slide_scale: "small",
+	language: "django",
+	code: code
+} %}
+
+{{ util.example_html(example) }}

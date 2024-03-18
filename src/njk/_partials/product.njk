@@ -1,0 +1,237 @@
+{# import all adverts #}
+{% import "./advert.njk" as advert %}
+
+{# import all branding strips #}
+{% import "./branding.njk" as branding %}
+
+
+{#
+	Single
+	- listing_type: default = 'premiere'
+	- property_type: default = 'buy'
+#}
+{% macro single(options) %}
+	<div class="product product-{{ options.listing_type }} {{ options.classes }} {% if options.property_type == 'rent' %}product-{{ options.listing_type }}--rent{% endif %} {% if options.size %}product-{{ options.listing_type }}--size-{{ options.size }}{% endif %}">
+		<div class="product-{{ options.listing_type }}__content">
+			{{ branding.product_strip_branding() }}
+
+			{% if options.listing_type == "side" %}
+				{{ branding.product_strip_branding({
+					classes: "product-strip-branding--align-bottom"
+				}) }}
+			{% endif %}
+		</div>
+
+		<div class="product__asset {% if options.floorplan_icon %}floorplan-icon{% endif %}"></div>
+	</div>
+{% endmacro %}
+
+{% macro singlemobile(options) %}
+	<div class="product product-{{ options.listing_type }} {{ options.classes }} {% if options.property_type == 'rent' %}product-{{ options.listing_type }}--rent{% endif %} {% if options.size %}product-{{ options.listing_type }}--size-{{ options.size }}{% endif %}">
+		<div class="product-{{ options.listing_type }}__content">
+			{{ branding.product_strip_branding() }}
+		</div>
+	</div>
+{% endmacro %}
+
+
+{#
+	Product Labels
+#}
+{% macro labels(options) %}
+	<div class="labels">
+		{% for item in options.labels %}
+			{{ label_item(item, loop.index) }}
+		{% endfor %}
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Product Label Item
+#}
+{% macro label_item(options, index) %}
+	<div class="connector-line-label label-{{ index }} connector-line-label--align-{{ options.align }} text-{% if options.text_align %}{{ options.text_align }}{% else %}{{ options.align }}{% endif %} {{ options.classes }}" style="top: {{ options.top }}px; {% if options.left %}left: {{ options.left }}px;{% endif %} {% if options.right %}right: {{ options.right }}px;{% endif %} {% if options.inner_width %}width: {{ options.inner_width }}px;{% endif %}">
+			<div class="connector-line-container {{ options.direction }} {{ options.position }}" style="width: {{ options.width }}px">
+			<div class="connector-line animator"></div>
+		</div>
+		<h6>{{ options.title }}</h6>
+		{% if options.desc %}
+			<p>{{ options.desc|safe }}</p>
+		{% endif %}
+		{% if options.list %}
+			<ul>
+				{% for item in options.list %}
+				<li>{{ item|safe }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+
+
+{#
+	iPad
+	- listing_type: default = 'premiere'
+	- property_type: default = 'buy'
+#}
+{% macro ipad(options) %}
+	<div class="product-{{ options.listing_type }} {{ options.classes }} {% if options.property_type == 'rent' %}product-{{ options.listing_type }}--rent{% endif %}">
+
+		<div class="product-{{ options.listing_type }}__content">
+			{% for item in options.product_content %}
+				{{ single({
+						listing_type: item.listing_type,
+						property_type: options.property_type,
+						size: "ipad"
+					})
+				}}
+			{% endfor %}
+		</div>
+
+		<div class="product__asset"></div>
+	</div>
+{% endmacro %}
+
+
+{# New Product component #}
+{% macro product_item(options) %}
+	<div class="product {{ options.listing_type }} {{ options.size }} {{ options.section }}">
+		<div class="contents">
+			{% for item in options.contents %}
+				{{ item|safe }}
+			{% endfor %}
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro product_container(options) %}
+	<div class="product-container {{ options.wrapper }} {{ options.section }} {{ options.layout }} {{ options.classes }}">
+		<div class="products">
+			{% for product in options.products %}
+				{{ product.options }}
+				{{ product_item({
+					listing_type: product.listing_type,
+					contents: product.contents,
+					size: product.size,
+					section: options.section
+				}) }}
+			{% endfor %}
+			<div class="container-overlay"></div>
+		</div>
+		{% if options.label %}
+			<div class="label">{{ options.label }}</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{#
+	iPhone
+	- listing_type: default = 'premiere'
+	- property_type: default = 'buy'
+#}
+{% macro iphone(options) %}
+	<div class="product-{{ options.listing_type }} {{ options.classes }} {% if options.property_type == 'rent' %}product-{{ options.listing_type }}--rent{% endif %}">
+
+		<div class="product-{{ options.listing_type }}__content">
+			{% for item in options.product_content %}
+				{{ single({
+						listing_type: item.listing_type,
+						property_type: options.property_type,
+						size: "iphone"
+					})
+				}}
+			{% endfor %}
+		</div>
+
+		<div class="product__asset"></div>
+	</div>
+{% endmacro %}
+
+
+
+{% macro iphonex(options) %}
+	<div class="product-{{ options.listing_type }} {{ options.classes }} {% if options.property_type == 'rent' %}product-{{ options.listing_type }}--rent{% endif %}">
+
+		<div class="product-{{ options.listing_type }}__content">
+			{% for item in options.product_content %}
+				{{ singlemobile({
+						listing_type: item.listing_type,
+						property_type: options.property_type,
+						size: "iphonex"
+					})
+				}}
+			{% endfor %}
+		</div>
+
+		<div class="product__asset"></div>
+	</div>
+{% endmacro %}
+
+
+
+
+
+{#
+	webpage
+	- listing_type: default = 'premiere'
+	- property_type: default = 'buy'
+#}
+{% macro web(options) %}
+	<div class="product product-{{ options.listing_type }} {{ options.classes }} {% if options.property_type == 'rent' %}product-{{ options.listing_type }}--rent{% endif %}">
+		<div class="product__asset"></div>
+
+		<div class="product-{{ options.listing_type }}__content">
+			{% for item in options.product_content %}
+				{{ single({
+						listing_type: item.listing_type,
+						property_type: options.property_type,
+						size: "web",
+						floorplan_icon: options.floorplan_icon
+					})
+				}}
+			{% endfor %}
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro email(options) %}
+	<div class="product product-email {{ options.classes }}">
+		<div class="product__asset"></div>
+		<div class="product-email__content">
+			{% for item in options.product_content %}
+				{{ single({
+						listing_type: item.listing_type,
+						property_type: options.property_type,
+						size: "web"
+					})
+				}}
+			{% endfor %}
+		</div>
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Legend
+#}
+{% macro legend(options) %}
+	<div class="product-legend" style="top: {{ options.top }}px;">
+		{% for item in options.items %}
+			{{ legend_item(item) }}
+		{% endfor %}
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Legend Item
+#}
+{% macro legend_item(options) %}
+	<div class="product-legend__item" data-color="{{ options.color }}">{{ options.title }}<span class="product-legend__item-marker" data-color="{{ options.color }}" style="left: {{ options.left }}px; top:{{ options.top }}px;"></span></div>
+{% endmacro %}

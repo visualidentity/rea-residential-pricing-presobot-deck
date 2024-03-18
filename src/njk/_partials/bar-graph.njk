@@ -1,0 +1,21 @@
+{% macro multi_chart(options) %}
+	<div class="multi-chart">
+		<div class="multi-chart__inner">
+			<span class="multi-chart__key multi-chart__key--x">{{options.x_key}}</span>
+			<span class="multi-chart__key multi-chart__key--y">{{options.y_key}}</span>
+			<div data-m-graph-container>
+				{% for item in options.items %}
+					<div class="multi-chart__item" data-m-graph-stat>
+						<span class="item__key">{{item.key}}</span>
+						<div class="item__stat item__stat--one" data-value="{{item.valueOne}}"></div>
+						<div class="item__stat item__stat--two" data-value="{{item.valueTwo}}"></div>
+						<div className="item__stat__values">
+							<span class="item__stat__values item__stat__values--one">{{item.valueOne}}</span>
+							<span class="item__stat__values item__stat__values--two">{{item.valueTwo}}</span>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endmacro %}

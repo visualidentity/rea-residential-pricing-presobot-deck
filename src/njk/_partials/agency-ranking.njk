@@ -1,0 +1,26 @@
+{% macro agency_ranking(copy='', class='', options) %}
+	<div class="agency-ranking{% if options.display === 'table' %} agency-ranking--table{% endif %}{% if options.classes %} {{options.classes}}{% endif %}">
+		<div class="agency-ranking__header">
+			<div class="agency-ranking__title">
+				Top 5 agencies in selected suburbs
+			</div>
+			{% if options.display == 'table' %}
+			<div class="agency-ranking__type">
+				No. of <span class="agency-ranking__channel">sold</span> listings
+				
+			</div>
+			{% endif %}
+		</div>
+		<div class="agency-ranking__rankings">
+			{# <div class="agency-ranking__ranking">
+				<span class="ranking__number">1</span>
+				<div class="ranking__agency">
+					{agency name}
+					<br/>
+					Number of sold listings: 
+					<span class="sold_listings">25</span>
+				</div>
+			</div> #}
+		</div>
+	</div>
+{% endmacro %}

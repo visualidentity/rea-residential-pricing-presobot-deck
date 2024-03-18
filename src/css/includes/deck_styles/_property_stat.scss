@@ -1,0 +1,233 @@
+.property-stat {
+	display: table;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: colour(bluestone);
+	position: relative;
+	&.light-text {
+		color: colour(white);
+	}
+	&.dark-text {
+		color: #697684;
+	}
+	&.small-pad {
+		.cell {
+			.text {
+				padding: 0 5%;
+			}
+		}
+	}
+	.cell {
+		display: table-cell;
+		vertical-align: middle;
+		-webkit-font-smoothing: antialiased;
+		.icon {
+			background-repeat: no-repeat;
+			background-position: center center;
+			margin: 0 auto;
+			margin-bottom: 20px;
+			@for $i from 80 through 200 {
+				&.mb-#{$i} {
+					margin-bottom: #{$i}px;
+				}
+			}
+		}
+		// Standard structure
+		.number {
+			font-weight: 100;
+			font-size: 90px;
+			padding-bottom: 20px;
+		}
+		.text {
+			font-weight: 300;
+			font-size: 34px;
+			padding: 0 15%;
+		}
+		// CWE structure
+		// Rich text field in use
+		.description {
+			text-align: center;
+
+			h3, h4, h5, p {
+				margin-bottom: 20px;
+				&:last-child {
+					margin-bottom: 0px;
+				}
+			}
+
+			h3 {
+				font-size: 60px;
+				line-height: 60px + $leading;
+			}
+
+			h4 {
+				font-size: 48px;
+				line-height: 48px + $leading;
+			}
+
+			h5 {
+				font-size: 38px;
+				line-height: 38px + $leading;
+			}
+
+			p {
+				font-size: 22px;
+				line-height: 1.125em;
+			}
+		}
+	}
+	$stat-sizes: (
+		largest: $font-size-120 $font-size-34,
+		large: $font-size-90 $font-size-24,
+		medium: $font-size-66 $font-size-24,
+		small: $font-size-60 $font-size-22,
+		smallest: $font-size-50 $font-size-22
+	);
+	@each $key, $value in $stat-sizes {
+		&.#{$key} {
+			.cell {
+				.number {
+					font-size: nth($value, 1);
+					&:not([data-companywide-editable]) {
+						span {
+							font-size: nth($value, 1) / 2;
+						}
+					}
+				}
+				.text {
+					font-size: nth($value, 2);
+				}
+				// CWE structure
+				.description {
+					h3 {
+						font-size: nth($value, 1);
+						line-height: nth($value, 1) + $leading;
+					}
+		
+					p {
+						font-size: nth($value, 2);
+						line-height: 1.125em;
+					}
+				}
+			}
+		}
+	}
+
+	&.inline-property-stat {
+		.cell {
+			.icon {
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 40px;
+				margin-bottom: 0;
+			}
+			// Standard structure
+			.number {
+				display: inline-block;
+				vertical-align: middle;
+				padding: 0;
+				margin-right: 40px;
+				margin-left: 50px;
+			}
+			.text {
+				display: inline-block;
+				vertical-align: middle;
+				padding: 0;
+				text-align: left;
+				position: relative;
+				span {
+					font-size: 4em;
+					display: inline-block;
+					vertical-align: middle;
+					font-weight: 100;
+					&.sub {
+						font-size: 0.6em;
+						position: absolute;
+						top: calc(100% + 30px);
+						font-weight: 500;
+						left: 0;
+					}
+				}
+			}
+			// CWE structure
+			// Rich text field in use
+			.description {
+				display: inline-block;
+				vertical-align: middle;
+				padding: 0;
+				text-align: left;
+				margin-right: 40px;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+$icons: (
+	'aged_between',
+	'agent_resources',
+	'agents_best_photos',
+	'agents_listing_similar',
+	'agents_listing_suburb',
+	'buy_visits',
+	'buyers_search',
+	'consumers_prefer',
+	'email_agents',
+	'email_enquiries_purple',
+	'email_enquiries',
+	'grow_wealth',
+	'income_protection',
+	'interest_rates',
+	'landlord_agent',
+	'life_stage',
+	'lifestyle_change',
+	'manage_repairs',
+	'mortgage_rates',
+	'no_address',
+	'no_floor_plan_purple',
+	'no_floor_plan',
+	'no_price',
+	'phone_agents_purple',
+	'phone_agents',
+	'poor_quality_photos',
+	'price_estimates_2',
+	'price_estimates_purple',
+	'price_estimates',
+	'property_saves_purple',
+	'property_saves',
+	'realestate_resources',
+	'reduce_personal_tax',
+	'refine_by_price',
+	'refine_property_purple',
+	'refine_property',
+	'searching_online',
+	'sold_visits',
+	'sort_relevance_purple',
+	'sort_relevance',
+	'suburb_amenities',
+	'suburb_search_purple',
+	'suburb_search',
+	'suburb_sold_prices_2',
+	'suburb_sold_prices_3',
+	'suburb_sold_prices',
+	'tips_and_advice_2',
+	'tips_and_advice_purple',
+	'tips_and_advice',
+	'valuable_management',
+	'value_for_money',
+	'wealth_creation',
+	'website_resources'
+);
+
+.property-stat {
+	.icon {
+		@each $icon in $icons {
+			&.#{$icon} {
+				background-image: url(img/property-stat/#{$icon}.svg);
+			}
+		}
+	}
+}

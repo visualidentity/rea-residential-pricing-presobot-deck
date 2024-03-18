@@ -1,0 +1,10 @@
+// STYLING EXCLUSIVE TO MASTER SLIDES
+.master {
+	.interactive-process .button,
+	.interactive-listing .button,
+	.footer-navigation div,
+	.subsection__navigation,
+	.subslide-side-panel__navigation {
+		cursor: pointer;
+	}
+}

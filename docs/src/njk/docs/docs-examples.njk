@@ -1,0 +1,106 @@
+{% macro image() %}
+<img src="img/default-logo.png">
+{% endmacro %}
+
+{% set example_image = {
+	title: "Image Example",
+	id: "images",
+	example: image(),
+	language: "html"
+} %}
+
+{{ util.example_html(example_image) }}
+
+
+
+{% set example_codes = {
+	title: "Multiple Code Example",
+	id: "codemultiple",
+	code_array: [
+		{
+			code: '<h1>This is a code example</h1>',
+			language: 'html'
+		}, {
+			code: "
+h1 {
+	text-transform: uppercase;
+}
+			",
+			language: 'scss'
+		}, {
+			code: "
+{% set example_codes = {
+	title: 'Multiple Code Example',
+	id: 'codemultiple',
+	code_array: [
+		{
+			code: '<h1>This is a code example</h1>',
+			language: 'html'
+		}, {
+			code: '
+				h1 {
+					text-transform: uppercase;
+				}
+			',
+			language: 'scss'
+		}
+	]
+} %}
+
+{{ util.example_html(example_codes) }}
+			",
+			language: 'django'
+		}
+	]
+} %}
+
+{{ util.example_html(example_codes) }}
+
+
+
+{% set example_guide = {
+	title: "Written docs Example",
+	id: "writtendocs",
+	code: "
+<div class='docs-block'>
+	<h2 class='example_title'>Guide Title</h2>
+	<h2 class='example_subtitle'>Guide subtitle</h2>
+	<ol>
+		<li>Ordered list items</li>
+		<li>Includes a nested option
+			<ol>
+				<li>for breaking items down further</li>
+			</ol>
+		</li>
+	</ol>
+	<div class='docs-reference'>
+		<h2 class='example_subtitle code-copy'>docs reference</h2>
+		<p>Reference description</p>
+	</div>
+	<p>For paragraphs, and a style for images:</p>
+	<img width='640px' src='img/process/sp-deck-version-dropdown.jpg'>
+</div>
+",
+	language: "html"
+} %}
+
+{{ util.example_html(example_guide) }}
+
+<div class='docs-block'>
+	<h2 class='example_title'>Guide Title</h2>
+	<h2 class='example_subtitle'>Guide subtitle</h2>
+	<ol>
+		<li>Ordered list items</li>
+		<li>Includes a nested option
+			<ol>
+				<li>for breaking items down further</li>
+			</ol>
+		</li>
+	</ol>
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">docs reference</h2>
+		<p>Reference description</p>
+	</div>
+	<p>For paragraphs, and a style for images:</p>
+	<img width="640px" src="img/process/sp-deck-version-dropdown.jpg">
+</div>

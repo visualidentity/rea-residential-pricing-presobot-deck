@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="42px" viewBox="0 0 47 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>icons / purchase - positive</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="6.1-Add-ons---AMAX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1087.000000, -412.000000)" stroke-linecap="round" stroke-linejoin="round">
+        <g id="icons-/-purchase---positive" transform="translate(1084.000000, 409.000000)" stroke="#333F48">
+            <g id="Page-1" transform="translate(3.333333, 3.310345)">
+                <path d="M15.8333333,35.5862069 L5.83333333,35.5862069 C3.08333333,35.5862069 0.833333333,33.3517241 0.833333333,30.6206897 L0.833333333,5.79310345 C0.833333333,3.06206897 3.08333333,0.827586207 5.83333333,0.827586207 L40.8333333,0.827586207 C43.5833333,0.827586207 45.8333333,3.06206897 45.8333333,5.79310345 L45.8333333,30.6206897 C45.8333333,33.3517241 43.5833333,35.5862069 40.8333333,35.5862069 L29.1666667,35.5862069" id="Stroke-1" stroke-width="1.5"></path>
+                <path d="M22.5,17.3793103 L22.5,40.5517241" id="Stroke-3" stroke-width="1.5"></path>
+                <polyline id="Stroke-5" stroke-width="1.5" points="30.8333333 25.6551724 22.5 17.3793103 14.1666667 25.6551724"></polyline>
+                <path d="M0.833333333,12.4137931 L45.8333333,12.4137931" id="Stroke-7" stroke-width="1.5"></path>
+                <path d="M1.5625,7.44827586 L45.2075,7.44827586" id="Stroke-9" stroke-width="1.5"></path>
+            </g>
+        </g>
+    </g>
+</svg>

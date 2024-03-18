@@ -1,0 +1,22 @@
+
+#slideshow {
+	article.temp-image-template {
+
+    .rea-ribbon {
+      display: none;
+    }
+
+		.c-editable-image {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: {
+				position: center;
+				repeat: no-repeat;
+				size: contain;
+			}
+		}
+	}
+}

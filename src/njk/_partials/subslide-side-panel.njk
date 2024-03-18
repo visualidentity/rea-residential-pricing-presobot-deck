@@ -1,0 +1,86 @@
+{% macro side_panel(content) %}
+	<div class="subslide-side-panel">
+		<div class={% if content.singleCategory == 'Reach' %}"rea-ribbon-yellow"{% else %}"rea-ribbon"{% endif %}></div>
+		<div class="subslide-side_slider">
+			{% for section in content.sections %}
+				<div class="subslide-side__slide" data-slide-id="{{section.id}}">
+					<div class="slide__content">
+						<div class="subsection__icon subsection__icon--{{section.icon}}"></div>
+						{% if content.singleCategory %}
+							<div class="slide__category">
+								{{content.singleCategory}}
+							</div>
+							{% elif section.category %}
+							<div class="slide__category">
+								{{section.category}}
+							</div>
+						{% endif %}
+						<div class="slide__title{% if section.titleSize === 'small' %} slide__title--small{% endif %}">
+							{% if section.line %}
+								{{section.line}}
+							{% endif %}
+							{{section.title | safe | nl2br}}
+						</div>
+						<div class="slide__body">
+							{{section.body | safe | nl2br}}
+						</div>
+						<div class="slide__disclaimer">
+							{{section.disclaimer | safe | nl2br}}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+			{% for category in content.categories %}
+				{% for section in category.sections %}
+					<div class="subslide-side__slide" data-slide-id="{{section.id}}">
+						<div class="slide__content">
+							<div class="subsection__icon subsection__icon--{{section.icon}}"></div>
+							<div class="slide__category">
+								{{ content.singleCategory }}
+							</div>
+							<div class="slide__title">
+								{% if section.line %}
+									{{section.line}}
+								{% endif %}
+								{{section.title}}
+							</div>
+							<div class="slide__body">
+								{{section.body | safe | nl2br}}
+							</div>
+							<div class="slide__disclaimer">
+								{{section.disclaimer | safe | nl2br}}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% endfor %}
+		</div>
+		<div class="subsection__disclaimers">
+			{% for section in content.sections %}
+				<div class="subsection__disclaimer__container"  data-subsection-disclaimers-id="{{section.id}}">
+					<ol>
+						{% for item in section.disclaimers %}
+							<li>{{item}}</li>
+						{% endfor %}
+					</ol>
+				</div>
+			{% endfor %}
+			{% for category in content.categories %}
+				{% for section in category.sections %}
+					<div class="subsection__disclaimer__container"  data-subsection-disclaimers-id="{{section.id}}">
+						<ol>
+							{% for item in section.disclaimers %}
+								<li>{{item}}</li>
+							{% endfor %}
+						</ol>
+					</div>
+				{% endfor %}
+			{% endfor %}
+		</div>
+		<div class="subslide-side-panel__navigation">
+			<div class="subslide-side-panel__forward"></div>
+			<div class="subslide-side-panel__back"></div>
+			<div class="subslide-side-panel__return"></div>
+		</div>
+	</div>
+{% endmacro %}

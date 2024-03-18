@@ -1,0 +1,113 @@
+{% macro icon_data(options) %}
+	<div class="icon-data {{options.classes}} {% if options.imageLeft %} icon-data--image-left {% endif %} {% if options.iconlist %} icon-data--iconlist {% endif %}">
+		{% if options.image %}
+			<div class="icon-data__image-container">
+				<div class="icon-data__image icon-data__image--{{options.image}}"></div>
+			</div>
+		{% endif %}
+		<div class="icon-data__content">
+			<div class="icon-data__heading"><h6>{{options.statisticHeadingDefaultValue}}</h6></div>
+			<div class="icon-data__stats">
+				<div class="icon-data__stat">
+					{% if options.list %}
+						<ol class="icon-data__list">
+							{% for item in options.list %}
+								<li class="icon-data__list__item"><span class="icon-data__item__inner">{{item.value}}</span></li>
+							{% endfor %}
+						</ol>
+					{% elseif options.iconlist %}
+						{% for item in options.iconlist %}
+						<div class="icon-data__iconlist">
+
+								<div class="icon-data__item__icon--{{item.icon}}"></div><div class="icon-data__item">{{item.value}}</div>
+
+						</div>
+						{% endfor %}
+					{% else %}
+						<span class="icon-data__value">{{options.statisticDefaultValue}}</span>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endmacro %}
+
+
+{% macro icon_data_group(options) %}
+    <div class="icon-group-data {{options.classes}} {% if options.imageLeft %} icon-group-data--image-left {% endif %}">
+        {% for item in options.items %}
+            {% if item.image %}
+                <div class="icon-group-data__image-container">
+                    <div class="icon-group-data__image icon-group-data__image--{{item.image}}"></div>
+                </div>
+            {% endif %}
+            <div class="icon-data-group__content">
+                <div class="icon-group-data__heading"><h6>{{item.statisticHeadingDefaultValue}}</h6></div>
+                <div class="icon-group-data__stats">
+                    <div class="icon-group-data__stat">
+                        {% if item.list %}
+                            <ol class="icon-group-data__list">
+                                {% for item in item.list %}
+                                    <li class="icon-group-data__list__item"><span class="icon-group-data__item__inner">{{item.value}}</span></li>
+                                {% endfor %}
+                            </ol>
+                        {% else %}
+                            <span class="icon-group-data__value">{{item.statisticDefaultValue}}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+
+{% macro market_ranking(options) %}
+	<div class="icon-data {{options.classes}} {% if options.imageLeft %} icon-data--image-left {% endif %} {% if options.iconlist %} icon-data--iconlist {% endif %}">
+		{% if options.heading %}
+			<div class="icon-data__main-heading">
+				<h5>{{options.heading}}</h5>
+			</div>
+		{% endif %}
+		<div class="icon-data__image-container">
+			<div class="icon-data__ranking">
+				<span class="icon-data__ranking-title">{% if options.rankingTtitle %}{{options.rankingTtitle}}{% else %}Your ranking{% endif%}</span>
+				<span class="icon-data__ranking-number">0
+					{% if options.info %}
+						<span class="info--comparison">
+							<span class="info-text"></span>
+						</span>
+					{% endif %}
+				</span>
+			</div>
+		</div>
+		<div class="icon-data__content">
+			<div class="icon-data__heading"><h6>{{options.statisticHeadingDefaultValue}}</h6></div>
+			<div class="icon-data__stats">
+				<div class="icon-data__stat">
+					{% if options.list %}
+						<ol class="icon-data__list">
+							{% for item in options.list %}
+								<li class="icon-data__list__item"><span class="icon-data__item__inner">{{item.value}}</span></li>
+							{% endfor %}
+						</ol>
+					{% elseif options.iconlist %}
+						{% for item in options.iconlist %}
+						<div class="icon-data__iconlist">
+
+								<div class="icon-data__item__icon--{{item.icon}}"></div><div class="icon-data__item">{{item.value}}</div>
+
+						</div>
+						{% endfor %}
+					{% else %}
+						<span class="icon-data__value">{{options.statisticDefaultValue}}</span>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endmacro %}
+
+

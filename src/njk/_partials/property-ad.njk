@@ -1,0 +1,35 @@
+{% macro property_ad(options) %}
+<div class="property-ad {{ options.classes }}" style="border-bottom: 6px solid {{ options.highlight }};">
+	<div class="cell">
+		<div class="icon {{ options.icon.class }}" style="
+			background-size: {{ options.icon.width }}px {{ options.icon.height }}px;
+			width: {{ options.icon.width }}px;
+			height: {{ options.icon.height }}px;
+		"></div>
+		{% if options.number %}
+		<div class="number"{% if options.editable %} data-editable id="{{ options.editable_id }}-number"{% endif %} style="color: {{ options.highlight }};">{{ options.number|safe }}</div>
+		<div class="subtext">{{ options.subtext|safe }}</div>
+		{% endif %}
+		<div class="text"{% if options.editable %} data-editable id="{{ options.editable_id }}-text"{% endif %}>{{ options.text|safe }}</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro property_floater(options) %}
+<div class="property-ad-float {{ options.classes }}">
+	<div class="cell-floater">
+		<div class="title" style="background: {{ options.highlight }};">
+			{{ options.title|safe }}
+			<div class="arrow" style="background: {{ options.highlight }};"></div>
+		</div>
+		<div class="body">
+			<div class="subtitle" style="color: {{ options.highlight }};">
+				{{ options.subtitle|safe }}
+			</div>
+			<div class="caption">
+				{{ options.caption|safe }}
+			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}

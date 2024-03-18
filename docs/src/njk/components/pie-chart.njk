@@ -1,0 +1,101 @@
+<style>
+	.ex#piechart .example {
+		height: 700px;
+		background-color: #E3E4E3 !important;
+	}
+	.ex#piechart .pie-chart-container {
+		position: absolute;
+	}
+	.ex#piechart .pie-chart {
+		width: 684px;
+		height: 684px;
+	}
+	.ex#piechart .segment {
+		width: 342px;
+		height: 684px;
+		top: 0px;
+		left: 342px;
+	}
+	.ex#piechart .example .pie-chart .segment .before {
+		width: 342px;
+		height: 684px;
+		left: -342px;
+		border-radius: 342px 0 0 342px;
+	}
+</style>
+
+{% set labels = [
+	{
+		colour: 'blue',
+		key: 'desktop',
+		value: '35%'
+	}, {
+		key: 'mobile',
+		value: '43%'
+	}, {
+		key: 'tablet',
+		value: '22%'
+	}
+] %}
+
+{% set example = {
+	title: "Pie Chart",
+	id: "piechart",
+	example: pie.pie("buy", labels, true),
+	full: false,
+	code_array: [
+		{
+			language: 'django',
+			code: '
+{% import "./njk/_partials/pie.njk" as pie %}
+{% import "./njk/_partials/pie.njk.js" as pie_js %}
+{% set labels = [
+	{
+		colour: "blue",
+		key: "desktop",
+		value: "35%"
+	}, {
+		key: "mobile",
+		value: "43%"
+	}, {
+		key: "tablet",
+		value: "22%"
+	}
+] %}
+{% block content %}
+	{{ pie.pie("buy", labels, true) }}
+	{# pie chart parameters pie.pie(classes = "", labels = [], hidekeys = false) #}
+{% endblock %}
+
+{% block js_ready %}
+	{{ pie_js.ready() }}
+{% endblock %}
+
+{% block js_rendered %}
+	{{ pie_js.rendered() }}
+{% endblock %}
+			',
+			'desc': "
+				By using the above pie chart macros for the html and js you can add pie charts,
+				in order to style the pie chart you will need to add to <span class='path'>src/css/includes/deck_styles/_pie.scss</span> <br><br>
+				A class can be added to the article using the article_classes parameter in the slide options, using this you can create a new set of styles for a piechart.
+			"
+
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}
+
+<script>
+	var $pageContainer = $(".ex#piechart");
+	{% include "src/js/utils/piechart.js" %}
+	var pieValues = {
+		desktop: 10,
+		mobile: 60,
+		tablet: 30
+	};
+	var iamIE9 = true;
+	var screenshot = false;
+	{{ pie_js.rendered() }}
+</script>

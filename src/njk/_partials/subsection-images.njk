@@ -1,0 +1,15 @@
+
+
+
+{% macro branded_listing(args) %}
+	<div class="subsection__image {{args.name}}" data-subsection-image >
+		{% for item in args.components %}
+			<div class="{{item.classes}} brand-bg">
+				{% if item.portrait %}
+					<div class="branded-portrait"></div>
+				{% endif %}
+				<div class="image branded-image brand-logo"></div>
+			</div>
+		{% endfor %}
+	</div>
+{% endmacro %}

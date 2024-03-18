@@ -1,0 +1,54 @@
+{% set colours = {
+	"white": "#ffffff",
+	"black": "#000000",
+	"sp-orange": "#f54b0a",
+	"red": "#e4002b",
+	"red-70": "#EC4C6A",
+	"bluestone": "#333f48",
+	"l-grey": "#C8C9C7",
+	"l-grey-50": "#E3E4E3",
+	"l-grey-10": "#F9F9F9",
+	"pebble": "#697684",
+	"pebble-50": "#828D99",
+	"pebble-15": "#E9EBED",
+	"pebble-10": "#F0F1F2",
+	"yellow": "#FFB200",
+	"yellow-70": "#FFC94C",
+	"l-orange": "#ED8B00",
+	"l-orange-70": "#F2AD4C",
+	"purple": "#93227E",
+	"purple-70": "#B364A4",
+	"teal": "#93227E",
+	"teal-70": "#4CD1C9",
+	"blue": "#0084FF",
+	"blue-70": "#4cA8FF",
+	"transparent": "transparent"
+} %}
+
+{% set code = '
+background-color: colour(<colour-key>);
+' %}
+
+{% macro colourpallete() %}
+<div class="colours">
+	{% for name, hex in colours %}
+	<div class="colour">
+		<div class="box bg-{{ name }}"></div>
+		<div class="info">
+			<div class="name">{{ name }}</div>
+			<div class="hex">{{ hex }}</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endmacro %}
+
+{% set example_colours = {
+	title: "Colour List",
+	example: colourpallete(),
+	id: "clist",
+	code: code,
+	language: "scss"
+} %}
+
+{{ util.example_html(example_colours) }}

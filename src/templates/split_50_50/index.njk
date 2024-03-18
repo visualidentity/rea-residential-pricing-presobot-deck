@@ -1,0 +1,55 @@
+{% set options = {
+	article_classes: "template-split-50-50",
+	ribbonless: true,
+	cweKey: "template_split_50_50"
+} %}
+
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	cweKey: "template_split_50_50"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-bundle.njk" as header %}
+
+{% block header_block %}
+	<div class="slide-header-halfpage">
+		<div class="halfpage-image c-editable-image c-editable-image--empty-white" data-companywide-dynamic-image="template_split_50_50_image"></div>
+		{% include "./njk/_partials/re-logo-white.njk" %}
+		<div class="red-divider"></div>
+	</div>
+{% endblock %}
+
+
+{% import "./njk/_partials/interactive-listing.njk" as listing %}
+
+{% block content %}
+	<div class="table-css3">
+		<div class="table-cell">
+			{{ header.title(options, optionsHeader) }}
+
+			<div class="c-editable-text-region c-editable-text-region__listing-chevron rhs-content" data-companywide-editable="template_split_50_50_body" data-toolbar="format list style color superscript removeformat">
+				<h5>
+					Body title
+				</h5>
+
+				<p>
+					Body copy
+				</p>
+
+				<ul>
+					<li>Bullet 1</li>
+					<li>Bullet 2</li>
+					<li>Bullet 3</li>
+				</ul>
+			</div>
+
+			<div class="disclaimer-copy" data-companywide-editable="template_split_50_50_disclaimer" data-toolbar="style superscript removeformat">
+				1. Sources & disclaimers
+			</div>
+		</div>
+	</div>
+{% endblock %}

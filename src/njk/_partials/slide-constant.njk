@@ -1,0 +1,9 @@
+{% macro constant_content(options) %}
+	<section class="content slide-constant {{options.classes}}">
+		{% if options.content %}
+			<section class="content-body">
+				{{ options.content }}
+			</section> <!-- EO content-body -->
+		{% endif %}
+	</section> <!-- EO page01 -->
+{% endmacro %}

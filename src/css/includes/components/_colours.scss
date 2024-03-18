@@ -1,0 +1,12 @@
+@each $key,
+$value in $colour-list {
+	.bg-#{$key} {
+		background-color: $value;
+	}
+	.font-#{$key} {
+		color: $value;
+	}
+	.border-#{$key} {
+		border-color: $value;
+	}
+}

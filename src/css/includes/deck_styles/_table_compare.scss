@@ -1,0 +1,48 @@
+.compare-table {
+
+  tr {
+    &:nth-child(2n) {
+      td {
+        background-color: #F0F1F2;
+      }
+    }
+  }
+
+  td {
+    height: 90px;
+    padding: 0 30px;
+    text-align: right;
+    font-size: 22px;
+
+    &:first-child {
+      text-align: left;
+    }
+  }
+
+  .tick,
+  .cross,
+  .n-a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-size: 40px 40px;
+  }
+
+  .n-a {
+    background-image: url('./img/n_a.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .tick {
+    background-image: url('./img/tick.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .cross {
+    background-image: url('./img/cross.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

@@ -1,0 +1,108 @@
+
+// --------------------------------------------------------
+// common animation keyframes
+// --------------------------------------------------------
+
+@include keyframes(fade_in) {
+	0% {
+		@include ms-less-translate(0px, 0px);
+		opacity: 0;
+	}
+
+	100% {
+		@include ms-less-translate(0px, 0px);
+		opacity: 100;
+	}
+}
+
+
+@include keyframes(fade_out) {
+	0% {
+		@include ms-less-translate(0px, 0px);
+		opacity: 100;
+	}
+
+	99% {
+		@include ms-less-translate(0px, 0px);
+		opacity: 0;
+	}
+	100% {
+		@include ms-less-translate(0px, 0px);
+		opacity: 0;
+	}
+}
+
+// common fade in animation
+.fade-in {
+	position: relative;
+	top: 30px;
+	opacity: 0;
+	transition: top 400ms $easeOutSine,
+				opacity 400ms $easeOutSine;
+}
+
+.currentpage, .slide-intro {
+	.fade-in {
+		opacity: 1;
+		top: 0;
+	}
+}
+
+.delay-1 {
+    transition-delay: 1s;
+}
+.delay-2 {
+    transition-delay: 1.2s;
+}
+.delay-3 {
+    transition-delay: 1.5s;
+}
+.delay-4 {
+    transition-delay: 2.2s;
+}
+.delay-5 {
+    transition-delay: 3.1s;
+}
+.delay-6 {
+    transition-delay: 4s;
+}
+
+@for $i from 1 through 200 {
+    .delay-#{$i * 50} {
+        transition-delay: #{$i * 50}ms;
+    }
+}
+
+/* Animation-complete & IE9 treatments  --------- */
+
+// --------------------------------------------------------
+// common animation-complete classes
+// --------------------------------------------------------
+
+.animation-complete, .ie9 {
+	.animator {
+		@include animation(none !important);
+		@include transition(none !important);
+	}
+
+	.disclaimer-body {
+		@include transition(none !important);
+	}
+
+	.fade-in {
+		top: 0 !important;
+		opacity: 1 !important;
+		transition: none !important;
+	}
+
+	// table animation complete
+	table {
+		tbody {
+			td, th span, input { @include transition(none !important); }
+		}
+
+		tfoot {
+			td, input, span { @include transition(none !important); }
+		}
+	}
+}

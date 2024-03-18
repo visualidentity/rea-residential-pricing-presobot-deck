@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-choose---pebble" transform="translate(1.000000, 1.000000)">
+            <g>
+                <circle id="Oval-5" stroke="#828D99" stroke-width="1.5" cx="34" cy="34" r="34"></circle>
+                <path d="M30.1765474,20.7454605 C30.1765474,19.2783772 31.4348182,18 32.8430453,18 C34.2676314,18 35.6295084,19.2641888 35.6295084,20.7454605 L35.6295084,31.3867803 L43.0155441,34.1010263 C44.7155047,34.6699822 45.2771597,36.7613562 44.8763671,38.5732183 L43.1273298,48.412892 L29.4949273,48.412892 L22.5314961,37.6793474 C21.7503594,36.4378601 21.6712915,34.1010263 23.3903374,34.1010263 C25.1093834,34.1010263 26.7384555,35.0970538 30.1765474,40.6092575 L30.1765474,20.7454605 L30.1765474,20.7454605 Z" id="Stroke-109" stroke="#00A4C7" stroke-width="1.5" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

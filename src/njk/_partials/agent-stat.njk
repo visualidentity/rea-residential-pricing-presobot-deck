@@ -1,0 +1,39 @@
+{% macro agent_stat(options) %}
+	<div class="agent-stat {{options.classes}}">
+		{% if options.image  %}
+			<div class="agent-stat__image-container">
+				<div class="agent-stat__image"></div>
+				{% if options.agency_profile %}
+					<div class="agent-stat__name-group">
+						<div class="agent-stat__name"></div>
+						<div class="agent-stat__job-title"></div>
+						<div class="agent-stat__elevate-badge"></div>
+					</div>
+
+				{% else %}
+					<div class="agent-stat__name"></div>
+				{% endif %}
+
+			</div>
+		{% endif %}
+		<div class="agent-stat__stats">
+			{% for item in options.stats %}
+				<div class="agent-stat__stat">
+					<span class="agent-stat__value">{{item.value}}</span>
+					<span class="agent-stat__title">{{item.title}}</span>
+				</div>
+			{% endfor %}
+		</div>
+		{% if options.completion %}
+		<div class="agent-stat__chart--container">
+			<div class="agent-stat__profile-completion">
+				<h6>Agent Profile Complete</h6>
+				<div class="agent-stat__chart">
+					{{ options.completion }}
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+

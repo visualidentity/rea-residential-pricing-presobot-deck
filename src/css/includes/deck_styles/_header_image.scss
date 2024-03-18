@@ -1,0 +1,9 @@
+.header-image {
+	@include retina-background-image("img/rent_product/connect_logos", "png");
+	height: 47px;
+	display: block;
+	width: 331px;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+ }

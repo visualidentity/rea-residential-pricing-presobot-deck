@@ -1,0 +1,67 @@
+<style>
+	.example .property-stat .icon.wealth_creation {
+		background-image: url("{{ src.deck_src }}/css/img/property-stat/wealth_creation.svg");
+	}
+</style>
+
+{% set example = {
+	title: "Property Stat",
+	id: "propertystat",
+	example: ps.property_stat({
+		classes: "medium",
+		icon: {
+			class: "wealth_creation",
+			width: 110,
+			height: 89,
+			margin: 30
+		},
+		number: '46%',
+		text: 'suburb sold price'
+	}),
+	full: false,
+	example_classes: "animate-stats ps-height bg-teal-70",
+	code_array: [{
+			language: 'django',
+			code: '
+
+{% import "./njk/_partials/property-stat.njk" as ps %}
+
+ps.property_stat({
+	classes: "medium",
+	icon: {
+		class: "wealth_creation",
+		width: 110,
+		height: 89,
+		margin: 30
+	},
+	number: "46%",
+	text: "suburb sold price"
+})
+			',
+			desc: "
+				The classes can be used to change the font sizes of the property stat, <br>
+				The options are: <br>
+				</p>
+				<ul>
+					<li>largest</li>
+					<li>large</li>
+					<li>medium</li>
+					<li>small</li>
+					<li>smallest</li>
+				</ul> <br><br>
+				<p>
+				The icon should be added to <span class='path'>css/img/property-stat</span> and added to the icon list inside of <span class='path'>css/includes/deck_styles/_property_stat.scss</span> <br>
+				You can then just pass the filename through in the icon class parameter and set the width and height of the icon. <br>
+				The margin parameter changes the margin-bottom property and allows for the icon to be lined up with other property stats.
+			"
+		}, {
+			language: 'js',
+			code: '
+animateStats($pageContainer);
+			',
+			desc: "In order for the property stat to animate in you need to call the animateStats function passing in the pageContainer. This is useful as you can call this after injecting dynamic content from feeds."
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

@@ -1,0 +1,130 @@
+.stat-card {
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 30px 30px 28px;
+  border-radius: 8px;
+  border: 1px solid #D0D0D0;
+  position: relative;
+
+  &.hide,
+  &.is-hidden {
+    display: none;
+  }
+
+  h5 {
+    padding-bottom: 13px;
+    border-bottom: 1px solid #D0D0D0;
+  }
+}
+
+.stat-card__close {
+  font-size: 0;
+  position: absolute;
+  right: 30px;
+  top: 35px;
+  z-index: 2;
+}
+
+.stat-card__row {
+  @include clear();
+}
+
+.stat-card__left {
+  margin-top: 42px;
+  width: 60%;
+  float: left;
+  color: colour(pebble);
+
+  p {
+    font-size: 26px;
+    line-height: 31px;
+    margin-bottom: 25px;
+  }
+}
+
+.stat-card__right {
+  float: right;
+  width: 40%;
+  margin-top: 28px;
+  padding-left: 30px;
+  max-width: 200px;
+}
+
+.stat-card__cta {
+  width: 160px;
+  background-color: colour(red);
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.stat-card__stat {
+  width: 134px;
+  height: 134px;
+  border-radius: 134px;
+  font-size: 71px;
+  text-align: center;
+  line-height: 34px;
+  border: 3px solid colour(pebble);
+  font-weight: 200;
+  display: block;
+  padding-top: 48px;
+  margin-left: 5px;
+  position: relative;
+
+  &:before {
+    content: ' ';
+    height: 55px;
+    width: 20px;
+    background-color: white;
+    position: absolute;
+    right: -10px;
+    top: 34px;
+  }
+
+  &:after {
+    content: ' ';
+    width: 29px;
+    height: 29px;
+    display: block;
+    position: absolute;
+    right: -15px;
+    top: 46px;
+    background-size: 29px 29px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &--percentage {
+    &:after {
+      background-image: url('img/percentage.png');
+      background-size: 27px 30px;
+    }
+  }
+  &--times {
+    &:after {
+      background-image: url('img/cross-red.png');
+    }
+  }
+  &--email-icon {
+    background-image: url('img/email-icon.png');
+    border: none;
+    background-size: 100% auto;
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.stat-card__disclaimer {
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1;
+  font-size: 16px;
+}

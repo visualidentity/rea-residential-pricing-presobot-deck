@@ -1,0 +1,17 @@
+
+// --------------------------------------------------------
+// IE9 & IE10 fixes
+// --------------------------------------------------------
+
+article {
+
+	//IE 9 & IE 10 specific fixes
+	//-------------------------------------------------------------
+	&.ie9, &.ie10 {
+
+		//Add background to disclaimer button so that disclaimer text can be clicked on
+		.disclaimer-target, .subslide-button {
+			background-color: rgba(colour(white), 0.001);
+		}
+	}
+}

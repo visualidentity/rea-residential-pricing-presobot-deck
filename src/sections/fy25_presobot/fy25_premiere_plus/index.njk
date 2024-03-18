@@ -1,0 +1,423 @@
+{% set options = {
+	id: "fy25_premiere_plus",
+	article_classes: "",
+	ribbonless: true
+} %}
+
+{% set subslideData = [
+	{
+		key: 'pre-market',
+		subslideNum: 2,
+		category: 'Pre-market',
+		title: 'Coming Soon buyer notification',
+		description: 'Promote properties as coming soon to market, and build interest with realestate.com.au’s most engaged consumers.',
+		subLogo: null,
+		label: null,
+		disclaimers: []
+	},
+	{
+		key: 'pre-market',
+		subslideNum: 3,
+		category: 'Pre-market',
+		title: 'Coming Soon Premiere listing on realestate.com.au',
+		description: 'Easily upload a Coming Soon listing on realestate.com.au and build interest in your brand and property, before it hits the market.',
+		subLogo: true,
+		label: null,
+		disclaimers: []
+	},
+	{
+		key: 'pre-market',
+		subslideNum: 4,
+		category: 'Pre-market',
+		title: 'Coming Soon exposure on property.com.au',
+		description: 'Promote your brand and property to the property.com.au audience, Australia’s third largest real estate brand.<sup>1</sup>',
+		subLogo: null,
+		label: null,
+		disclaimers: ['Ipsos iris Online Audience Measurement Service, Apr-23 -Dec-23 (average), P14+, PC/laptop/smartphone/tablets, text only, Brand Group, Audience (000s)']
+	},
+	{
+		key: 'on-market',
+		subslideNum: 5,
+		category: 'On market',
+		title: 'Unlimited Premiere listing on realestate.com.au',
+		description: 'Appear at the top of the search results, move your properties faster and get a better result, while giving your vendors confidence with an unlimited Premiere listing.',
+		subLogo: null,
+		label: null,
+		disclaimers: []
+	},
+	{
+		key: 'on-market',
+		subslideNum: 6,
+		category: 'On market',
+		title: 'eBrochure Buy',
+		description: 'Target buyers in their inbox, as soon as they show intent towards properties like yours and schedule a second eBrochure send via Ignite, at a time that’s best for you.',
+		subLogo: true,
+		label: null,
+		disclaimers: []
+	},
+	{
+		key: 'on-market',
+		subslideNum: 7,
+		category: 'On market',
+		title: 'Listing Bump',
+		description: 'Schedule your listing to be bumped to the top of the search results, when it suits you.<sup>1</sup>',
+		subLogo: true,
+		label: null,
+		disclaimers: ['An eligible listing may be bumped once only during the life of the listing.']
+	},
+	{
+		key: 'on-market',
+		subslideNum: 8,
+		category: 'On market',
+		title: 'Campaign Overview',
+		description: 'Run a more efficient campaign for every listing with a streamlined view of key dates, actions and unused products that can be scheduled in an instant.',
+		subLogo: true,
+		label: "New",
+		disclaimers: []
+	},
+	{
+		key: 'on-market',
+		subslideNum: 9,
+		category: 'On market',
+		title: 'Listing Optimisation & Insights',
+		description: '
+			<h5>Listing Optimisation</h5>
+			<p>Improve your listings’ performance via Ignite, with recommendations and suggested actions including image optimisation, recommended property features and listing strength checks.</p>
+			<h5>Listing Insights</h5>
+			<p>Stay ahead of the competition and have informed conversations with vendors by accessing daily insights on your listings from day three of your campaigns, including new postcode insights.</p>
+		',
+		subLogo: true,
+		label: "Enhanced",
+		disclaimers: []
+	},
+	{
+		key: 'on-market',
+		subslideNum: 10,
+		category: 'On market',
+		title: 'Exposure on property.com.au',
+		description: "Increase your exposure with additional features on property.com.au. Australia's third largest real estate brand.<sup>1</sup>",
+		subLogo: null,
+		label: null,
+		disclaimers: ['Ipsos iris Online Audience Measurement Service, Apr-23 -Dec-23 (average), P14+, PC/laptop/smartphone/tablets, text only, Brand Group, Audience (000s)']
+	},
+	{
+		key: 'on-market',
+		subslideNum: 11,
+		category: 'On market',
+		title: 'Branding boost on Property Profiles',
+		description: "Build your brand in market with new branding placements within Property Profiles (formerly Page for Every Property) - the second most visited experience on realestate.com.au.<sup>1</sup>",
+		subLogo: null,
+		label: null,
+		disclaimers: ['REA Internal Data, visits, Jul 2023 - Dec 2023']
+	},
+	{
+		key: 'on-market',
+		subslideNum: 12,
+		category: 'On market',
+		title: 'Lower Valued Asset Flex',
+		description: "Access even more flexibility with unlimited downgrades and Pay on Sale options for lower valued properties.<sup>1</sup>",
+		subLogo: true,
+		label: 'New',
+		disclaimers: ['Unlimited downgrades and Pay on Sale are subject to the listing price falling below the LVA Threshold stipulated at prices.realestate.com.au. T&Cs Apply. Downgrades apply to Feature or Highlight only. Pay on sale available for an additional cost.']
+	},
+	{
+		key: 'on-market',
+		subslideNum: 13,
+		category: 'On market',
+		title: 'Audience Maximiser',
+		description: "Target Australia's largest, most engaged property audience beyond their search on realestate.com.au and increase your chances of finding the right buyer, sooner.<sup>1</sup>",
+		subLogo: true,
+		label: 'Optional add-on',
+		disclaimers: ['Ipsos iris Online Audience Measurement Service, Apr-23 - Nov-23 (average), P14+, PC/laptop/smartphone/tablets, text only, Brand Group, Audience (000s), Audience Share (%)']
+	},
+	{
+		key: 'post-market',
+		subslideNum: 14,
+		category: 'Post-market',
+		title: 'eBrochure Sold',
+		description: "Showcase your track record with sellers in their inbox with a complimentary eBrochure",
+		subLogo: true,
+		label: null,
+		disclaimers: []
+	},
+	{
+		key: 'post-market',
+		subslideNum: 15,
+		category: 'Post-market',
+		title: 'Recently Sold feature on realestate.com.au',
+		description: "Share your success with sellers in your local area, with recently sold Premiere+ listings featuring in the Buy search results.",
+		subLogo: null,
+		label: null,
+		disclaimers: []
+	}
+]%}
+
+{% macro renderSubslide(data) %}
+	<div id="subslide-{{data.subslideNum}}" class="page0{{data.subslideNum}} subslide content content__subslide-modal content__subslide-modal--new content__subslide-modal--{{data.key}}">
+		<div class="close-subslide" data-companywide-editable="editable-fy25_premiere_plus-6dMadpbJPu"></div>
+		<div class="subslide-modal__content">
+			<div>
+				<div class="subslide-modal__content--category {{data.key}}" data-companywide-editable="editable-fy25_premiere_plus-BQ01w55uQ3">
+					{{data.category}}
+					{% if data.subLogo %}
+						<div class="sub-logo"></div>
+					{% endif%}
+				</div>
+				<div class="subslide-modal__content--title" data-companywide-editable="editable-fy25_premiere_plus-rc9zL2YX7H">
+					{% if data.label%}
+						<span class="tag">{{data.label}}</span>
+					{% endif%}
+					{{data.title | safe}}
+				</div>
+				<p data-companywide-editable="editable-fy25_premiere_plus-4SbJiDmTM3">
+					{{data.description | safe}}
+				</p>
+
+			</div>
+			<div class="subslide__img subslide__img-{{data.subslideNum}}"></div>
+		</div>
+		<section class="disclaimer" data-companywide-editable="editable-fy25_premiere_plus-mnqqwerft5">
+			<div class="disclaimer-container">
+				<div class="disclaimer-body">
+					<ol>
+						{% for disclaimer in data.disclaimers%}
+							<li class="disclaimer-copy">{{disclaimer}}</li>
+						{% endfor%}
+					</ol>
+				</div>
+			</div>
+		</section>
+
+		{% if data.subslideNum === 9 %}
+			<div class="content__subslide-modal__img--navigation">
+				<div class="prev inactive"></div>
+				<div class="next"></div>
+			</div>
+		{% endif %}
+		{% if data.subslideNum === 14 %}
+			<div class="content__subslide-modal__img--switch">
+				<input id="checkbox-14" type="checkbox"/>
+				<label for="checkbox-14">
+					<div class="slider"></div>
+				</label>
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% extends "./njk/base.njk" %}
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-border-breadcrumb.njk" as header %}
+
+{% block header_block %}
+{{header.render({
+		title: 'Premiere+ continues to get you a better result at every step',
+		color: 'purple',
+		contentClasses: 'o-transition__children o-transition__children--fade-up',
+		cweKey: 'fy25_premiere_plus_header',
+		breadcrumb: {
+			text: 'Property Advertising',
+			icon: 'property-ads',
+			classes: 'breadcrumb--purple'
+		}
+	})}}
+{% endblock %}
+
+{% block content %}
+	<section class="subslide-container">
+		<div id="subslide-1" class="page01 subslide content active">
+			<div class="o-transition--fade-up o-transition__delay--250">
+				<div class="pillars o-transition__children o-transition__children--fade-up o-transition__delay--250">
+					<div class="pillars--container">
+						<div class="pillar--heading grey">
+							<div>
+								<div class="icon pre-market"></div>
+								<div>
+									<h2 data-companywide-editable="fy25_premiere_plus_pillar_1_heading_editable_KTJrAHhe8l">Pre-market</h2>
+									<p data-companywide-editable="fy25_premiere_plus_pillar_1_desc_editable_XeLiXjcW6m">Build demand early with the most engaged buyers</p>
+								</div>
+							</div>
+						</div>
+						<div class="pillar-children">
+							<div class="pillar--child" data-subslide="2">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_1_children_1_editable_WDJ4YoxxkW">Coming Soon buyer notification</span>
+								<div class="readmore--btn grey">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="3">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_1_children_2_editable_gcXqZ6FTZe">Coming Soon Premiere listing<br />on realestate.com.au</span>
+								<div class="readmore--btn grey">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="4">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_1_children_3_editable_t81vBpFA3t">Coming Soon exposure<br />on property.com.au</span>
+								<div class="readmore--btn grey">read more</div>
+							</div>
+						</div>
+					</div>
+					<div class="pillars--container">
+						<div class="pillar--heading purple">
+							<div class="cta-button" data-subslide="on-market">
+								<div class="icon on-market"></div>
+								<div>
+									<h2 data-companywide-editable="fy25_premiere_plus_pillar_2_heading_editable_hTrXUUHsXa">On market</h2>
+									<p data-companywide-editable="fy25_premiere_plus_pillar_2_desc_editable_tr9MeKeVRm">Boost your listings and reach even more buyers</p>
+								</div>
+							</div>
+						</div>
+						<div class="pillar-children">
+							<div class="pillar--child" data-subslide="5">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_1_editable_sNefSb30y3">Unlimited Premiere listing on realestate.com.au</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="6">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_2_editable_2tOjm4UVmr">eBrochure Buy</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="7">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_3_editable_rKNDRJje3Q">Listing Bump</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="8">
+								<span class="pillar--child__tag" data-companywide-editable="fy25_premiere_plus_pillar_2_children_4_tag_editable_TVryNOpugm">New</span>
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_4_editable_Vs3JZH1xgu">Campaign Overview</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="9">
+								<span class="pillar--child__tag" data-companywide-editable="fy25_premiere_plus_pillar_2_children_5_tag_editable_hoYJfwX7Cm">Enhanced</span>
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_5_editable_p1WaKhvRo5">Listing Optimisation & Insights</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="10">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_6_editable_O4GyhPGvDZ">Exposure on property.com.au</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="11">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_7_editable_MDUWuuBeFv">Branding boost on Property Profiles</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="12">
+								<span class="pillar--child__tag" data-companywide-editable="fy25_premiere_plus_pillar_2_children_8_tag_editable_CizK9ie7O4">New</span>
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_8_editable_DIv7tz3uvr">Lower Valued Asset Flex</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+							<div class="pillar--child highlight" data-subslide="13">
+								<span class="pillar--child__tag" data-companywide-editable="fy25_premiere_plus_pillar_2_children_9_tag_editable_CizR9ie7O4">Optional add-on</span>
+								<span data-companywide-editable="fy25_premiere_plus_pillar_2_children_9_editable_3gKSDRqh64">Audience Maximiser</span>
+								<div class="readmore--btn">read more</div>
+							</div>
+						</div>
+					</div>
+					<div class="pillars--container">
+						<div class="pillar--heading grey">
+							<div>
+								<div class="icon post-market"></div>
+								<div>
+									<h2 data-companywide-editable="fy25_premiere_plus_pillar_3_heading_editable_GdL5Skvhl4">Post-market</h2>
+									<p data-companywide-editable="fy25_premiere_plus_pillar_3_desc_editable_OiXc3N3o9G">Share your success</p>
+								</div>
+							</div>
+						</div>
+						<div class="pillar-children">
+							<div class="pillar--child" data-subslide="14">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_3_children_1_editable_PTnsdxG8oj">eBrochure Sold</span>
+								<div class="readmore--btn grey">read more</div>
+							</div>
+							<div class="pillar--child" data-subslide="15">
+								<span data-companywide-editable="fy25_premiere_plus_pillar_3_children_2_editable_YxtaeAOql1">Recently Sold feature on realestate.com.au</span>
+								<div class="readmore--btn grey">read more</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% for sub in subslideData %}
+			{{ renderSubslide(sub) }}
+		{% endfor %}
+
+		<div class="content__subslide-modal--navigation">
+			<div class="prev" data-prev></div>
+			<div class="next" data-next></div>
+		</div>
+	</section>
+
+	<footer class="slide-footer">
+		<div class="disclaimer-target"></div>
+		<div class="logo"></div>
+	</footer>
+
+{% endblock %}
+
+{% block js_rendered %}
+	attachSlideEvents(["disclaimer"]);
+  var moreValue = new subslideModalReturnOnYourInvestment({slide: $pageContainer, sectionTwo: 12});
+{% endblock %}
+
+{% block js_ready %}
+	var isClient = $('body').hasClass('client');
+	var $pageContainer = $('article#fy25_premiere_plus');
+
+	var $imgNavigationContainer = $pageContainer.find('.content__subslide-modal__img--navigation');
+	var $prev = $imgNavigationContainer.find('.prev');
+	var $next = $imgNavigationContainer.find('.next');
+
+	var $imgSlideNavBtn14 = $pageContainer.find('#checkbox-14');
+
+	function toggleNavigationButton(subslideKey) {
+		$pageContainer.find(`#${subslideKey} .prev`).toggleClass('inactive');
+		$pageContainer.find(`#${subslideKey} .next`).toggleClass('inactive');
+	}; 
+
+	function bindMasterEvent() {
+		// Change image subslide-9:
+		$prev.on('click', function() {
+			if (!$(this).hasClass('inactive')) {
+				toggleNavigationButton('subslide-9');
+				$('#subslide-9 .subslide__img').toggleClass('subslide__img-9-2');
+				Bridge.Event.trigger('master:change-img-subslide-9', {nextImg: false});
+			};
+		});
+
+		// Change image subslide-9:
+		$next.on('click', function() {
+			if (!$(this).hasClass('inactive')) {
+				toggleNavigationButton('subslide-9');
+				$('#subslide-9 .subslide__img').toggleClass('subslide__img-9-2');
+				Bridge.Event.trigger('master:change-img-subslide-9', {nextImg: true});
+			};
+		});
+	
+		// Change image subslide-14:
+		$imgSlideNavBtn14.on('change', function(e) {
+			$('#subslide-14 .subslide__img').toggleClass('subslide__img-14-2');
+			Bridge.Event.trigger('master:change-img-subslide-15', {nextImg: e.target.checked});
+		});
+	};
+
+	function bindClientEvent() {
+		Bridge.Event.on('master:change-img-subslide-9', ({nextImg}) => {
+			if (nextImg) {
+				$('#subslide-9 .subslide__img').addClass('subslide__img-9-2');
+			} else {
+				$('#subslide-9 .subslide__img').removeClass('subslide__img-9-2');
+			}
+		});
+
+		Bridge.Event.on('master:change-img-subslide-15', ({nextImg}) => {
+			$imgSlideNavBtn14.prop('checked', nextImg);
+			if (nextImg) {
+				$('#subslide-14 .subslide__img').addClass('subslide__img-14-2');
+			} else {
+				$('#subslide-14 .subslide__img').removeClass('subslide__img-14-2');
+			}
+		});
+	};
+
+
+	if (isClient) {
+		bindClientEvent();
+	} else {
+		bindMasterEvent();
+	};
+
+{% endblock %}

@@ -1,0 +1,64 @@
+$output-bourbon-deprecation-warnings: false !default;
+@import 'bourbon';
+@import 'addons/prefixer';
+
+@import "./docstyles/_reset.scss";
+@import "./docstyles/_layout.scss";
+@import "./docstyles/_tomorrow-night.scss";
+
+// deck imports
+@import '../../src/css/includes/variables';
+@import '../../src/css/includes/mixins';
+@import '../../src/css/includes/components/sp_modes';
+@import '../../src/css/includes/components/master_styles';
+@import './fonts/_fonts.scss';
+
+.example, .include, .slide {
+	/* Component Imports --------------------------------------------------------- */
+
+	@import '../../src/css/includes/components/typography';
+	@import '../../src/css/includes/components/animation';
+	@import '../../src/css/includes/components/grid';
+	@import '../../src/css/includes/components/ie';
+	@import '../../src/css/includes/components/inputs';
+	@import '../../src/css/includes/components/control_block';
+	@import '../../src/css/includes/components/table';
+	@import '../../src/css/includes/components/colours';
+
+/* Common Styles ------------------------------------------------------------- */
+
+	@import '../../src/css/includes/required';
+	@import '../../src/css/includes/base_styles';
+
+	@import '../../src/css/includes/connector_lines';
+
+/* Deck Style Imports -------------------------------------------------------- */
+
+	@import '../../src/css/includes/deck_styles/title_slide';
+	@import '../../src/css/includes/deck_styles/product_suite_slide';
+	@import '../../src/css/includes/deck_styles/product_slide';
+	@import '../../src/css/includes/deck_styles/property_stat';
+	@import '../../src/css/includes/deck_styles/property_ad';
+	@import '../../src/css/includes/deck_styles/block';
+	@import '../../src/css/includes/deck_styles/product';
+	@import '../../src/css/includes/deck_styles/advert';
+	@import '../../src/css/includes/deck_styles/branding';
+	@import '../../src/css/includes/deck_styles/pie';
+
+	@import "./docstyles/_pie_keys.scss";
+
+	@import '../../src/css/includes/deck_styles/branded_layout';
+	@import '../../src/css/includes/deck_styles/listing_stat';
+	@import '../../src/css/includes/deck_styles/market_comparison';
+	@import '../../src/css/includes/deck_styles/agent_stat';
+	@import '../../src/css/includes/deck_styles/pie_style';
+	@import '../../src/css/includes/deck_styles/icon_data';
+	@import '../../src/css/includes/deck_styles/remove_icon';
+	@import '../../src/css/includes/deck_styles/header_image';
+	@import '../../src/css/includes/deck_styles/option_selector';
+	@import '../../src/css/includes/deck_styles/slider';
+	@import '../../src/css/includes/deck_styles/connection_benefits';
+	@import '../../src/css/includes/deck_styles/subscription_table';
+	@import '../../src/css/includes/deck_styles/footer_navigation';
+}
+	@import '../../src/css/includes/deck_styles/image_text_overlay';

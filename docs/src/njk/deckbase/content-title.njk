@@ -1,0 +1,13 @@
+{% set example = {
+	title: "Content Title",
+	id: "contenttitle",
+	example: ct.title("Content Title Example"),
+	language: "django",
+	desc: "Content title used at the top of slides",
+	code: '
+{% import "njk/_partials/content-title.njk" as ct %}
+{{ ct.title("Content Title Example") }}
+'
+} %}
+
+{{ util.example_html(example) }}

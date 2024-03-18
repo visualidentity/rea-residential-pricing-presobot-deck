@@ -1,0 +1,45 @@
+.tabs {
+	> .tab-item {
+		display: inline-flex;
+		align-items: center;
+
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 32px;
+		color: #D3D3D3;
+		cursor: pointer;
+
+		margin-right: 55px;
+		min-height: 40px;
+
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		> .tab-item-icon {
+			margin-left: 12px;
+			&--lock {
+				width: 16.88px;
+				height: 21.58px;
+				background-image: url('../css/img/tabs/lock.svg');
+				background-size: 16.88px 21.58px;
+			}
+		}
+		
+		&--active {
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 30px;
+			color: #0078BD;
+
+			border-bottom: 4px solid #0078BD;
+
+			> .tab-item-icon {
+				&--lock {
+					background-image: url('../css/img/tabs/lock-active.svg');
+				}
+			}
+		}
+	}
+}

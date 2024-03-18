@@ -1,0 +1,76 @@
+<style>
+	.example .block-benefits .block-benefits__icon {
+		background-image: url("{{ src.deck_src }}/css/img/benefits/icon-rank.svg");
+	}
+</style>
+
+<style>
+	/*.example .property-stat .icon.wealth_creation {
+		background-image: url("{{ src.deck_src }}css/img/property-stat/wealth_creation.svg");
+	}*/
+</style>
+
+{% set example = {
+	title: "Block - benefits",
+	id: "block_benefits",
+	example: block_wrapper.block_benefits({
+		border: true,
+		colour: "blue-70",
+		title: "Premiere Benefits",
+		items: [
+			{
+				icon: "icon-rank",
+				title: "Rank",
+				copy: "Appear at the top of all search results"
+			},
+			{
+				icon: "icon-rank",
+				title: "Branding",
+				copy: "Dominate the page with the largest\nlisting & agency branding"
+			},
+			{
+				icon: "icon-rank",
+				title: "Rotation period",
+				copy: "Rotate to the top of the search results\nevery 15 days, to ensure you’re top of\nmind with buyers"
+			}
+		]
+	}),
+	full: false,
+	example_classes: "",
+	code_array: [{
+			language: 'django',
+			code: '
+block_wrapper.block_benefits({
+	alignVertical: false,
+	border: true,
+	colour: "blue-70",
+	title: "Premiere Benefits",
+	items: [
+		{
+			icon: "icon-rank",
+			title: "Rank",
+			copy: "Appear at the top of all search results"
+		},
+		{
+			icon: "icon-rank",
+			title: "Branding",
+			copy: "Dominate the page with the largest\nlisting & agency branding"
+		},
+		{
+			icon: "icon-rank",
+			title: "Rotation period",
+			copy: "Rotate to the top of the search results\nevery 15 days, to ensure you’re top of\nmind with buyers"
+		}
+	]
+})
+			',
+			desc: "
+				Benefits block that is usually found alongisde a 'Product'.<br>
+				If there is no 'border' or 'colour' properties set, the block defaults to a light-grey background with no border.<br><br>
+				Setting 'alignVertical' to 'true' will align the list items vertically center within their parent container.
+			"
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

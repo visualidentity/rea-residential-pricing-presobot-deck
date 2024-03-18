@@ -1,0 +1,50 @@
+.keys {
+	position: absolute;
+	top: 150px;
+	left: 750px;
+	opacity: 1;
+	@include transform(translateY(0px));
+	@include transition(transform 400ms ease-out, opacity 400ms ease-out);
+	@include transition-delay(1s);
+	.key {
+		padding-bottom: 80px;
+		.icon {
+			display: inline-block;
+			width: 80px;
+			height: 80px;
+			vertical-align: middle;
+			margin-right: 30px;
+			width: 129px;
+			height: 82px;
+			background-position: center center;
+			background-repeat: no-repeat;
+			&.desktop {
+				background-size: 129px 82px;
+				&.blue {
+					background-image: url('img/pie/desktop-blue.svg');
+				}
+				&.teal {
+					background-image: url('img/pie/desktop-teal.svg');
+				}
+				&.purple {
+					background-image: url('img/pie/desktop-purple.svg');
+				}
+			}
+			&.mobile {
+				background-size: 33px 64px;
+				background-image: url('img/pie/mobile.svg');
+			}
+			&.tablet {
+				background-size: 53px 74px;
+				background-image: url('img/pie/tablet.svg');
+			}
+		}
+		h3 {
+			font-weight: 100;
+			display: inline-block;
+			vertical-align: middle;
+			font-size: $font-size-66;
+			line-height: $font-size-66;
+		}
+	}
+}

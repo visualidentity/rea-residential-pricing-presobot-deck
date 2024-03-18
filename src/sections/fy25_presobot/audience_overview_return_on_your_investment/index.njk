@@ -1,0 +1,221 @@
+{% set options = {
+  id: "audience_overview_return_on_your_investment",
+  article_classes: "audience-overview",
+	ribbonless: true,
+	cweKey: "audience_overview_return_on_your_investment"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{% block header_block %}
+	<header>
+		<h1 data-companywide-editable="editable-audience-overview-fy24-kkjiuhygt6">Getting you in front of Australia's largest audience of property seekers</h1>
+    <dl class="breadcrumb breadcrumb--purple">
+			<dd class="icon icon--property-ads">Audience &amp; Insights</dd>
+		</dl>
+	</header>
+{% endblock %}
+
+
+
+{% block content %}
+	{# import 'block' macro #}
+	{% import "./njk/_partials/branding.njk.js" as branding_js %}
+  {% import "./njk/_partials/input.njk" as input %}
+
+	{# set content #}
+      <div class="va-card__dd">
+        <div>
+            <div class="va-keys" data-state>
+              <div realestate>realestate.com.au</div>
+              <div competitor>Nearest competitor</div>
+              {# <div audience>Shared audience</div> #}
+          </div>
+      </div>
+      <div>
+        <div class="va-card__dd__half state-dropdown">
+            {{input.dropdown({
+              disabled: false,
+              value: "",
+              classes: "input--grey va-state-dd",
+              placeholder: "State"
+            })}}
+          </div>
+          <div class="refresh" data-refresh></div>
+        </div>
+    </div>
+  <div class="va-cards-container">
+
+    <div class="va-cards column-group column-group--animated" data-state>
+      <div class="va-card column column--span-1" data-removable>
+			    <div class="removable remove-icon"></div>
+
+          <div class="va-card__container">
+
+              <div class="va-card__items">
+                  <div class="va-card__items-row">
+                      <div class="va-card__item va-card__item--before">
+                          <div class="va-card__outro">More eyes on your properties</div>
+                      </div>
+                      <div class="va-card__item va-card__item--after" dataUniqueAudience>
+                          <div class="va-card__value" data-ma-reaUniqueAudience></div>
+                          <div class="va-card__value" data-ma-domainUniqueAudience></div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="va-card__footer">
+            <p data-ma-audience-claim></p>
+          </div>
+      </div>
+
+      <div class="va-card column column--span-1" data-removable>
+			    <div class="removable remove-icon"></div>
+
+          <div class="va-card__container">
+
+              <div class="va-card__items">
+                  <div class="va-card__items-row">
+                      <div class="va-card__item va-card__item--before">
+                          <div class="va-card__outro">An audience you won't find anywhere else</div>
+                      </div>
+                      <div class="va-card_circle__item va-card__item--after" dataExclusive>
+                          <div class="va-card_circle__value" data-ma-reaExclusiveAudience>XX%</div>
+                          <div class="va-card_circle__value" data-ma-audienceExclusiveDomain>XX%</div>
+                          {# <div class="va-card_circle__value" data-ma-sharedAudience>XX%</div> #}
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="va-card__footer">
+            {# <p>Almost <span data-ma-exclusive-compare>XX</span> <span>million</span> Australians only use realestate.com.au<br/>each month and do not visit Domain<sup>2</sup> </p> #}
+            <p data-ma-exclusive-claim></p>
+          </div>
+      </div>
+
+      <div class="va-card column column--span-1" data-removable>
+			    <div class="removable remove-icon"></div>
+
+          <div class="va-card__container">
+
+              <div class="va-card__items">
+                  <div class="va-card__items-row va-card__items-row_pie">
+                      <div class="va-card__item va-card__item--before">
+                          <div class="va-card__outro">The most engaged property seekers</div>
+                      </div>
+
+                          {# <div class="va-card__value" data-ma-domainTimeSpentPerPerson></div> #}
+                          <div class="va-card__value_pie va-card__value_pie_full animate" style="--p:75;--c:#E4002B">
+                                <div class="va-card__value_pie_min" data-ma-reaTimeSpentPerPerson>
+                                </div> 
+
+                          </div>
+                          <div class="va-card__value_pie va-card__value_pie_custom animate" data-ma-domainTimeSpentPerPersonPie style="--c:#41C052;"></div>
+
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="va-card__footer">
+              {# <p> Property seekers are&nbsp;<span data-ma-time-spent-compare>XX</span>&nbsp;<span>times</span> more engaged<br/>on realestate.com.au<sup>3</sup> </p> #}
+              <p data-ma-time-spent-claim></p>
+          </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="slide-footer">
+		<section class="disclaimer">
+			<div class="disclaimer-container">
+				<p class="disclaimer-link">Source</p>
+				<div class="disclaimer-body" data-ma-disclaimer></div>
+			</div>
+		</section> 
+		<div class="disclaimer-target"></div>
+
+		<div class="logo"></div>
+	</footer>
+
+{% endblock %}
+
+<script>
+{% block js_rendered %}
+  attachSlideEvents(["disclaimer"]);
+  var overviewData = Bridge.Feed.get('audienceOverviewReturnOnYourInvestment').raw();
+  var $childRemove = $pageContainer.find('[data-remove]');
+	var $refresh = $pageContainer.find('[data-refresh]');
+	var prepContext = Bridge.Context.match('.value-audience-prep', []);
+
+  Bridge.Request.get("/api-proxy/?url=https://d2xpnl9r21uz0w.cloudfront.net/rea18303/rea/pricing-preset/audience-overview").then((res) => {console.log(res)})
+
+ 	var hidden = Bridge.Context.match('.audience_overview_return_on_your_investment--removable', []);
+
+	Bridge.Event.on('master:audience_overview_return_on_your_investment-context', function(data) {
+		if (data.length > 0) {
+			$.each(data, function( index, value ) {
+				$pageContainer.find('[data-removable]').eq(value).hide();
+			});
+		} else {
+			$pageContainer.find('[data-removable]').show();
+		}
+	});
+	
+  var $removable = $pageContainer.find('.removable');
+
+  $removable.on("click", function() {
+    hidden.push($(this).closest('[data-removable]').index());
+    Bridge.Context.set('audience_overview_return_on_your_investment--removable', hidden);
+    Bridge.Event.trigger('master:audience_overview_return_on_your_investment-context', hidden);
+  });
+
+  $refresh.on("click", function() {
+    hidden = [];
+    Bridge.Context.set('audience_overview_return_on_your_investment--removable', hidden);
+    Bridge.Event.trigger('master:audience_overview_return_on_your_investment-context', hidden);
+  });
+
+  var $header = $('.slide-header-center', $pageContainer);
+	var $titleDivider = $('.arrow', $header);
+	var $subtitle = $('.slide-header-center__subtitle', $header);
+	var $subsectionNav = $('.subsection__navigation', $pageContainer);
+
+	var animators = [
+		$titleDivider,
+		$subtitle,
+		$subsectionNav,
+	];
+
+	// Trigger slide animations
+	_.each(animators, animator => {
+		animator.addClass('launched');
+	});
+
+  var $state = Bridge.Context.match(".customer .state", "");
+  var slide = 'au-audience'
+
+  var refactorData = function(data) {
+    return data
+  }
+
+  var data = {
+    overviewData: overviewData
+  }
+
+  var audienceOverview = new attachAudienceOverviewReturnOnYourInvestmentEvents({container: $pageContainer, slide: 'audience-overview', data: data});
+
+  if (hidden.length > 0) {
+		Bridge.Event.trigger('master:audience_overview_return_on_your_investment-context', hidden);
+	}
+	
+{% endblock %}
+
+
+{% block js_ready %}
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% macro render(options) %}
+	<ul class="tabs {{ options.classes }}">
+		{% for tab in options.tabs %}
+		<li class="tab-item {% if tab.key === options.activeKey %}tab-item--active{% endif %}" data-tab="{{ tab.key }}">
+			<span class="tab-item-label">{{ tab.label }}</span>
+			{% if tab.icon %}
+				<span class="tab-item-icon tab-item-icon--{{ tab.icon }}" />
+			{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+{% endmacro %}

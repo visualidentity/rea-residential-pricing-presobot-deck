@@ -1,0 +1,248 @@
+.agent-branded-new {
+    height: 100%;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.agent-branded-new__control-block-new {
+    height: 200px;
+    border-radius: 8px;
+    width: 100%;
+    &--hide-controls {
+        height: 74px;
+	}
+
+	&--joined {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &--small-logo {
+        .branded-ph-new .brand-logo {
+            height: 45px;
+            top: 14px;
+        }
+	}
+	&--hide-strip {
+		height: auto;
+		background: none;
+		input {
+			background: none;
+		}
+		.input_text-autocomplete:not(.is-visible) {
+			background: none;
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+}
+
+.agent-branded-new__control-key {
+    height: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.agent-branded-new__control-content {
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.branded_layout {
+    background: colour(l-grey-50);
+}
+
+.agent-branded-new__content {
+    border-radius: 8px;
+    width: 100%;
+    
+    &--control-block-new {
+        margin-top: 30px;
+        height: auto;
+        padding-top: 0px;
+    }
+
+    &--background {
+        background: colour(white);
+    }
+    &--padded {
+        padding: 57px 0px;
+    }
+    &--padded-sides {
+        padding: 0px 72px;
+    }
+    .branded-ph-new{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &--joined {
+        margin-top: 0;
+
+        .stat-new-bar {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+}
+
+.branded-ph-new {
+    height: 86px;
+    background: colour(l-grey-50);
+    border-top-color: colour(l-grey-50);
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+    &::before {
+        display: none;
+    }
+    &:after {
+        //bourbon's triangle mixin is not working
+        content: '';
+        position: absolute;
+        bottom: -19px;
+        left: 50%;
+        @include transform(translateX(-50%));
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top-width: 20px;
+        border-top-style: solid;
+        border-top-color: inherit;
+    }
+    .brand-logo {
+        width: 300px;
+        height: 59px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+	}
+	&--no-arrow {
+		&::after {
+			display: none;
+		}
+	}
+}
+
+.control-block-new__keys {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+    right: 0;
+}
+
+.control-block-new__key {
+    min-width: 140px;
+    display: inline-block;
+    padding-left: 33px;
+    margin-right: 12px;
+    font-size: 20px;
+    position: relative;
+    &:last-child {
+        margin-right: 0;
+    }
+    &:before {
+        content: '';
+		width: 15px;
+		height: 15px;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+		top: 50%;
+        transform: translateY(-50%);
+    }
+    &--you:before {
+        background: colour(bluestone)
+    }
+    &--market:before {
+        background: colour(pebble-50)
+    }
+}
+
+.stat-new-bar {
+    width: 100%;
+    height: 45px;
+    background: #333136;
+
+    .stat-new {
+        display: inline-block;
+        margin-top: 15px;
+        margin-right: 48px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: colour(white);
+        &:last-child {
+            margin-right: 0;
+        }
+        &:first-child {
+            margin-left: 62px;
+        }
+    }
+}
+
+.agent-branded-new__control-block-new__refresh,
+.agent-branded-new__control-block__refresh {
+    position: absolute;
+    cursor: pointer;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: none !important;
+    @include svg-background-div(30px, 26px, 26px, 'img/refresh-new.svg');
+}
+.light-background {
+    .agent-branded-new__control-block-new__refresh,
+    .agent-branded-new__control-block__refresh {
+        @include svg-background-div(30px, 26px, 26px, 'img/refresh-new-dark.svg');
+    }
+}
+.agent-branded-new__control-block-new__loading,
+.agent-branded-new__control-block__loading {
+    position: absolute;
+    top: 25px;
+    right: 112px;
+    background: url(img/loading.gif);
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: none;
+    &.loading {
+        display: block;
+    }
+}
+
+.depth_loading {
+    width: 100%;
+    height: 100%;
+    background-color: colour(l-grey);
+    position: absolute;
+    top: 0;
+    left: 0;
+    .background {
+        width: 100%;
+        height: 100%;
+        background-color: colour(l-grey);
+    }
+}
+
+.column-group.column-group--2.column-group--collapsed.hideOptions .column.column--span-1 {
+    &:first-child {
+        margin: 0 auto;
+        float: none;
+    }
+    &:nth-child(2) {
+        display: none;
+    }
+}

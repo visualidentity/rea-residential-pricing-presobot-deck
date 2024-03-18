@@ -1,0 +1,57 @@
+.icon-text-grid {
+  text-align: center;
+
+  .icon-text-grid__title {
+    font-weight: 900;
+    margin-top: 28px;
+  }
+
+  &__row {
+
+  }
+
+  &__col {
+    background-color: white;
+    border: 1px solid colour(grey-border);
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 27px 27px 23px;
+
+    &__title {
+      
+    }
+  }
+
+  &__img {
+    background-size: 100% auto;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+
+    &--house-green {
+      background-image: url("img/sales-product/agent-search/house-green.png");
+    }
+    &--house-red {
+      background-image: url("img/sales-product/agent-search/house-red.png");
+    }
+    &--house-list {
+      background-image: url("img/sales-product/agent-search/house-list.png");
+    }
+    &--sold {
+      background-image: url("img/sales-product/agent-search/sold.png");
+    }
+    &--person {
+      background-image: url("img/sales-product/agent-search/person.png");
+    }
+    &--pin {
+      background-image: url("img/sales-product/agent-search/pin.png");
+    }
+    &--hand {
+      background-image: url("img/sales-product/agent-search/hand.png");
+    }
+    &--star {
+      background-image: url("img/sales-product/agent-search/star.png");
+    }
+  }
+}

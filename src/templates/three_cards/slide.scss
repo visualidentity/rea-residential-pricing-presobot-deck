@@ -1,0 +1,100 @@
+@import "../../css/_slides_common.scss";
+
+
+$purple:#9e247f;
+$aqua:#00beb4;
+
+#slideshow {
+	article.template-three-card {
+		.content-body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.header-block {
+			padding-top: 25px;
+			margin-bottom: 25px;
+			text-align: center;
+			font-size: 40px;
+			line-height: 40px + $leading;
+			min-height: 69px;
+			span {
+				text-transform: uppercase;
+				&.no-decoration {
+					text-transform: capitalize;
+				}
+			}
+		}
+		
+		@mixin highlight-color($color) {
+			.main-stat {
+				color: $color;
+			}
+		}
+
+		.column-group {
+			flex: 1;
+		}
+
+		.column-group.column-group--height-full {
+			.column {
+				$color: colour(red);
+				@include border-radius(20px);
+				width: 543px;
+				height: 100%;
+				margin-left: 25px;
+				border: 3px solid $color;
+				// @include highlight-color($color);
+				&:first-child {
+					margin-left: 0;
+				}
+				&:first-child,
+				&:last-child {
+					width: 543px;
+				}
+			}
+		}
+
+		.stat {
+			.icon {
+				width: 440px;
+				height: 200px;
+				margin: 60px auto 58px;
+			}
+
+			.copy {
+				text-align: center;
+
+				h3, h4, h5, p {
+					margin-bottom: 6px;
+					&:last-child {
+						margin-bottom: 0px;
+					}
+				}
+
+				h3 {
+					font-size: 100px;
+					line-height: 118px;
+					letter-spacing: -3px;
+					text-align: center;
+					font-weight: 100;
+				}
+
+				h4 {
+					font-size: 48px;
+					line-height: 48px + $leading;
+				}
+
+				h5 {
+					font-size: 38px;
+					line-height: 38px + $leading;
+				}
+
+				p {
+					font-size: 28px;
+					line-height: 34px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,96 @@
+/*----------------------------------------------------------------------------*/
+/* Welcome Slide -------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+@import "css/_slides_common.scss";
+
+
+#slideshow {
+	article#welcome {
+		.content {
+			background-image: url("css/img/new-welcome-bg.jpg");
+			position: relative;
+			&::before {
+				content: "";
+				width: 1001px;
+				height: 1080px;
+				display: block;
+				background: linear-gradient(90deg, rgba(62, 59, 65, 0.6) 0%, rgba(62, 59, 65, 0) 100%);
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&::after {
+				content: "";
+				width: 687px;
+				height: 852px;
+				display: block;
+				background-color: transparent;
+				background-image: url("css/img/home.png");
+				background-size: 687px 852px;
+				top: 114px;
+				right: 0;
+				left: unset;
+				z-index: 111;
+				visibility: visible;
+				opacity: 1;
+				transition: unset;
+			}
+			.content-body {
+				background: unset;
+				height: 100%;
+    			margin-left: 94px;
+				.section-content {
+					transform: unset;
+					height: 100%;
+					top: 0;
+					padding-top: 344px;
+					&__title {
+						height: 119px;
+						font-weight: 600;
+						font-size: 100px;
+						line-height: 106px;
+						text-align: left;
+					}
+					&__subtitle {
+						height: 135px;
+						font-weight: 600;
+						font-size: 40px;
+						line-height: 40px;
+						padding: 0;
+						margin: 0;
+						text-align: left;
+						text-transform: unset;
+					}
+					&__body {
+						height: 229px;
+						font-weight: 600;
+						font-size: 36px;
+						line-height: 44px;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						top: unset;
+					}
+					.rea-bookend-logo {
+						width: 366px;
+						height: 48.2px;
+						background-image: url("css/img/new-logo.png");
+						background-size: 366px 48.2px;
+						margin-top: 0;
+						position: absolute;
+						top: 90px;
+						left: 13px;
+						transition-delay: 0ms;
+					}
+				}
+			}
+		} // EO content
+
+		.content-body {
+			width: $content-width;
+			height: 820px;
+		}
+
+	} // EO article
+} // EO slideshow

@@ -1,0 +1,18 @@
+{% import "./input.njk" as inputs %}
+<div class="contract-option-selector" data--contract-option-selector>
+	<div class="contract-option-selector__outer"></div>
+	<div class="contract-option-selector__inner">
+		<div class="contract-option-selector__header">
+			<h5>option 1</h5>
+			<span class="contract-option-selector__header__close"></span>
+		</div>
+		<div class="contract-option-selector__results">
+			{{inputs.text({
+				id: "optionPackage",
+				disabled: false,
+				value: "",
+				placeholder: "Package"
+			})}}
+		</div>
+	</div>
+</div>

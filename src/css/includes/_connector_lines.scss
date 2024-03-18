@@ -1,0 +1,386 @@
+article {
+
+	// --------------------------------------------------------
+	// Connector lines and labels
+	// --------------------------------------------------------
+	.connector-line-label {
+		opacity: 0;
+		position: absolute;
+
+		h6,
+		p,
+		li {
+			color: colour(pebble);
+			font-size: 20px;
+			line-height: 24px;
+			padding-top: 5px;
+		}
+
+		ul {
+			&.bullet-list {
+				li {
+					padding-left: 10px;
+					margin-left: 0px;
+
+					&:before {
+						background-color: colour(pebble);
+						left: 0;
+						top: 10px;
+					}
+				}
+			}
+		}
+
+		&.large {
+			h6 {
+				color: colour(pebble);
+				font-size: 24px;
+				line-height: 26px;
+				padding-top: 12px;
+				font-weight: 500;
+			}
+			p,
+			li {
+				color: colour(pebble);
+				font-size: 20px;
+				line-height: 24px;
+				padding-top: 5px;
+			}
+		}
+
+		&.line-height-increase {
+			li {
+				padding-bottom: 20px;
+				&:last-child {
+					padding-bottom: 5px;
+				}
+			}
+		}
+
+		// &.bottom-align {
+		// 	.connector-line-container {
+		// 		position: absolute;
+		// 		bottom: -10px;
+		// 	}
+		// }
+	}
+
+	.connector-line-container {
+		@include translateZ(100px);
+		opacity: 0;
+		position: absolute;
+		z-index: 10;
+
+		.connector-line {
+			@include translateZ(100px);
+			background-color: colour(pebble);
+			position: absolute;
+			z-index: 10;
+
+			&:before {
+				background-color: colour(pebble);
+				border-radius: 50%;
+				content: '';
+				display: inline-block;
+				height: 7px;
+				position: absolute;
+				width: 7px;
+			}
+		}
+		&.right {
+			left: 0px;
+			.connector-line {
+				left: 0px;
+				&:before {
+					right: -5px;
+					top: -3px;
+				}
+			}
+		}
+		&.left {
+			right: 0px;
+			.connector-line {
+				right: 0px;
+				&:before {
+					left: -5px;
+					top: -3px;
+				}
+			}
+		}
+		&.up {
+			bottom: 0px;
+			.connector-line {
+				bottom: 0px;
+				&:before {
+					right: -3px;
+					top: -5px;
+				}
+			}
+		}
+		&.down {
+			top: 0px;
+			.connector-line {
+				top: 0px;
+				&:before {
+					left: -3px;
+					bottom: -5px;
+				}
+			}
+		}
+		&.left, &.right {
+			.connector-line {
+				width: 0%;
+				height: 1px;
+			}
+		}
+		&.up, &.down {
+			.connector-line {
+				height: 0%;
+				width: 1px;
+			}
+		}
+
+		// Positioning
+		// Default is auto. Used when a pointer is to be aligned
+		// underneath the label text
+		&.bottom {
+			bottom: -12px;
+		}
+	}
+
+	.extra-connector-line-container {
+		@include translateZ(100px);
+		opacity: 0;
+		position: absolute;
+		z-index: 10;
+
+		.extra-connector-line {
+			@include translateZ(100px);
+			background-color: colour(pebble);
+			position: absolute;
+			z-index: 10;
+		}
+		&.right .extra-connector-line {
+			left: 0px;
+		}
+		&.left .extra-connector-line {
+			right: 0px;
+		}
+		&.up .extra-connector-line {
+			bottom: 0px;
+		}
+		&.down .extra-connector-line {
+			top: 0px;
+		}
+		&.left, &.right {
+			.extra-connector-line {
+				width: 0%;
+				height: 1px;
+			}
+		}
+		&.up, &.down {
+			.extra-connector-line {
+				height: 0%;
+				width: 1px;
+			}
+		}
+	}
+
+
+
+
+
+	// --------------------------------------------------------
+	// Animation
+	// --------------------------------------------------------
+	.currentpage {
+		.connector-line-label {
+			opacity: 1;
+			@include transition(opacity ease-in 250ms);
+		}
+		.connector-line-container, .extra-connector-line-container {
+			opacity: 1;
+			@include transition(opacity ease-in 250ms);
+			&.left, &.right {
+				.connector-line, .extra-connector-line {
+					@include transition(width ease-out 500ms);
+					width: 100%;
+				}
+			}
+			&.up, &.down {
+				.connector-line, .extra-connector-line {
+					@include transition(height ease-out 500ms);
+					height: 100%;
+				}
+			}
+		}
+	}
+
+
+
+
+
+	// --------------------------------------------------------
+	// Animation complete
+	// --------------------------------------------------------
+	&.animation-complete, &.ie9 {
+		.animator {
+			@include animation(none !important);
+			@include transition(none !important);
+		}
+
+		.content {
+
+			.connector-line-label {
+				opacity: 1;
+				@include transition(none !important);
+			}
+			.connector-line-container, .extra-connector-line-container {
+				opacity: 1;
+				@include translate(0px, 0px);
+				@include transition(none !important);
+				.connector-line, .extra-connector-line {
+					@include transition(none !important);
+				}
+				&.right, &.left {
+					.connector-line, .extra-connector-line {
+						width: 100%;
+						@include transition(none !important);
+					}
+				}
+
+				&.up, &.down {
+					.connector-line, .extra-connector-line {
+						height: 100%;
+						@include transition(none !important);
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+	.labels {
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		top: 0;
+	}
+
+	.connector-line-label {
+		left: 0;
+		position: absolute;
+
+		&.connector-line-label--align-right {
+			left: auto;
+			right: 0;
+		}
+
+		// h6,
+		// .navbtn { cursor: pointer; }
+		&.no-jumpto {
+			.navbtn { display: none; }
+		}
+		.navbtn {
+			position: absolute;
+			top: -7px;
+		}
+	}
+
+	.sold-label,
+	.premiere-label,
+	.highlight-label,
+	.feature-label {
+		left: -199px;
+
+		.connector-line-container {
+			width: 302px;
+		}
+
+		.navbtn { left: -34px; }
+	}
+
+	.sold-label {
+		top: 48px;
+
+		.connector-line-container { width: 394px; }
+	}
+	.premiere-label { top: 194px; }
+	.highlight-label { top: 408px; }
+	.feature-label { top: 596px; }
+
+	.lead-gen-label,
+	.exclusive-label {
+		right: -211px;
+
+		.connector-line-container {
+			width: 325px;
+		}
+
+		.navbtn { right: -34px; }
+	}
+
+	.lead-gen-label { top: 192px; }
+	.exclusive-label { top: 386px; }
+
+
+
+
+
+	// --------------------------------------------------------
+	// Animation
+	// --------------------------------------------------------
+	.currentpage, &.animation-complete, &.ie9 {
+		$iterate: 125ms;
+		$start: 150ms;
+		$gap: 150ms;
+		$delay: 0ms;
+
+		.labels {
+			@for $i from 1 through 10 {
+				.connector-line-label {
+					&.label-#{$i} {
+						// opacity
+						@include transition-delay($delay + $start);
+						.connector-line-container, .extra-connector-line-container {
+							// opacity
+							@include transition-delay($delay + $start);
+						}
+						.connector-line, .extra-connector-line {
+							// width/height
+							@include transition-delay($delay + $start + $iterate);
+						}
+
+						// extra-delay
+						.connector-line-container.extra-delay, .extra-connector-line-container.extra-delay {
+							// opacity
+							@include transition-delay($delay + $start + 250ms);
+							.connector-line {
+								// width/height
+								@include transition-delay($delay + $start + $iterate + 250ms);
+							}
+						}
+
+						// connection-2
+						.connector-line-container.connection-2, .extra-connector-line-container.connection-2 {
+							// opacity
+							@include transition-delay($delay + $start + 500ms);
+							.connector-line {
+								// width/height
+								@include transition-delay($delay + $start + $iterate + 500ms);
+							}
+						}
+
+						$delay: $delay + $gap;
+					}
+				}
+			}
+		}
+	}
+
+
+}

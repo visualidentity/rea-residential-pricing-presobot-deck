@@ -1,0 +1,8 @@
+{% macro title(options, optionsHeader) %}
+	<header class="slide-header-halfpage {{ optionsHeader.classes }}">
+		{% include "./re-logo.njk" %}
+		<h1 class="slide-header-halfpage__title {{ optionsHeader.titleClasses }}">{{ optionsHeader.title | safe | nl2br }}</h1>
+		<h1 class="slide-header-halfpage__subtitle {{ optionsHeader.subtitleClasses }}">{{ optionsHeader.subtitle | safe | nl2br }}</h1>
+		<div class="slide-header-halfpage__bar"></div>
+	</header>
+{% endmacro %}

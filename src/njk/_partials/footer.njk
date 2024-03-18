@@ -1,0 +1,71 @@
+
+{% macro footer(options) %}
+    <footer class="{% if not options.subslide %}slide-footer{% endif %} {{ options.classes }}">
+    	{{ options.content }}
+        {% if options.disclaimer_sources %}
+            {{ disclaimer(options) }}
+        {% endif %}
+        {% if options.disclaimer_target and not options.subslide %}
+            <div class="disclaimer-target"></div>
+        {% endif %}
+        {% if options.subslides %}
+            <div class="navbtn down"></div>
+            <div class="navbtn up inactive"></div>
+            <div class="navbtn-target down" data-br-role="transition" data-br-target="next"></div>
+            <div class="navbtn-target up inactive" data-br-role="transition" data-br-target="prev"></div>
+        {% endif %}
+		{% if options.rightAlignedContent %}
+			<div class="disclaimer-right-aligned-content">
+				{{options.rightAlignedContent | safe}}
+			</div>
+		{% endif %}
+    </footer>
+{% endmacro %}
+
+{% macro disclaimer(sources) %}
+  <section class="disclaimer">
+    <div class="disclaimer-container">
+      <p class="disclaimer-link" {% if sources.cweKey%}data-readonly data-companywide-editable="{{sources.cweKey}}_disclaimer_title" data-toolbar="style superscript removeformat"{% endif %}>
+        {% set plural = sources.disclaimer_sources.length > 1 %}
+
+        {%- if sources.label -%}
+          {{ sources.label }}
+        {% else %}
+          {% if sources.disclaimer_sources[0].type %}
+            {{ sources.disclaimer_sources[0].type }}{%- if plural -%}s{%- endif -%}
+          {% else %}
+            Source{%- if plural -%}s{%- endif -%}
+          {% endif %}
+        {%- endif -%}
+      </p>
+
+      <div class="disclaimer-body">
+        {%- for source in sources.disclaimer_sources -%}
+        <p class="disclaimer-copy{% if source.classes %} {{source.classes}}{% endif %}">
+          <span {% if sources.cweKey%}data-companywide-editable="{{sources.cweKey}}_disclaimer_title" data-toolbar="style superscript removeformat"{% endif %}>
+            {%- if source.identifier -%}
+              {{- source.identifier -}}
+            {%- endif -%}
+
+            {%- if not source.type -%}
+              Source
+            {%- else -%}
+              {{- source.type -}}
+            {%- endif -%}
+          </span>: <span {% if sources.cweKey%}data-companywide-editable="{{sources.cweKey}}_disclaimer_copy" data-toolbar="style superscript removeformat"{% endif %} data-footer-disclaimer-copy>{{ source.text|safe }}</span>
+
+          {%- if source.sub %}
+            {%- for sub in source.sub %}
+              <span {% if sub.cweKey%}data-companywide-editable="{{sub.cweKey}}_disclaimer_sub_title" data-toolbar="style superscript removeformat"{% endif %}>{{ sub.type }}:</span> <span {% if sub.cweKey%}data-companywide-editable="{{sub.cweKey}}_disclaimer_sub_copy" data-toolbar="style superscript removeformat"{% endif %}>{{ sub.text -}}</span>
+            {%- endfor -%}
+          {%- endif -%}
+        </p>
+        {% endfor %}
+      </div>
+    </div>
+	</section>
+{% endmacro %}
+
+{% macro disclaimer_target() %}
+	<div class="disclaimer-target"></div>
+{% endmacro %}

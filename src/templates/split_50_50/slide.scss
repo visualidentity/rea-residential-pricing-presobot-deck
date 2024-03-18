@@ -1,0 +1,92 @@
+@import "../../css/_slides_common.scss";
+
+
+#slideshow {
+	article.template-split-50-50 {
+
+		.slide-header-halfpage {
+			.halfpage-image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-size: cover;
+				background-position: center;
+				.edit-mode &,
+				.screenshot-thumbnail & {
+					background-color: colour(charcoal-60);
+					&.sp-companywide-empty {
+						background-size: 300px 300px;
+						background-position: center center;
+					}
+				}
+			}
+
+			.red-divider {
+				position: absolute;
+				top: 193px;
+				right: 0;
+				width: 20px;
+				height: 772px;
+				background-color: colour(red);
+			}
+		}
+
+		.content {
+			width: 50%;
+			padding: 0;
+			margin: 0;
+			right: 0;
+
+			.content-body {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				right: 0;
+			}
+
+			.table-css3 {
+				.table-cell {
+					text-align:left;
+					padding:100px 95px 60px 95px;
+				}
+			}
+
+			h1.slide-header-halfpage__title {
+				font-size:60px;
+				font-weight:900;
+				text-align:left;
+				min-height: 54px;
+			}
+
+			h5.slide-header-halfpage__subtitle {
+				font-size:26px;
+				color:colour(pebble);
+				text-align:left;
+				margin-top: 15px;
+    			line-height: 36px;
+				min-height: 36px;
+			}
+
+			.rhs-content {
+				margin-top: 40px;
+				margin-bottom: 53px;
+				color: colour(pebble);
+
+				h5 {
+					font-weight: 500;
+				}
+			}
+
+			.disclaimer-copy {
+				font-size:12px;
+				color:colour(pebble);
+				position: absolute;
+				left:95px;
+				bottom:60px;
+			}
+		}
+	}
+}

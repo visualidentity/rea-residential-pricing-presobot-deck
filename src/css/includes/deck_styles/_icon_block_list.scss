@@ -1,0 +1,108 @@
+.icon-block-list {
+  text-align: left;
+
+  &__row {
+
+  }
+
+  &__col {
+    background-color: white;
+    border: 1px solid colour(grey-border);
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px 40px;
+    position: relative;
+    &:before {
+      content: ' ';
+      height: 20px;
+      background-color: colour(bluestone);
+      width: 100%; 
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      width: 27px;
+      height: 27px;
+      position: absolute;
+      content: ' ';
+      top: 5px;
+      transform: rotate(45deg);
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: block;
+      background-color: colour(bluestone);
+    }
+
+    &__title {
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    li {
+      position: relative;
+      padding-left: 50px;
+      font-size: 26px;
+      line-height: 31px;
+      margin-bottom: 30px;
+      color: colour(pebble);
+      &:before {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-image: url("img/check.png");
+        background-size: 100% 100%;
+        content: '';
+      }
+    }
+  }
+
+  &__img {
+    background-size: 100% auto;
+    width: 100px;
+    height: 100px;
+    margin: 50px auto 30px;
+
+    &--house-green {
+      background-image: url("img/sales-product/agent-search/house-green.png");
+    }
+    &--house-red {
+      background-image: url("img/sales-product/agent-search/house-red.png");
+    }
+    &--house-list {
+      background-image: url("img/sales-product/agent-search/house-list.png");
+    }
+    &--sold {
+      background-image: url("img/sales-product/agent-search/sold.png");
+    }
+    &--sold-red {
+      background-image: url("img/sales-product/agent-search/sold-red.png");
+    }
+    &--person {
+      background-image: url("img/sales-product/agent-search/person.png");
+    }
+    &--pin {
+      background-image: url("img/sales-product/agent-search/pin.png");
+    }
+    &--hand {
+      background-image: url("img/sales-product/agent-search/hand.png");
+    }
+    &--star {
+      background-image: url("img/sales-product/agent-search/star.png");
+    }
+    &--person-red {
+      background-image: url("img/sales-product/agent-search/person-red.png");
+    }
+    &--hand-star {
+      background-image: url("img/sales-product/agent-search/hand-star.png");
+    }
+  }
+}

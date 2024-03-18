@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>contract -  bluestone</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="95.696169%" id="linearGradient-1">
+            <stop stop-color="#697684" offset="0%"></stop>
+            <stop stop-color="#333F48" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="contract----bluestone" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval-2" fill="url(#linearGradient-1)" cx="19.5" cy="19.5" r="19.5"></circle>
+        <polygon id="Rectangle-2" fill="#FFFFFF" points="14.665 18.335 24.665 18.335 24.665 19.665 14.665 19.665"></polygon>
+    </g>
+</svg>

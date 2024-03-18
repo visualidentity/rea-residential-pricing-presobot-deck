@@ -1,0 +1,37 @@
+{% macro property_stat(options) %}
+<div class="property-stat {{ options.classes }}">
+	<div class="cell">
+		{% if options.cweKey %}
+			<div class="icon c-editable-image {{ options.icon.class }}" data-companywide-dynamic-image="{{ options.cweKey }}_icon" style="
+				width: {{ options.icon.width }}px;
+				height: {{ options.icon.height }}px;
+				margin-bottom: {{ options.icon.margin }}px;
+			"></div>
+			<div class="c-editable-text-region description" data-companywide-editable="{{ options.cweKey }}_description" data-toolbar="format style color superscript removeformat">
+				{% if options.number %}
+				<h3>{{ options.number|safe }}</h3>
+				{% endif %}
+				{% if options.text %}
+				<p>{{ options.text|safe }}</p>
+				{% endif %}
+			</div>
+			{% if options.text2 %}
+			<div class="c-editable-text-region description" data-companywide-editable="{{ options.cweKey }}_description_2" data-toolbar="format style color superscript removeformat">
+				<p>{{ options.text2|safe }}</p>
+			</div>
+			{% endif %}
+		{% else %}
+			<div class="icon {{ options.icon.class }} {% if options.cweKey %}c-editable-image{% endif %}" {% if options.cweKey %}data-companywide-dynamic-image="{{ options.cweKey }}_icon"{% endif %} style="
+				background-size: {{ options.icon.width }}px {{ options.icon.height }}px;
+				width: {{ options.icon.width }}px;
+				height: {{ options.icon.height }}px;
+				margin-bottom: {{ options.icon.margin }}px;
+			"></div>
+			{% if options.number %}
+			<div class="number"{% if options.editable %} data-editable id="{{ options.editable_id }}-number"{% endif %}>{{ options.number|safe }}</div>
+			{% endif %}
+			<div class="text"{% if options.editable %} data-editable id="{{ options.editable_id }}-text"{% endif %}>{{ options.text|safe }}</div>
+		{% endif %}
+	</div>
+</div>
+{% endmacro %}

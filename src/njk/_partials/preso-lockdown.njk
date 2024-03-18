@@ -1,0 +1,159 @@
+{#
+	Preso Lockdown Loader
+#}
+{% macro loader(options) %}
+	<div class="js-preso-lockdown preso-lockdown {% if options.type == 'modal' or options.message or options.action %}modal{% else %}{{ options.type }}{% endif %}">
+		{% if options.type == 'modal' or options.message or options.action %}
+			<!-- Vertical align container -->
+			<div class="vertically-centered modal-wrapper">
+				<div class="vc-target">
+					<!-- modal loader -->
+					<div class="modal-container">
+						<h5 class="title js-loading-message {% if not options.message %}hidden{% endif %}">{{ options.message }}</h5>
+						<!-- Loader -->
+						<div class="progress-loader-linear indeterminate">
+							<div class="progress-line" style="width: 0%;"></div>
+						</div>
+						<!-- Action / Retry -->
+						<div class="user-input-container js-user-input">
+							<h6 class="flat-btn js-loader-cancel">Cancel</h6><h6 class="solid-btn js-loader-action">{% if options.action %}{{ options.action }}{% else %}Confirm{% endif %}</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<!-- Basic loader -->
+			<div class="load-bubble"></div>
+			<div class="load-bubble"></div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro initiate() %}
+	var client = $("body").hasClass("client");
+	var master = !client;
+
+	var $presoLockdown = $(".js-preso-lockdown", $pageContainer);
+	var $presoLockdownMessage = $(".js-loading-message", $presoLockdown);
+	var $presoLockdownAction = $(".js-loader-action", $presoLockdown);
+
+	var $presoLockdownCancel = $(".js-loader-cancel", $presoLockdown);
+	var $presoLockdownAction = $(".js-loader-action", $presoLockdown);
+
+	var modalModes = ["action-required"];
+
+	Bridge.Event.on("loader:toggleLockdown", function(options, target) {
+		// options = { toggle: Boolean, mode: String, message: String }
+
+		if (options.toggle !== true && options.toggle !== false) {
+			console.error("toggle option not found. Boolean toggle value is required for 'loader:toggleLockdown'.");
+		} else {
+			var updateStatus = !target || target === "master" || (target && target === "client" && client);
+
+			if (options.toggle === true) {
+				if (updateStatus) {
+					// Prevent all SP navigation
+					Bridge.Navigation.allowNav(false);
+					// Activate loader
+					$presoLockdown.addClass("active");
+				}
+
+				// Pass on secondary updates (message, mode etc.) to their respective Bridge events with target.
+				// This allows for target handling - if fired from client side, these would not send.
+
+				// Update loading message
+				Bridge.Event.trigger("loader:updateMessage", options.message, target);
+				// Update mode(s)
+				Bridge.Event.trigger("loader:updateMode", options.mode, target);
+				// Update action button if supplied
+				Bridge.Event.trigger("loader:updateAction", options.action, target);
+			} else if (options.toggle === false) {
+				if (updateStatus) {
+					// Reinstate all SP navigation
+					Bridge.Navigation.allowNav(true);
+					// Deactivate loader
+					$presoLockdown.removeClass("active");
+				}
+			}
+		}
+	});
+
+	Bridge.Event.on("loader:updateMessage", function(message, target) {
+		// message: String
+		var updateStatus = !target || target === "master" || (target && target === "client" && client);
+
+		if (updateStatus) {
+			// Turn message on/off
+			if (message) {
+				// Update message
+				$presoLockdownMessage.removeClass("hidden").html(message);
+			} else {
+				// Hide message
+				$presoLockdownMessage.addClass("hidden");
+			}
+		}
+	});
+
+	Bridge.Event.on("loader:updateMode", function(mode, target) {
+		// mode: String separated class names (see modalModes for options)
+		var updateStatus = !target || target === "master" || (target && target === "client" && client);
+
+		if (updateStatus) {
+			// Remove current applied modes
+			$presoLockdown.removeClass(modalModes.join(" "));
+			// Apply mode(s)
+			$presoLockdown.addClass(mode || "");
+		}
+	});
+
+	Bridge.Event.on("loader:updateAction", function(action, target) {
+		// action: String (action button copy)
+		var updateStatus = !target || target === "master" || (target && target === "client" && client);
+
+		if (updateStatus) {
+			// Update action button copy
+			$presoLockdownAction.html(action || "confirm");
+		}
+	});
+
+	// master and client specific states
+	if (master) {
+		// Preso Lockdown functionality listeners
+		$presoLockdownAction.on("click", function() {
+			Bridge.Event.trigger("loader:actionClicked");
+
+			// Close modal
+			Bridge.Event.trigger("loader:toggleLockdown", { toggle: false });
+		});
+
+		$presoLockdownCancel.on("click", function() {
+			Bridge.Event.trigger("loader:cancelClicked");
+
+			// Close modal
+			Bridge.Event.trigger("loader:toggleLockdown", { toggle: false });
+		});
+
+		// Listen for client request of loader state
+		Bridge.Event.on("client:fetchLoaderState", function() {
+			// Check master DOM for current loader state
+			var loaderClasses = $presoLockdown.attr("class") ? $presoLockdown.attr("class").split(" ") : [];
+			var loaderActive = $presoLockdown.hasClass("active");
+			var loaderModes = _.intersection(loaderClasses, modalModes).join(" ");
+			var loaderMessage = $presoLockdownMessage.html();
+			var loaderAction = $presoLockdownAction.html();
+
+			var loaderOptions = {
+				toggle: loaderActive,
+				message: loaderMessage || "",
+				action: loaderAction || "confirm",
+				mode: loaderModes
+			}
+
+			// Trigger loader toggle for client
+			Bridge.Event.trigger("loader:toggleLockdown", loaderOptions, "client");
+		});
+	} else if (client) {
+		// Request current loader state from the master (in case of late TelePreso arrival)
+		Bridge.Event.trigger("client:fetchLoaderState");
+	}
+{% endmacro %}

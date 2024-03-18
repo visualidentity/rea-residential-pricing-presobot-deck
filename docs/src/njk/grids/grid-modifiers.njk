@@ -1,0 +1,22 @@
+{% set example = {
+	title: "Grid Modifiers",
+	id: "gridmodifiers",
+	include: src.docs + "/njk/grids/includes/grid-modifiers.njk",
+	slide_scale: "small"
+} %}
+
+{{ util.example_html(example) }}
+
+<button class="toggle-grid-animation" onclick="toggle_grid_animation()">Toggle Grid Animation</button>
+
+
+<script>
+	function toggle_grid_animation() {
+		var $container = $("#gridmodify");
+		if ($(".page01", $container).hasClass("currentpage")) {
+			$(".page01", $container).removeClass("currentpage")
+		} else {
+			$(".page01", $container).addClass("currentpage")
+		}
+	}
+</script>

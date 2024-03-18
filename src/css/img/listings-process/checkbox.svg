@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="71px" viewBox="0 0 70 71" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icons / ad creative - pebble</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-ad-creative---pebble" transform="translate(0.000000, 1.000000)">
+            <g>
+                <circle id="Oval-5" stroke="#828D99" stroke-width="1.5" cx="34.8973239" cy="34.4696814" r="34"></circle>
+                <rect id="Square" stroke="#828D99" stroke-width="1.5" x="35.1598354" y="27.473661" width="4.89419261" height="4.89419261"></rect>
+                <path d="M27.7597148,28 L31.6472952,28" id="Line" stroke="#828D99" stroke-width="1.5" stroke-linecap="square"></path>
+                <path d="M27.7597148,32.5 L31.6472952,32.5" id="Line-Copy" stroke="#828D99" stroke-width="1.5" stroke-linecap="square"></path>
+                <path d="M27.7597148,42.5 L32.4754489,42.5" id="Line-Copy-5" stroke="#828D99" stroke-width="1.5" stroke-linecap="square"></path>
+                <path d="M27.7597148,37.5 L31.6472952,37.5" id="Line-Copy-6" stroke="#828D99" stroke-width="1.5" stroke-linecap="square"></path>
+                <polygon id="Tick-Copy" stroke="#00A4C7" stroke-width="1.5" points="36.7322849 35.8217321 34.1175388 39.2812048 39.2454685 44.2602087 52.7986911 31.1352087 49.0984958 26.6649939 39.2454685 40.0248571"></polygon>
+                <polyline id="Path-3" stroke="#979797" stroke-width="1.5" points="43.4227146 29.1342321 43.4227146 23.4652868 24.1209567 23.4652868 24.1209567 47.7699743 43.4227146 47.7699743 43.4227146 44.1508337"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

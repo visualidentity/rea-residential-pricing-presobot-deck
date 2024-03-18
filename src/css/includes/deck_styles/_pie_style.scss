@@ -1,0 +1,170 @@
+
+
+	.pie-chart-container {
+		position: absolute;
+		top: 65px;
+		left: 242px;
+	}
+
+	.the-pie.pie-anim {
+		.pie-chart-container {
+			-webkit-transform: rotate(-100deg) !important;
+			-ms-transform: rotate(-100deg) !important;
+			transform: rotate(-100deg) !important;
+			@include transition(none !important);
+		}
+	}
+
+	// Rotate the pie on introduction
+	.pie-chart-container {
+		// FIX-ME
+		// For some reason, the duration and easing are not pulling in for
+		// transforms using transition, please to fix when there's time
+		// @include transition(transform 250ms ease-out);
+		@include transition(transform);
+		@include transition-duration(1350ms);
+		@include transition-timing-function(ease-out);
+
+		-webkit-transform: rotate(170deg);
+		-ms-transform: rotate(170deg);
+		transform: rotate(170deg);
+	}
+
+	.pie-chart {
+		$pie-size: 408px;
+		width: $pie-size;
+		height: $pie-size;
+		/*
+		  make each pie piece a rectangle twice as high as it is wide.
+		  move the transform origin to the middle of the left side.
+		  Also ensure that overflow is set to hidden.
+		*/
+
+		@include pie-segments($pie-size / 2);
+
+	}
+
+	.labels h4 {
+		//font-family: $mainfontextrabold;
+		//color: $charcoal;
+	}
+
+	// .connector-line-container {
+	// 	//.connector-line { background-color: $charcoal; }
+	// 	&.up .connector-line:before {
+	// 		top: -4px;
+	// 		width: 9px;
+	// 		height: 9px;
+	// 	//	background-color: $charcoal;
+	// 	}
+	// 	&.left .connector-line:before { left: -8px; }
+	// 	&.right .connector-line:before { right: -8px; }
+	// }
+
+	// .label-1 {
+	// 	top: 274px;
+	// 	left: 22px;
+	// 	.connector-line-container { width: 277px; }
+	// 	h4 {
+	// 		font-size: 36px;
+	// 		line-height: 41px;
+	// 	}
+	// }
+
+	// .label-2 {
+	// 	top: 110px;
+	// 	right: 58px;
+	// 	.connector-line-container { width: 260px; }
+	// 	h4 {
+	// 		font-size: 60px;
+	// 		line-height: 61px;
+	// 	}
+	// }
+
+	// .label-3 {
+	// 	top: 362px;
+	// 	right: 58px;
+	// 	.connector-line-container { width: 279px; }
+	// 	h4 {
+	// 		font-size: 20px;
+	// 		line-height: 30px;
+	// 	}
+	// }
+
+	.icon-devices {
+		background-image: url("./img/icon-devices.svg");
+		@include background-size(122px 50px);
+		background-repeat: no-repeat;
+		vertical-align: bottom;
+		margin-top: 8px;
+		&.icon-desktop {
+			width: 64px;
+			height: 50px;
+			background-position: 0px 0px;
+		}
+		&.icon-tablet {
+			width: 37px;
+			height: 50px;
+			background-position: -64px -1px;
+		}
+		&.icon-mobile {
+			width: 21px;
+			height: 50px;
+			background-position: -102px -13px;
+		}
+		&.left { margin-left: auto; }
+		&.right { margin-right: auto; }
+	}
+
+	.pie-chart-heading {
+		text-align: center;
+		font-size: 18px;
+		color: colour(pebble);
+		padding-bottom: 10px;
+		border-bottom: 1px solid colour(pebble);
+	}
+
+	// --------------------------------------------------------
+	// Animation
+	// --------------------------------------------------------
+
+	.currentpage {
+
+		$iterate: 125ms;
+		$start: 400ms;
+		$gap: 200ms;
+		$delay: 0ms;
+
+		.labels {
+			@for $i from 1 through 10 {
+				.connector-line-label {
+					&.label-#{$i} {
+						// opacity
+						@include transition-delay($delay + $start);
+						.connector-line-container, .extra-connector-line-container {
+							// opacity
+							@include transition-delay($delay + $start);
+						}
+						.connector-line, .extra-connector-line {
+							// width/height
+							@include transition-delay($delay + $start + $iterate);
+						}
+						.connector-line-container.extra-delay {
+							// opacity
+							@include transition-delay($delay + $start + 250ms);
+							.connector-line {
+								// width/height
+								@include transition-delay($delay + $start + $iterate + 250ms);
+							}
+						}
+
+						$delay: $delay + $gap;
+
+					}
+				}
+			}
+		}
+
+	}  /* EO Current page */
+
+

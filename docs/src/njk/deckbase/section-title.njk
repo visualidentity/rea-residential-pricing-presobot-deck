@@ -1,0 +1,31 @@
+
+{% set code = '
+{% set options = {
+	id: "style_guide",
+	subslides: false,
+	article_classes: "title-slide",
+	content_classes: ""
+} %}
+
+{% extends "src/njk/base-section-title.njk" %}
+
+{% import "src/njk/_partials/section-title.njk" as section_title %}
+
+{% block content %}
+	{{ section_title.title("Style guide") }}
+{% endblock %}
+' %}
+
+
+
+{% set example = {
+	title: "Section Title",
+	id: "sectiontitle",
+	include: src.docs + "/njk/deckbase/includes/title-slide.njk",
+	slide_scale: "small",
+	desc: "Section titles blah",
+	language: "django",
+	code: code
+} %}
+
+{{ util.example_html(example) }}

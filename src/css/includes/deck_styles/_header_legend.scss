@@ -1,0 +1,32 @@
+.header-legend {
+  position: relative;
+  &--short {
+    max-width: 1108px;
+    margin: 0 auto;
+  }
+  h3 {
+    font-size: 26px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.header-legend__items {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  font-size: 20px;
+}
+
+.header-legend__item {
+  margin-left: 38px;
+}
+
+.header-legend__item-dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 10px;
+  border-radius: 11px;
+}

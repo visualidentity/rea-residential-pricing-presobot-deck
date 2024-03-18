@@ -1,0 +1,16 @@
+{% macro journey_step(options) %}
+	<div class="journey-step {{ options.class }}">
+		<div class="journey-step__icon {{ options.icon_class }}" style="
+			background-size: {{ options.icon_width }}px {% if options.icon_height %}{{ options.icon_height }}px{% else %}auto{% endif%};
+			{% if options.icon_position_y %}
+			background-position: center {{ options.icon_position_y }}px;
+			{% endif %}
+		"></div>
+		{% if options.title %}<h4 class="journey-step__title semi-bold">{{ options.title }}</h4>{% endif %}
+		<p class="journey-step__copy semi-bold">{{ options.copy | safe | nl2br }}</p>
+	</div>
+{% endmacro %}
+
+{% macro journey_arrow(options) %}
+	<div class="journey-arrow journey-arrow--{{ options.size }}"></div>
+{% endmacro %}

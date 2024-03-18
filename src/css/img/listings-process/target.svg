@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-spend-wiser---pebble" transform="translate(1.000000, 1.000000)">
+            <g id="icons-/-search-agent---pebble">
+                <circle id="Oval-5" stroke="#828D99" stroke-width="1.5" cx="34" cy="34" r="34"></circle>
+                <path d="M47.6545494,34 C47.6545494,41.5420088 41.5408055,47.6545494 34,47.6545494 C26.4579912,47.6545494 20.3454506,41.5420088 20.3454506,34 C20.3454506,26.4579912 26.4579912,20.3454506 34,20.3454506 C41.5408055,20.3454506 47.6545494,26.4579912 47.6545494,34 L47.6545494,34 Z" id="Stroke-2539" stroke="#00A4C7" stroke-width="1.5" stroke-linecap="round"></path>
+                <path d="M55.1143799,34 C55.1143799,45.6624016 45.660541,55.1143799 34,55.1143799 C22.3375984,55.1143799 12.8856201,45.6624016 12.8856201,34 C12.8856201,22.3375984 22.3375984,12.8856201 34,12.8856201 C45.660541,12.8856201 55.1143799,22.3375984 55.1143799,34 L55.1143799,34 Z" id="Stroke-2539-Copy-2" stroke="#00A4C7" stroke-width="1.5" stroke-linecap="round"></path>
+                <text id="$" font-family=".AppleSystemUIFont" font-size="15" font-weight="normal" fill="#697684">
+                    <tspan x="29.5" y="40.0053711">$</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

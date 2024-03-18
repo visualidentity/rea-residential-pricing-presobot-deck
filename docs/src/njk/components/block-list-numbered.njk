@@ -1,0 +1,38 @@
+{% set example = {
+	title: "Block - numbered list",
+	id: "block_list_numbered",
+	example: block_wrapper.block_list_numbered({
+		title: "Make 1form work for your business:",
+		items: [
+			{ copy: "Customise your 1form application\nby adding specific questions" },
+			{ copy: "Add an inspection code to\nonly accept applications from\nOFI attendees" },
+			{ copy: "Shortlist and compare applications\nto share with your landlords with\nthe click of a button" }
+		]
+	}),
+	full: false,
+	example_classes: "",
+	code_array: [{
+			language: 'django',
+			code: '
+block_wrapper.block_list_numbered({
+	title: "Make 1form work for your business:",
+	items: [
+		{ copy: "Customise your 1form application \/n\nby adding specific questions" },
+		{ copy: "Add an inspection code to \/n\nonly accept applications from \/n\nOFI attendees" },
+		{ copy: "Shortlist and compare applications \/n\nto share with your landlords with \/n\nthe click of a button" }
+	]
+})
+			',
+			desc: "
+				For larger blocks that require extra padding, add the following class:
+				<ul>
+					<li>.block-list-numbered--l</li>
+				</ul> <br><br>
+				<p>
+				The block styles can be found in <span class='path'>css/includes/deck_styles/_block.scss</span>
+			"
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

@@ -1,0 +1,62 @@
+{% macro h() %}
+<h1>H1 Title</h1>
+<h2>H2 Title</h2>
+<h3>H3 Title</h3>
+<h4>H4 Title</h4>
+<h5>H5 Title</h5>
+<h6>H6 Title</h6>
+{% endmacro %}
+
+{% set example_h = {
+	title: "Titles",
+	id: "htitles",
+	example: h(),
+	language: "html"
+} %}
+
+{{ util.example_html(example_h) }}
+
+{% macro p() %}
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sapiente, quaerat inventore id quibusdam repudiandae! Ex dolor possimus nesciunt. Vitae numquam velit, laborum incidunt cum itaque alias corrupti iste pariatur!</p>
+{% endmacro %}
+
+{% set example_p = {
+	title: "Paragraph",
+	id: "paragraph",
+	example: p(),
+	language: "html"
+} %}
+
+{{ util.example_html(example_p) }}
+
+{% macro modifiers() %}
+<p>
+	<span class="highlight">Highlight</span><br>
+	<span class="highlight-extra">Highlight Extra</span><br>
+	<span class="squish-letters">Squish Letters</span><br>
+	<span class="smallest-text">Smallest Text</span><br>
+	<sub>Sub</sub>
+</p>
+{% endmacro %}
+
+{% set modcode = '
+<p>
+	<span class="highlight">Highlight</span><br>
+	<span class="highlight-extra">Highlight Extra</span><br>
+	<span class="squish-letters">Squish Letters</span><br>
+	<span class="smallest-text">Smallest Text</span><br>
+	<sub>Sub</sub>
+</p>
+' %}
+
+{% set example_m = {
+	title: "Text Modifiers",
+	id: "modifiers",
+	code: modcode,
+	example: modifiers(),
+	language: "html"
+} %}
+
+{{ util.example_html(example_m) }}
+
+

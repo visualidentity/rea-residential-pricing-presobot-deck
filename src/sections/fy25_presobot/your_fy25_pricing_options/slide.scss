@@ -1,0 +1,137 @@
+@import "../../../../css/includes/variables";
+@import "../../../../css/includes/mixins";
+
+#slideshow {
+	article#your_fy25_pricing_options {
+		position: relative;
+
+		header {
+			width: 100%;
+			height: 270px;
+			margin: 0;
+			padding: 95px 120px 66px;
+			transform: none;
+			z-index: 0;
+
+			dl {
+				dd {
+					min-width: 225px;
+					padding: 12px 20px 12px 61px;
+					background-size: 25px 26px;
+					background-position: 24px 8px;
+					background-color: #66408D;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 20px;
+				}
+			}
+
+			h1 {
+				font-weight: 600;
+				font-size: 50px;
+				line-height: 55px;
+				color: #3e3b41;
+			}
+
+			&:before {
+				content: "";
+				width: 100%;
+				height: 20px;
+				background-color: #66408D;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+
+		.text_narrow {
+			font-size: 30px !important;
+			font-weight: 600 !important;
+			color: #E4002B;
+			line-height: 30px !important;
+			display: inline-block;
+			margin-left: -5px;
+		}
+
+		.content-wrapper {
+			box-shadow: 0 4px 25px 0 #00000026;
+			border: 1px solid #E3E3E3;
+			background: #FBFBFB;
+			width: 1680px;
+			font-size: 25px;
+			font-weight: 600;
+			line-height: 30px;
+			border-radius: 10px;
+
+			.suburb {
+				color: #3E3B41;
+				padding: 28px 31px;
+			}
+
+			.price--box {
+				display: flex;
+
+				&__item {
+					width: calc(100% / 3);
+
+					&:nth-child(2) {
+						border: 1px solid #E3E3E3;
+						border-top: none;
+						background-color: #E3E3E3;
+					}
+
+					&:nth-child(3) {
+						background-color: #F1DEFA;
+						border-bottom-right-radius: 10px;
+					}
+
+					&__header {
+						background: #66408D;
+						color: #fff;
+						height: 77px;
+						padding: 22px 0 22px 31px;
+					}
+
+					&__data {
+						display: flex;
+						height: 560px;
+						align-items: center;
+						justify-content: center;
+						font-size: 45px;
+						font-weight: 500;
+						line-height: 57px;
+						text-align: center;
+						color: #3E3B41;
+					}
+				}
+			}
+		}
+
+
+		.slide-footer {
+			position: static;
+
+			.disclaimer {
+				font-size: 32px;
+				font-weight: 600;
+				line-height: 24px;
+				height: 60px;
+				left: 0;
+				letter-spacing: -1.3px;
+				top: 70px;
+				width: fit-content;
+			}
+
+			.rea-logo {
+				width: 287px;
+				height: 51px;
+				position: absolute;
+				right: 0;
+				top: 70px;
+				background-image: url(img/logo.png);
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}

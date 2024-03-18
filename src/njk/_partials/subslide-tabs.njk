@@ -1,0 +1,30 @@
+{% macro subslide_tabs(content) %}
+	<div class="subslide-tabs {% if content.dark %} subslide-tabs--dark {% endif %}">
+		{% for tab in content.tabs %}
+			{% if (tab.premiere) and (i != 0) %}
+				<div class="subslide-tabs__exclusive-label">
+					<div class="subslide-tabs__exclusive-star"></div>
+					Exclusive to Premiere agencies
+				</div>
+				{% set i = 1 %}
+			{% endif %}
+		{% endfor %}
+		{% for tab in content.tabs %}
+			{% if loop.index == 1 or loop.index == 6 %}
+				<div class="subslide-tabs__container" data-page="{{(loop.index / 5) | round}}">
+			{% endif %}
+				<div class="subslide-tabs__tab"  data-tab="{{loop.index}}">
+					<div class="subslide-tabs__icon subslide-tabs__icon--{{tab.icon}}"></div>
+					<div class="subslide-tabs__text">
+						{{tab.title}}
+					</div>
+					{% if tab.premiere %}
+						<div class="subslide-tabs__exclusive-star"></div>
+					{% endif %}
+				</div>
+			{% if loop.index == 5 or loop.last %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endmacro %}

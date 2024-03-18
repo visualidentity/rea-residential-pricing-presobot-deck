@@ -1,0 +1,12 @@
+{% macro title(theme='red', copy='Section', subtitle='', classes='', cweKey=null, title_key="title", subtitle_key="subtitle") %}
+<div class="s-intro-slide">
+	<div class="s-house-slide__container {{ classes }}" data-background-container="{{theme}}">
+		<div class="s-house-slide__content o-transition__children--fade-up">
+			<h1 class="section-content__title" {% if cweKey %}data-companywide-editable="{{cweKey}}_{{title_key}}"{% endif %}>{{ copy | safe}}</h1>
+			{% if subtitle %}
+			<h4 class="section-content__subtitle" {% if cweKey %}data-companywide-editable="{{cweKey}}_{{subtitle_key}}"{% endif %}>{{ subtitle | safe}}</h4>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endmacro %}

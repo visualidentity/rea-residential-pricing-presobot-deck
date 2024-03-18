@@ -1,0 +1,75 @@
+{% set options = {
+	id: "<%= data.slideId %>",
+	article_classes: ""
+} %}
+
+{% set optionsHeader = {
+	title: "<%= data.slideTitle %>",
+	subtitle: ""
+} %}
+
+{% extends "./njk/base.njk" %}
+
+<% columnTotal=0; for(var i = 0; i < data.columns.length; ++i) {columnTotal+=parseInt(data.columns[i].width)} %>
+
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+
+<% for(var i = 0; i < data.columns.length; ++i) { %>
+{% macro block_<%= data.columns[i].uid %>() %}
+Column "<%= data.columns[i].uid %>", width: <%= data.columns[i].width %>/<%= columnTotal %>
+{% endmacro %}
+
+<% } %>
+
+{% set grid_config = {
+	bg_colour: "",
+	size: "<%= columnTotal %>",
+	collapsed: false,
+	classes: "<%= data.classes.join(" ") %> <% if(!_.isUndefined(data.height)) { %><%= data.height %><% } %>" ,
+	columns: [
+<% for(var i = 0; i < data.columns.length; ++i) { %>
+		{
+			bg_colour: "<%= data.columns[i].bg_colour %>",
+			classes: "<%= data.columns[i].uid %>",
+			size: "<%= data.columns[i].width %>",
+			content: block_<%= data.columns[i].uid %>()
+		}<% if(i < data.columns.length-1) { %>,<% } %>
+<% } %>
+	]
+}
+%}
+
+{# import grid macro #}
+{% import "./njk/_partials/grid.njk" as grid %}
+
+{% block content %}
+	{{ grid.column_group(grid_config) }}
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{
+				type: "Source",
+				text: "data source"
+			}
+		],
+		disclaimer_target: true
+	}) }}
+{% endblock %}
+
+
+{% block js_rendered %}
+{% endblock %}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+{% endblock %}

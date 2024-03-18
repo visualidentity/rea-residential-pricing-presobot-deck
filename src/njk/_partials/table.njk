@@ -1,0 +1,20 @@
+{% macro table(options) %}
+	<div class="table-container{% if options.classes %} {{options.classes}}{% endif %}">
+		{% if options.title %}
+			<h4 class="table__title">{{ options.title }}</h4>
+		{% endif %}
+		<table class="table">
+			<tr class="">
+				{% for item in options.columns %}
+					<th data-{{ item.id }} class="table__header">
+						{{ item.name }}
+					</th>
+				{% endfor %}
+			</tr>
+		</table>
+		<table class="table table-data"></table>
+
+	</div>
+
+
+{% endmacro %}

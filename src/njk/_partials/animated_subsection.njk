@@ -1,0 +1,102 @@
+
+
+{% import "njk/_partials/subslide-side-panel.njk" as side %}
+{% macro animated_subsection(content) %}
+	{% if content.singleCategory %}
+		{% set singleCategory = content.singleCategory %}
+		{% else %}
+		{% set singleCategory = false %}
+	{% endif %}
+
+
+	<div class="animated-subsection">
+		{{content.image}}
+		{% if content.categories %}
+			{% for category in content.categories %}
+				<div class="subsection__category subsection__category--{{category.position}}" data-subsection-nav>
+					<div class="subsection__category__title">
+						{{category.title}}
+						{% if category.line %}
+							{{category.line}}
+						{% endif %}
+					</div>
+					<div class="category__sections">
+						{% for section in category.sections %}
+							{{section_navigation(section)}}
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		{% else %}
+			{% for section in content.subsections %}
+				<div class="subsection__navigation {{ content.singleCategory|lower }} subsection__navigation--{{section.position}}" data-subsection-nav  data-subsection-id="{{section.id}}" data-subsection-settings='{"id": {{section.id}}, "x":{{section.animation.x}}, "y":{{section.animation.y}}, "scale":{{section.animation.scale}}}'>
+					<div class="subsection__icon subsection__icon--{{section.icon}}"></div>
+					<div class="subsection__title">{{section.title | safe | nl2br}}</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+		<div id="subsection" class="subsection" data-subsection-side-panel>
+			{% if content.subsections %}
+				{{side.side_panel({
+					sections: content.subsections,
+					singleCategory: singleCategory
+				})}}
+			{% else  %}
+				{{side.side_panel({
+					categories: content.categories,
+					singleCategory: singleCategory
+				})}}
+			{% endif %}
+		</div>
+		<div class="subsection__slide__disclaimers">
+			<ul>
+				{% for disclaimer in content.disclaimers %}
+					<li>{{disclaimer | safe}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro section_navigation(section) %}
+	<div class="subsection__navigation {% if section.position %} subsection__navigation--{{section.position}} {% endif %}" data-subsection-nav  data-subsection-id="{{section.id}}" data-subsection-settings='{"id": {{section.id}}, "x":{{section.animation.x}}, "y":{{section.animation.y}}, "scale":{{section.animation.scale}}}'>
+		<div class="subsection__icon__container">
+			<div class="subsection__icon subsection__icon--{{section.icon}}"></div>
+		</div>
+		<div class="subsection__title">{{section.title}}</div>
+	</div>
+{% endmacro %}
+
+
+{% macro product_lockup(content) %}
+	<div class="animated-subsection">
+    {% if content.image2 %}
+      {{content.image2}}
+    {% endif %}
+		{% if (content.image) %}
+			{{content.image}}
+		{% elif (content.staticImage) %}
+			<div class="subsection__image subsection__image--static">
+				{% if (content.staticImage.wrapper) %}
+				<div class="subsection__image-wrapper subsection__image-wrapper--{{content.staticImage.wrapper}}"></div>
+				{% endif %}
+				<div class="subsection__image-static-product c-editable-image {% if (content.staticImage.wrapper) %}subsection__image-static-product--{{content.staticImage.wrapper}}{% endif %}" {% if (content.cweKey) %}data-companywide-dynamic-image="{{content.cweKey}}_product_image"{% endif %}>
+					{% if (content.staticImage.dimensions) %}<div class="c-editable-image-dimensions">{{content.staticImage.dimensions}}</div>{% endif %}
+				</div>
+				{% if (content.staticImage.wrapper === 'laptop-mobile') %}
+				<div class="subsection__image-wrapper subsection__image-wrapper--small-mobile"></div>
+				<div class="subsection__image-static-product subsection__image-static-product--small-mobile c-editable-image" {% if (content.cweKey) %}data-companywide-dynamic-image="{{content.cweKey}}_product_image_mobile"{% endif %}>
+					{% if (content.staticImage.dimensions) %}<div class="c-editable-image-dimensions">161px x 302px</div>{% endif %}
+				</div>
+				{% endif %}
+			</div>
+		{% endif %}
+		{% for section in content.subsections %}
+			<div class="subsection__navigation subsection__navigation--no-prompt {{ content.singleCategory|lower }} subsection__navigation--{{section.position}}" data-subsection-id="{{section.id}}" data-subsection-settings='{"id": {{section.id}}, "x":{{section.animation.x}}, "y":{{section.animation.y}}, "scale":{{section.animation.scale}}}'>
+				<div class="subsection__icon subsection__icon--{{section.icon}} {% if (content.cweKey) %}c-editable-image{% endif %}" {% if (content.cweKey) %}data-companywide-dynamic-image="{{content.cweKey}}_section_{{loop.index}}_icon"{% endif %}></div>
+				<p class="subsection__title" {% if (content.cweKey) %}data-companywide-editable="{{content.cweKey}}_section_{{loop.index}}_title" data-toolbar="style color superscript removeformat"{% endif %}>{{section.title}}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endmacro %}

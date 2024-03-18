@@ -1,0 +1,56 @@
+{% macro data(tableData, cweKey = null, tableClass = '', valStart = 0) %}
+{% set editable = true %}
+	<table class="table-performance {{ tableClass }}">
+		{% for item in tableData %}
+      {% set outer_loop = loop %}
+			<tr class="{% if item.removable %}table-performance__removable{% endif %}" val="{% if loop.index != 1 and valStart %}{{ loop.index + valStart }}{% else %}{{ loop.index }}{% endif %}">
+				{% if item.headings %}
+					{% for heading in item.headings %}
+						<th
+							class="{% if loop.index == 1 %}table-performance__main{% else %}table-performance__{{ heading.title|lower|replace(' all', '')|replace(' ', '-') }}{% endif %}{% if heading.removable %} table-performance__removablesub{% endif %}"
+							val="{{ loop.index }}"
+						>
+              <div {% if (cweKey) %} data-companywide-editable="{{cweKey}}_table_heading_{{outer_loop.index}}_{{loop.index}}"{% endif %}>
+                {{ heading.title|safe }}
+              </div>
+              <div class="background-image" data-companywide-dynamic-image="{{cweKey}}_table_heading_image_{{outer_loop.index}}_{{loop.index}}"></div>
+            </th>
+					{% endfor %}
+				{% elif item.heading %}
+					<td class="table-performance__heading">
+						{% if item.tag %}<span class="table-performance__heading--tag">{{ item.tag }}</span>{% endif %}
+            <div {% if (cweKey) %} data-companywide-editable="{{cweKey}}_table_heading_{{outer_loop.index}}"{% endif %}>
+						  {{ item.heading|safe }}
+            </div>
+					</td>
+				{% endif %}
+				{% for data in item.data %}
+					{% if data.editableId %}
+						<td
+							class="table-performance__cell {% if loop.index == 1 %}elite-plus{% elif loop.index == 2 %}elite{% elif loop.index == 3 %}enhanced{% elif loop.index == 4 %}basic{% endif %}"
+							val="{{ loop.index }}"
+						>
+						<div id="{{ data.editableId}}" data-editable>{{ data.text }}</div>
+						</td>
+					{% else %}
+							<td
+								class="table-performance__cell {% if loop.index == 1 %}elite-plus{% elif loop.index == 2 %}elite{% elif loop.index == 3 %}enhanced{% elif loop.index == 4 %}basic{% endif %}"
+								val="{{ loop.index }}"
+								{{ data }}
+							>-</td>
+					{% endif %}
+				{% endfor %}
+				{% for text in item.text %}
+					<td
+						class="table-performance__cell {% if loop.index == 1 %}elite-plus{% elif loop.index == 2 %}elite{% elif loop.index == 3 %}enhanced{% elif loop.index == 4 %}basic{% endif %}"
+						val="{{ loop.index }}"
+					>
+            <div {% if (cweKey) %} data-companywide-editable="{{cweKey}}_table_cell_content_{{outer_loop.index}}_{{loop.index}}"{% endif %}>
+              {{ text|safe }}
+            </div>
+          </td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</table>
+{% endmacro %}

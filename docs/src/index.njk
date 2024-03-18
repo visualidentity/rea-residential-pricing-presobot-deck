@@ -1,0 +1,27 @@
+{% set options = {
+	title: "REA Deck Style Guide"
+} %}
+
+{% set src = {
+	docs: "docs/src",
+	deck: "src/njk",
+	deck_src:"../../src",
+	expath: "../../../../"
+} %}
+
+{% extends src.docs + "/njk/base.njk" %}
+
+{% import src.docs + "/njk/macros.njk" as util %}
+
+{% block content %}
+
+<div class="sidebar">
+	<h1>{{ options.title }}</h1>
+	<ul>
+	</ul>
+</div>
+<div class="content content_container">
+	{% include src.docs + "/njk/examples.njk" %}
+</div>
+
+{% endblock %}

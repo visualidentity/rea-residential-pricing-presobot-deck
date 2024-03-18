@@ -1,0 +1,327 @@
+
+/*----------------------------------------------------------------------------*/
+/* Pie Charts ----------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+.animation-complete, .ie9 {
+	.the-pie {
+		.pie-chart-container {
+			@include transition(none !important);
+		}
+		.segment {
+			opacity: 1 !important;
+			@include transition(none !important);
+			.before {
+				@include transition(none !important);
+			}
+		}
+		.keys {
+			opacity: 1 !important;
+			@include transition(none !important);
+		}
+	}
+}
+
+.the-pie.pie-anim {
+	.segment {
+		opacity: 0 !important;
+		.before {
+			-webkit-transform: rotate(0deg) !important;
+			-ms-transform: rotate(0deg) !important;
+			transform: rotate(0deg) !important;
+			@include transition(none !important);
+		}
+	}
+}
+
+.the-pie {
+
+	// z-index for zoomed screens
+	.base-pie { @include translateZ(10px); position: absolute; }
+	.pie-chart-container { @include translateZ(15px); }
+	.pie-hole { @include translateZ(20px); }
+	.big-stat { @include translateZ(25px); }
+
+	.segment {
+		opacity: 1;
+		@include transition(opacity 0ms linear);
+		.before {
+			left: -1px;
+			// FIX-ME
+			// For some reason, the duration and easing are not pulling in for
+			// transforms using transition, please to fix when there's time
+			// @include transition(transform 250ms ease-out);
+			@include transition(transform);
+			@include transition-duration(250ms);
+			@include transition-timing-function(linear);
+		}
+		&:last-child {
+			.before {
+				// FIX-ME
+				// For some reason, the duration and easing are not pulling in for
+				// transforms using transition, please to fix when there's time
+				// @include transition(transform 250ms ease-out);
+				@include transition(transform);
+				@include transition-duration(250ms);
+				@include transition-timing-function(ease-out);
+			}
+		}
+	}
+
+	// Colour schemes
+	&.buy {
+		.segment-1 .before, { background-color: colour(blue); }
+	}
+	&.rent {
+		.segment-1 .before, { background-color: colour(purple); }
+	}
+	&.sell {
+		.segment-1 .before, { background-color: colour(teal); }
+	}
+	&.profile_completion {
+		.segment-2 .before, { background-color: colour(bluestone); }
+		.segment-1 .before, { background-color: colour(l-grey);	}
+	}
+	&.agent_profile_completion {
+		.segment-2 .before, { background-color: colour(bluestone); }
+		.segment-1 .before, { background-color: colour(l-grey);	}
+	}
+	&.percentage {
+		.segment-1 .before, {background-color: colour(l-grey);}
+			.segment-2 .before,  {background-color: colour(bluestone);}
+	}
+	.segment-2 .before { background-color: colour(l-grey); }
+	.segment-3 .before { background-color: colour(white); }
+}
+
+.pie-chart {
+	position: relative;
+
+	// &.doughnut:after {
+	// 	content: "";
+	// 	position: absolute;
+	// }
+
+	.segment {
+		position: absolute;
+		top: 0px;
+		overflow: hidden;
+		@include backface-visibility(hidden);
+		@include transform-origin(left center);
+
+		// required for transform animations in Microsoft Edge
+		@include transform-style(preserve-3d);
+
+	/*
+	  this is the actual visible part of the pie.
+	  Give it the same dimensions as the regular piece.
+	  Use border radius make it a half circle.
+	  move transform origin to the middle of the right side.
+	  Push it out to the left of the containing box.
+	*/
+		.before {
+			display: block;
+			position: absolute;
+			top: 0px;
+			@include transform-origin(right center);
+
+			// required for transform animations in Microsoft Edge
+			@include transform-style(preserve-3d);
+		}
+
+
+	/*
+	  unless the piece represents more than 50% of the whole chart.
+	  then make it a square, and ensure the transform origin is
+	  back in the center.
+
+	  NOTE: since this is only ever a single piece, you could
+	  move this to a piece specific rule and remove the extra class
+	*/
+		&.big {
+			left: 0px;
+			@include transform-origin(center center);
+
+			/* if it's part of a big piece, bring it back into the square */
+			.before {
+				left: 0px;
+			}
+
+			/*
+			  big pieces will also need a second semicircle, pointed in the
+			  opposite direction to hide the first part behind.
+			*/
+			.after {
+				display: block;
+				position: absolute;
+			}
+
+		} // EO big
+	}
+
+	// Animation delays
+	.segment:nth-child(1), .segment:nth-child(1) .before {
+		@include transition-delay(250ms);
+	}
+	.segment:nth-child(2), .segment:nth-child(2) .before {
+		@include transition-delay(500ms);
+	}
+	.segment:nth-child(3), .segment:nth-child(3) .before {
+		@include transition-delay(750ms);
+	}
+	.segment:nth-child(4), .segment:nth-child(4) .before {
+		@include transition-delay(1000ms);
+	}
+	.segment:nth-child(5), .segment:nth-child(5) .before {
+		@include transition-delay(1250ms);
+	}
+	.segment:nth-child(6), .segment:nth-child(6) .before {
+		@include transition-delay(1500ms);
+	}
+
+} //EO .pie-chart
+
+
+// property journey pie slides
+article.feature-pie-slide {
+
+	.pie-chart-container {
+		position: absolute;
+		top: 32px;
+		left: 260px;
+	}
+
+	.keys {
+		position: absolute;
+		top: 205px;
+		left: 1080px;
+		opacity: 1;
+		@include transform(translateY(0px));
+		@include transition(transform 400ms ease-out, opacity 400ms ease-out);
+		@include transition-delay(1s);
+		.key {
+			padding-bottom: 80px;
+			.icon {
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				vertical-align: middle;
+				margin-right: 30px;
+				width: 129px;
+				height: 82px;
+				background-position: center center;
+				background-repeat: no-repeat;
+				&.desktop {
+					background-size: 129px 82px;
+					&.blue {
+						background-image: url('img/pie/desktop-blue.svg');
+					}
+					&.teal {
+						background-image: url('img/pie/desktop-teal.svg');
+					}
+					&.purple {
+						background-image: url('img/pie/desktop-purple.svg');
+					}
+				}
+				&.mobile {
+					background-size: 33px 64px;
+					background-image: url('img/pie/mobile.svg');
+				}
+				&.tablet {
+					background-size: 53px 74px;
+					background-image: url('img/pie/tablet.svg');
+				}
+			}
+			h3 {
+				font-weight: 100;
+				display: inline-block;
+				vertical-align: middle;
+				font-size: $font-size-66;
+				line-height: $font-size-66;
+			}
+		}
+	}
+
+	.the-pie.pie-anim {
+		.pie-chart-container {
+			@include transform(rotate(-100deg !important));
+			@include transition(none !important);
+		}
+		.keys {
+			@include transform(translateY(30px !important));
+			opacity: 0 !important;
+			@include transition(none !important);
+		}
+	}
+
+	// Rotate the pie on introduction
+	.pie-chart-container {
+		// FIX-ME
+		// For some reason, the duration and easing are not pulling in for
+		// transforms using transition, please to fix when there's time
+		// @include transition(transform 250ms ease-out);
+		@include transition(transform 1250ms ease-out);
+		@include transform(rotate(170deg));
+	}
+
+	.pie-chart {
+		$pie-size: 702px;
+		width: $pie-size;
+		height: $pie-size;
+		/*
+		  make each pie piece a rectangle twice as high as it is wide.
+		  move the transform origin to the middle of the left side.
+		  Also ensure that overflow is set to hidden.
+		*/
+		@include pie-segments($pie-size / 2);
+
+	}
+
+	.connector-line-container {
+		.connector-line { background-color: color(bluestone); }
+		.connector-line:before {
+			top: -4px;
+			width: 9px;
+			height: 9px;
+			background-color: color(bluestone);
+		}
+		&.left .connector-line:before { left: -8px; }
+		&.right .connector-line:before { right: -8px; }
+	}
+
+	.connector-line-label {
+		h4 {
+			font-size: $font-size-60;
+			line-height: 61px;
+			font-weight: 100;
+		}
+	}
+
+	.icon-devices {
+		background-image: url("./img/icon-devices.svg");
+		@include background-size(122px 50px);
+		background-repeat: no-repeat;
+		vertical-align: bottom;
+		margin-top: 8px;
+		&.icon-desktop {
+			width: 64px;
+			height: 50px;
+			background-position: 0px 0px;
+		}
+		&.icon-tablet {
+			width: 37px;
+			height: 50px;
+			background-position: -64px -1px;
+		}
+		&.icon-mobile {
+			width: 21px;
+			height: 50px;
+			background-position: -102px -13px;
+		}
+		&.left { margin-left: auto; }
+		&.right { margin-right: auto; }
+	}
+
+} /* EO Article */
+
+

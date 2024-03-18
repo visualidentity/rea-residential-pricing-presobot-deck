@@ -1,0 +1,6 @@
+{% macro title(options, optionsHeader) %}
+	
+	<h1 class="slide-header-halfpage__title {{ optionsHeader.titleClasses }}" {% if optionsHeader.cweKey %}data-companywide-editable="{{headerOptions.cweKey}}_title"{% endif %}>{{ optionsHeader.title | safe | nl2br }}</h1>
+	<h5 class="slide-header-halfpage__subtitle {{ optionsHeader.subtitleClasses }}" {% if optionsHeader.cweKey %}data-companywide-editable="{{headerOptions.cweKey}}_subtitle" data-toolbar="style superscript removeformat"{% endif %}>{{ optionsHeader.subtitle | safe | nl2br }}</h5>		
+	
+{% endmacro %}

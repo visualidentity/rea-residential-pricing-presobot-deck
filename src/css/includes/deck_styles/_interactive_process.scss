@@ -1,0 +1,224 @@
+.interactive-process {
+	width: 1725px;
+	ul {
+
+		text-align: center;
+		li {
+			width: 349px;
+			margin-right: 79px;
+			text-align: center;
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			.process {
+				padding: 30px;
+				background: #F0F1F2;
+				border: 1px solid #D0D0D0;
+				border-radius: 6px;
+				min-height: 290px;
+
+				.process-icon {
+					width: 90px;
+					height: 90px;
+					position: relative;
+					margin: 0 auto;
+					@include transform(scale(1));
+					transition: transform 1s ease;
+				}
+
+				.process-text {
+					margin-top: 30px;
+
+					h5 {
+						font-size: 26px;
+						color: #697684;
+					}
+
+					.process-text__caption {
+						margin-top: 17px;
+						font-size: 26px;
+						color: #697684;
+						line-height: 1;
+						display: none;
+					}
+				}
+
+				.addition:before {
+					content: "+";
+				}
+			}
+
+			.process-fade {
+				background: white;
+				border: 1px solid #FFB200;
+				height: auto;
+				@include transition(all ease 1s);
+
+				.process-icon {
+					@include transform(scale(1.2));
+					transition: transform 1s ease;
+				}
+
+				.addition:before {
+					content: "-";
+				}
+
+				.process-text {
+					h5 {
+						font-weight: 900;
+						animation: fadein 1s ease;
+					}
+
+					.process-text__caption {
+						display: block !important;
+						animation: fadein 2s ease;
+					}
+				}
+			}
+
+			.process-icon-all {
+				background: white;
+				border: 1px solid #00A4C7 !important;
+				height: auto;
+				@include transition(all ease 1s);
+
+				.button {
+					display: none;
+				}
+
+				.process-text {
+					h5 {
+						font-size: 26px;
+						font-weight: 500;
+						padding-bottom: 10px;
+					}
+
+					.process-text__caption {
+						font-size: 21px;
+						display: block !important;
+						animation: fadein 2s ease;
+					}
+				}
+			}
+		}
+
+		.button {
+			width: 70px;
+			height: 70px;
+			position: relative;
+			top: 50px;
+			left: 30px;
+			transition: all 0.4s ease-in;
+
+			span {
+				width: 33px;
+				height: 33px;
+				font-size: 16px;
+				font-weight: 500;
+				padding: 7px 11px;
+				color: white;
+				border-radius: 50%;
+				position: absolute;
+				right: 25%;
+				bottom: 25%;
+			}
+			&:before {
+				content: '';
+				background-color: red;
+				border-radius: 50%;
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				@include transform(scale(0.001, 0.001));
+			}
+			&:after {
+				content: '';
+				width: 33px;
+				height: 33px;
+				display: block;
+				position: absolute;
+				left: 19px;
+    			top: 20px;
+				background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(0,0,0, 1) 100%), url(...);
+				border-radius: 50%;
+				opacity: .4;
+			}
+			&:focus {
+				outline: 0;
+				&:before {
+					animation: ripple 0.8s ease-out;
+				}
+			}
+		}
+
+		.process-arrow {
+			width: 31px;
+			height: 82px;
+			background: url('./img/guidance.png');
+			position: absolute;
+			left: 375px;
+			top: 91px;
+		}
+	}
+
+	ul li:last-child {
+		.process-arrow {
+			display: none;
+		}
+	}
+
+	.process-text__disclaimer {
+		font-size: 13px;
+		position: relative;
+		bottom: -230px;
+		left: 40px;
+	}
+}
+
+$process-icon-list: (
+	power: (),
+	checkbox: (),
+	target: (),
+	documents: (),
+	desktop-verified: (),
+	home-search: (),
+	home-value: (),
+	agent-soft: (),
+	agent: (),
+	key: (),
+	phone-bubble: (),
+	phone: (),
+	user: (),
+	save: (),
+	direct: (),
+	facebook-feed: (),
+	facebook-like: (),
+	facebook-message: (),
+	document: (),
+	to-house: (),
+	web: (),
+	target-arrow: (),
+	magnified-glass: (),
+	attraction: (),
+	user-star: (),
+	user-device: (),
+	check: (),
+	email-user: (),
+	profit-in: ()
+);
+
+.process-icon {
+	@each $key, $value in $process-icon-list {
+		&--#{$key} {
+			margin: 0 auto;
+			margin-bottom: 26px;
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url('img/listings-process/#{$key}.svg');
+		}
+	}
+}

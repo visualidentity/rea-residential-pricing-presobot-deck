@@ -1,0 +1,245 @@
+// --------------------------------------------------------
+// JS preso lockdown
+// when all navigation and interaction needs to be halted
+// eg. during Bridge.Request.get(), .update() etc.
+// --------------------------------------------------------
+
+// Loader used to indicate to the user that an API call is being made, the slide is loading,
+// and they are required to wait for the process to complete
+@include keyframes(loading_anim) {
+	0% {
+		@include scale(0.1);
+	}
+
+	100% {
+		@include scale(1);
+	}
+}
+
+@include keyframes(loading_anim_rev) {
+	0% {
+		@include scale(1);
+	}
+
+	100% {
+		@include scale(0.1);
+	}
+}
+
+/* Progress Bar - anim form SP app */
+@keyframes indeterminate {
+	0% {
+		right: 100%;
+		left: -35%;
+	}
+
+	60% {
+		right: -90%;
+		left: 100%;
+	}
+
+	100% {
+		right: -90%;
+		left: 100%;
+	}
+}
+
+
+@keyframes indeterminate-short {
+	0% {
+		right: 100%;
+		left: -200%;
+	}
+
+	60% {
+		right: -8%;
+		left: 107%;
+	}
+
+	100% {
+		right: -8%;
+		left: 107%;
+	}
+}
+
+.preso-lockdown {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	z-index: 1000;
+	@include translateZ(10000px);
+	background-color: rgba(colour(white), 0.8);
+
+	visibility: hidden;
+	opacity: 0;
+
+	@include transition(
+		opacity 250ms ease-out 0ms,
+		visibility 0ms linear 250ms
+	);
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+
+		@include transition(
+			opacity 250ms ease-out 0ms,
+			visibility 0ms linear 0ms
+		);
+	}
+
+	// Basic loader mode
+	&.basic {
+		.load-bubble {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -50px;
+			margin-top: -50px;
+			width: 100px;
+			height: 100px;
+			@include border-radius(50%);
+			background-color: rgba(163, 199, 245, 0.38);
+
+			@include transform-origin(50% 50%);
+			@include animation(none);
+		}
+
+		&.active {
+			.load-bubble:first-child {
+				@include animation(loading_anim 1000ms ease-in-out 0ms infinite alternate);
+			}
+
+			.load-bubble:last-child {
+				@include animation(loading_anim_rev 1000ms ease-in-out 0ms infinite alternate);
+			}
+		}
+	}
+
+	// modal type
+	&.modal {
+		.modal-wrapper {
+			width: 100%;
+			height: 100%;
+		}
+
+		.modal-container {
+			width: 440px;
+			margin: 0 auto;
+			
+			padding: 28px 40px;
+			text-align: center;
+			color: $textgrey;
+			background-color: rgba(colour(white), 0.8);
+			box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+			@include border-radius(4px);
+
+			.title {
+				padding-top: 8px;
+				padding-bottom: 30px;
+
+				&.hidden {
+					display: none;
+				}
+			}
+
+			.modal-container .progress-loader-linear {
+				margin: 8px auto 0;
+				width: 128px;
+			}
+
+			.user-input-container {
+				// Buttons are activated after when mode changes to 'action-required'
+				display: none;
+				margin-bottom: 10px;
+			}
+
+			.flat-btn, .solid-btn {
+				margin-top: 12px;
+				margin-right: 16px;
+				display: inline-block;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+
+		// Loader animations
+		&.active {
+			// Progress Bar Linear
+			.progress-loader-linear {
+				&.indeterminate .progress-line {
+					&:before {
+						// Custom bezier
+						animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+					}
+
+					&:after {
+						// Custom bezier
+						animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+						animation-delay: 1.15s;
+					}
+				}
+			}
+		}
+
+		// Action activated
+		&.action-required {
+			.modal-container {
+				top: 291px;
+				left: 277px;
+				width: 470px;
+			}
+
+			.progress-loader-linear {
+				display: none;
+			}
+
+			.user-input-container {
+				display: block;
+			}
+		}
+	}
+
+	// Progress Bar Linear
+	.progress-loader-linear {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		height: 6px;
+		width: 80%;
+		background-color: rgba(163, 199, 245, 0.38);
+		border-radius: 2px;
+		background-clip: padding-box;
+		margin: 10px 10%;
+		transform: translate3d(0,0,0);
+
+		&.determinate .progress-line {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			background-color: inherit;
+			background-color: #a3c7f5;
+			transition: width 300ms ease;
+		}
+
+		&.indeterminate .progress-line {
+			background-color: #a3c7f5;
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				background-color: inherit;
+				will-change: left, right;
+			}
+		}
+	}
+}

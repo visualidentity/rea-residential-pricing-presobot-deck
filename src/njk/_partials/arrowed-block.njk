@@ -1,0 +1,7 @@
+{% macro arrowed_block(options) %}
+  <div class="arrowed-block">
+	  <div class="icon-arrowed__icon icon-arrowed__icon--{{options.iconClass}}"></div>
+    <div class="arrowed-block__title">{{options.title | safe}}</div>
+    <p class="arrowed-block__text">{{options.text | safe}}</p>
+  </div>
+{% endmacro %}

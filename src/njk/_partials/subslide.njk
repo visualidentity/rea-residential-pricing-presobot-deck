@@ -1,0 +1,28 @@
+{% macro subslide_content(options) %}
+	{% set page_id = "page" + options.id %}
+	{# if id is less than 10, output '01' for example... #}
+	{% if options.id < 10 %}
+		{% set page_id = "page" + "0" + options.id %}
+	{% endif %}
+
+	<section id="subslide-{{options.id}}" class="{{page_id}} subslide content {{options.classes}}">
+		{% if options.header %}
+			<header class="slide-header">
+				{{ options.header }}
+			</header>
+		{% endif %}
+
+		{% if options.content %}
+			<section class="content-body">
+				{{ options.content }}
+			</section> <!-- EO content-body -->
+		{% endif %}
+
+		{% if options.footer %}
+			<footer>
+				{{ options.footer }}
+			</footer>
+		{% endif %}
+
+	</section> <!-- EO page01 -->
+{% endmacro %}

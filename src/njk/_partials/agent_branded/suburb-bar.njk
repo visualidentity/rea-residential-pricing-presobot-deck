@@ -1,0 +1,12 @@
+<div class="suburb-bar">
+    <span class="suburb-bar__title">Suburbs: </span>
+    <div class="suburb-bar__suburbs" data-suburb-bar-suburbs></div>
+	<div class="suburb-bar__controls">
+		<span class="suburb-bar__prev" data-dir="prev"></span>
+		<span class="suburb-bar__counter"></span>
+		<span class="suburb-bar__next" data-dir="next"></span>
+	</div>
+	{% if options.refresh === true %}
+		<span class="agent-branded__control-block__refresh removable-refresh-btn" data-refresh-block></span>
+	{% endif %}
+</div>

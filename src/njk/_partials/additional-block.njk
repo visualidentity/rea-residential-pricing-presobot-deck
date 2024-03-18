@@ -1,0 +1,8 @@
+{% macro additional_block(options) %}
+  <div class="additional-block">
+    <div class="additional-block__title">{{options.title | safe}}</div>
+    <div class="additional-block__caption">{{options.caption | safe}}</div>
+	  <div class="icon-additional__icon icon-additional__icon--{{options.iconClass}}"></div>
+    <p class="additional-block__text">{{options.text | safe}}</p>
+  </div>
+{% endmacro %}

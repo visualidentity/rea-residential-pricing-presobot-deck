@@ -1,0 +1,167 @@
+{#
+	Default copy block with only copy and equal padding
+#}
+{% macro block_copy(options) %}
+	<div class="block-copy">
+		<p class="">{{ options.copy }}</p>
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Default img block
+	- adds class to div which is then referenced in the relevant 'slide.scss'
+#}
+{% macro block_img(options) %}
+	<div class="{{ options.classes }}"></div>
+{% endmacro %}
+
+
+
+{#
+	Icon & title block
+#}
+{% macro block_service_icon(options) %}
+	<div class="block-service-icon {{ options.classes }}">
+		<div class="block-service-icon__icon icon-{{ options.title | lower | replace(' ', '-') }}"></div>
+		<p class="block-service-icon__title">{{ options.title }}</p>
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Block macro with content aligned to the bottom by default.
+#}
+{% macro block_content_bottom(options) %}
+	<div class="block-content-bottom block-content-bottom--colour-{{ options.colour }} {% if options.alignment %}block-content-bottom--align-{{ options.alignment }}{% endif %}">
+		<div class="block-content-bottom__icon {{ options.icon }}"></div>
+		<p class="block-content-bottom__copy">{{ options.copy | safe | nl2br }}</p>
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Block step (e.g 1,2,3) macro
+#}
+{% macro block_step(options) %}
+	<div class="block-step {% if options.classes %}{{ options.classes }}{% endif %}">
+		{% if options.icon %}
+		<div class="block-step__icon {% if options.iconClasses %}{{ options.iconClasses }}{% endif %} {{ options.icon }}"></div>
+		{% endif %}
+		<span class="block-step__step">{{ options.step }}</span>
+		<h2 class="block-step__title {% if options.titleClasses %}{{ options.titleClasses }}{% endif %}">{{ options.title | safe | nl2br }}</h2>
+		<p class="block-step__copy {% if options.copyClasses %}{{ options.copyClasses }}{% endif %}">{{ options.copy | safe | nl2br }}</p>
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Block step numbered macro
+	- steps are worded based on an existing brochure design
+#}
+{% macro block_step_worded(options) %}
+	<div class="block-step block-step--worded {% if options.classes %}{{ options.classes }}{% endif %}">
+		<div class="block-step__icon {% if options.icon %}{{ options.icon }}{% endif %}"></div>
+		<span class="block-step__step">Step {{ options.step }}</span>
+		<h2 class="block-step__title block-step__title--sm">{{ options.title | safe | nl2br }}</h2>
+
+		{% if options.copy %}
+			<p class="block-step__copy block-step__copy--semi-bold">{{ options.copy | safe | nl2br }}</p>
+		{% elseif options.list %}
+			{{ options.list }}
+		{% endif %}
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Block step numbered macro
+	- steps are worded based on an existing brochure design
+#}
+{% macro block_image_stat(options) %}
+	<div class="block-image-stat {% if options.classes %}{{ options.classes }}{% endif %}">
+		{% if options.image %}
+			{{ options.image | safe }}
+		{% endif %}
+		<h6 class="title">{{ options.title | safe | nl2br }}</h6>
+		<h2 class="big-stat font-size-80 thin-font">{{ options.stat | safe | nl2br }}</h2>
+
+		{% if options.copy %}
+			<p class="copy semi-bold">{{ options.copy | safe | nl2br }}</p>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Block benefits
+#}
+{% macro block_benefits(options) %}
+	<div class="block-benefits {% if options.border %}block-benefits--border block-benefits--color-{{ options.colour }}{% endif %} {% if options.classes %}{{ options.classes }}{% endif %} {% if options.alignVertical %}block-benefits--align-v-center{% endif %}">
+		<h2 class="block-benefits__title">{{ options.title | safe | nl2br }}</h2>
+
+		{% if options.alignVertical %}
+		<div class="block-benefits-items-wrapper">
+		{% endif %}
+
+		{% if options.intro %}
+		<div class="block-benefits__intro">{{ options.intro | safe | nl2br }}</div>
+		{% endif %}
+
+		<ul class="block-benefits-items">
+			{% for item in options.items %}
+			<li class="block-benefits__item">
+				<div class="block-benefits__icon {% if item.icon %}{{ item.icon }}{% endif %}"></div>
+				{% if item.title %}<p class="block-benefits__item-title">{{ item.title | safe | nl2br }}</p>{% endif %}
+				<p class="block-benefits__item-copy">{{ item.copy | safe | nl2br }}</p>
+			</li>
+			{% endfor %}
+		</ul>
+
+		{% if options.alignVertical %}
+		</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+
+{#
+	Block list numbered
+#}
+{% macro block_list_numbered(options) %}
+	<div class="block-list-numbered {% if options.classes %}{{ options.classes }}{% endif %}">
+		<h2 class="block-list-numbered__title">{{ options.title | safe | nl2br }}</h2>
+
+		<ul class="block-list-numbered-items">
+			{% for item in options.items %}
+			<li class="block-list-numbered__item">
+				<div class="block-list-numbered__item-number">{{ loop.index }}</div>
+				<p class="block-list-numbered__item-copy">{{ item.copy | safe | nl2br }}</p>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endmacro %}
+
+
+
+{#
+	Block benefits checklist
+#}
+{% macro block_benefits_checklist(options) %}
+	<div class="block-benefits-checklist {% if options.bg_colour %}block-benefits-checklist--bg-color-{{ options.bg_colour }}{% endif %} {% if options.classes %}{{ options.classes }}{% endif %}">
+		<h2 class="block-benefits-checklist__title">{{ options.title | safe | nl2br }}</h2>
+
+		<ul class="block-benefits-checklist-items">
+			{% for item in options.items %}
+			<li class="block-benefits-checklist__item">{{ item.copy | safe | nl2br }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endmacro %}

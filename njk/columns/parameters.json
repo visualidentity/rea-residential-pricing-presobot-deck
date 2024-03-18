@@ -1,0 +1,49 @@
+[   
+
+    {
+        "type": "checkbox",
+        "message": "Column group modifiers",
+        "name": "classes",
+        "choices": [
+                {"value": "collapsed", "name":"collapsed - no margin / padding on columns", "short": "collapsed"},
+                {"value": "animated", "name":"animated reveal", "short": "animated"},
+                {"value": "column--rounded-corners", "name":"rounded corners", "short": "rounded"}
+            ]
+     },
+    {
+        "type": "list",
+        "message": "Column group height",
+        "name": "height",
+        "choices": [
+            {"value": "column-group--height-full", "name": "full height"},
+            {"value": "column-group--height-two-thirds", "name": "two-thirds"},
+            {"value": "column-group--height-half", "name": "half"},
+            {"value": "column-group--one-third", "name": "one third"},
+            {"value": "column-group--one-", "name": "one quarter"}
+        ]
+     },
+    {
+        "type": "recursive",
+        "message": "Add a column?",
+        "name": "columns",
+        "prompts": [
+            {
+    			"type": "input",
+    			"name": "width",
+    			"message": "width (in columns)?"
+            },
+            {
+                "type": "input",
+                "name": "uid",
+                "message": "unique id for this column?"
+            },
+            {
+                "type": "autocomplete",
+                "name": "bg_colour",
+                "message": "bg_colour?",
+                "choices": ["black", "white", "l-grey", "teal" ]
+
+            }
+        ]
+    }
+]

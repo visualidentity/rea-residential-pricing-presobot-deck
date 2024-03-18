@@ -1,0 +1,118 @@
+.breadcrumb {
+  position: absolute;
+  right:120px;
+  top:18px;
+  margin:0;
+  padding:0;
+  z-index: 3;
+  font-family: $font-base-medium;
+
+  dt, dd {
+    display: inline-block;
+    vertical-align: top;
+    padding:16px 20px 14px 20px;
+    font-size: 16px;
+    line-height: 20px;
+    color:white;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+  }
+  dt {
+    background-color:colour(charcoal);
+    padding-right:40px;
+    text-align: left;
+    margin:0 -20px 0 0;
+  }
+  dd {
+    margin:0;
+    min-width:229px;
+    text-align: center;
+    background-color:colour(red);
+    font-family: $font-base-semiBold;
+    &.icon {
+      padding-left:50px;
+      background-position:12px center;
+      background-repeat:no-repeat;
+      &--property-ads {
+        background-image: url('img/header/property.svg');
+      }
+      &--heart {
+        background-image: url('img/header/heart.svg');
+      }
+      &--ignite {
+        background-image: url('img/header/ignite.svg');
+      }
+      &--audience-insights {
+        background-image: url('img/header/audience-insights.svg');
+        background-size: 50px auto;
+      }
+      &--agency-services {
+        background-image: url('img/header/agency-services.svg');
+        background-position:32px center;
+        background-size: 21px auto;
+      }
+      &--advantage {
+        background-image: url('img/header/advantage.svg');
+        background-position:42px center;
+      }
+      &--agency-marketplace {
+        background-image: url('img/header/agency-marketplace.svg');
+        background-size: 44px 44px;
+        background-position: 8px center;
+      }
+      &--consumer {
+        background-image: url('img/header/consumer.svg');
+        background-size: 27px 27px;
+        background-position: 16px center;
+      }
+    }
+  }
+
+  &--purple {
+    top: 20px;
+    right: 130px;
+    dd {
+      position: relative;
+      top: -1px;
+      min-width: 224px;
+      text-align: center;
+      background-color:#66408D;
+    }
+    dt {
+      background-color: #E5E5E5;
+      color: #979797;
+      position: relative;
+      z-index: -1;
+
+      &:before {
+        content: '';
+        height: 10px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.25;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      }
+    }
+  }
+
+  &--steel {
+    dd {
+      background-color:#13A4AE;
+    }
+  }
+
+  &--grey {
+    dd {
+      background-color:#565359;
+    }
+  }
+
+  &--lochmara {
+	  dd {
+		  background-color: #0078BD;
+	  }
+  }
+
+}

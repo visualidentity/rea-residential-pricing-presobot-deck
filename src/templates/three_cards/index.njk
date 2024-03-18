@@ -1,0 +1,95 @@
+{% set options = {
+	article_classes: "template-three-card",
+	cweKey: "template_three_card"
+} %}
+
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	classes: "slide-header--min-height",
+	cweKey: "template_three_card"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+
+
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+
+{% macro block_header_content() %}
+ <h4 class="header-block" data-companywide-editable="template_three_card_content_title" data-toolbar="color style superscript removeformat">
+	CONTENT TITLE
+ </h4>
+{% endmacro %}
+
+
+{% macro editable_stat(stat_key) %}
+<div class='stat'>
+	<div class='icon c-editable-image' data-companywide-dynamic-image="template_three_card_{{stat_key}}_icon"></div>
+	<div class='copy c-editable-text-region' data-companywide-editable="template_three_card_{{stat_key}}_editable_stat" data-toolbar="format style color superscript removeformat">
+		<p>Title<br>copy</p>
+		<h3>1,000</h3>
+		<p>Description</p>
+	</div>
+</div>
+{% endmacro %}
+
+
+{% set grid_config = {
+	bg_colour: "",
+	size: "3",
+	collapsed: false,
+	classes: "column--rounded-corners column-group--height-full" ,
+	columns: [
+
+		{
+			size: "1",
+			content: editable_stat('stat_1')
+		},
+
+		{
+			size: "1",
+			content: editable_stat('stat_2')
+		},
+
+		{
+			size: "1",
+			content: editable_stat('stat_3')
+		}
+
+	]
+}
+%}
+
+{# import grid macro #}
+{% import "./njk/_partials/grid.njk" as grid %}
+
+{% block content %}
+	{{ block_header_content() }}
+	{{ grid.column_group(grid_config) }}
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{
+				type: "Source",
+				text: "Source and disclaimer copy."
+			}
+		],
+		disclaimer_target: true,
+		cweKey: "template_three_card"
+	}) }}
+{% endblock %}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+{% endblock %}

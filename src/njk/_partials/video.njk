@@ -1,0 +1,13 @@
+{#
+	Product Strip - Header
+#}
+{% macro video_container(options) %}
+	<div class="video-container">
+		<div class="disable-youtube-link"></div>
+		<div class="player-container">
+			<div class="video-placeholder"></div>
+			<div id="{{ options.slideID }}_player_container" class="video"></div>
+		</div>
+		<div class="disable-master-controls"></div>
+	</div>
+{% endmacro %}

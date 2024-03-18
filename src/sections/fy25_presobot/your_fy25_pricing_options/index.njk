@@ -1,0 +1,86 @@
+{% set options = {
+	id: "your_fy25_pricing_options",
+	article_classes: "your_fy25_pricing_options",
+	ribbonless: true,
+	cweKey: "your_fy25_pricing_options"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{% block header_block %}
+	<header>
+		<h1 data-companywide-editable="editable_your_fy25_pricing_options_0l9QYv" class="o-transition--fade-up">
+			Your FY25 pricing options - Buy
+		</h1>
+		<dl class="breadcrumb breadcrumb--purple">
+			<dd class="icon icon--property-ads">Property Advertising</dd>
+		</dl>
+	</header>
+{% endblock %}
+
+{% block content %}
+	<div class="content-wrapper o-transition__children o-transition__children--fade-up o-transition__delay--250">
+		<div class="suburb">
+			Suburb: <span data-top-suburb>Top Suburb</span>, <span data-state> State</span>
+		</div>
+		<div class="price--box">
+			<div class="price--box__item">
+				<div class="price--box__item__header"
+					 data-companywide-editable="editable_your_fy25_pricing_options_fMRzXY">
+					Your current <span data-your-current-contract> XXX </span> Pricing
+				</div>
+				<div class="price--box__item__data" data-current-contract-value>$2,000</div>
+			</div>
+
+			<div class="price--box__item">
+				<div class="price--box__item__header"
+					 data-companywide-editable="editable_your_fy25_pricing_options_RsARRK">
+					Your FY25 <span data-your-current-contract> XXX </span> pricing
+				</div>
+				<div class="price--box__item__data" data-your-fy25-value>$2,000</div>
+			</div>
+
+			<div class="price--box__item">
+				<div class="price--box__item__header"
+					 data-companywide-editable="editable_your_fy25_pricing_options_ioP3xN">
+					Your FY25 Premiere+ pricing
+				</div>
+				<div class="price--box__item__data" data-premiere-value>$2,000</div>
+			</div>
+
+		</div>
+	</div>
+
+	<footer class="slide-footer">
+		<div class="disclaimer" data-companywide-editable="editable_your_fy25_pricing_options_TpKnvv">
+			For more detailed pricing options please contact your account representative
+		</div>
+		<div class="rea-logo"></div>
+	</footer>
+{% endblock %}
+
+<script type="text/javascript">
+	{% block js_ready %}
+
+	var data = Bridge.Feed.get('YourPricingOptions').raw();
+
+	if (Object.keys(data).length) {
+		$pageContainer.find('[data-top-suburb]').text(data.topSuburb);
+		$pageContainer.find('[data-state]').text(data.state);
+		$pageContainer.find('[data-your-current-contract]').text(data.currentContract);
+		$pageContainer.find('[data-current-contract-value]').text("$" + addCommas(data.priceFY24));
+		$pageContainer.find('[data-your-fy25-value]').text("$" + addCommas(data.priceFY25));
+		$pageContainer.find('[data-premiere-value]').text("$" + addCommas(data.premPlusPriceFY25));
+	}
+
+	Bridge.Request.get('/api-proxy/', {
+		query: {
+			url: `https://d2xpnl9r21uz0w.cloudfront.net/dev/pricingfy2425/AAJPAJ/your-pricing-options`
+		}
+	}).then(function (response) {
+		console.log('dc-res', response);
+	});
+
+
+	{% endblock %}
+</script>

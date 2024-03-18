@@ -1,0 +1,68 @@
+{% set options = {
+	article_classes: "branded_layout editable-template",
+	cweKey: "template_editable_text"
+} %}
+
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	classes: "slide-header--min-height",
+	cweKey: "template_editable_text"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% import "./njk/_partials/branding.njk.js" as branding_js %}
+
+{% macro exitable_text_block() %}
+<div class="c-editable-text-region c-editable-text-region__listing-chevron" data-companywide-editable="template_editable_text" data-toolbar="format list style color superscript removeformat">
+	<h3>Large heading</h3>
+	<h4>Medium heading</h4>
+	<h5>Small heading</h5>
+	<p>Body copy</p>
+	
+	<ul>
+		<li>Bullet 1</li>
+		<li>Bullet 2</li>
+		<li>Bullet 2</li>
+	</ul>
+
+	<ol>
+		<li>List item</li>
+		<li>List item</li>
+		<li>List item</li>
+	</ol>
+</div>
+{% endmacro %}
+
+{% block content %}
+    {% import "./njk/_partials/agent_branded/layout.njk" as layout %}
+
+	{% set grid_1_1 = {
+		bg_colour: "",
+		size: "1",
+		collapsed: false,
+		classes: "column--rounded-corners column-group--animated column-group--height-full",
+		columns: [
+			{
+				bg_colour: "white",
+				classes: "",
+				size: "1",
+				content: exitable_text_block()
+			}
+		]
+	}
+	%}
+
+	{# import grid macro #}
+	{% import "./njk/_partials/grid.njk" as grid %}
+
+	{{ grid.column_group(grid_1_1) }}
+{% endblock %}

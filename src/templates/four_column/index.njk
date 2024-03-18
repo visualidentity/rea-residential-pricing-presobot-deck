@@ -1,0 +1,120 @@
+{% set options = {
+	article_classes: "bg-l-grey-50 template-four-column",
+	cweKey: "template_four_column"
+} %}
+
+{# header options #}
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	classes: "slide-header--min-height",
+	cweKey: "template_four_column"
+} %}
+
+
+{% extends "./njk/base.njk" %}
+
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% block content %}
+
+	{% import "./njk/_partials/property-stat.njk" as stat %}
+	{% set grid_6 = {
+		bg_colour: "",
+		size: "5",
+		collapsed: false,
+		classes: "column--rounded-corners column-group--height-full column-group--animated",
+		columns: [
+			{
+				bg_colour: "white",
+				size: "2",
+				content: stat.property_stat({
+					classes: 'largest',
+					icon: {
+						width: 512,
+						height: 212,
+						margin: 42
+					},
+					number: '100,000',
+					text: 'Description',
+					cweKey: 'template_four_column_1'
+				})
+			},
+			{
+				bg_colour: "white",
+				size: "1",
+				content: stat.property_stat({
+					classes: 'medium',
+					icon: {
+						width: 200,
+						height: 140,
+						margin: 58
+					},
+					number: '1,000',
+					text: 'Description',
+					cweKey: 'template_four_column_2'
+				})
+			},
+			{
+				bg_colour: "white",
+				size: "1",
+				content: stat.property_stat({
+					classes: 'medium',
+					icon: {
+						width: 200,
+						height: 140,
+						margin: 58
+					},
+					number: '1,000',
+					text: 'Description',
+					cweKey: 'template_four_column_3'
+				})
+			},
+			{
+				bg_colour: "white",
+				size: "1",
+				content: stat.property_stat({
+					classes: 'medium',
+					icon: {
+						width: 200,
+						height: 140,
+						margin: 58
+					},
+					number: '1,000',
+					text: 'Description',
+					cweKey: 'template_four_column_4'
+				})
+			}
+		]
+	}
+	%}
+
+	{# import grid macro #}
+	{% import "./njk/_partials/grid.njk" as grid %}
+
+	{{ grid.column_group(grid_6) }}
+
+
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{
+				type: "Source",
+				text: "Source and disclaimer copy."
+			}
+		],
+		disclaimer_target: true,
+		cweKey: "template_four_column"
+	}) }}
+{% endblock %}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+{% endblock %}

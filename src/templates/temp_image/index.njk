@@ -1,0 +1,12 @@
+{% set options = {
+	article_classes: "branded_layout temp-image-template",
+	cweKey: "template_temp_image"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+
+{% block content %}
+  <div class="c-editable-image" data-companywide-dynamic-image="template_temp_image"></div>
+{% endblock %}

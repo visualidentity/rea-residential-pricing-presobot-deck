@@ -1,0 +1,131 @@
+{% set options = {
+	id: "we_are_continually_investing_in_our_subscriptions",
+	article_classes: "",
+	ribbonless: true
+} %}
+
+{% set optionsHeader = {
+	includeReLogo: false
+} %}
+
+{% set CONTENT = {
+	key: 'content',
+	data: [
+		{
+			timeline: 'fy15',
+			description: 'Agent Profiles Released'
+		},
+		{
+			timeline: 'fy16',
+			top_description: 'Agent Search Released'
+		},
+		{
+			timeline: 'fy17'
+		},
+		{
+			timeline: 'fy18',
+			description: 'Agent Elevate Released',
+			bottom_description: 'Ignite Released'
+		},
+		{
+			timeline: 'fy19',
+			top_description: 'Seller Leads Released',
+			description: 'Ratings & Reviews Released'
+		},
+		{
+			timeline: 'fy20',
+			top_description: 'Agent Search Revamp',
+			bottom_description: 'Rental Applications in Ignite Released'
+		},
+		{
+			timeline: 'fy21',
+			description: 'Ratings & Reviews in Ignite',
+			bottom_description: 'Agency Dashboard Reporting Released'
+		},
+		{
+			timeline: 'fy22',
+			top_description: 'Agent Profile Revamp'
+		},
+		{
+			timeline: 'fy23',
+			description: 'Agency Profile Revamp',
+			middle_description: 'Agency Search Revamp',
+			top_description: 'Seller Leads in Ignite & Reporting Released',
+			bottom_description: 'Expense & Listing Upload Reporting Released'
+		}
+	]
+} %}
+
+
+{% extends "./njk/base.njk" %}
+
+{% import "./njk/_partials/header-border.njk" as header %}
+{% block header_block %}
+	<header class="slide-header">
+		<dl class="breadcrumb breadcrumb--red">
+			<dd>Subscriptions</dd>
+		</dl>
+		<div class="slide-header-border__content text-left o-transition--fade-up">
+			<h1 class="slide-header-border__h1 text-left"
+				data-companywide-editable="we_are_continually_investing_in_our_subscriptions">
+				We are continually investing in our subscriptions
+			</h1>
+		</div>
+	</header>
+{% endblock %}
+
+{% macro renderContent(data) %}
+	{% set key = data.key %}
+	<div class="o-transition--fade-up o-transition__delay--250">
+		<div class="content-box text-left">
+			<div class="timeline-box">
+				{% for item in data.data %}
+					<div class="timeline-box__item" id="{{ item.timeline }}">
+						<div class="timeline-box__item-year"
+							 data-companywide-editable="subscriptions_and_listing_options_{{ key }}_n27cgasdjs{{ loop.index }}">{{ item.timeline | safe }}
+						</div>
+						{% if item.top_description %}
+							<div class="timeline-box__item-desc desc-top">
+								<p data-companywide-editable="we_are_continually_investing_in_our_subscriptions{{ key }}_SklmeKDy{{ loop.index }}">{{ item.top_description | safe }}</p>
+								<div class="line"></div>
+								<div class="dot"></div>
+							</div>
+						{% endif %}
+						{% if item.description %}
+							<div class="timeline-box__item-desc desc-normal">
+								<p data-companywide-editable="we_are_continually_investing_in_our_subscriptions{{ key }}_ankswAJD{{ loop.index }}">{{ item.description | safe }}</p>
+								<div class="line"></div>
+								<div class="dot"></div>
+							</div>
+						{% endif %}
+						{% if item.middle_description %}
+							<div class="timeline-box__item-desc desc-middle">
+								<p data-companywide-editable="we_are_continually_investing_in_our_subscriptions{{ key }}_kwAMglsf{{ loop.index }}">{{ item.middle_description | safe }}</p>
+								<div class="line"></div>
+								<div class="dot"></div>
+							</div>
+						{% endif %}
+						{% if item.bottom_description %}
+							<div class="timeline-box__item-desc desc-bottom">
+								<p data-companywide-editable="we_are_continually_investing_in_our_subscriptions{{ key }}_kksoJDlV{{ loop.index }}">{{ item.bottom_description | safe }}</p>
+								<div class="line"></div>
+								<div class="dot"></div>
+							</div>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+{% endmacro %}
+
+	{% block content %}
+		{{ renderContent(CONTENT) }}
+	{% endblock %}
+
+	{% block footer %}
+		<footer class="slide-footer">
+			<div class="rea-logo"></div>
+		</footer>
+	{% endblock %}

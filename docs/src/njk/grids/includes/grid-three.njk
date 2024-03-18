@@ -1,0 +1,55 @@
+{# slide options #}
+{% set options = {
+	id: "grids",
+	article_classes: ""
+} %}
+
+{# header options #}
+{% set optionsHeader = {
+	title: "Three Column Grid",
+	titleClasses: "",
+	subtitle: "Showing the three column grid",
+	subtitleClasses: ""
+} %}
+
+{% extends "src/njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "src/njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{# import grid macro #}
+{% import "src/njk/_partials/grid.njk" as grid %}
+
+{% block content %}
+
+	{% set grid_3 = {
+			bg_colour: "",
+			size: "3",
+			collapsed: false,
+			classes: "column-group--height-full",
+			columns: [
+				{
+					bg_colour: "pebble",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "pebble",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "pebble",
+					classes: "",
+					size: "1"
+				}
+			]
+		}
+	%}
+
+	{{ grid.column_group(grid_3) }}
+
+{% endblock %}

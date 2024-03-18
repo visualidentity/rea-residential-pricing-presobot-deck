@@ -1,0 +1,38 @@
+// Product Strip Header
+.product-strip-branding {
+	@include aspect-ratio(640, 45, 'product-strip-branding');
+
+	&.product-strip-branding--align-bottom {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+	}
+
+	.product-strip-branding__content {
+
+	}
+
+	.customer-logo {
+		// expected padding from left + center image
+		background-position: percentage(7/640) center;
+		background-repeat: no-repeat;
+		// auto width, height of image divided by height of container
+		background-size: auto percentage(32/48);
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+.branded-button {
+	font-size: 8px;
+	padding: 6px 9px;
+	color: colour(white);
+	text-align: center;
+	&.light-background {
+		color: colour(black);
+	}
+}

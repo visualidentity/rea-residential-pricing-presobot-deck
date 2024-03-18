@@ -1,0 +1,28 @@
+{% macro title(options, optionsHeader) %}
+	<header class="slide-header-border {% if optionsHeader.logoBottomRight %}slide-header-border--logo-bottom{% endif%}">
+		{% if optionsHeader.includeReLogo %}
+			{% include "./re-logo.njk" %}
+		{% endif %}
+		{% if optionsHeader.headerTag %}
+			<span class="slide-header-border__tag" {% if optionsHeader.headerTag.bgColor %} style="background-color:{{optionsHeader.headerTag.bgColor}}" {% endif %}>{{optionsHeader.headerTag.title}}</span>
+		{% endif %}
+		{% if optionsHeader.breadcrumb %}
+			<span class="slide-header-border__breadcrumb" {% if optionsHeader.breadcrumb.bgColor %} style="background-color:{{optionsHeader.breadcrumb.bgColor}}" {% endif %}>{% if optionsHeader.breadcrumb.icon %}<span class="{{optionsHeader.breadcrumb.icon}}"></span>{% endif %}{{optionsHeader.breadcrumb.title}}</span>
+		{% endif %}
+		{% if optionsHeader.category %}
+			<h5 class="slide-header-border__category">{{optionsHeader.category}}</h5>
+		{% endif %}
+		<div class="slide-header-border__content {% if optionsHeader.textLeft %}text-left{% endif %}">
+			<h1 class="slide-header-border__title {{ optionsHeader.titleClasses }}" {% if (options.cweKey) %} data-companywide-editable="{{options.cweKey}}_title"{% endif %}>{{ optionsHeader.title | safe | nl2br }}</h1>
+			{% if optionsHeader.subtitle %}
+				<h2 class="slide-header-border__sub-title {{ optionsHeader.subtitleClasses }}" {% if (options.cweKey) %} data-companywide-editable="{{options.cweKey}}_sub-title"{% endif %}>{{ optionsHeader.subtitle | safe | nl2br }}</h2>
+			{% endif %}
+			{% if optionsHeader.content %}
+				<div class="slide-header-border__text {{ optionsHeader.contentClasses }}" {% if (options.cweKey) %} data-companywide-editable="{{options.cweKey}}_content"{% endif %}>{{ optionsHeader.content | safe | nl2br }}</div>
+			{% endif %}
+		</div>
+		{% if optionsHeader.refresh %}
+			<div class="refresh-button slide-header-border__refresh" data-refresh-header><span class="refresh-active">Reset</span><span class="refresh-inactive">{{optionsHeader.refresh.message | safe}}</span></div>
+		{% endif %}
+	</header>
+{% endmacro %}

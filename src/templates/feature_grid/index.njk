@@ -1,0 +1,193 @@
+{% set options = {
+	article_classes: "template-feature-grid",
+	ribbonless: true,
+	cweKey: "template_feature_grid"
+} %}
+
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "",
+	arrowColour: "red",
+	animated: true,
+	includeReLogo: true,
+	cweKey: "template_feature_grid"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-center.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+
+{% import "./njk/_partials/image-text-overlay.njk" as overlayContent %}
+
+{% block content %}
+  <div class="template-feature-grid-bg"></div>
+
+	{# import 'block' macro #}
+	{% import "./njk/_partials/branding.njk.js" as branding_js %}
+	{# set content #}
+
+  {% set grid_4 = [{
+    bg: "#E4002B",
+    classes: "",
+    title: 'Title',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    overlay: {
+      align: 'left',
+      title: 'Test overlay title',
+      text: 'Test text',
+      image: '/src/templates/feature_columns/img/laptop.png',
+      cta: {
+        title: 'Find out more',
+        href: 'http://google.com'
+      }
+    }
+  },{ 
+    bg: "#ffffff",
+    color: "#7F649A",
+    classes: "",
+    title: 'Title 2b',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    overlay: {
+      align: 'center',
+      title: 'Test overlay title 2b',
+      text: 'Test text 2b',
+      image: '/src/templates/feature_columns/img/laptop.png',
+      cta: {
+        title: 'Find out more',
+        href: 'http://google.com'
+      }
+    }
+  },{ 
+    bg: "#E2E4E7",
+    color: "#7F649A",
+    classes: "",
+    title: 'Title 3b',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    overlay: {
+      align: 'right',
+      title: 'Test overlay title 3b',
+      text: 'Test text 3b',
+      image: '/src/templates/feature_columns/img/laptop.png',
+      cta: {
+        title: 'Find out more',
+        href: 'http://google.com'
+      }
+    }
+  },{ 
+    bg: "#E2E4E7",
+    color: "#7F649A",
+    classes: "",
+    title: 'Title 4b',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    overlay: {
+      align: 'left',
+      title: 'Test overlay title 4b',
+      text: 'Test text 4b',
+      image: '/src/templates/feature_columns/img/laptop.png',
+      cta: {
+        title: 'Find out more',
+        href: 'http://google.com'
+      }
+    }
+  },{ 
+    bg: "#E4002B",
+    classes: "",
+    title: 'Title 5b',
+    icon: '/src/templates/feature_columns/img/graph-icon.png',
+    overlay: {
+      align: 'right',
+      title: 'Test overlay title 5b',
+      text: 'Test text 5b',
+      image: '/src/templates/feature_columns/img/laptop.png',
+      cta: {
+        title: 'Find out more',
+        href: 'http://google.com'
+      }
+    }
+  }]%}
+
+  {% set index = 0 %}
+
+  {% set grid_size = "column-group--" + grid_4.length %}
+  
+    {% for row in grid_4 | batch(3) %}
+
+      <div class="feature-grid column-group {{ grid_size }} column-group--animated">
+
+        {% for item in row %}
+        {% set index = index + 1 %}
+          <div class="column column--span-1 feature-grid__item overlay-btn overlay-btn-{{index}}">
+            <div class="feature-grid__header"{% if item.bg %} style="background-color: {{item.bg}}; color: {{item.color}}"{% endif%}>
+              <div class="feature-grid__header__icon" data-companywide-dynamic-image="feature-grid__icon__{{index}}">
+              </div>
+              <h4 data-companywide-editable="feature-grid__title__{{index}}">{{item.title}}</h4>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    {% endfor %}
+
+    <!-- overlay -->
+    {% import "./njk/_partials/overlay.njk" as overlay %}
+    {% for item in grid_4 %}
+        {{overlay.overlay({
+            num: loop.index,
+            auto_responder: true,
+            content: overlayContent.content({
+              index: loop.index,
+              align: item.overlay.align,
+              data: item.overlay
+            })
+        })}}
+      {% endfor %}
+
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		cweKey: "template_feature_grid"
+	}) }}
+{% endblock %}
+
+
+{% block js_ready %}
+	attachSlideEvents(["popup"]);
+	var $header = $('.slide-header-center', $pageContainer);
+	var $titleDivider = $('.arrow', $header);
+	var $subtitle = $('.slide-header-center__subtitle', $header);
+	var $subsectionNav = $('.subsection__navigation', $pageContainer);
+	var $productImage = $('.subsection__image', $pageContainer);
+
+	var animators = [
+		$titleDivider,
+		$subtitle,
+		$subsectionNav,
+		$productImage
+	];
+
+	// Trigger slide animations
+	_.each(animators, animator => {
+		animator.addClass('launched');
+	});
+{% endblock %}
+
+
+{% block js_rendered %}
+	{% import "./index.njk.js" as js %}
+	{{ branding_js.rendered() }}
+      {# var $close = $('.overlay', $pageContainer);
+      $overlay.on('click', function (e) {
+          if($overlay.hasClass('active')) {
+            Bridge.Event.trigger("slide:closeAllPopups");
+          }
+      }); #}
+{% endblock %}
+

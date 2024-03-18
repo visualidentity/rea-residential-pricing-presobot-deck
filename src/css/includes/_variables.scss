@@ -1,0 +1,197 @@
+
+//----------------------------------------------------------------------------//
+// Fonts ---------------------------------------------------------------------//
+//----------------------------------------------------------------------------//
+
+$font: "REAPangea", Helvetica, Arial, sans-serif;
+$font-secondary: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+$leading: 6px;
+
+$font-size-120: 120px;
+$font-size-90: 90px;
+$font-size-80: 80px;
+$font-size-66: 66px;
+$font-size-60: 60px;
+$font-size-50: 50px;
+$font-size-48: 48px;
+$font-size-38: 38px;
+$font-size-34: 34px;
+$font-size-32: 32px;
+$font-size-30: 30px;
+$font-size-28: 28px;
+$font-size-26: 26px;
+$font-size-24: 24px;
+$font-size-22: 22px;
+$font-size-20: 20px;
+$font-size-18: 18px;
+$font-size-16: 16px;
+$font-size-10: 10px;
+
+$font-size-list: (
+	120,
+	90,
+	80,
+	66,
+	60,
+	50,
+	48,
+	38,
+	34,
+	32,
+	30,
+	28,
+	26,
+	24,
+	22,
+	20,
+	18,
+	16,
+	10
+);
+
+//----------------------------------------------------------------------------//
+// Colours -------------------------------------------------------------------//
+//----------------------------------------------------------------------------//
+
+
+$colour-list: (
+	// defaults
+	white:			#ffffff,
+	black:			#000000,
+	sp-orange:		#f54b0a,
+	transparent:    transparent,
+
+	// primary
+	red:			#e4002b,
+	red-70:			#EC4C6A,
+	bluestone:		#333f48,
+	l-grey:			#C8C9C7,
+	l-grey-50:		#E3E4E3,
+	l-grey-10:		#F9F9F9,
+	pebble:			#697684,
+	pebble-50:		#828D99,
+	pebble-25:		#9B9B9B,
+	pebble-15:		#E9EBED,
+	pebble-10:		#F0F1F2,
+
+	Alto:			#DADADA,
+	Alto-light: 	#DCDCDC,
+
+
+	// carried over from old deck
+	greymedium:		#999EAA,
+	greymedium2:	#868b99,
+	greylight:		#eeeff3,
+	greylighttwo: #e6e7ec,
+	greydark:		#77777a,
+	charcoal:		#333f48,
+	charcoal-60:	#7f858c, // 60%
+	blue-grey:     #b9c0c9,
+	blue-grey-l:   #ced1d5,
+	overlay-grey:	#d6d9da,
+	electric-teal:   #00f6c2,
+	electric-yellow: #fff000,
+	electric-purple: #af368f,
+	electric-blue:   #4b71ec,
+	grey-border: #D0D0D0,
+
+	// secondary
+	yellow:			#FFB200,
+	yellow-70:		#FFC94C,
+	l-orange:		#ED8B00,
+	l-orange-70:	#F2AD4C,
+	purple:			#93227E,
+	purple-70:		#B364A4,
+	teal:			#00BEB3,
+	teal-70:		#4CD1C9,
+	blue:			#0084FF,
+	blue-70:		#4cA8FF,
+	b-grey:			#D0D0D0,
+
+	lochmara: #0078BD,
+	black-olive: #3E3B41,
+
+	// competitors
+	domain-green:   #389304
+);
+
+@function colour($colourName) {
+	@if map-has-key($colour-list, $colourName) {
+		@return map-get($colour-list, $colourName);
+	} @else {
+		@error "colour `#{$colourName}` does not exist in colour object";
+	}
+}
+
+// Special Cases/Aliases
+//------------------------------//
+
+$textgrey:         colour(bluestone);
+$border-colour:    colour(l-grey-50);
+
+//----------------------------------------------------------------------------//
+// Measurements --------------------------------------------------------------//
+//----------------------------------------------------------------------------//
+
+// Grid
+//------------------------------//
+
+$pagepad:           		120px;	// left and right padding
+$pagepad-top:       		40px;	// top padding
+$pagepad-bottom:    		40px;	// bottom padding
+$footer-height:     		90px;
+$header-height:     		150px;
+$header-height-two-lines:	$header-height + 50px;
+
+$slide-width:       		1920px;
+$slide-height:      		1080px;
+
+$content-width:     		$slide-width - ($pagepad * 2);
+$content-height:    		$slide-height - ($pagepad-top + $header-height + $footer-height + $pagepad-bottom);
+$content-height-trim: 		$content-height - 50px;
+
+$header-width:      		$content-width;
+$footer-width:      		$slide-width;
+
+// number of columns in grid and their corresponding single column widths...
+$grid-sizes: 			1		2		3		4		5 		6		7		8 		9 		10		11 		12		13		14 		15;
+$column-widths: 		1680px	790px 	494px	345px	296px	255px 	214px	184px	160px 	141px	125px 	113px	101px	92px 	84px;
+$grid-gutters:			0px		100px	100px	100px	50px	30px	30px	30px	30px	30px	30px	30px	30px	30px	30px;
+
+// default column widths and gutters
+$grid-size-default:		9;
+$column-width-default:	160px;	// default is 9 col width - most commonly used
+$columm-height:         $content-height;
+$gutter-default:		30px;
+
+
+// Useful variables
+//------------------------------//
+
+$directions: (top, right, bottom, left);
+$corners: (top-right, bottom-right, top-left, bottom-left);
+$text-primary: colour(black);
+$text-inverse: colour(white);
+
+// Borders
+//------------------------------//
+
+$border-radius:   6px;
+$border-radius-l: 16px;
+
+
+
+
+// Tables
+//------------------------------//
+$row-height: 120px;
+$border-height: 2px;
+
+$font-base-light: "REAPangea-Light";
+$font-base-regular: "REAPangea-Regular";
+$font-base-medium: "REAPangea-Medium";
+$font-base-semiBold : "REAPangea-SemiBold";
+$font-base-bold: "REAPangea-Bold";
+$font-base-text: "REAPangeaText", Helvetica, Arial, sans-serif;

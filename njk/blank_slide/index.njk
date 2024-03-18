@@ -1,0 +1,48 @@
+{% set options = {
+	id: "<%= data.slideId %>",
+	article_classes: "branded_layout"
+} %}
+
+{% set optionsHeader = {
+	title: "<%= data.slideTitle %>",
+	titleClasses: "",
+	subtitle: "",
+	subtitleClasses: ""
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% import "./njk/_partials/branding.njk.js" as branding_js %}
+
+{% block content %}
+    {% import "./njk/_partials/agent_branded/layout.njk" as layout %}
+    CONTENT!
+
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{ text: "Disclaimer needed?" }
+		],
+		disclaimer_target: true
+	}) }}
+{% endblock %}
+
+{% block js_rendered %}
+	{{ branding_js.rendered(options.id) }}
+{% endblock %}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+	initAssets();
+	
+{% endblock %}

@@ -1,0 +1,10 @@
+{% macro stat_bar(options) %}
+	<div class="stat-bar">
+		{% for item in options.content %}
+			<div class="stat">
+				<span class="stat-title">{{item.title}}: </span>
+				<span class="stat-number">{{item.value}}</span>
+			</div>
+		{% endfor %}
+	</div>
+{% endmacro %}

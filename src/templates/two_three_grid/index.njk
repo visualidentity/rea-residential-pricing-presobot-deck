@@ -1,0 +1,148 @@
+{# slide options #}
+{% set options = {
+	article_classes: "bg-l-grey-50 template-two-three-grid",
+	cweKey: "template_two_three_grid"
+} %}
+
+{# header options #}
+{% set optionsHeader = {
+	title: "Slide title",
+	subtitle: "Slide subtitle",
+	classes: "slide-header--min-height",
+	cweKey: "template_two_three_grid"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% block content %}
+
+	{% import "./njk/_partials/property-stat.njk" as stat %}
+
+	{% set grid_6_1 = {
+		size: "6",
+		collapsed: false,
+		classes: "column--rounded-corners column-group--animated column-group--height-half",
+		columns: [
+			{
+				bg_colour: "red",
+				size: "3",
+				content: stat.property_stat({
+					classes: "light-text medium",
+					icon: {
+						width: 520,
+						height: 119,
+						margin: 30,
+						class: 'c-editable-image--empty-white'
+					},
+					number: '10%',
+					text: 'Description<br>block',
+					cweKey: 'template_two_three_grid_stat_1'
+				})
+			},
+			{
+				bg_colour: "white",
+				size: "3",
+				content: stat.property_stat({
+					classes: "medium",
+					icon: {
+						width: 520,
+						height: 119,
+						margin: 30
+					},
+					number: '10%',
+					text: 'Description<br>block',
+					cweKey: 'template_two_three_grid_stat_2'
+				})
+			}
+		]
+	}
+	%}
+
+	{% set grid_6_2 = {
+		size: "6",
+		collapsed: false,
+		classes: "column--rounded-corners column-group--animated column-group--height-half dynamic-grid",
+		columns: [
+			{
+				bg_colour: "l-grey",
+				classes: "",
+				size: "2",
+				content: stat.property_stat({
+					classes: "small",
+					icon: {
+						width: 300,
+						height: 107,
+						margin: 30
+					},
+					number: '000',
+					text: 'Description block',
+					cweKey: 'template_two_three_grid_stat_3'
+				})
+			}, {
+				bg_colour: "l-grey",
+				classes: "",
+				size: "2",
+				content: stat.property_stat({
+					classes: "small",
+					icon: {
+						width: 300,
+						height: 107,
+						margin: 30
+					},
+					number: '000',
+					text: 'Description block',
+					cweKey: 'template_two_three_grid_stat_4'
+				})
+			}, {
+				bg_colour: "l-grey",
+				classes: "",
+				size: "2",
+				content: stat.property_stat({
+					classes: "small",
+					icon: {
+						width: 300,
+						height: 107,
+						margin: 30
+					},
+					number: '000',
+					text: 'Description block',
+					cweKey: 'template_two_three_grid_stat_5'
+				})
+			}
+		]
+	}
+	%}
+
+	{# import grid macro #}
+	{% import "./njk/_partials/grid.njk" as grid %}
+
+	{{ grid.column_group(grid_6_1) }}
+	{{ grid.column_group(grid_6_2) }}
+
+
+{% endblock %}
+
+{% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{
+				type: "Source",
+				text: "Source and disclaimer copy."
+			}
+		],
+		disclaimer_target: true,
+		cweKey: "template_two_three_grid"
+	}) }}
+{% endblock %}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+{% endblock %}

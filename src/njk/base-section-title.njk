@@ -1,0 +1,49 @@
+<article id="{{options.id}}" class="title-slide {{options.article_classes}}">
+
+	<section class="page01 content {{ options.content_classes }} {% if options.cweKey %}cwe-title-slide{% endif %}">
+		{% if options.cweKey %}
+		<div class="cwe-title-slide-image c-editable-image c-editable-image--empty-white" data-companywide-dynamic-image="{{options.cweKey}}_image"/>
+		{% endif %}
+		<section class="content-body">
+
+		{% block content %}
+		{% endblock %}
+
+		</section>
+	</section>
+
+</article>
+<!--[if IE 9]>
+<script type="text/javascript">
+	$("#{{options.id}}").addClass("ie9");
+</script>
+<![endif]-->
+<script type="text/javascript">
+	{% block js_before %}
+	{% endblock %}
+
+	var $article = Bridge.Slides.getArticle();
+	var articleID = Bridge.Slides.getArticleID();
+
+	$article.on("sliderendered", function(){
+		var $pageContainer = $article;
+
+		// Add class for IE10 specific hacks
+		if (GetIEVersion() === 10){
+			$article.addClass("ie10");
+		}
+
+		{% block js_rendered %}
+		{% endblock %}
+
+		$article.on("slideready", function(){
+			attachSlideEvents();
+
+			{% block js_ready %}
+			{% endblock %}
+		});
+	});
+
+	{% block js_after %}
+	{% endblock %}
+</script>

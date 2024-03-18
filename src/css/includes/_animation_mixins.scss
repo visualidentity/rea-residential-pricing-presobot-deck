@@ -1,0 +1,65 @@
+
+//----------------------------------------------------------------------------//
+//--- Animation mixins -------------------------------------------------------//
+//----------------------------------------------------------------------------//
+
+// Building your personal brand
+
+@include keyframes(tile_icon_anim) {
+  0% {
+    @include translate(0px, -40px);
+    @include animation-timing-function(ease-out);
+  }
+
+  60% {
+    @include translate(0px, 2px);
+    @include animation-timing-function(ease-in-out);
+  }
+
+  100% {
+    @include translate(0px, 0px);
+    @include animation-timing-function(ease-in-out);
+  }
+}
+
+@include keyframes(tile_rise_icon) {
+  0% {
+    @include translate(0px, 0px);
+  }
+
+  100% {
+    @include translate(0px, -40px);
+  }
+}
+
+@include keyframes(tile_shadow_anim) {
+  0% {
+    opacity: 0;
+    @include scale(0.1);
+    @include animation-timing-function(ease-out);
+  }
+
+  60% {
+    opacity: 1;
+    @include scale(1.2);
+    @include animation-timing-function(ease-in-out);
+  }
+
+  100% {
+    opacity: 0.9;
+    @include scale(1);
+    @include animation-timing-function(ease-in-out);
+  }
+}
+
+@include keyframes(tile_rise_icon_shadow) {
+  0% {
+    opacity: 0.9;
+    @include scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    @include scale(0.1);
+  }
+}

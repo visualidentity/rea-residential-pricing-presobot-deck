@@ -1,0 +1,13 @@
+{% set options = {
+	subslides: false,
+	article_classes: "title-slide template-title-slide",
+	content_classes: "",
+	cweKey: 'template_divider'
+} %}
+
+{% extends "./njk/base-section-title.njk" %}
+
+{% import "./njk/_partials/section-title.njk" as section_title %}
+{% block content %}
+	{{ section_title.title("Divider Title", "Divider Subtitle", "", "template_divider") }}
+{% endblock %}

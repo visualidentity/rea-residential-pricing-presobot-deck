@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>expand -  purple</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="97.1549855%" id="linearGradient-1">
+            <stop stop-color="#8154AB" offset="0%"></stop>
+            <stop stop-color="#603C81" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Resi-Customer-Health-Check-Slides" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Slide-01---2" transform="translate(-1521.000000, -206.000000)">
+            <g id="Group-4" transform="translate(385.000000, 206.000000)">
+                <g id="Group-9" transform="translate(1136.000000, 0.000000)">
+                    <circle id="Oval-2" fill="url(#linearGradient-1)" cx="15" cy="15" r="15"></circle>
+                    <polygon id="Rectangle-2" fill="#FFFFFF" points="14.8717949 11.5384615 15.8974359 11.5384615 15.8974359 19.2307692 14.8717949 19.2307692"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

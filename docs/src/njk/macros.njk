@@ -1,0 +1,53 @@
+{% macro code(language, code) %}
+<div class="code-block">
+<pre><code class="{{language}}">
+{{ code | escape }}
+</code></pre>
+</div>
+{% endmacro %}
+
+{% macro example_container(options) %}
+<div class="example{% if options.full %} full{% endif %}">
+	<div id="slideshow" class="{{ options.classes }}">
+		{{ options.content }}
+	</div>
+</div>
+{% endmacro %}
+
+{% macro example_html(example) %}
+<div class="ex" id="{{ example.id }}">
+	<h2 class="example_title">{{ example.title }}</h2>
+	{% if example.desc %}
+	<p class="code-desc">{{ example.desc|safe }}</p>
+	{% endif %}
+	{% if example.example %}
+	{{ example_container({
+		content: example.example,
+		full: example.full,
+		classes: example.example_classes
+	}) }}
+	{% endif %}
+	{% if example.include %}
+	<div class="include-wrapper {{ example.slide_scale }}">
+		<div class="include currentpage">
+			{% include example.include %}
+		</div>
+	</div>
+	{% endif %}
+	{% if example.code_array %}
+		{% for c in example.code_array %}
+			{% if c.intro %}
+			<p class="code-intro">{{ c.intro|safe }}</p>
+			{% endif %}
+			{{ code(c.language, c.code) }}
+			{% if c.desc %}
+			<p class="code-desc">{{ c.desc|safe }}</p>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	{% if example.code %}
+		{{ code(example.language, example.code) }}
+	{% endif %}
+</div>
+{% endmacro %}
+

@@ -1,0 +1,304 @@
+{% set options = {
+	id: "fy25_agency_performance",
+	article_classes: "fy25_agency_performance",
+	ribbonless: true,
+	cweKey: "fy25_agency_performance"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{% block header_block %}
+	<header>
+		<h1 data-companywide-editable="editable-fy25_agency_performance-khomnas" class="o-transition--fade-up">
+			Your Agency's performance over the past 12 months
+		</h1>
+		<dl class="breadcrumb breadcrumb--purple">
+			<dd class="icon icon--property-ads">Property Advertising</dd>
+		</dl>
+	</header>
+{% endblock %}
+
+{% set card = {
+	"cardViolet": [
+		{
+			"title": "Total Listings",
+			"id": "total-listing",
+			"data": "totalProperties"
+		},
+		{
+			"title": "Total Sold Listings",
+			"id": "total-sold-listings",
+			"data": "soldProperties"
+		}
+	],
+	"cardWhite": [
+		{
+			"title": "Average property page views",
+			"id": "average-property-page-views",
+			"data": "avgPropertyPageViews"
+		},
+		{
+			"title": "Average listing enquiries",
+			"id": "average-listing-enquiries",
+			"data": "avgListingEnquiries"
+		},
+		{
+			"title": "Average days </br> on site",
+			"id": "average-days-on-site",
+			"data": "avgDOS"
+		},
+		{
+			"title": "Average </br> sold price",
+			"id": "average-sold-price",
+			"data": "avgSoldPrice"
+		}
+	],
+	"cardBlue": [
+		{
+			"title": "Total Agency Profile views",
+			"id": "total-agency-profile-views",
+			"data": "totalAgencyProfileViews"
+
+		},
+		{
+			"title": "Total Agency Profile enquiries",
+			"id": "total-agency-profile-enquiries",
+			"data": "totalAgencyProfileEnquiries"
+		}
+	]
+} %}
+
+{% macro renderCard(data) %}
+	{% for item in data %}
+		<div class="box-card--item" id="{{ item.id }}" data-removable>
+			<div class="item-box">
+				<div class="removable remove-icon"></div>
+				<div class="item-box__icon" id="{{ item.id }}"></div>
+				<div class="item-box__title">{{ item.title | safe }}</div>
+				<div class="item-box__data" data-{{ item.data }}> XXX</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endmacro %}
+
+{% block content %}
+	<div class="va-card__dd">
+		<div class="refresh" data-refresh></div>
+	</div>
+	<div class="card-wrapper o-transition__children o-transition__children--fade-up o-transition__delay--250">
+		<div class="box-card box-violet">
+			{{ renderCard(card.cardViolet) }}
+		</div>
+		<div class="box-card box-white">
+			{{ renderCard(card.cardWhite) }}
+		</div>
+		<div class="box-card box-blue">
+			{{ renderCard(card.cardBlue) }}
+		</div>
+	</div>
+	<div class="for-more-detail" data-companywide-editable="editable-your-agency-performance-asdgmms">
+		For more detailed performance and market data please contact your account representative
+	</div>
+
+	<footer class="slide-footer">
+		<div class="disclaimer" data-companywide-editable="editable-your-agency-performance-kiugt6">
+			Source: REA internal data <span>insert date range</span>
+		</div>
+		<div class="rea-logo"></div>
+	</footer>
+{% endblock %}
+
+<script type="text/javascript">
+	{% block js_ready %}
+	var data = Bridge.Feed.get('yourAgencyPerformance').raw();
+	var dateRangeData = Bridge.Feed.get("dateRanges").raw();
+
+	var $childRemove = $pageContainer.find('[data-remove]');
+	var $refresh = $pageContainer.find('[data-refresh]');
+	var hidden = Bridge.Context.match('.fy25_agency_performance--removable', []);
+
+	if (data) {
+		$.each(data, function (index, value) {
+			if (index === "avgSoldPrice") {
+				value = "$" + value;
+			}
+			$pageContainer.find('[data-' + index + ']').text(addCommas(value));
+		});
+	}
+
+	if (dateRangeData) {
+		$pageContainer.find('.disclaimer span').text(dateRangeData.twelve_months.label);
+	}
+
+	function remove(data) {
+		if (data.length > 0) {
+			$.each(data, function (index, value) {
+				$pageContainer.find("#" + value).hide();
+			});
+		} else {
+			$pageContainer.find('[data-removable]').show();
+		}
+	}
+
+	Bridge.Event.on('master:fy25_agency_performance-context', function (data) {
+		remove(data)
+	});
+
+	if ($('body').hasClass('client')) {
+		const data = Bridge.Context.get('fy25_agency_performance--removable', hidden);
+		remove(data)
+	}
+
+	Bridge.Event.on('master:fy25_agency_performance-resize', function (data) {
+		Bridge.Context.set('fy25_agency_performance--removable', data);
+		setSizeElement(data);
+	});
+
+	Bridge.Event.on('master:fy25_agency_performance-refresh', function (data) {
+		resetLayout(data);
+	});
+
+
+	var $removable = $pageContainer.find('.removable');
+
+	$removable.on("click", function () {
+		let _thisID = $(this).closest("[data-removable]").attr('id')
+		hidden.push(_thisID);
+
+		Bridge.Context.set('fy25_agency_performance--removable', hidden);
+		Bridge.Event.trigger('master:fy25_agency_performance-context', hidden);
+		Bridge.Event.trigger('master:fy25_agency_performance-resize', hidden);
+		setSizeElement(hidden);
+	});
+
+	$refresh.on("click", function () {
+		hidden = [];
+		Bridge.Context.set('fy25_agency_performance--removable', hidden);
+		Bridge.Event.trigger('master:fy25_agency_performance-context', hidden);
+		Bridge.Event.trigger('master:fy25_agency_performance-refresh', '.box-card--item');
+		resetLayout('.box-card--item');
+		filterItem();
+	});
+
+
+	function setSizeElement(clickedElement) {
+		$.each(clickedElement, function (index, value) {
+			let _thisID = $("#" + value);
+			let elementsVisible = _thisID.parent().find('.box-card--item:visible');
+			let position = _thisID.index();
+			let count = elementsVisible.length;
+			const itemSecond = 2;
+			const itemThird = 3;
+
+			switch (count) {
+				case 3:
+					if (position === itemSecond || position === itemThird) {
+						elementsVisible.last().css("width", "100%");
+					} else {
+						elementsVisible.first().css("width", "100%");
+					}
+					break;
+				case 2:
+					elementsVisible.css({
+						"width": "50%",
+						"height": "100%"
+					});
+					break;
+				case 1:
+					elementsVisible.css({
+						"width": "100%",
+						"height": "100%"
+					});
+					break;
+				default:
+					elementsVisible.css({
+						"width": "100%",
+						"height": "100%"
+					});
+			}
+		});
+
+	}
+
+	function resetLayout(element) {
+		$pageContainer.find(element).closest(".box-violet").children().css({
+			"width": "100%",
+			"height": "330px"
+		});
+
+		$pageContainer.find(element).closest(".box-blue").children().css({
+			"width": "100%",
+			"height": "330px"
+		});
+
+		$pageContainer.find(element).closest(".box-white").children().css({
+			"width": "50%",
+			"height": "330px"
+		});
+	}
+
+	if (hidden.length > 0) {
+		Bridge.Event.trigger('master:fy25_agency_performance-context', hidden);
+		Bridge.Event.trigger('master:fy25_agency_performance-resize', hidden);
+	}
+
+	setSizeElement(hidden)
+
+	function filterItem() {
+
+		const fieldData = ".item-box__data";
+
+		let avgPropertyPageViews = "average-property-page-views"; //2
+		let avgListingEnquiries = "average-listing-enquiries"; //3
+		let totalAgencyProfileViews = "total-agency-profile-views"; //4
+		let soldProperties = "total-sold-listings"; // 5
+		let avgDOS = "average-days-on-site"; //6
+		let avgSoldPrice = "average-sold-price"; //7
+		let totalAgencyProfileEnquiries = "total-agency-profile-enquiries"; //8
+
+		let valueAvgPropertyPageViews = parseValueToInteger(avgPropertyPageViews, fieldData);
+		let valueAvgListingEnquiries = parseValueToInteger(avgListingEnquiries, fieldData);
+		let valueTotalAgencyProfileViews = parseValueToInteger(totalAgencyProfileViews, fieldData);
+		let valueSoldProperties = parseValueToInteger(soldProperties, fieldData);
+		let valueAvgDOS = parseValueToInteger(avgDOS, fieldData);
+		let valueAvgSoldPrice = parseValueToInteger(avgSoldPrice, fieldData);
+		let valueTotalAgencyProfileEnquiries = parseValueToInteger(totalAgencyProfileEnquiries, fieldData);
+
+
+		removeItemIfValueBelowLimit(avgPropertyPageViews, valueAvgPropertyPageViews, 100);
+
+		removeItemIfValueBelowLimit(avgListingEnquiries, valueAvgListingEnquiries, 10);
+		removeItemIfValueBelowLimit(totalAgencyProfileViews, valueTotalAgencyProfileViews, 10);
+		removeItemIfValueBelowLimit(soldProperties, valueSoldProperties, 10);
+		removeItemIfValueBelowLimit(totalAgencyProfileEnquiries, valueTotalAgencyProfileEnquiries, 10);
+
+		removeItemIfValueBelowLimit(avgSoldPrice, valueAvgSoldPrice, 100000);
+
+		if (valueAvgDOS > 45) {
+			$("#" + avgDOS).find(".remove-icon").trigger("click");
+		}
+
+	}
+
+	function parseValueToInteger(selector, fieldData) {
+		let element = $("#" + selector);
+
+		if (element.length === 0) {
+			return;
+		}
+
+		let value = element.find(fieldData).text().replace(/,/g, '');
+
+		return parseInt(value.replace('$', ''));
+	}
+
+	function removeItemIfValueBelowLimit(element, value, allowableLimit) {
+		if (value < allowableLimit) {
+			$("#" + element).find(".remove-icon").trigger("click");
+		}
+	}
+
+	filterItem();
+
+	{% endblock %}
+</script>

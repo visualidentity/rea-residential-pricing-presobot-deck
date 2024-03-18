@@ -1,0 +1,25 @@
+.screenshot {
+	// Screenshotting for PDF
+	&.screenshot-full {
+		#slideshow {
+			.accordion-btn, .back-btn {
+				display: none !important;
+			}
+		}
+	}
+
+
+}
+
+#slideshow {
+	.accordion-btn {
+		position: relative;
+		@include svg-background-div(14px, 14px, 20px, 'img/icon-accordion.svg');
+		background-position: center center;
+
+		// &.expand { background-position: 0px 0px; }
+		&.close {
+			transform: rotate(180deg);
+		}
+	}
+}

@@ -1,0 +1,1575 @@
+.product {
+	border: 1px solid colour(l-grey);
+	border-radius: 2px;
+	overflow: hidden;
+	background-size: contain;
+	&__asset {
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	&-premiere,
+	&-highlight,
+	&-feature {
+		border: none;
+		box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+		&[class*="--size-ipad"],
+		&[class*="--size-iphone"],
+		&[class*="--size-web"] {
+			box-shadow: none;
+		}
+	}
+
+	&.product--align-vc {
+		@include vertical-align();
+	}
+}
+
+.product-email {
+	width: 100%;
+	@include aspect-ratio(541, 761, "product-email", absolute);
+
+	& > .product__asset {
+		background-image: url("img/product/bg-email.png");
+	}
+
+	.product-email__content {
+		@include translateZ(100px);
+		bottom: percentage(110/761);
+		left: percentage(66/541);
+		right: percentage(77/541);
+		position: absolute;
+		top: percentage(315/761);
+	}
+}
+
+.product-email-top {
+	@include aspect-ratio(620, 200, "product-email-top");
+	margin-bottom: 26px;
+	& > .product__asset {
+		background-image: url("img/product/bg-email-top.jpg");
+	}
+	&__content {
+		z-index: 1;
+	}
+}
+
+.product-email-banner {
+	width: 77%;
+	margin: 0 auto 0 34px;
+	margin-bottom: 27px;
+	@include aspect-ratio(472, 115, "product-email-banner");
+	.product-strip-branding {
+		&:before {
+			padding-top: 24.3%;
+		}
+		.customer-logo {
+			background-position: center center;
+			background-size: auto 40%;
+		}
+	}
+	& > .product__asset {
+		background-image: url("img/product/bg-email-banner.jpg");
+	}
+	&__content {
+		z-index: 1;
+	}
+}
+
+.product-email-bottom {
+	@include aspect-ratio(620, 120, "product-email-bottom");
+	& > .product__asset {
+		background-image: url("img/product/bg-email-bottom.jpg");
+	}
+	.product-strip-branding {
+		width: 22%;
+		&:before {
+			padding-top: 20%;
+		}
+		.customer-logo {
+			background-position: center center;
+		}
+	}
+	&__content {
+		z-index: 1;
+	}
+}
+
+// Product
+// - Single Premiere
+.product-premiere {
+	// default = premiere 'BUY'
+
+	@include aspect-ratio(640, 612, "product-premiere");
+	margin-bottom: percentage(30/640);
+
+	& > .product__asset {
+		@include retina-background-image("img/product/bg-premiere-buy", "png");
+		&:after {
+			content: "";
+			display: block;
+			background-image: url("img/floorplan-icon.png");
+			background-size: contain;
+			background-position: center right;
+			background-repeat: no-repeat;
+			width: percentage(95/612);
+			height: percentage(30/640);
+			position: absolute;
+			top: percentage(55/640);
+			right: percentage(10/612);
+		}
+	}
+
+	&.product-premiere--rent {
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-premiere-rent",
+				"png"
+			);
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	&.product-premiere--size-ipad {
+		border: 1px solid rgba(colour(l-grey), 0.25);
+
+		.product-premiere__content {
+			.product-strip-branding {
+				@include aspect-ratio(640, 48, "product-strip-branding");
+			}
+		}
+	}
+
+	&.product-premiere--size-iphone {
+		@include aspect-ratio(320, 384, "product-premiere");
+		border: 1px solid rgba(colour(l-grey), 0.25);
+		margin-bottom: percentage(25/320);
+
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-premiere-buy-iphone",
+				"png"
+			);
+			background-position: center bottom;
+		}
+
+		&.product-premiere--rent {
+			& > .product__asset {
+				@include retina-background-image(
+					"img/product/bg-premiere-rent-iphone",
+					"png"
+				);
+			}
+		}
+
+		.product-premiere__content {
+			.product-strip-branding {
+				@include aspect-ratio(320, 41, "product-strip-branding");
+			}
+		}
+	}
+
+	&.product-premiere--size-web {
+		width: percentage(640/1440);
+	}
+}
+
+.product-iphonex {
+	@include aspect-ratio(212, 437, "product-iphonex");
+	background-color: transparent !important;
+	// border: 1px solid rgba(colour(l-grey), .25);
+
+	&.alt {
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-premiere-buy-iphonex-alt",
+				"png"
+			);
+		}
+	}
+
+	& > .product__asset {
+		@include retina-background-image(
+			"img/product/bg-premiere-buy-iphonex",
+			"png"
+		);
+		background-position: center bottom;
+	}
+
+	.product {
+		border: none;
+	}
+
+	.product-iphonex__content {
+		z-index: 10;
+		overflow: hidden;
+		right: 10px;
+		left: 10px;
+		.product-strip-branding {
+			@include aspect-ratio(106, 13, "product-strip-branding");
+		}
+	}
+}
+
+.product-premiere__content {
+	.product-strip-branding {
+		@include aspect-ratio(640, 45, "product-strip-branding");
+	}
+}
+
+// Product
+// - Single Highlight
+.product-highlight {
+	// default = highlight 'BUY'
+
+	@include aspect-ratio(640, 532, "product-highlight");
+	margin-bottom: percentage(30/640);
+
+	& > .product__asset {
+		@include retina-background-image("img/product/bg-highlight-buy", "png");
+		&:after {
+			content: "";
+			display: block;
+			background-image: url("img/floorplan-icon.png");
+			background-size: contain;
+			background-position: center right;
+			background-repeat: no-repeat;
+			width: percentage(95/612);
+			height: percentage(30/532);
+			position: absolute;
+			top: percentage(44/532);
+			right: percentage(10/612);
+		}
+	}
+
+	&.product-highlight--rent {
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-highlight-rent",
+				"png"
+			);
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	&.product-highlight--size-ipad {
+		border: 1px solid rgba(colour(l-grey), 0.25);
+
+		.product-highlight__content {
+			.product-strip-branding {
+				@include aspect-ratio(640, 44, "product-strip-branding");
+			}
+		}
+	}
+
+	&.product-highlight--size-iphone {
+		@include aspect-ratio(320, 340, "product-premiere");
+		border: 1px solid rgba(colour(l-grey), 0.25);
+		margin-bottom: percentage(25/320);
+
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-highlight-buy-iphone",
+				"png"
+			);
+		}
+
+		&.product-highlight--rent {
+			& > .product__asset {
+				@include retina-background-image(
+					"img/product/bg-highlight-rent-iphone",
+					"png"
+				);
+			}
+		}
+
+		.product-highlight__content {
+			.product-strip-branding {
+				@include aspect-ratio(320, 36, "product-strip-branding");
+			}
+		}
+	}
+
+	&.product-highlight--size-web {
+		width: percentage(640/1440);
+	}
+}
+
+.product-highlight__content {
+	.product-strip-branding {
+		@include aspect-ratio(640, 38, "product-strip-branding");
+	}
+}
+
+// Product
+// - Single Feature
+.product-feature {
+	// default = feature 'BUY'
+
+	@include aspect-ratio(640, 488, "product-feature");
+
+	& > .product__asset {
+		@include retina-background-image("img/product/bg-feature-buy", "png");
+	}
+
+	&.product-feature--rent {
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-feature-rent",
+				"png"
+			);
+		}
+	}
+
+	// feature product in iPad 'container'
+	&.product-feature--size-ipad {
+		@include aspect-ratio(74, 170, "product-feature");
+		border: 1px solid rgba(colour(l-grey), 0.25);
+
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-feature-buy-ipad",
+				"jpg"
+			);
+		}
+
+		&.product-feature--rent {
+			& > .product__asset {
+				@include retina-background-image(
+					"img/product/bg-feature-rent-ipad",
+					"jpg"
+				);
+			}
+		}
+
+		.product-feature__content {
+			z-index: 1;
+
+			.product-strip-branding {
+				@include aspect-ratio(640, 44, "product-strip-branding");
+			}
+		}
+	}
+
+	// feature product in iPhone 'container'
+	&.product-feature--size-iphone {
+		@include aspect-ratio(111, 198, "product-feature");
+		border: 1px solid rgba(colour(l-grey), 0.25);
+		width: 100%;
+
+		& > .product__asset {
+			@include retina-background-image(
+				"img/product/bg-feature-buy-iphone",
+				"png"
+			);
+		}
+
+		&.product-feature--rent {
+			& > .product__asset {
+				@include retina-background-image(
+					"img/product/bg-feature-rent-iphone",
+					"png"
+				);
+			}
+		}
+
+		.product-feature__content {
+			.product-strip-branding {
+				@include aspect-ratio(320, 23, "product-strip-branding");
+			}
+		}
+	}
+
+	&.product-feature--size-web {
+		width: percentage(640/1440);
+	}
+}
+
+.product-feature__content {
+	.product-strip-branding {
+		@include aspect-ratio(640, 26, "product-strip-branding");
+	}
+}
+
+.side-stretch {
+	.product-side {
+		@include aspect-ratio(301, 613, "product-side");
+	}
+}
+.side-shorter {
+	.product-side {
+		@include aspect-ratio(301, 608, "product-side");
+	}
+}
+// Product
+// - Single Side
+.product-side {
+	// default = side 'BUY'
+
+	@include aspect-ratio(301, 612, "product-side");
+	max-width: 300px;
+
+	& > .product__asset {
+		@include retina-background-image(
+			"img/product/bg-side-exclusive",
+			"png"
+		);
+	}
+
+	&.product-side--size-web {
+		width: percentage(300/1440);
+	}
+}
+
+.product-side__content {
+	.product-strip-branding {
+		@include aspect-ratio(300, 72, "product-strip-branding");
+
+		&.product-strip-branding--align-bottom {
+			@include aspect-ratio(300, 45, "product-strip-branding", absolute);
+
+			.customer-logo {
+				background-size: percentage(120/374) auto;
+			}
+		}
+
+		.customer-logo {
+			background-position: center center;
+			background-size: percentage(194/374) auto;
+		}
+	}
+}
+
+// Product
+// - iPad Horizontal
+.product-ipad-horizontal {
+	// default = ipad horizontal 'BUY'
+
+	@include aspect-ratio(328, 232, "product-ipad-horizontal", absolute);
+
+	bottom: 0;
+	height: 232px;
+	left: 0;
+	width: 328px;
+
+	& > .product__asset {
+		@include retina-background-image(
+			"img/product/bg-ipad-horizontal",
+			"png"
+		);
+	}
+
+	.product-ipad-horizontal__content {
+		@include translateZ(100px);
+		bottom: percentage(15/212);
+		left: percentage(27/300);
+		overflow: hidden;
+		padding-top: percentage(22/240);
+		position: absolute;
+		top: percentage(18/212);
+		width: percentage(60/266);
+	}
+
+	// small modifier
+	&.product-ipad-horizontal--sm {
+		height: 212px;
+		width: 300px;
+	}
+}
+
+.ipad-bg {
+	background-image: url("img/product/ipad-bg.svg");
+	background-size: 731px 517px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+// Product
+// - iPhone Horizontal
+.product-iphone-vertical {
+	// default = iphone vertical 'BUY'
+
+	@include aspect-ratio(110, 232, "product-iphone-vertical", absolute);
+
+	bottom: 0;
+	height: 232px;
+	right: 0;
+	width: 111px;
+
+	& > .product__asset {
+		background-position: center bottom;
+		@include retina-background-image(
+			"img/product/bg-iphone-vertical",
+			"png"
+		);
+	}
+
+	.product-iphone-vertical__content {
+		@include translateZ(100px);
+		bottom: percentage(34/232);
+		left: percentage(6/110);
+		overflow: hidden;
+		position: absolute;
+		right: percentage(5/110);
+		top: percentage(26.5/232);
+	}
+
+	// small modifier
+	&.product-iphone-vertical--sm {
+		height: 212px;
+		width: 100px;
+
+		.product-iphone-vertical__content {
+			top: percentage(30/232);
+		}
+	}
+}
+
+// Product
+// - web page - full
+.product-web {
+	// default = webpage full 'BUY'
+
+	@include aspect-ratio(514, 760, "product-web");
+
+	& > .product__asset {
+		background-position: center bottom;
+		@include retina-background-image("img/product/bg-web-buy", "png");
+	}
+
+	&.product-web--rent {
+		& > .product__asset {
+			@include retina-background-image("img/product/bg-web-rent", "png");
+		}
+	}
+
+	.product-web__content {
+		& > .product {
+			border: none;
+			position: absolute;
+		}
+
+		& > .product-premiere {
+			left: percentage(240/1440);
+			top: percentage(150/760);
+		}
+
+		& > .product-highlight {
+			left: percentage(240/1440);
+			top: percentage(378/760);
+		}
+
+		& > .product-feature {
+			left: percentage(240/1440);
+			top: percentage(579/760);
+		}
+
+		& > .product-side {
+			left: percentage(910/1440);
+			top: percentage(283/760);
+		}
+	}
+
+	&.cropped {
+		&:before {
+			padding-top: 177.7%;
+		}
+		& > .product__asset {
+			background-position: center top;
+			background-size: 120% auto;
+		}
+		.product-web__content {
+			& > .product-premiere {
+				width: 53.4444%;
+				left: 9.66667%;
+			}
+
+			& > .product-highlight {
+				width: 53.4444%;
+				left: 9.66667%;
+			}
+
+			& > .product-feature {
+				width: 53.4444%;
+				left: 9.66667%;
+			}
+
+			& > .product-side {
+				width: 25.83333%;
+				left: 65.19444%;
+			}
+		}
+	}
+}
+
+// Product Legend
+.product-legend {
+	position: absolute;
+	right: 0;
+}
+
+.product-legend__item {
+	font-size: 20px;
+	line-height: 24px;
+	margin-bottom: 14px;
+	padding-left: 20px;
+	position: relative;
+
+	&:before {
+		border-radius: 50%;
+		content: "";
+		display: block;
+		height: 12px;
+		left: 0;
+		position: absolute;
+		top: 4px;
+		width: 12px;
+	}
+
+	// legend colors
+	@each $key, $value in $colour-list {
+		&[data-color="#{$key}"] {
+			&:before,
+			&:after {
+				background-color: $value;
+			}
+		}
+	}
+}
+
+.product-legend__item-marker {
+	border-radius: 50%;
+	display: block;
+	height: 18px;
+	position: absolute;
+	width: 18px;
+
+	// legend colors
+	@each $key, $value in $colour-list {
+		&[data-color="#{$key}"] {
+			background-color: $value;
+		}
+	}
+}
+
+// Agent circle image
+.agent-circle {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&.woman {
+		@include retina-background-image(
+			"img/product/agent-circle-woman",
+			"png"
+		);
+	}
+
+	&.man {
+		@include retina-background-image("img/product/agent-circle-man", "png");
+	}
+}
+
+// New product classes
+.product-container {
+	position: relative;
+	background-size: 100% auto;
+	background-position: center top;
+	background-repeat: no-repeat;
+
+	.label {
+		text-align: center;
+		bottom: -40px;
+		position: absolute;
+		width: 100%;
+		font-size: $font-size-20;
+		font-weight: 400;
+	}
+
+	&.label-top {
+		.label {
+			bottom: initial;
+			top: -50px;
+		}
+	}
+
+	.products {
+		position: absolute;
+
+		.product {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background-size: 100% auto;
+			background-repeat: no-repeat;
+
+			.contents {
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	&.plain {
+		background-size: contain;
+		background-repeat: no-repeat;
+		&.day {
+			@include retina-background-image(
+				"img/product/spotlight-day",
+				"jpg"
+			);
+		}
+		&.dusk {
+			@include retina-background-image(
+				"img/product/spotlight-dusk",
+				"jpg"
+			);
+		}
+		&.night {
+			@include retina-background-image(
+				"img/product/spotlight-night",
+				"jpg"
+			);
+		}
+	}
+
+	&.ipad {
+		background-image: url("img/product/ipad-full-bg.svg");
+		background-size: auto 100%;
+		.products {
+			top: 9.3%;
+			left: 5.8%;
+			right: 5.9%;
+			bottom: 9.1%;
+		}
+	}
+	.agent-circle {
+		&:before {
+			color: colour(black);
+		}
+		.dark-background &,
+		&.dark-background {
+			color: colour(white);
+			&:before {
+				color: colour(white);
+			}
+		}
+	}
+	&.shadow {
+		box-shadow: 3px 3px 3px rgba(colour(l-grey), 0.25);
+		.products {
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+		&.premiere-flat {
+			.products {
+				.product {
+					@include retina-background-image(
+						"img/product/premiere-flat",
+						"jpg"
+					);
+					.premiere-top {
+						top: 0;
+						left: 0;
+						right: 0;
+						&:before {
+							padding-top: 7.6%;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.desktop {
+		background-image: url("img/product/desktop-container.svg");
+		.products {
+			top: 10.6%;
+			left: 8.9%;
+			right: 12.6%;
+			bottom: 10%;
+		}
+		&.front-page-desktop {
+			.products {
+				.product {
+					@include retina-background-image(
+						"img/product/front-page-desktop",
+						"jpg"
+					);
+
+					.desktop-top {
+						top: 61%;
+						left: 0;
+						right: 0;
+						&:before {
+							padding-top: 4%;
+						}
+					}
+					.product-strip-branding .customer-logo {
+						background-position: 11.9% center;
+					}
+					.agent-circle {
+						position: absolute;
+						top: 56%;
+						right: 8.5%;
+						height: 10%;
+						width: 10%;
+						&:before {
+							content: "Jess Smith";
+							display: block;
+							position: absolute;
+							font-size: 6px;
+							right: 97%;
+							top: 70%;
+							white-space: pre;
+							font-weight: 100;
+						}
+					}
+				}
+			}
+			&.day {
+				.products .product {
+					@include retina-background-image(
+						"img/product/front-page-light",
+						"jpg"
+					);
+				}
+			}
+			&.dusk {
+				.products .product {
+					@include retina-background-image(
+						"img/product/front-page-dusk",
+						"jpg"
+					);
+				}
+			}
+			&.night {
+				.products .product {
+					@include retina-background-image(
+						"img/product/front-page-night",
+						"jpg"
+					);
+				}
+			}
+		}
+		&.audience-maximiser-all-desktop {
+			.products {
+				.product {
+					@include retina-background-image(
+						"img/product/bg-audience-maximiser-all-laptop"
+					);
+
+					.desktop-top {
+						top: 27%;
+						left: 71.5%;
+						right: 4.25%;
+						position: absolute;
+						&:before {
+							padding-top: 13%;
+						}
+					}
+					.product-strip-branding .customer-logo {
+						background-position: left center;
+					}
+					.agent-circle {
+						position: absolute;
+						top: 25%;
+						right: 3%;
+						height: 7.5%;
+						width: 7.5%;
+						&:before {
+							content: "Jess\ALongname";
+							display: block;
+							position: absolute;
+							font-size: 6px;
+							line-height: 1;
+							right: 97%;
+							top: 44%;
+							white-space: pre;
+							font-weight: 100;
+							text-align: center;
+						}
+						&.man {
+							&:before {
+								content: "Jim\ALongname";
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.phone {
+		background-image: url("img/product/phone-container.svg");
+		.products {
+			top: 14.1%;
+			left: 7%;
+			right: 7%;
+			bottom: 14.2%;
+		}
+		&.mobile-site {
+			.products {
+				.product {
+					@include retina-background-image(
+						"img/product/front-page-mobile",
+						"jpg"
+					);
+					.mobile-site-top {
+						top: 120px;
+						left: 0;
+						right: 0;
+						&:before {
+							padding-top: 12%;
+						}
+						.customer-logo {
+							background-position: 96% center;
+						}
+					}
+					.agent-circle {
+						position: absolute;
+						top: 47.8%;
+						left: 4%;
+						height: 9%;
+						width: 15%;
+						&:before {
+							content: "Jess Smith";
+							display: block;
+							position: absolute;
+							font-size: 4px;
+							left: 120%;
+							top: 70%;
+							white-space: pre;
+							font-weight: 100;
+						}
+						&.man {
+							&:before {
+								content: "Jim Smith";
+							}
+						}
+					}
+				}
+			}
+		}
+		&.app {
+			.products {
+				.product {
+					@include retina-background-image(
+						"img/product/front-page-app",
+						"jpg"
+					);
+					.app-top {
+						top: 120px;
+						left: 0;
+						right: 0;
+						&:before {
+							padding-top: 12%;
+						}
+						.customer-logo {
+							background-position: 96% center;
+						}
+					}
+					.agent-circle {
+						position: absolute;
+						top: 113px;
+						left: 4px;
+						height: 20px;
+						width: 20px;
+						&:before {
+							content: "Jess Smith";
+							display: block;
+							position: absolute;
+							font-size: 4px;
+							left: 27px;
+							top: 13px;
+							white-space: pre;
+							font-weight: 100;
+						}
+						&.man {
+							&:before {
+								content: "Jim Smith";
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.rent-detail {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: url("img/product/bg-rent-simple.jpg");
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.top-rent {
+					@include aspect-ratio(535, 22, "top-rent");
+					position: absolute;
+					left: 2px;
+					right: 2px;
+					top: 65px;
+					.customer-logo {
+						background-position: center center;
+						background-size: auto 60%;
+					}
+				}
+				.side-rent {
+					@include aspect-ratio(103, 15, "side-rent");
+					width: 103px;
+					position: absolute;
+					right: 92px;
+					top: 227px;
+					.customer-logo {
+						background-position: center center;
+						background-size: auto 60%;
+					}
+				}
+			}
+		}
+	}
+	&.rent-form {
+		height: 452px;
+		width: 254px;
+		background-image: url("img/product/bg-rent-form.jpg");
+		background-position: top left;
+		background-size: 254px 452px;
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.top-form {
+					@include aspect-ratio(254, 20, "top-form");
+					.customer-logo {
+						background-position: center center;
+						background-size: auto 60%;
+					}
+				}
+			}
+		}
+	}
+	&.ebrochure-top,
+	&.ebrochure-rent-top {
+		width: 350px;
+		height: 759px;
+		background-image: url("img/product/ebrochure-sell-top.jpg");
+		background-size: 100% 100%;
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.ebrochure-header {
+					@include aspect-ratio(332, 52, "ebrochure-header");
+					position: absolute;
+					width: 332px;
+					left: 10px;
+					top: 8px;
+					.customer-logo {
+						background-position: 10px center;
+						background-size: auto 60%;
+					}
+				}
+				.prop-details {
+					position: absolute;
+					top: 376px;
+					right: 11px;
+				}
+				.ebrochure-agent-header {
+					@include aspect-ratio(332, 23, "ebrochure-header");
+					position: absolute;
+					width: 332px;
+					left: 10px;
+					top: 637px;
+					.customer-logo {
+						background-position: 10px center;
+						background-size: auto 60%;
+					}
+				}
+				.contact-agent {
+					position: absolute;
+					top: 670px;
+					right: 11px;
+				}
+			}
+		}
+	}
+	&.ebrochure-rent-top {
+		background-image: url("img/product/ebrochure-rent-top.jpg");
+	}
+	&.ebrochure-bottom,
+	&.ebrochure-rent-bottom {
+		position: absolute;
+		top: 0;
+		width: 350px;
+		height: 759px;
+		left: 370px;
+		background-image: url("img/product/ebrochure-sell-bottom.jpg");
+		background-size: 100% 100%;
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.ebrochure-agent-header {
+					@include aspect-ratio(332, 23, "ebrochure-header");
+					position: absolute;
+					width: 332px;
+					left: 10px;
+					top: 197px;
+					.customer-logo {
+						background-position: 10px center;
+						background-size: auto 60%;
+					}
+				}
+				.contact-agent {
+					position: absolute;
+					top: 229px;
+					right: 11px;
+				}
+				.ebrochure-footer {
+					@include aspect-ratio(332, 23, "ebrochure-header");
+					position: absolute;
+					width: 332px;
+					left: 10px;
+					top: 617px;
+					.customer-logo {
+						background-position: 10px center;
+						background-size: auto 60%;
+					}
+				}
+			}
+		}
+	}
+	&.ebrochure-rent-bottom {
+		background-image: url("img/product/ebrochure-rent-bottom.jpg");
+	}
+
+	// Audience Maximiser MREC
+	&.audience-maximiser-mrec {
+		@include retina-background-image(
+			"img/product/bg-audience-maximiser-mrec",
+			"jpg"
+		);
+		// Default dimensions
+		width: 270px;
+		height: 224px;
+
+		.products {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.product-strip-branding {
+			position: absolute;
+			top: auto;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 17%;
+
+			.customer-logo {
+				background-position: 7% center;
+				background-size: auto 58%;
+			}
+		}
+
+		.agent-circle {
+			position: absolute;
+			bottom: 3.5%;
+			right: 3.3%;
+			width: 20.1%;
+			height: 24.3%;
+			&:before {
+				content: "Jess Longname";
+				display: block;
+				position: absolute;
+				font-size: 9px;
+				right: 104%;
+				top: 58%;
+				font-weight: 100;
+				width: 50px;
+				text-align: center;
+			}
+			&.man {
+				&:before {
+					content: "Jim Longname";
+				}
+			}
+		}
+
+		.agent-name {
+			position: absolute;
+			bottom: 2.8%;
+			right: 21.6%;
+			width: 26%;
+			font-size: 70%;
+			line-height: 1.2em;
+			padding: 0;
+		}
+	}
+
+	// Audience Maximiser insitu lockups
+	&.audience-maximiser-insitu-laptop,
+	&.audience-maximiser-insitu-mobile {
+		position: absolute;
+		left: 2px;
+		width: 536px;
+		@include border-radius($border-radius);
+
+		.products {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.product {
+			position: absolute;
+			left: -2px;
+			width: 540px;
+
+			border: none;
+			background-size: contain;
+
+			.customer-logo {
+				background-size: contain;
+				background-position: left center;
+			}
+		}
+	}
+
+	&.audience-maximiser-insitu-laptop {
+		top: 2px;
+		height: 472px;
+
+		.product {
+			top: -2px;
+			height: 476px;
+		}
+
+		.product {
+			@include retina-background-image(
+				"img/product/bg-audience-maximiser-insitu-laptop-dark"
+			);
+		}
+		&.light-background {
+			.product {
+				@include retina-background-image(
+					"img/product/bg-audience-maximiser-insitu-laptop-light"
+				);
+			}
+		}
+
+		.audience-maximiser-leaderboard-logo {
+			position: absolute;
+			top: 92px;
+			right: 110px;
+			width: 42px;
+			height: 8px;
+			@include rotate(-2deg);
+		}
+
+		.audience-maximiser-mrec-logo {
+			position: absolute;
+			top: 251px;
+			right: 108px;
+			width: 42px;
+			height: 8px;
+			@include rotate(-3deg);
+		}
+	}
+
+	&.audience-maximiser-insitu-mobile {
+		bottom: 2px;
+		height: 278px;
+
+		.product {
+			bottom: -2px;
+			height: 282px;
+		}
+
+		.product {
+			@include retina-background-image(
+				"img/product/bg-audience-maximiser-insitu-mobile-dark"
+			);
+		}
+		&.light-background {
+			.product {
+				@include retina-background-image(
+					"img/product/bg-audience-maximiser-insitu-mobile-light"
+				);
+			}
+		}
+
+		.audience-maximiser-mrec-logo {
+			position: absolute;
+			top: 155px;
+			right: 286px;
+			width: 35px;
+			height: 6px;
+			@include rotate(36deg);
+		}
+	}
+
+	&.audience-maximiser-all-mobile {
+		.products {
+			.product {
+				@include retina-background-image(
+					"img/product/bg-audience-maximiser-all-mobile",
+					"jpg"
+				);
+
+				.mobile-site-top {
+					top: 44%;
+					left: 7%;
+					right: 6%;
+					position: absolute;
+					&:before {
+						padding-top: 8%;
+					}
+					.customer-logo {
+						background-position: 4% center;
+					}
+				}
+				.agent-circle {
+					position: absolute;
+					top: 47.8%;
+					left: 4%;
+					height: 9%;
+					width: 15%;
+					&:before {
+						content: "Jess\ALongname";
+						display: block;
+						position: absolute;
+						font-size: 4px;
+						left: 120%;
+						top: 70%;
+						white-space: pre;
+						font-weight: 100;
+					}
+					&.man {
+						&:before {
+							content: "Jim\ALongname";
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Products
+	.product {
+		// Front Page Campaign Report product
+		&.front-page-campaign-report {
+			@include retina-background-image(
+				"img/product/bg-front-page-report",
+				"jpg"
+			);
+			background-position: center top;
+			border: none;
+
+			.product-strip-branding {
+				position: absolute;
+				top: 4.4%;
+				left: 0;
+				right: 0;
+				height: 3.2%;
+
+				.customer-logo {
+					background-position: 3.9% center;
+					background-size: auto 75%;
+				}
+			}
+
+			.agent-circle {
+				position: absolute;
+				top: 5.9%;
+				right: 15.9%;
+				width: 12.2%;
+				height: 9.2%;
+			}
+		}
+
+		// Audience Maximiser Campaign Report product
+		&.audience-maximiser-campaign-report {
+			@include retina-background-image(
+				"img/product/bg-audience-maximiser-report",
+				"jpg"
+			);
+			border: none;
+
+			.product-strip-branding {
+				position: absolute;
+				top: 5%;
+				left: 0;
+				right: 0;
+				height: 3.2%;
+
+				.customer-logo {
+					background-position: 3.9% center;
+					background-size: auto 72%;
+				}
+			}
+		}
+	}
+	// Agency Search experience
+	&.agency-search {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: url("img/product/bg-feature-agency-search-desktop.jpg");
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.top-agency {
+					@include aspect-ratio(335, 22, "top-agency");
+					position: absolute;
+					width: 182px;
+					height: 65px;
+					left: 80px;
+					top: 130px;
+					.customer-logo {
+						background-position: center center;
+						background-size: auto 38%;
+					}
+				}
+			}
+		}
+	}
+	&.agency-search-mobile {
+		height: 424px;
+		width: 180px;
+		background-image: url("img/product/bg-feature-agency-search-mobile.jpg");
+		background-position: left;
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.top-agency {
+					@include aspect-ratio(154, 24, "top-agency");
+					top: 153px;
+					.customer-logo {
+						background-size: 100px auto;
+					}
+				}
+			}
+		}
+	}
+	// Agency Profile
+	&.agency-profile {
+		position: absolute;
+		width: 100%;
+		height: 79%;
+		background-image: url("img/product/bg-feature-agency-profile-desktop.jpg");
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.agency-bar {
+					@include aspect-ratio(535, 22, "top-rent");
+					position: absolute;
+					height: 7px;
+					left: 0px;
+					right: 0px;
+					top: 70px;
+					.customer-logo {
+						display: none;
+					}
+				}
+
+				.agency-tile {
+					@include aspect-ratio(154, 24, "agency-tile");
+					position: absolute;
+					height: 65px;
+					width: 162px;
+					left: 70px;
+					top: 94px;
+					.customer-logo {
+						background-position: center center;
+						background-size: auto 44%;
+					}
+				}
+			}
+		}
+	}
+	&.agency-profile-bottom {
+		position: absolute;
+		width: 100%;
+		height: 22%;
+		background-image: url("img/product/bg-feature-agency-profile-bottom-desktop.jpg");
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.agency-tile {
+					@include aspect-ratio(535, 22, "agency-tile");
+					position: absolute;
+					width: 180px;
+					height: 28px;
+					left: 0px;
+					top: 0px;
+					.customer-logo {
+						background-position: 90% center;
+						background-size: auto 60%;
+					}
+				}
+			}
+		}
+	}
+	&.agency-profile-mobile {
+		height: 496px;
+		width: 180px;
+		background-image: url("img/product/bg-feature-agency-profile-mobile.jpg");
+		background-position: bottom left;
+		.products {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.product {
+				.agency-header {
+					@include aspect-ratio(335, 22, "top-rent");
+					position: absolute;
+					height: 65px;
+					left: 0px;
+					right: 0px;
+					top: 22px;
+					.customer-logo {
+						background-position: center center;
+						background-size: auto 44%;
+					}
+				}
+			}
+		}
+	}
+}

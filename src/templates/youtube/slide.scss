@@ -1,0 +1,25 @@
+
+#slideshow {
+	article.youtube-template {
+		.column {
+			overflow: hidden;
+			.edit-mode & {
+				overflow: visible;
+			}
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+
+		.youtube-widget {
+			position: relative;
+			height: 100%;
+
+			> div:nth-child(2) {
+				height: 100%;
+			}
+		}
+	}
+}

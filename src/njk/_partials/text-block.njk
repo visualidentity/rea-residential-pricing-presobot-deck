@@ -1,0 +1,7 @@
+{% macro text_block(options) %}
+	<div class="text-copy">
+		{% for item in options.textItems %}
+		<p class="{{item.class}}">{{ item.copy }}</p>
+		{% endfor %}
+	</div>
+{% endmacro %}

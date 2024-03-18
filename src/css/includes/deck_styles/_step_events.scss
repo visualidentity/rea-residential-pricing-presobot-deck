@@ -1,0 +1,144 @@
+.step-events-container {
+
+}
+
+.step-events-head {
+  display: flex;
+
+  div {
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    padding: 20px 30px;
+  }
+
+  div:first-child {
+    width: 20%;
+    background-color: colour(red);
+  }
+
+  div:nth-child(2) {
+    width: 68%;
+    background-color: #2E2C30;
+  }
+
+  div:nth-child(3) {
+    width: 12%;
+    background-color: #716E75;
+  }
+}
+
+.step-event {
+  position: relative;
+  display: flex;
+
+  &.hide {
+    display: none;
+  }
+
+  &:after {
+    content: '';
+    width: 32.63px;
+    height: 32.63px;
+    background-image: url('img/health-check/calendar.svg');
+    background-size: contain;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+
+  > div {
+    position: relative;
+    min-height: 94px;
+    font-size: 21px;
+    line-height: 27px;
+    padding: 20px 30px;
+    border-radius: 0;
+    border: 1px solid #D0D0D0;
+  }
+
+  > div:first-child {
+    width: 20%;
+    font-weight: 700;
+  }
+
+  > div:nth-child(2) {
+    width: 68%;
+  }
+
+  > div:nth-child(3) {
+    width: 12%;
+  }
+}
+
+.step-events-container .add-step {
+  width: 12%;
+  color: white;
+  font-size: 16px;
+  padding: 13px 30px;
+  border-radius: 3px;
+  background-color: colour(red);
+  text-align: center;
+  float: right;
+  cursor: pointer;
+
+  .client &,
+  .screenshot & {
+    display: none;
+  }
+}
+
+.step-events--navigation {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -110px;
+  right: 0;
+  transition: all .4s ease-in-out;
+  z-index: 2;
+  opacity: 0;
+
+  .inactive {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &.active {
+    opacity: 1 !important;
+  }
+
+  > div {
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+  }
+
+  .client &,
+  .screenshot & {
+    display: none;
+  }
+
+  .prev {
+    width: 56px;
+    height: 56px;
+    background-image: url('img/health-check/prev.svg');
+    background-size: contain;
+    transform: rotate(90deg);
+  }
+
+  .next {
+    margin-left: 1px;
+    width: 56px;
+    height: 56px;
+    background-image: url('img/health-check/next.svg');
+    background-size: contain;
+    transform: rotate(90deg);
+  }
+
+  .return {
+    margin-left: 8.5px;
+    width: 42px;
+    height: 36px;
+    background-image: url('img/health-check/return.svg');
+    background-size: contain;
+  }
+}

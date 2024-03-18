@@ -1,0 +1,20 @@
+{% macro static_tabs(options) %}
+	<div class="static-tabs static-tabs--{{ options.colour }}">
+		{% for item in options.tabs %}
+			<div class="static-tabs__tab static-tabs__tab--{{ item.colour }}">{{ item.text|safe }}</div>
+		{% endfor %}
+		<h2 {% if (options.cweKey) %}data-companywide-editable="{{options.cweKey}}_title_editable"{% endif %}>{{ options.title|safe }} {% if options.realtair %}<div class="static-tabs__realtair"></div>{% endif %}</h2>
+		<div class="static-tabs__subtitle" {% if (options.cweKey) %}data-companywide-editable="{{options.cweKey}}_subtitle_editable"{% endif %}>{{ options.subtitle|safe }}</div>
+		{% if options.items %}
+			<ul>
+				{% for item in options.items %}
+					<li {% if (options.cweKey) %}data-companywide-editable="{{options.cweKey}}_item_text_{{loop.index}}_editable"{% endif %}>{{ item.text|safe }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		<div class="static-tabs__img"></div>
+		{% if options.disclaimer %}
+			<div class="disclaimer">{{ options.disclaimer }}</div>
+		{% endif %}
+	</div>
+{% endmacro %}

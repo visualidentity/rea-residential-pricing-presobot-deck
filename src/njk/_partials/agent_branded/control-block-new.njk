@@ -1,0 +1,12 @@
+{% macro control_block(options) %}
+	<div class="control-options--new">
+		{% for item in options.content %}
+			<div class="control__option">
+				{{item}}
+			</div>
+		{% endfor %}
+		{% if options.refresh === true %}
+			<span class="agent-branded__control-block__refresh removable-refresh-btn" data-refresh-block></span>
+		{% endif %}
+	</div>
+{% endmacro %}

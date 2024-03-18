@@ -1,0 +1,436 @@
+// PREVIEW ONLY
+// Show remove buttons
+.preview {
+		article.interactive-roi-slide, article.marketing-calculator {
+			.reset-btn, .remove-btn {
+				visibility: visible;
+				&.active {
+					visibility: visible !important;
+					opacity: 1 !important;
+				}
+			}
+		}
+}
+// EO PRESENT AND REVIEW ONLY
+
+// CLIENT ONLY
+// Block input field
+.client {
+		article.interactive-roi-slide, article.marketing-calculator {
+			.channel-btn, .remove-btn, .roi-tooltip, .dropdown-hitarea, .roi-stat {
+				cursor: default !important;
+			}
+			.input-container {
+				.client-block {
+					display: block;
+				}
+			}
+		}
+}
+// EO CLIENT ONLY
+
+// PDF SCREENSHOT ONLY
+// Show remove buttons
+.screenshot-full {
+		article.interactive-roi-slide, article.marketing-calculator {
+			.channel-selector {
+				.channel-btn {
+					display: none;
+					&.active {
+						display: table;
+					}
+				}
+			}
+			.roi-collection-title {
+				display: block;
+				margin-top: 38px;
+				margin-bottom: 12px;
+			}
+			.customisation-toolbar {
+				display: none;
+			}
+			.roi-tooltip, .remove-btn, .reset-btn {
+				display: none !important;
+			}
+		}
+}
+// EO PRESENT AND REVIEW ONLY
+
+	article.interactive-roi-slide, article.marketing-calculator {
+
+		$easeout: cubic-bezier(0.0, 0.0, 0.2, 1);
+
+		.warning-message {
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+		
+		.channel-selector {
+			position: relative;
+			border: 1px solid colour(greymedium);
+			background-color: colour(white);
+			@include border-radius(2px);
+			margin: 25px auto 0px;
+			height: 30px;
+			display: inline-block;
+
+			// animation setup
+			top: 15px;
+			opacity: 0;
+			visibility: hidden;
+			@include transition(
+				top 500ms $easeout 350ms,
+				opacity 500ms $easeout 350ms,
+				visibility 0ms linear 850ms
+			);
+			
+			.channel-btn {
+				position: relative;
+				width: 79px;
+				height: 100%;
+			//	font-family: $mainfontlight;
+				color: colour(charcoal-60);
+				vertical-align: top;
+				float: left;
+
+				cursor: pointer;
+				// animation setup
+				@include transition(
+					background-color 250ms ease-out 0ms,
+					color 250ms ease-out 0ms
+				);		
+				
+				&:after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background-color: rgba(colour(white), 0.001);
+				}
+
+				&.active {
+					background-color: colour(greymedium);
+					color: colour(white);
+					&:after {
+						background-color: rgba(colour(greymedium), 0.001);
+					}
+				}
+			}
+		}
+
+		.reset-btn {
+			position: absolute;
+			top: 30px;
+			right: 80px;
+			width: 20px;
+			height: 21px;
+			background-image: url("img/roi-reset-btn.svg");
+			@include background-size(20px 21px);
+			background-repeat: no-repeat;
+			background-position: center;
+			cursor: pointer;
+			// Default hidden
+			visibility: hidden;
+			&:after {
+				content: "";
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				background-color: rgba(colour(greylight), 0.001);
+			}
+		}
+
+		.remove-btn {
+			position: relative;
+			margin: 0 auto;
+			width: 14px;
+			height: 14px;
+			background-image: url("img/roi-remove-icon.svg");
+			@include background-size(14px 14px);
+			background-repeat: no-repeat;
+			cursor: pointer;
+			// Default hidden
+			visibility: hidden;
+			&:after {
+				content: "";
+				position: absolute;
+				top: -13px;
+				left: -13px;
+				width: 40px;
+				height: 40px;
+				background-color: rgba(colour(white), 0.001);
+			}
+		}
+
+		.roi-collection-title {
+			font-size: 34px;
+			line-height: 38px;
+			letter-spacing: -0.02em;
+			// Hidden by default, only shows in Full PDF mode
+			display: none;
+		}
+
+		.roi-content {
+			width: 738px;
+			margin: 20px auto 0px;
+			.roi-container {
+				@include box-sizing(border-box);
+				background-color: colour(white);
+				&.full-width {
+					width: 100%;
+				}
+				&.top-border {
+					border-top: 3px solid colour(red);
+				}
+				&.top-border-secondary {
+					border-top: 2px solid colour(charcoal-60);
+				}
+			}
+		}
+
+		.customisation-toolbar {
+			height: 23px;
+			text-align: left;
+			margin-bottom: 10px;
+			padding: 12px 14px;
+			.customisation-title {
+				float: left;
+				color: colour(charcoal)-80;
+				padding-top: 3px;
+			}
+			.customisation-options {
+				float: right;
+				.input-label, .dropdown, .input-container {
+					float: left;
+				}
+
+				.input-label {
+					color: colour(charcoal-60);
+					padding: 4px 10px 0px 22px;
+				}
+			}
+		}
+
+		.input-container, .dropdown {
+			.input-options {
+				position: absolute;
+				top: -4px;
+				left: -4px;
+				padding-bottom: 0;
+				z-index: 11;
+				@include translateZ(111px);
+
+				color: colour(charcoal);
+				background-color: colour(white);
+				box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+
+				font-size: 20px;
+				line-height: 26px;
+				font-weight: 100;
+
+				// animation setup
+				visibility: hidden;
+				opacity: 0;
+
+				@include transition(
+					visibility 0ms linear 250ms,
+					opacity 250ms ease-out 0ms,
+					top 250ms ease-out 0ms
+				);
+				
+				li {
+					padding: 8px 12px;
+					cursor: pointer;
+					color: colour(charcoal);
+					white-space: nowrap;
+					&:before {
+						display: none;
+					}
+
+					&:hover, &.selected {
+						background-color: colour(greylight);
+					}
+
+					&.options-prompt {
+						color: colour(charcoal)-50;
+					}
+				}
+			}
+
+			&.active {
+				.input-options {
+					visibility: visible;
+					opacity: 1;
+					top: -4px;
+					display: block;
+
+					@include transition(
+						visibility 0ms linear 0ms,
+						opacity 350ms ease-out 0ms,
+						top 350ms ease-out 0ms
+					);
+				}
+			}
+		}
+
+		.dropdown {
+			position: relative;
+			height: 41px;
+			border: 1px solid colour(greymedium);
+			@include border-radius(2px);
+			padding: 9px 14px 0px 7px;
+
+			.dropdown-selection {
+				color: colour(charcoal);
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 20px;
+				line-height: 22px;
+				vertical-align: top;
+			}
+
+			&.default {
+				.dropdown-selection {
+					color: colour(charcoal);
+					opacity: 0.5;
+				}
+			}
+
+			&.group {
+				width: 206px;
+				.input-options li { min-width: 210px; }
+			}
+
+			.dropdown-icon {
+				position: absolute;
+			    top: 8px;
+			    right: 5px;
+			    background-image: url(img/dropdown-icon.svg);
+			    width: 18px;
+			    height: 22px;
+			    background-size: 18px 22px;
+			}
+
+			.dropdown-hitarea {
+				position: absolute;
+				top: -11px;
+				left: -14px;
+				right: -14px;
+				bottom: -11px;
+				cursor: pointer;
+			}
+		}
+
+		.input-container {
+			position: relative;
+
+			&.suburb {
+				margin-right: 50px;
+				input {
+					//width: 170px;
+					// .dropdown-options li { min-width: 168px; }
+				}
+			}
+
+			input {
+				-webkit-appearance: none;
+				height: 42px;
+				border: 1px solid colour(greymedium);
+				@include border-radius(2px);
+				padding: 2px 18px 1px 7px;
+
+				color: colour(charcoal);
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 26px;
+				line-height: 16px;
+				vertical-align: top;
+
+				font-weight: 300;
+
+				&:focus, &:active {
+					outline: none;
+				}
+			}
+
+			.search-icon {
+				position: absolute;
+				top: 7px;
+				right: 5px;
+				background-image: url("img/search-icon.svg");
+				width: 10px;
+				height: 10px;
+				@include background-size(10px 10px);
+			}
+
+			.input-options {
+				top: 14px;
+				left: 1px;
+
+				li {
+					padding: 6px 8px;
+					width: 179px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+
+			&.active .input-options { top: 24px; }
+
+			.client-block {
+				position: absolute;
+				top: -5px;
+				left: -5px;
+				right: -5px;
+				bottom: -5px;
+				background-color: rgba(colour(white), 0.001);
+				display: none;
+			}
+		}
+
+		footer .disclaimer .disclaimer-body {
+			padding-right: $pagepad;
+		}
+
+		.currentpage {
+			.channel-selector {
+				top: 0px;
+				opacity: 1;
+				visibility: visible;
+				@include transition(
+					top 500ms $easeout 0ms,
+					opacity 500ms $easeout 0ms,
+					visibility 0ms linear 0ms
+				);
+			}
+		}
+
+		&.animation-complete, &.ie9 {
+			.channel-selector {
+				@include transition(none !important);
+				top: 0px;
+				opacity: 1;
+				visibility: visible;
+			}
+			.channel-selector .channel-btn {
+				@include transition(none !important);
+			}
+		}
+
+		// Add transparency to accordion button hit areas
+		// These are not picked up properly in IE9 and IE10
+		&.ie9, &.ie10 {
+			.content {
+				.dropdown-hitarea { background-color: rgba(0, 0, 0, 0.001); }
+			}
+		}
+}

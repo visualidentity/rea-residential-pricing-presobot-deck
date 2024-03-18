@@ -1,0 +1,31 @@
+<style>
+	.ex#branding .product-strip-branding {
+		background-color: #1FA4C6;
+	}
+	.ex#branding .customer-logo {
+		background-image: url("https://i1.au.reastatic.net/170x32/a45c1d7716e4f26c899015b3fe10790b91f2fba6c20626eebbf52f630cd718e5/main.gif");
+	}
+</style>
+
+{% set example = {
+	title: "Branding",
+	id: "branding",
+	example: branding.product_strip_branding(),
+	full: false,
+	desc: "
+			Add class `brand-bg` to anything requiring the brand colour (will be added as background-color) and `brand-logo` anywhere the logo is required (will be added as background-image). Run `branding_js` as directed below.
+		",
+	code_array: [
+		{
+			language: 'django',
+			code: '
+{% block js_rendered %}
+	{% import "./njk/_partials/branding.njk.js" as branding_js %}
+	{{ branding_js.rendered() }}
+{% endblock %}
+			'
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

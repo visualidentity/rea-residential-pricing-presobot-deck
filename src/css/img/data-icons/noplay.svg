@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="73px" viewBox="0 0 48 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="3.2-Advantage---Events" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1088.000000, -673.000000)">
+        <g id="Group" transform="translate(1088.000000, 674.000000)" stroke="#333F48">
+            <g id="icons-/-play-vid---positive" transform="translate(0.000000, 13.000000)">
+                <g id="Page-1">
+                    <path d="M37.4998966,22.7686034 C37.4998966,30.9105 30.7824828,37.5099828 22.4993793,37.5099828 C14.2147241,37.5099828 7.50041379,30.9105 7.50041379,22.7686034 C7.50041379,14.6267069 14.2147241,8.02722414 22.4993793,8.02722414 C30.7824828,8.02722414 37.4998966,14.6267069 37.4998966,22.7686034 Z" id="Stroke-1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <polygon id="Stroke-3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="17.9346724 28.5368276 17.9346724 16.9997586 29.6734655 22.769069"></polygon>
+                    <path d="M39.5689655,44.2241379 L5.43103448,44.2241379 C2.79775862,44.2241379 0.775862069,42.2022414 0.775862069,39.5689655 L0.775862069,5.43103448 C0.775862069,2.79775862 2.79775862,0.775862069 5.43103448,0.775862069 L39.5689655,0.775862069 C42.2022414,0.775862069 44.2241379,2.79775862 44.2241379,5.43103448 L44.2241379,39.5689655 C44.2241379,42.2022414 42.2022414,44.2241379 39.5689655,44.2241379 Z" id="Stroke-5" stroke-width="1.5"></path>
+                </g>
+            </g>
+            <path d="M46.5,0.5 L3.5,70.5" id="Line" stroke-width="1.5" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1240 @@
+// --------------------------------------------------------
+// Basic slide layout
+// --------------------------------------------------------
+
+article {
+	color: colour(bluestone);
+	font-family: $font;
+	font-weight: 300;
+
+	// set every element to be 'border-box' by default
+	* {
+		@include box-sizing(border-box);
+	}
+
+	> header,
+	.slide-header {
+		position: relative;
+		width: $header-width;
+		height: $header-height;
+		margin: 0 $pagepad;
+		z-index: 600;
+		@include translateZ(6000px);
+
+		&.slide-header--two-lines {
+			height: $header-height + $pagepad-top;
+
+			& + .content {
+				padding-top: $header-height + $pagepad-top + 10px;
+
+				.content-body {
+					height: $content-height - 10px;
+				}
+			}
+		}
+
+		.slide-header__title {
+			display: inline-block;
+			font-weight: 100;
+			padding: 48px 0 0px 0px;
+		}
+
+		.slide-header__subtitle {
+			font-size: 26px;
+			font-weight: 300;
+			line-height: 32px;
+			margin-top: 8px;
+			&.no-title {
+				margin-top: 110px;
+			}
+		}
+
+		.slide-header-border__text {
+			p {
+				font-size: 26px;
+				line-height: 35px;
+				color: #697684;
+				font-weight: 100;
+				margin-top: 30px;
+				margin-bottom: 0;
+			}
+		}
+
+		&--min-height {
+			.slide-header__title {
+				min-height: 102px;
+			}
+
+			.slide-header__subtitle {
+				min-height: 32px;
+			}
+		}
+
+		.back-btn {
+			display: inline-block;
+			vertical-align: bottom;
+			margin-left: 10px;
+			opacity: 0;
+			@include transition(opacity 250ms ease-out);
+			&.fade-in {
+				opacity: 0.5;
+			}
+		}
+
+		&.white {
+			h1 {
+				color: colour(white);
+				border-bottom-color: colour(white);
+			}
+		}
+		.advantage-logo {
+			position: absolute;
+			top: 48px;
+			left: 0;
+			width: 405px;
+			height: 55px;
+			background-image: url("img/advantage.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			& + .advantage {
+				font-size: 26px;
+				padding-top: 110px;
+			}
+		}
+	}
+
+	.slide-header {
+		top: 0;
+		position: absolute;
+	}
+
+	// Header Center Styling
+	.slide-header-center {
+		position: relative;
+		width: $header-width;
+		height: $header-height;
+		margin: 0 $pagepad;
+		z-index: 600;
+		@include translateZ(6000px);
+
+		&.slide-header--two-lines {
+			height: $header-height + $pagepad-top;
+
+			& + .content {
+				padding-top: $header-height + $pagepad-top + 10px;
+
+				.content-body {
+					height: $content-height - 10px;
+				}
+			}
+		}
+
+		.slide-header-center__title {
+			display: inline-block;
+			font-size: 77px;
+			font-weight: 900;
+			color: #333f48;
+			padding-top: 66px;
+		}
+
+		.arrow {
+			width: 592px;
+			height: 14px;
+			position: absolute;
+			top: 151px;
+			left: 700px;
+
+			&-yellow {
+				background-image: url("img/yellow-arrow.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+			&-blue {
+				background-image: url("img/blue-arrow.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+			&-red {
+				background-image: url("img/red-arrow.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+				left: 0;
+				right: 0;
+				margin: auto;
+				background-position: center center;
+			}
+			&-grey {
+				background-image: url("img/grey-arrow.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+				left: 0;
+				right: 0;
+				margin: auto;
+				background-position: center center;
+			}
+		}
+
+		.slide-header-center__subtitle {
+			font-size: 36px;
+			font-weight: 300;
+			color: #697684;
+			line-height: 32px;
+			margin-top: 60px;
+
+			&.no-title {
+				margin-top: 110px;
+			}
+		}
+
+		&--min-height {
+			.slide-header-center__title {
+				min-height: 120px;
+			}
+			.slide-header-center__subtitle {
+				min-height: 32px;
+			}
+		}
+
+		.back-btn {
+			display: inline-block;
+			vertical-align: bottom;
+			margin-left: 10px;
+			opacity: 0;
+			@include transition(opacity 250ms ease-out);
+			&.fade-in {
+				opacity: 0.5;
+			}
+		}
+
+		&.white {
+			h1 {
+				color: colour(white);
+				border-bottom-color: colour(white);
+			}
+		}
+
+		.re-logo {
+			position: absolute;
+			top: 66px;
+			left: 121px;
+			width: 155px;
+			height: 43px;
+			background-image: url("img/re-logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		.reach-logo {
+			position: absolute;
+			top: 66px;
+			right: 121px;
+			width: 162px;
+			height: 30px;
+			background-image: url("img/reach-logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		.ignite-logo {
+			position: absolute;
+			top: 66px;
+			left: 326px;
+			width: 168px;
+			height: 46px;
+			background-image: url("img/ignite-logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	}
+
+	.slide-header-center {
+		position: relative;
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+	}
+
+	// Header Halfpage Styling
+	.slide-header-halfpage {
+		position: relative;
+		width: 50%;
+		height: 100%;
+		margin: 0;
+		padding: 174px 120px;
+		z-index: 600;
+		@include translateZ(6000px);
+
+		&.slide-header--two-lines {
+			height: $header-height + $pagepad-top;
+
+			& + .content {
+				padding-top: $header-height + $pagepad-top + 10px;
+
+				.content-body {
+					height: $content-height - 10px;
+				}
+			}
+		}
+
+		.slide-header-halfpage__title {
+			width: 684px;
+			font-size: 60px;
+			font-weight: 900;
+			line-height: 64px;
+		}
+
+		.slide-header-halfpage__subtitle {
+			width: 684px;
+			font-size: 30px;
+			font-weight: 500;
+			line-height: 40px;
+		}
+
+		.back-btn {
+			display: inline-block;
+			vertical-align: bottom;
+			margin-left: 10px;
+			opacity: 0;
+			@include transition(opacity 250ms ease-out);
+			&.fade-in {
+				opacity: 0.5;
+			}
+		}
+
+		&.white {
+			h1 {
+				color: colour(white);
+				border-bottom-color: colour(white);
+			}
+		}
+
+		.re-logo {
+			position: absolute;
+			top: 66px;
+			left: 121px;
+			width: 155px;
+			height: 43px;
+			background-image: url("img/re-logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			& + .advantage {
+				font-size: 26px;
+				padding-top: 110px;
+			}
+		}
+
+		.slide-header-halfpage__bar {
+			width: 20px;
+			height: 760px;
+			background: #e4002b;
+			position: absolute;
+			top: 190px;
+			right: 0;
+		}
+	}
+
+	// Header Quarter Styling
+	.slide-header-quarterpage {
+		position: relative;
+		width: 660px;
+		height: 100%;
+		margin: 0;
+		padding: 174px 120px;
+		z-index: 600;
+		@include translateZ(6000px);
+
+		&.slide-header--two-lines {
+			height: $header-height + $pagepad-top;
+
+			& + .content {
+				padding-top: $header-height + $pagepad-top + 10px;
+
+				.content-body {
+					height: $content-height - 10px;
+				}
+			}
+		}
+
+		.slide-header-halfpage__title {
+			width: 684px;
+			font-size: 60px;
+			font-weight: 900;
+			line-height: 64px;
+		}
+
+		.slide-header-halfpage__subtitle {
+			width: 684px;
+			font-size: 30px;
+			font-weight: 500;
+			line-height: 40px;
+		}
+
+		.back-btn {
+			display: inline-block;
+			vertical-align: bottom;
+			margin-left: 10px;
+			opacity: 0;
+			@include transition(opacity 250ms ease-out);
+			&.fade-in {
+				opacity: 0.5;
+			}
+		}
+
+		&.white {
+			h1 {
+				color: colour(white);
+				border-bottom-color: colour(white);
+			}
+		}
+
+		.re-logo {
+			position: absolute;
+			top: 66px;
+			left: 121px;
+			width: 155px;
+			height: 43px;
+			background-image: url("img/re-logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			& + .advantage {
+				font-size: 26px;
+				padding-top: 110px;
+			}
+		}
+
+		&:before {
+			content: "";
+			width: 0px;
+			height: 0px;
+			border-top: 15px solid transparent;
+			border-bottom: 15px solid transparent;
+			border-left: 15px solid #e4002b;
+			position: absolute;
+			right: -15px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&:after {
+			content: "";
+			width: 20px;
+			height: 760px;
+			background: #e4002b;
+			position: absolute;
+			top: 190px;
+			right: 0;
+		}
+	}
+
+	// Header Border Styling
+	.slide-header-border {
+		position: relative;
+		text-align: center;
+		width: $header-width;
+		height: $header-height;
+		margin: 0 $pagepad;
+		z-index: 600;
+		@include translateZ(6000px);
+
+		&:before {
+			content: "";
+			width: 1920px;
+			height: 20px;
+			background-color: colour(red);
+			position: absolute;
+			left: -$pagepad;
+			top: 0;
+		}
+
+		&--lochmara {
+			&::before {
+				background-color: #0078BD;
+			}
+		}
+
+		&--purple {
+			&::before {
+				background-color: #66408D;
+			}
+		}
+
+
+		.slide-header-border__title {
+			display: inline-block;
+			font-size: 55px;
+			font-weight: 900;
+			color: #333f48;
+			padding-top: 58px;
+		}
+
+		.slide-header-border__sub-title {
+			display: block;
+			font-size: 32px;
+			font-weight: 100;
+			color: #333f48;
+			margin-top: 20px;
+			margin-bottom: 0;
+		}
+
+		.breadcrumb {
+			right: 0;
+			dd {
+				font-family: $font;
+			}
+		}
+
+		.re-logo {
+			position: absolute;
+			top: 62px;
+			left: 0;
+			width: 178px;
+			height: 43px;
+			background-image: url("img/rea-logo-double-res.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		.refresh-button {
+			top: 120px;
+			right: 120px;
+			display: none;
+			cursor: pointer;
+			z-index: 99;
+
+			.preview & {
+				display: flex;
+			}
+		}
+	}
+
+	.slide-header-border--logo-bottom {
+		position: static;
+		transform: none;
+		&:before {
+			left: 0;
+		}
+		.re-logo {
+			position: absolute;
+			top: auto;
+			left: auto;
+			bottom: 30px;
+			right: 120px;
+			width: 287px;
+			height: 51px;
+			background-image: url("img/rea-new-logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+		.slide-header-border__title {
+			margin-top: 30px;
+		}
+	}
+
+	.slide-header-border__tag {
+		display: inline-block;
+		background-color: #e4002b;
+		color: white;
+		font-size: 14px;
+		line-height: 18px;
+		float: right;
+		margin-top: 50px;
+		padding: 10px 20px;
+		font-weight: bold;
+		border-radius: 20px;
+	}
+
+	.slide-header-border__breadcrumb {
+		height: 46px;
+		color: #FFF;
+		text-align: center;
+		font-size: 16px;
+		font-weight: 500;
+		padding-left: 18px;
+		padding-right: 18px;
+		border-radius: 0px 0px 12px 12px;
+		background: #179AA3;
+		display: flex;
+		gap: 14px;
+		align-items: center;
+		position: absolute;
+		right: 120px;
+		top: 19px;
+
+		span.agency-services {
+			width: 22px;
+			height: 29px;
+			background-image: url("img/header/breadcrumb-icons/agency-services.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: inline-block;
+		}
+	}
+
+	.slide-header-border__category {
+		position: relative;
+		text-align: left;
+		top: 55px;
+		font-size: 25px;
+		color: #bcbcbc;
+		font-weight: 700;
+	}
+
+	.slide-header-border__refresh {
+		width: 99px;
+		height: 40px;
+		border: 1px solid #DADADA;
+		border-radius: 3px;
+		padding-left: 12px;
+		padding-right: 48px;
+		text-align: left;
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
+		cursor: pointer;
+		transform: none;
+		display: flex;
+		align-items: center;
+		transition: all .4s ease;
+		overflow: hidden;
+
+		.refresh-inactive {
+			display: none;
+		}
+
+		span {
+			white-space: nowrap;
+		}
+
+		&:after {
+			content: '';
+			width: 30px;
+			height: 25.88px;
+			background-image: url(img/header/refresh.svg);
+			background-repeat: no-repeat;
+			position: absolute;
+			right: 10px;
+		}
+
+		&:hover {
+			width: 207px;
+			.refresh-active {
+				display: none;
+			}
+
+			.refresh-inactive {
+				display: block;
+			}
+		}
+
+		.client & {
+			pointer-events: none;
+			cursor: auto;
+		}
+	}
+
+	.content {
+		&.page01 {
+			top: 0;
+		}
+
+		// bg colour grid modifiers
+		@each $key, $value in $colour-list {
+			&.content--bg-#{$key} {
+				background-color: $value;
+			}
+		}
+
+		.content-body {
+			position: relative;
+			width: $content-width;
+			height: $content-height;
+			margin: $pagepad-top $pagepad $pagepad-bottom;
+
+			&.expanded {
+				width: ($content-width + ($pagepad * 2));
+				margin: $pagepad-top 0 $pagepad-bottom;
+			}
+
+			// bg colour grid modifiers
+			@each $key, $value in $colour-list {
+				&.content-body--bg-#{$key} {
+					background-color: $value;
+				}
+			}
+		}
+	} //EO content
+
+	.rea-ribbon {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 18px;
+		background: colour(red);
+
+		z-index: 900;
+		@include translateZ(9000px);
+
+		&:after {
+			content: "";
+			border-bottom: 22px solid transparent;
+			border-left: 22px solid colour(red);
+			border-top: 22px solid transparent;
+			height: 0;
+			left: 14px;
+			position: absolute;
+			top: 54px;
+			width: 0;
+			z-index: 1;
+		}
+	}
+
+	.rea-ribbon-yellow {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 18px;
+		background: colour(yellow);
+
+		z-index: 900;
+		@include translateZ(9000px);
+
+		&:after {
+			content: "";
+			border-bottom: 22px solid transparent;
+			border-left: 22px solid colour(yellow);
+			border-top: 22px solid transparent;
+			height: 0;
+			left: 14px;
+			position: absolute;
+			top: 54px;
+			width: 0;
+			z-index: 1;
+		}
+	}
+} //EO article
+
+// --------------------------------------------------------
+// Simple grid
+// --------------------------------------------------------
+
+.simple-row {
+	@include clear();
+
+	> .simple-row {
+		margin: 0;
+	}
+}
+
+@for $i from 1 through 12 {
+	.simple-col-#{$i} {
+		width: percentage($i / 12);
+		float: left;
+	}
+}
+
+// --------------------------------------------------------
+// Common design elements
+// --------------------------------------------------------
+
+// Copy alignment
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
+
+// Border styles
+
+.no-border {
+	border: none;
+}
+
+.no-border-top {
+	border-top: none;
+}
+.no-border-right {
+	border-right: none;
+}
+.no-border-bottom {
+	border-bottom: none;
+}
+.no-border-left {
+	border-left: none;
+}
+
+.full-border {
+	border: 1px solid;
+}
+
+.border-top {
+	border-top: 1px solid;
+}
+.border-right {
+	border-right: 1px solid;
+}
+.border-bottom {
+	border-bottom: 1px solid;
+}
+.border-left {
+	border-left: 1px solid;
+}
+
+// See _colours.scss for colour definition
+
+// Images
+.img-block {
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 100%;
+	width: 100%;
+}
+
+// padding
+.no-padding {
+	padding: 0px;
+}
+
+// vertical centering
+
+.vertically-centered {
+	display: table;
+	margin: 0;
+	padding: 0;
+
+	.vc-target {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+// Overlay styles
+
+.overlay {
+	.overlay-bg {
+		background-color: rgba(colour(black), 0.75);
+	}
+
+	/*  special to do the triangle @ bottom */
+	&.overlay-speech-bubble {
+		/* needs a rel position inner to hang the triangle off */
+		.overlay-inner {
+			position: relative;
+			background-color: rgba(0, 0, 0, 0.8);
+			&:before {
+				content: " ";
+				position: absolute;
+				width: 0;
+				height: 0;
+				left: 45%;
+				bottom: -50px;
+				border: 25px solid;
+				border-color: rgba(0, 0, 0, 0.8) rgba(0, 0, 0, 0.8) transparent
+					transparent;
+			}
+			&.left:before {
+				left: -50px;
+				top: 50%;
+				margin-top: -25px;
+			}
+		}
+	}
+}
+
+.content.white-base .overlay .overlay-bg {
+	background-color: rgba(colour(white), 0.75);
+}
+.content.black-base .overlay .overlay-bg {
+	background-color: rgba(colour(black), 0.75);
+}
+
+// EO Overlay styles
+
+.customer-logo {
+	position: absolute;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	&.default-logo {
+		background-image: url("img/pippin-hall-logo.svg");
+	}
+}
+
+// --------------------------------------------------------
+// Lists
+// --------------------------------------------------------
+
+ol {
+	list-style-type: decimal;
+	li {
+		list-style-type: decimal;
+	}
+}
+
+ul {
+	list-style: none;
+	li {
+		list-style: none;
+	}
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	li {
+		margin: 0;
+		padding: 0;
+	}
+
+	&.numbered-list {
+		li {
+			list-style-position: inside;
+			padding: 1px 0;
+		}
+	}
+
+	&.lined-list {
+		> li {
+			border-bottom: 1px solid colour(pebble-15);
+			position: relative;
+			padding: 8px 0px 8px 0px;
+		}
+		&.white > li {
+			border-bottom: 1px solid colour(white);
+		}
+	} // EO .lined-list
+
+	&.bullet-list {
+		> li {
+			position: relative;
+			padding-bottom: 0.3em;
+			padding-left: 1em;
+
+			&:before {
+				content: "";
+				background-color: $textgrey;
+				display: inline-block;
+				width: 4px;
+				height: 4px;
+				@include border-radius(50%);
+				position: absolute;
+				left: 0;
+				top: 0.5em;
+			}
+		}
+
+		&.white > li:before {
+			background-color: colour(white);
+		}
+	} //EO bullet-list
+
+	&.plus-symbols {
+		li {
+			position: relative;
+			padding-left: 20px;
+			padding-bottom: 16px;
+
+			line-height: $font-size-24;
+
+			&:before {
+				content: "+";
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+
+		// nested lists
+		ul {
+			padding: 16px 0 0 16px;
+		}
+	} /* EO plus-symbols */
+}
+
+// --------------------------------------------------------
+// Buttons
+// --------------------------------------------------------
+
+.navbtn {
+	background-repeat: no-repeat;
+	background-image: url("img/buttons.svg");
+	background-size: 288px 96px;
+	opacity: 0.5;
+
+	$horiz-grid: 288px;
+	$horiz-offset: $horiz-grid / 6;
+	@function horiz-offset($number: 0) {
+		@if $number == 0 {
+			@return $number;
+		} @else {
+			@return -($horiz-offset * $number);
+		}
+	}
+
+	$vert-grid: 96px;
+	$vert-offset: $vert-grid / -2;
+
+	&.down {
+		background-position: horiz-offset(0) 0px;
+	}
+	&.up {
+		background-position: horiz-offset(1) 0px;
+	}
+	&.right {
+		background-position: horiz-offset(2) 0px;
+	}
+	&.left {
+		background-position: horiz-offset(3) 0px;
+	}
+	&.plus {
+		background-position: horiz-offset(4) 0px;
+	}
+	&.close {
+		background-position: horiz-offset(5) 0px;
+	}
+
+	&.white {
+		&.down {
+			background-position: horiz-offset(0) $vert-offset;
+		}
+		&.up {
+			background-position: horiz-offset(1) $vert-offset;
+		}
+		&.right {
+			background-position: horiz-offset(2) $vert-offset;
+		}
+		&.left {
+			background-position: horiz-offset(3) $vert-offset;
+		}
+		&.plus {
+			background-position: horiz-offset(4) $vert-offset;
+		}
+		&.close {
+			background-position: horiz-offset(5) $vert-offset;
+		}
+	}
+
+	&.inactive {
+		opacity: 0.15;
+		cursor: default;
+		@include transition(opacity 200ms ease-in-out);
+		//pointer-events: none;
+	}
+}
+
+.solid-btn,
+.flat-btn {
+	padding: 12px 8px;
+	min-width: 140px;
+	font-weight: 500;
+	color: colour(red);
+
+	cursor: pointer;
+
+	&.solid-btn {
+		@include border-radius($border-radius);
+		background-color: (colour(red));
+		color: colour(white);
+	}
+}
+
+/* EO buttons */
+
+/* EO Deck Specific Mixins */
+
+// --------------------------------------------------------
+// Footer
+// --------------------------------------------------------
+
+footer {
+	// Subslide button design varies for up and down
+	.navbtn {
+		&.up,
+		&.down {
+			width: 30px;
+			height: 30px;
+			background-size: 30px 30px;
+			background-repeat: no-repeat;
+			background-position: center;
+
+			&.up {
+				background-image: url("img/arrow_button_up.svg");
+			}
+			&.down {
+				background-image: url("img/arrow_button_down.svg");
+			}
+
+			&.white {
+				&.up {
+					background-image: url("img/arrow_button_up_white.svg");
+				}
+				&.down {
+					background-image: url("img/arrow_button_down_white.svg");
+				}
+			}
+		}
+	}
+
+	&.footer__overflow {
+		.disclaimer {
+			top: -10px;
+		}
+	}
+	.disclaimer {
+		font-family: $font-base-text;
+		p {
+			color: colour(bluestone);
+			font-size: $font-size-10;
+			line-height: 13px;
+			&.disclaimer-link {
+				font-weight: 700;
+			}
+			span {
+				font-weight: 700;
+				&.sp-companywide-empty {
+					display: inline-block;
+					min-width: 20px;
+				}
+			}
+		}
+	}
+	.disclaimer-right-aligned-content {
+		position: absolute;
+		top: 0;
+		right: 120px;
+	} //EO .disclaimer
+}
+
+article {
+	.content {
+		&.black-base,
+		&.blue-base {
+			.disclaimer p {
+				color: rgba(colour(white), 0.6);
+			}
+		}
+	}
+}
+/* EO Footer */
+
+/* EO link styles */
+
+article {
+	// IE9 and IE10 require slight opacity for them to recognise hit areas
+	// Default colour is white
+	&.ie9,
+	&.ie10 {
+		.content.black-base .disclaimer-target {
+			background-color: rgba(colour(black), 0.001);
+		}
+	}
+}
+
+.re-logo-white {
+	position: absolute;
+	top: 66px;
+	left: 121px;
+	width: 155px;
+	height: 43px;
+	background-image: url("img/re-logo-white.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.listing-chevron {
+	text-align: left;
+	li {
+		margin-bottom: 30px;
+		font-size: 26px;
+		position: relative;
+		padding-left: 40px;
+		line-height: 34px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 4px;
+			width: 12px;
+			height: 19px;
+			background-image: url("img/chevron-red-right.png");
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: 12px 19px;
+		}
+	}
+}
+
+.listing-tick-circle {
+	text-align: left;
+	li {
+		margin-bottom: 30px;
+		font-size: 26px;
+		position: relative;
+		padding-left: 50px;
+		line-height: 34px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 4px;
+			width: 30px;
+			height: 30px;
+			background-image: url("img/tick.svg");
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: 30px 30px;
+		}
+	}
+}
+
+.listing-tick-circle--purple {
+	text-align: left;
+	li {
+		margin-bottom: 30px;
+		font-size: 26px;
+		position: relative;
+		padding-left: 50px;
+		line-height: 34px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 4px;
+			width: 30px;
+			height: 30px;
+			background-image: url("img/tick-purple.svg");
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: 30px 30px;
+		}
+	}
+}
+
+/* EO Common Branded Base Slide Styles ------*/
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

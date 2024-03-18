@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="97px" height="97px" viewBox="0 0 97 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icons / eye - pebble</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-time-management---pebble-copy">
+            <path d="M48.3823529,96.7647059 C21.6615173,96.7647059 0,75.1031886 0,48.3823529 C0,21.6615173 21.6615173,0 48.3823529,0 C75.1031886,0 96.7647059,21.6615173 96.7647059,48.3823529 C96.7647059,75.1031886 75.1031886,96.7647059 48.3823529,96.7647059 Z M48.3823529,94 C73.5762837,94 94,73.5762837 94,48.3823529 C94,23.1884221 73.5762837,2.76470588 48.3823529,2.76470588 C23.1884221,2.76470588 2.76470588,23.1884221 2.76470588,48.3823529 C2.76470588,73.5762837 23.1884221,94 48.3823529,94 Z" id="Oval-5" fill="#828D99" fill-rule="nonzero"></path>
+            <g id="Watch" stroke-width="1" fill-rule="evenodd" transform="translate(33.176471, 18.800000)">
+                <path d="M5.52941176,47.6260869 L5.52941176,56.609596 C5.52941176,57.7153632 6.43119161,58.6117647 7.52475695,58.6117647 L21.2281842,58.6117647 C22.3301829,58.6117647 23.2235294,57.7067748 23.2235294,56.6090952 L23.2235294,47.5529412" id="Stroke-3961" stroke="#828D99" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M5.52941176,11.0588235 L5.52941176,2.00266951 C5.52941176,0.896625682 6.43119161,0 7.52475695,0 L21.2281842,0 C22.3301829,0 23.2235294,0.901891989 23.2235294,1.99581399 L23.2235294,11.0209671" id="Stroke-3960" stroke="#828D99" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <rect id="Rectangle-121" stroke="#00A4C7" stroke-width="1.5" x="0" y="15.4823529" width="28.7529412" height="28.7529412" rx="2"></rect>
+                <polyline id="Stroke-3963" stroke="#00A4C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="13.2705882 22.1176471 13.2705882 30.4816462 18.8 35.3882353"></polyline>
+                <path d="M28.7529412,34.2823529 L28.7529412,34.2823529 C30.5852271,34.2823529 32.0705882,32.5494316 32.0705882,30.4117647 C32.0705882,28.2740979 30.5852271,26.5411765 28.7529412,26.5411765" id="Oval-8" stroke="#00A4C7" stroke-width="1.5"></path>
+            </g>
+        </g>
+    </g>
+</svg>

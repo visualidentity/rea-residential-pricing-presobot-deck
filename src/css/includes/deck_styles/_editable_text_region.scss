@@ -1,0 +1,160 @@
+.c-editable-image {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  .c-editable-image-dimensions {
+    display: none;
+  }
+  &.sp-companywide-empty {
+    .edit-mode &,
+    .screenshot-thumbnail & {
+      background-image: url("../css/img/insert_image.svg");
+      background-size: contain;
+      background-position: center center;
+      &.c-editable-image--empty-white {
+        background-image: url("../css/img/insert_image_white.svg");
+      }
+      .c-editable-image-dimensions {
+        display: block;
+        position: absolute;
+        top: 16px;
+        left: 0;
+        width: 100%;
+        @extend .font-size-16;
+        text-align: center;
+        color: colour(pebble);
+      }
+    }
+  }
+}
+
+.c-editable-text-region {
+  h3,
+  h4,
+  h5,
+  p,
+  ul,
+  ol {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  @for $i from 10 through 50 {
+    @if ($i % 5 == 0) {
+      &--margin-#{$i} {
+        h3,
+        h4,
+        h5,
+        p,
+        ul,
+        ol {
+          margin-bottom: $i * 1px;
+          &:last-child {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+  
+  h3 {
+    @extend .font-size-48;
+    font-weight: 100;
+  }
+  
+  h4 {
+    @extend .font-size-38;
+  }
+  
+  h5 {
+    @extend .font-size-30;
+    font-weight: 500;
+  }
+
+  p {
+    @extend .font-size-26;
+  }
+
+  ol li,
+  ul li {
+    @extend .font-size-26;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 40px;
+    &::before {
+      position: absolute;
+      top: 0.33em;
+      left: 0;
+      content: '';
+      background-color: colour(red);
+      width: 0.35em;
+      height: 0.35em;
+      border-radius: 50%;
+    }
+  }
+
+  &.c-editable-text-region__listing-chevron {
+    ul {
+      padding-left: 0;
+      @extend .listing-chevron;
+      li::before {
+        background-color: transparent;
+        border-radius: 0;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: list-counter;
+    li {
+      position: relative;
+      counter-increment: list-counter;
+      padding-left: 40px;
+      list-style: none;
+      &::before {
+        position: absolute;
+        top: 0.2em;
+        left: -2px;
+        content: counter(list-counter);
+        border: 1px solid colour(charcoal);
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 0.6em;
+        font-weight: 900;
+        width: 1.4em;
+        height: 1.4em;
+        line-height: 1.5em;
+        text-align: center;
+      }
+    }
+  }
+
+  blockquote {
+    @extend .font-size-24;
+    margin: 1.5em 0;
+    border-left: 8px solid colour(red);
+    padding-left: 32px;
+    padding-right: 35px;
+  }
+
+  strong {
+    font-weight: 900;
+  }
+
+  &--hide-when-empty.sp-companywide-empty {
+    display: none;
+    .edit-mode & {
+      display: block;
+    }
+  }
+}

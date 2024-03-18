@@ -1,0 +1,102 @@
+
+// --------------------------------------------------------
+// Typography
+// --------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6, p, input, strong, ul, li, ol {
+	font-family: $font;
+	position: relative;
+	font-style: normal;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+}
+
+th, td {
+	font-weight: 300;
+}
+
+sup {
+	position: relative;
+	font-size: 0.5em;
+	line-height: 1em;
+	top: -0.8em;
+	left: 0.15em;
+	vertical-align: baseline;
+}
+
+sub {
+	position: relative;
+	bottom: 0em;
+	font-size: 0.6em;
+	line-height: 1em;
+	vertical-align: baseline;
+}
+
+@each $key in $font-size-list {
+	.font-size-#{$key} {
+		font-size: $key + px;
+		line-height: $key + $leading;
+	}
+}
+
+h1 {
+	@extend .font-size-48;
+}
+
+h2 {
+	@extend .font-size-38;
+}
+
+h3 {
+	@extend .font-size-38;
+}
+
+h4 {
+	@extend .font-size-30;
+}
+
+h5 {
+	@extend .font-size-24;
+}
+
+h6 {
+	@extend .font-size-20;
+}
+
+p {
+	@extend .font-size-16;
+}
+
+.smallest-text {
+	@extend .font-size-10;
+}
+
+.thin-font {
+	font-weight: 100;
+}
+
+.semi-bold {
+	font-weight: 500;
+}
+
+.highlight, strong, input.highlight, .highlight input {
+	font-weight: 700;
+}
+
+.highlight-extra {
+	font-weight: 900;
+}
+
+.squish-letters {
+	letter-spacing: -0.02em;
+}
+
+.italic {
+	font-style: italic;
+}

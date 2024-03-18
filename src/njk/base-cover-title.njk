@@ -1,0 +1,54 @@
+<article id="{{options.id}}" class="cover-title-slide {{options.article_classes}}">
+
+	<section class="page01 content {{ options.content_classes }} {% if options.cweKey %}cwe-cover-title-slide{% endif %}">
+		{% if options.cweKey %}
+		<div class="cwe-cover-title-slide-image c-editable-image c-editable-image--empty-white"/>
+		{% endif %}
+
+    {% if options.includeHeaderLogo %}
+    <div class="rea-large-logo rea-large-logo--inverted o-transition--fade"></div>
+    {% endif %}
+
+		<section class="content-body">
+		{% block content %}
+		{% endblock %}
+
+		</section>
+	</section>
+
+  {% block footer %}
+	{% endblock %}
+</article>
+
+{% block js_insert_before %}
+{% endblock %}
+
+<script type="text/javascript">
+	{% block js_before %}
+	{% endblock %}
+
+	var $pageContainer = $("article#{{options.id}}");
+
+    $("#{{options.id}}").on("slideready", function (e, done) {
+        setTimeout(() => {
+            $pageContainer.addClass('slide-rendered');
+        }, 250);
+
+		attachDisclaimerEvents('article#{{options.id}}');
+
+        done();
+
+		{% block js_ready %}
+		{% endblock %}
+
+    });
+
+    {% block js_rendered %}
+    {% endblock %}
+
+	{% block js_after %}
+	{% endblock %}
+</script>
+
+{% block js_insert_after %}
+{% endblock %}

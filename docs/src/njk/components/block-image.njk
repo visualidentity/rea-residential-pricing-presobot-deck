@@ -1,0 +1,29 @@
+<style>
+	.img-block {
+		background-image: url("{{ src.deck_src }}/sections/property_management/slides/what_is_one_form/img/hero-form.jpg");
+	}
+</style>
+
+{% set example = {
+	title: "Block - image",
+	id: "block_img",
+	example: block_wrapper.block_img({
+		classes: "img-block"
+	}),
+	full: false,
+	example_classes: "block-height",
+	code_array: [{
+			language: 'django',
+			code: '
+block_wrapper.block_img({
+	classes: "img-block"
+})
+			',
+			desc: "
+				The default image block. The class added is then referenced from the relevant <span class='path'>slide.scss</span> file.
+			"
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

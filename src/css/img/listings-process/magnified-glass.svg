@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="93px" viewBox="0 0 93 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-search---pebble">
+            <path d="M46.3235294,92.6470588 C20.7397506,92.6470588 0,71.9073083 0,46.3235294 C0,20.7397506 20.7397506,0 46.3235294,0 C71.9073083,0 92.6470588,20.7397506 92.6470588,46.3235294 C92.6470588,71.9073083 71.9073083,92.6470588 46.3235294,92.6470588 Z M46.3235294,90 C70.445378,90 90,70.445378 90,46.3235294 C90,22.2016808 70.445378,2.64705882 46.3235294,2.64705882 C22.2016808,2.64705882 2.64705882,22.2016808 2.64705882,46.3235294 C2.64705882,70.445378 22.2016808,90 46.3235294,90 Z" id="Oval-5" fill="#828D99" fill-rule="nonzero"></path>
+            <g id="icon---search" stroke-width="1" fill-rule="evenodd" transform="translate(19.058824, 18.000000)">
+                <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="63.5294118" height="63.5294118"></rect>
+                <path d="M39.6857511,39.6841629 L46.9615765,46.9615765" id="Stroke-4235" stroke="#00A4C7" stroke-width="1.5" stroke-linecap="round"></path>
+                <path d="M44.4705882,27.3962647 C44.4705882,36.8242676 36.8267691,44.4697941 27.3970588,44.4697941 C17.9673485,44.4697941 10.3235294,36.8242676 10.3235294,27.3962647 C10.3235294,17.9665544 17.9673485,10.3227353 27.3970588,10.3227353 C36.8267691,10.3227353 44.4705882,17.9665544 44.4705882,27.3962647 L44.4705882,27.3962647 Z" id="Stroke-4236" stroke="#00A4C7" stroke-width="1.5"></path>
+            </g>
+        </g>
+    </g>
+</svg>

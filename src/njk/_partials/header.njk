@@ -1,0 +1,11 @@
+{% macro title(options, optionsHeader) %}
+	<header class="slide-header {{ optionsHeader.classes }}">
+		{% if optionsHeader.includeAdvantageLogo %}
+			{% include "./advantage-logo.njk" %}
+		{% endif %}
+		<h1 class="slide-header__title {{ optionsHeader.titleClasses }}" {% if options.cweKey %}data-companywide-editable="{{options.cweKey}}_title"{% endif %}>{{ optionsHeader.title | safe | nl2br }}</h1>
+		{% if optionsHeader.subtitle %}
+		<p class="slide-header__subtitle {{ optionsHeader.subtitleClasses }}" {% if options.cweKey %}data-companywide-editable="{{options.cweKey}}_subtitle" data-toolbar="style superscript removeformat"{% endif %}>{{ optionsHeader.subtitle | safe | nl2br }}</p>
+		{% endif %}
+	</header>
+{% endmacro %}

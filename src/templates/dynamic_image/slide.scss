@@ -1,0 +1,24 @@
+
+#slideshow {
+	article.dynamic-image-template {
+		.column {
+			overflow: hidden;
+			.edit-mode & {
+				overflow: visible;
+			}
+		}
+
+		.c-editable-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: {
+				position: center;
+				repeat: no-repeat;
+				size: contain;
+			}
+		}
+	}
+}

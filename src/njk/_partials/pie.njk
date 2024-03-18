@@ -1,0 +1,34 @@
+{% macro pie(classes, labels, hidekey) %}
+	<div class="the-pie pie-anim {{ classes }}">
+		<div class="pie-chart-container"></div>
+		{% if labels.length and not hidekey %}
+			<div class="keys">
+				{% for label in labels %}
+					<div class="key" data-id="{{ label.key }}">
+						<div class="icon {{ label.key }} {{ label.colour }}"></div>
+						<h3 class="value"></h3>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro pie_block(classes, labels, heading) %}
+	<div class="the-pie pie-anim {{ classes }}">
+		{% if heading %}
+			<div class="pie-chart-heading"><h6>{{heading}}</h6></div>
+		{% endif %}
+		<div class="pie-chart-container"></div>
+		{% if labels.length %}
+			<div class="keys">
+				{% for label in labels %}
+					<div class="key" data-id="{{ label.key }}">
+						<div class="icon {{ label.key }} {{ label.colour }}"></div>
+						<h3 class="value">{{ label.key }}</h3>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}

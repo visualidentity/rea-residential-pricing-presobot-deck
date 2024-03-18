@@ -1,0 +1,166 @@
+{# slide options #}
+{% set options = {
+	id: "gridmodify",
+	article_classes: ""
+} %}
+
+{# header options #}
+{% set optionsHeader = {
+	title: "Grid Modifiers",
+	titleClasses: "",
+	subtitle: "Showing off some grid modifiers",
+	subtitleClasses: ""
+} %}
+
+{% extends "src/njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "src/njk/_partials/header.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{# import grid macro #}
+{% import "src/njk/_partials/grid.njk" as grid %}
+
+{% block content %}
+
+	{% set grid_8 = {
+			bg_colour: "",
+			size: "8",
+			collapsed: false,
+			classes: "column--rounded-corners column-group--animated column-group--height-half",
+			columns: [
+				{
+					bg_colour: "blue",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "yellow",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "purple",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "red",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "blue-70",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "teal",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "bluestone",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "yellow-70",
+					classes: "",
+					size: "1"
+				}
+			]
+		}
+	%}
+
+	{% set grid_15 = {
+			bg_colour: "",
+			size: "15",
+			collapsed: false,
+			classes: "column--rounded-corners column-group--animated column-group--height-half",
+			columns: [
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				},
+				{
+					bg_colour: "l-grey",
+					classes: "",
+					size: "1"
+				}
+			]
+		}
+	%}
+
+	{{ grid.column_group(grid_8) }}
+	{{ grid.column_group(grid_15) }}
+
+{% endblock %}

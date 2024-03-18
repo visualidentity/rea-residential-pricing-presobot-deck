@@ -1,0 +1,325 @@
+
+// Supporting colours
+//------------------------------//
+$orange:            #fa5013;
+$yellow:            #ffc200;
+$green:             #95d500;
+$grey-dark:         #1d1d1d;
+$grey:              #303030;
+$black:             #000000;
+$white:             #ffffff;
+
+// CLIENT ONLY
+// --------------------------------------------------------
+.client {
+	#slideshow {
+		article.demo-slide {
+			.demo-cursor { display: block; }
+		}
+	}
+	&.share_online {
+		#slideshow {
+			article.demo-slide {
+				.demo-cursor { display: none; }
+			}
+		}
+	}
+}
+// EO CLIENT ONLY
+
+// TO DO:
+// SCREENSHOT ONLY
+// --------------------------------------------------------
+.screenshot {
+	#slideshow {
+		article.demo-slide {
+			.graphic {
+				background-size: 892px 542px;
+				background-repeat: no-repeat;
+				background-position: bottom center;
+			}
+		}
+	}
+}
+// EO SCREENSHOT ONLY
+
+// Slide styles
+// --------------------------------------------------------
+#slideshow article.demo-slide {
+
+	@keyframes introduce_notification {
+		0% {
+			opacity: 0;
+			transform: translate(0px, -10px);
+		}
+		100% {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		}
+	}
+
+	.content-header { margin-bottom: 10px; }
+	.content-subheader { margin-bottom: 76px; }
+
+	.lined-list {
+		width: 840px;
+
+		li {
+			padding-top: 27px;
+			padding-bottom: 27px;
+			&:before {
+				top: 27px;
+			}
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+
+	ul li h5 { margin-bottom: 12px; }
+
+	.demo__container {
+		position: relative;
+		top: 0px;
+		left: 0px;
+
+		.demo__screens {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			background-size: 100% auto;
+			background-repeat: no-repeat;
+			background-position: center top;
+
+			overflow: hidden;
+
+			.demo__screen {
+				position: absolute;
+				top: 0%;
+				left: 0%;
+
+				width: 100%;
+				height: 100%;
+				background-size: 100% auto;
+				background-repeat: no-repeat;
+				background-position: center top;
+
+				visibility: hidden;
+
+				&.active {
+					visibility: visible;
+				}
+
+				transition: visibility 0ms linear 0ms;
+
+				&.delay-animation {
+					transition: visibility 0ms linear 250ms;
+				}
+			}
+
+			.demo__btn {
+				position: absolute;
+				cursor: pointer;
+
+				transition: background-color 250ms ease-out 0ms;
+			}
+
+			&.btn-hints {
+				.demo__btn {
+					background-color: rgba(aqua, 0.5);
+					transition: background-color 125ms ease-out 0ms;
+				}
+			}
+		}
+
+		.demo__device, .demo__screen-placeholder {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			background-size: 100% auto;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+
+	&.desktop {
+		// desktop specific dimensions
+		.demo__container {
+			width: inherit;
+			height: inherit;
+		}
+	}
+
+	&.tablet {
+		// tablet specific dimensions
+		.demo__container {
+			top: -180px;
+			left: 63px;
+
+			width: 664px;
+			height: 930px;
+
+			.demo__device { background-image: url("img/device-tablet.png"); }
+
+			.demo__screens, .demo__screen-placeholder {
+				top: 94px;
+				left: 54px;
+				right: 54px;
+				bottom: 94px;
+			}
+		}
+	}
+
+	&.tablet-landscape {
+		background: url('img/xref-demo-tablet-landscape-bg.jpg');
+
+		.content-body-demo {
+			margin: 10px 80px 40px;
+		}
+
+		.demo__container {
+			top: 0;
+			left: 130px;
+			width: 1480px;
+			height: 965px;
+
+			.demo__device {background-image: url("img/xref-device-tablet.png");}
+
+			.demo__screens, .demo__screen-placeholder {
+		    top: 35px;
+		    left: 50px;
+		    right: 50px;
+		    bottom: 64px;
+			}
+		}
+	}
+
+	&.mobile {
+		// phone specific dimensions
+		.demo__container {
+			top: -180px;
+			left: 128px;
+
+			width: 536px;
+			height: 992px;
+
+			.demo__device { background-image: url("img/xref-device-phone.png"); }
+
+			.demo__screens, .demo__screen-placeholder {
+		    top: 48px;
+		    left: 20px;
+		    right: 20px;
+		    bottom: 68px;
+			}
+		}
+	}
+
+	.demo-cursor {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 1001;
+		transform: translateZ(1001px);
+		transition: top linear, left linear;
+		// if Master, hide cursor
+		display: none;
+
+		&:after {
+			content: "";
+			position: absolute;
+			$cursor-width: 20px;
+			top: -1 * ($cursor-width / 2);
+			left: -1 * ($cursor-width / 2);
+			width: $cursor-width;
+			height: $cursor-width;
+			border-radius: 50%;
+			background-color: $grey;
+		}
+		&.cursor-click {
+			opacity: 0.5;
+		}
+	}
+
+	footer {
+		.sync-container {
+			position: absolute;
+			top: 13px;
+			left: $pagepad;
+			width: 450px;
+		}
+		.client-sync {
+			float: left;
+			vertical-align: top;
+			text-align: left;
+			margin: 0px;
+		}
+		.sync-indicator {
+			float: left;
+			vertical-align: top;
+			width: 0px;
+			height: 24px;
+			margin-right: 0px;
+			border-radius: 50%;
+			background-color: $grey;
+
+			&.instruction-required, &.client-playing, &.client-ready {
+				width: 24px;
+				margin-right: 14px;
+			}
+
+			&.instruction-required { background-color: $orange; }
+			&.client-playing { background-color: $yellow; }
+			&.client-ready { background-color: $green; }
+		}
+
+		.notification-list {
+			position: absolute;
+			bottom: 100px;
+			left: $pagepad;
+			width: $content-width;
+			text-align: left;
+			.disconnected {
+				color: $orange;
+			}
+			.connected {
+				color: $green;
+			}
+			.notification-item {
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				margin: 0px;
+				transition: top 500ms ease-out, opacity 500ms ease-out;
+				background-color: $grey-dark;
+				border-radius: 5px;
+				padding: 8px 20px;
+			}
+		}
+	}
+
+	// animation
+	//
+	
+	.currentpage {
+		
+	}
+	
+	&.animation-complete, &.ie9 {
+		
+	}
+
+	// IE9 & IE10 specific fixes
+	//Add background to disclaimer button so that disclaimer text can be clicked on
+	&.ie9, &.ie10 {
+		.disclaimer-target, .subslide-button {
+			background-color: rgba($white, 0.001);
+		}
+	}	
+}

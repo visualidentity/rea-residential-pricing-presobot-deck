@@ -1,0 +1,15 @@
+{
+  "name": "residential-2",
+  "version": "0.0.0",
+  "description": "Gulp project for Residential 16:9 deck",
+  "author": "Terry Masher <terry.masher@salespreso.com>",
+  "scripts": {
+    "docs": "open docs/dist/index.html"
+  },
+  "private": true,
+  "devDependencies": {
+    "@salespreso/deck-gulp-tasks": "^3.8.0",
+    "bourbon": "4",
+    "gulp-nunjucks": "^3.1.1"
+  }
+}

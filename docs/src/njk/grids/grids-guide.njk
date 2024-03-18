@@ -1,0 +1,69 @@
+<div class="docs-block">
+	<h2 class="example_title">Guide</h2>
+
+	<ol>
+		<li>Wrap each row in <span class="code-copy">column-group</span> class div</li>
+		<li>Specify the required number of columns with <span class="code-copy">column-group--(n)</span></li>
+		<li>Add optional row height with <span class="code-copy">column-group--(height)</span></li>
+		<li>Add modifier classes if required (eg. <span class="code-copy">column-group--collapsed</span>)</li>
+		<li>If you wish the grid to animate, add <span class="code-copy">column-group--animated</span></li>
+		<li>Insert as many <span class="code-copy">column</span> class divs as required</li>
+		<li>Specify span for each column with <span class="code-copy">column--span-(n)</span> nb. use <span class="code-copy">column--span-1</span> unless a column is required to span more than one space in the grid</li>
+		<li>Add optional bg colour with <span class="code-copy">column--bg-(colour)</span></li>
+		<li>Add modifier classes if required (eg. <span class="code-copy">column--rounded-corners</span>)</li>
+	</ol>
+</div>
+
+<div class="docs-block">
+	<h2 class="example_title">Reference</h2>
+	<br>
+	<h2 class="example_subtitle">Rows</h2>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column-group</h2>
+		<p>Required row wrapper class</p>
+	</div>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column-group--(n)</h2>
+		<p>Required column total (min 1, max 15) eg. <span class="code-copy">column-group--4</span></p>
+	</div>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column-group--(height)</h2>
+		<p>Optional row height eg. <span class="code-copy">column-group--height-full</span><br>Options: height-full, height-two-third, height-three-quarter, height-half, height-one-third, height-one-quarter</p>
+	</div>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column-group--collapsed</h2>
+		<p>Optional modifier that collapses margins in between columns</p>
+	</div>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column-group--animated</h2>
+		<p>Attaches supplied grid animation: fade in, slide up</p>
+		<p class="italic">Note: This animation is triggered when the <span class="code-copy">currentpage</span> class is added to the <span class="code-copy">content</span> element. This is done automatically by the attachSlideEvents() function run at slideready, and is moved between subslides by the subslide.js functionality. All animation details are handled in the _grid.scss, including <span class="code-copy">animation-complete</span> and <span class="code-copy">ie9</span> requirements.</p>
+	</div>
+
+	<br>
+	<h2 class="example_subtitle">Columns</h2>
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column</h2>
+		<p>Required column class</p>
+	</div>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column--span-(n)</h2>
+		<p>Required span class (min 1, max = selected column total)<br>Similar to the table cell attribute <span class="code-copy">col-span</span>, sets the number of spaces a column spans.</p>
+	</div>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column--bg-(colour)</h2>
+		<p>Optional background colour eg. <span class="code-copy">column--bg-black</span><br>Options are taken from your deck's <span class="css-copy">$colour-list</span> in _variables.scss</p>
+	</div>
+
+	<div class="docs-reference">
+		<h2 class="example_subtitle code-copy">column--rounded-corners</h2>
+		<p>Optional modifier that adds rounded corners to the dimensions specified by your deck's <span class="css-copy">$border-radius</span> variable in _variables.scss</p>
+	</div>
+</div>

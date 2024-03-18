@@ -1,0 +1,36 @@
+.control-options {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    width: 100%;
+    text-align: center;
+}
+
+.control__option {
+    display: inline-block;
+    margin-right: 30px;
+    
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.control-options--new {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 60px;
+    border-bottom: 1px solid #E8E8E8;
+
+    .agent-branded__control-block__refresh {
+        background-image: url('img/refresh-dark.svg');
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 46px;
+    }
+}

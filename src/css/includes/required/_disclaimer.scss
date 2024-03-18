@@ -1,0 +1,107 @@
+
+// --------------------------------------------------------
+// Classes required for the disclaimer code in slide.js
+// --------------------------------------------------------
+
+// Styles in this file tie in with functionality in the slide.js.
+// Be wary of making changes here, and make sure you cross-reference
+// the aforementioned file and test thoroughly
+
+// --------------------------------------------------------
+// Footer
+// --------------------------------------------------------
+
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	height: $footer-height;
+	z-index: 9;
+	@include translateZ(95px);
+
+	&.slide-footer {
+		z-index: 600;
+		@include translateZ(6000px);
+	}
+
+	// .disclaimer-target { // Clickable area
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 30px;
+	// 	bottom: 0;
+	// 	right: 840px;
+	// 	cursor: pointer;
+	// 	.edit-mode & {
+	// 		cursor: default;
+	// 	}
+	// }
+
+	.disclaimer-container {
+		line-height: 0px;
+		position: relative;
+	}
+
+	.disclaimer {
+		position: absolute;
+		top: 8px;
+		left: $pagepad;
+		width: 1560px;
+		font-family: $font-base-text;
+
+		// .disclaimer-link, .disclaimer-body, .disclaimer-copy {
+		// 	display: inline;
+		// }
+
+		.disclaimer-link {
+			display: none
+		}
+
+		.disclaimer-body {
+			.disclaimer-copy {
+				// opacity: 0;
+				@include transition(opacity 250ms ease-out 50ms);
+			}
+		}
+
+		p {
+			font-family: $font-base-text;
+		}
+
+	} //EO .disclaimer
+
+	&.disclaimer-active,
+	.edit-mode & {
+		.disclaimer {
+			.disclaimer-link {
+				opacity: 0;
+				@include transition(opacity 100ms ease-out 0ms);
+			}
+			.disclaimer-copy { opacity: 1; }
+		}
+		.disclaimer-target { // Clickable area
+			right: 170px;
+		}
+	} // EO .disclaimer-active
+
+}
+
+article {
+	&.animation-complete, &.ie9 {
+		footer {
+			.disclaimer .disclaimer-body .disclaimer-copy {
+				@include transition(none !important);
+			}
+		}
+	}
+}
+
+.disclaimer, .disclaimer-target {
+	font-family: $font-base-text !important;
+	* {
+		font-family: $font-base-text !important;
+	}
+}
+
+/* EO Footer */

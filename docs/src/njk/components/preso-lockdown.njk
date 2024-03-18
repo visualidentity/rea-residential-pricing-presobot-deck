@@ -1,0 +1,134 @@
+{% macro lockdownloader() %}
+{# <img src="img/components/preso-lockdown-loader.png"> #}
+{% endmacro %}
+
+{% set example = {
+	title: "Preso Lockdown Loader",
+	id: "presolockdownloader",
+	example: lockdownloader(),
+	full: false,
+	desc: "
+			Used for locking down SP presentation navigation while waiting for an API request to complete, or a required user action. Can be set to a basic circle loader, or a modal with indeterminate progress loader, and/or message, and/or user input buttons (cancel/confirm).<br><br>
+
+			<strong>Use case example:</strong><br>
+			API call initiated, user required to wait until it is finished before proceeding/making more requests.<br><br>
+
+
+			<strong>WARNING:</strong> Presentation will remain locked until toggle has been set to false. Ensure this final step is always completed, otherwise, in the case of a slide becoming trapped in 'lockdown' mode, the user will be forced to restart their application.
+		",
+	code_array: [
+		{
+			language: 'django',
+			intro: '<strong>1.</strong> Import Preso Lockdown Loader.',
+			code: '
+{% import "./njk/_partials/preso-lockdown.njk" as lockdown %}
+			'
+		}, {
+			language: 'django',
+			intro: '<strong>2.</strong> Draw loader markup',
+			desc: '
+			<strong>Options:</strong><br>
+			‣ <strong>type</strong> <em>String</em><br>
+			"basic" <em>default</em>: Simple circle loader.<br>
+			"modal": Contained modal. Automatically selected if a message or action is sent<br>
+			‣ <strong>message</strong> <em>String</em><br>
+			Message displayed in modal.<br>
+			‣ <strong>action</strong> <em>String</em><br>
+			Button copy for primary action, set to "confirm" by default if "user-input" mode selected.
+			',
+			code: '
+{% block preso_lockdown %}
+	{{ lockdown.loader({
+		type: "modal",
+		message: "Data fetching",
+		action: "try again"
+	}) }}
+{% endblock %}
+			'
+		}, {
+			language: 'django',
+			intro: '<strong>3.</strong> Initiate Preso Lockdown Loader on slide ready.',
+			desc: '
+			This registers all required Bridge listeners: toggle, updates and client state requests.<br><br>
+
+			<strong>NOTE:</strong> This must be initiated before any anticipated uses. eg. Before triggering further functions that make use of modal listeners (ie. "loader:actionClicked" and "loader:cancelClicked" - see below)',
+			code: '
+{% block js_ready %}
+	{{ lockdown.initiate() }}
+{% endblock %}
+			'
+		}, {
+			language: 'js',
+			intro: '<strong>4.</strong> Toggle modal as required',
+			desc: '
+			<strong>Options:</strong><br>
+			‣ <strong>toggle</strong> <em>Boolean</em> *required<br>
+			‣ <strong>mode</strong> <em>String separated class names</em><br>
+			"action-required": Hides loader, displays buttons for user input ("cancel" and &lt;action&gt;). If no "action" option is supplied, copy is automatically set to "Confirm".<br>
+			‣ <strong>action</strong> <em>String</em><br>
+			Button copy for primary action, if action supplied "mode" is set to "action-required".<br>
+			‣ <strong>message</strong> <em>String</em><br>
+			Message displayed in modal.',
+			code: '
+var loaderOptions = {
+	toggle: true,
+	message: "Save latest selection",
+	mode: "action-required",
+	action: "save"
+};
+
+Bridge.Event.trigger("loader:toggleLockdown", loaderOptions);
+			'
+		}, {
+			language: 'js',
+			intro: '<strong>Modal action listeners</strong><br><br>
+
+			When the modal buttons "cancel" or &lt;action&gt; are clicked, the component will automatically close the modal, and fire the follow Bridge triggers - Implement listeners in your slide to catch these triggers and action any further desired functionality.<br><br>
+
+			<strong>Example:</strong><br>
+			Data fetch failed, user clicks action button to "try again", slide listens to "actionClicked" event and retriggers to the API call.<br><br>
+
+			‣ <strong>Action button clicked:</strong>',
+			code: '
+Bridge.Event.on("loader:actionClicked", function() {
+	// Functions to run on &lt;action&gt; click
+});
+			'
+		}, {
+			language: 'js',
+			intro: '‣ <strong>Cancel button clicked:</strong>',
+			code: '
+Bridge.Event.on("loader:cancelClicked", function() {
+	// Functions to run on "cancel" click
+});
+			'
+		}, {
+			language: 'js',
+			intro: '<strong>Update functions</strong><br><br>
+
+			Fire these triggers to update the modal mode, message and action button copy after the modal has already been draw. Can be used in response to a user action, or different stage in the current process.<br><br>
+
+			‣ <strong>Update modal message:</strong>',
+			code: '
+Bridge.Event.trigger("loader:updateMessage", "Loading suburb data");
+// Sending an empty, or no message, will hide the message element
+			'
+		}, {
+			language: 'js',
+			intro: '‣ <strong>Update modal mode:</strong>',
+			code: '
+Bridge.Event.trigger("loader:updateMode", "action-required");
+// Can also be used to clear modes by supplying an empty string
+			'
+		}, {
+			language: 'js',
+			intro: '‣ <strong>Update modal action button copy:</strong>',
+			code: '
+Bridge.Event.trigger("loader:updateAction", "try again");
+// If an empty string is supplied, will set action button copy to "confirm"
+			'
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>expand -  purple copy 7</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="97.1549855%" id="linearGradient-1">
+            <stop stop-color="#8154AB" offset="0%"></stop>
+            <stop stop-color="#603C81" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Resi-Customer-Health-Check-Slides" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Slide-01---1" transform="translate(-405.000000, -363.000000)">
+            <g id="Group-3-Copy-5" transform="translate(120.000000, 363.000000)">
+                <g id="expand----purple-copy-7" transform="translate(285.000000, 0.000000)">
+                    <path d="M15.8974359,11.5384615 L15.8964615,14.8714615 L19.2307692,14.8717949 L19.2307692,15.8974359 L15.8964615,15.8964615 L15.8974359,19.2307692 L14.8717949,19.2307692 L14.8714615,15.8964615 L11.5384615,15.8974359 L11.5384615,14.8717949 L14.8714615,14.8714615 L14.8717949,11.5384615 L15.8974359,11.5384615 Z" id="Rectangle-2" fill="#FFFFFF"></path>
+                    <g id="Group-9">
+                        <circle id="Oval-2" fill="url(#linearGradient-1)" cx="15" cy="15" r="15"></circle>
+                        <path d="M15.8974359,11.5384615 L15.8964615,14.8714615 L19.2307692,14.8717949 L19.2307692,15.8974359 L15.8964615,15.8964615 L15.8974359,19.2307692 L14.8717949,19.2307692 L14.8714615,15.8964615 L11.5384615,15.8974359 L11.5384615,14.8717949 L14.8714615,14.8714615 L14.8717949,11.5384615 L15.8974359,11.5384615 Z" id="Rectangle-2" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+@import "../../../../css/_slides_common.scss";
+
+
+#slideshow {
+	article#<%= data.slideId %> {
+
+
+	<% for(var i = 0; i < data.columns.length; ++i) { %>
+		.column.<%= data.columns[i].uid %> {
+
+		}
+		
+	<% } %>
+	}
+}

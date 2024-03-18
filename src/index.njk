@@ -1,0 +1,33 @@
+{% set options = {
+	id: "welcome",
+	subslides: false,
+	article_classes: "title-slide"
+} %}
+
+{% extends "./njk/base-section-title.njk" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="section-content section-content--bookend">
+	<h1 class="section-content__title">Welcome</h1>
+	<h4 class="section-content__subtitle js-customer-title"></h4>
+	<h5 class="section-content__body js-preso-date"></h5>
+	<div class="rea-bookend-logo"></div>
+</div>	
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+
+{% import "./index.njk.js" as js %}
+
+{% block js_rendered %}
+	{{ js.rendered() }}
+{% endblock %}
+
+{% block js_ready %}
+	{{ js.ready() }}
+{% endblock %}

@@ -1,0 +1,42 @@
+
+// --------------------------------------------------------
+// Classes required for the overlay code in slide.js
+// --------------------------------------------------------
+
+// Styles in this file tie in with functionality in the slide.js.
+// Be wary of making changes here, and make sure you cross-reference
+// the aforementioned file and test thoroughly
+
+/* Overlay / Popup styles ------------------------------- */
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	visibility: hidden;
+	opacity: 0;
+	@include transition(
+		visibility 0ms ease-out 250ms,
+		opacity 250ms ease-out 0ms
+	);
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+		@include transition(
+			visibility 0ms ease-out 0ms,
+			opacity 250ms ease-out 0ms
+		);
+	}
+
+	.overlay-bg {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+	}
+}

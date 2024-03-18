@@ -1,0 +1,303 @@
+{% set options = {
+	id: "agency_ignite_usage",
+	article_classes: "",
+	ribbonless: true,
+	adjuncts: true
+} %}
+
+{% set optionsHeader = {
+	includeReLogo: false
+} %}
+
+{% extends "./njk/base.njk" %}
+
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-border.njk" as header %}
+{% block header_block %}
+	<header>
+		<dl class="breadcrumb breadcrumb--lochmara">
+			<dd class="icon icon--agency-marketplace">Ignite</dd>
+		</dl>
+		<h1 class="header-headline">Discover how your team is using Ignite in their day-to-day</h1>
+		<div class="refresh-button"></div>
+	</header>
+{% endblock %}
+
+{% block content %}
+	<section id="subslide-1" class="subslide page01 content">
+		<div class="team-container">
+			<div class="team-agency-logo brand-logo brand-bg"></div>
+			<div class="team-managers">
+				<div class="team-managers-label">Ignite Team Managers:</div>
+				<div class="team-managers-list"></div>
+			</div>
+			<div class="team-cards-wrapper">
+				<div class="team-cards"></div>
+				<div class="team-card-scroll-button team-card-scroll-button--right"></div>
+				<div class="team-card-scroll-button team-card-scroll-button--left"></div>
+			</div>
+			<div class="team-card-badges">
+				<div class="team-card-badge-item">
+					<div class="badge badge--non-user"></div>
+					<div>Does not have Ignite (<span data-does-not-have-ignite>0 </span>)</div>
+				</div>
+				<div class="team-card-badge-item">
+					<div class="badge badge--dormant-user"></div>
+					<div>Dormant user (<span data-dormant-user>0 </span>)</div>
+				</div>
+				<div class="team-card-badge-item">
+					<div class="badge badge--active-user"></div>
+					<div>Active user (<span data-active-user>0 </span>)</div>
+				</div>
+				<div class="team-card-badge-item">
+					<div class="badge badge--power-user"></div>
+					<div>Power user (<span data-power-user> 0</span>)</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="subslide-2" class="subslide page02 content"></section>
+{% endblock %}
+
+{% block footer %}
+	<footer class="slide-footer">
+		<div class="rea-logo"></div>
+	</footer>
+{% endblock %}
+
+{% import "./njk/_partials/branding.njk.js" as branding_js %}
+<script type="text/javascript">
+	{% block js_rendered %}
+
+	{{ branding_js.rendered() }}
+
+	var data = Bridge.Feed.get("agencyIgniteUsage").raw();
+
+	var feverSegments = data.feverSegments;
+
+	if (_.isEmpty(data)) {
+		data = {agents: [], teamManagers: []}
+	}
+
+	var itemsPerPage = 4;
+
+	var totalPages = Math.ceil(data.agents.length / itemsPerPage);
+
+	var teamCardScreenshotTemp = `
+		<% for(var i = 1; i <= totalPages; i++) { %>
+			<section id="subslide-<%= i %>" class="subslide content">
+				<div class="team-container">
+					<div class="team-agency-logo brand-logo brand-bg"></div>
+					<div class="team-managers">
+						<div class="team-managers-label">Ignite Team Managers:</div>
+						<div class="team-managers-list"></div>
+					</div>
+					<div class="team-cards-wrapper">
+						<div class="team-cards">
+							<% for(var j = itemsPerPage * (i - 1); j < itemsPerPage * i && j < agents.length; j++) { %>
+								<div class="team-card-item">
+									<div class="team-card-item-avatar-wrapper">
+										<div class="team-card-item-avatar" style="<% if (agents[j].image) { %>background-image: url(<%= agents[j].image %>)<% } %>"></div>
+										<% if(agents[j].feverStatus === "Dormant User") { %>
+											<div class="badge badge--dormant-user"></div>
+										<% } %>
+										<% if(agents[j].feverStatus === "Does not have Ignite" ) { %>
+											<div class="badge badge--non-user"></div>
+										<% } %>
+										<% if(agents[j].feverStatus === "Active user") { %>
+											<div class="badge badge--active-user"></div>
+										<% } %>
+										<% if(agents[j].feverStatus === "Power User") { %>
+											<div class="badge badge--power-user"></div>
+										<% } %>
+									</div>
+									<div class="team-card-item-name"><%= agents[j].firstName %> <%= agents[j].lastName %></div>
+									<div class="team-card-item-permissions">
+										<% _(agents[j].permissions).each(function(permission) { %>
+											<div class="team-card-item-permission-item"><%= permission %></div>
+										<% }); %>
+									</div>
+								</div>
+							<% }; %>
+						</div>
+						<div class="team-card-scroll-button team-card-scroll-button--right"></div>
+						<div class="team-card-scroll-button team-card-scroll-button--left"></div>
+					</div>
+					<div class="team-card-badges">
+						<div class="team-card-badge-item">
+							<div class="badge badge--non-user"></div>
+							<div>Does not have Ignite</div>
+						</div>
+						<div class="team-card-badge-item">
+							<div class="badge badge--dormant-user"></div>
+							<div>Dormant user</div>
+						</div>
+						<div class="team-card-badge-item">
+							<div class="badge badge--active-user"></div>
+							<div>Active user</div>
+						</div>
+						<div class="team-card-badge-item">
+							<div class="badge badge--power-user"></div>
+							<div>Power user</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		<% }; %>
+	`
+
+	var teamCardScreenshotTemplateFunction = _.template(teamCardScreenshotTemp);
+	var generatedTeamCardsScreenshotTemp = teamCardScreenshotTemplateFunction({
+		agents: data.agents,
+		totalPages,
+		itemsPerPage
+	});
+
+	var teamCardTemp = `
+		<% _(agents).each(function(agent, idx) { %>
+			<div class="team-card-item" val="<%= idx %>">
+				<div class="remove-button"></div>
+				<div class="team-card-item-avatar-wrapper">
+					<div class="team-card-item-avatar" style="<% if (agent.image) { %>background-image: url(<%= agent.image %>)<% } %>"></div>
+						<% if(agent.feverStatus === "Dormant User") { %>
+							<div class="badge badge--dormant-user"></div>
+						<% } %>
+						<% if(agent.feverStatus === "Does not have Ignite" ) { %>
+							<div class="badge badge--non-user"></div>
+						<% } %>
+						<% if(agent.feverStatus === "Active user") { %>
+							<div class="badge badge--active-user"></div>
+						<% } %>
+						<% if(agent.feverStatus === "Power User") { %>
+							<div class="badge badge--power-user"></div>
+						<% } %>
+				</div>
+				<div class="team-card-item-name"><%= agent.firstName %> <%= agent.lastName %></div>
+				<div class="team-card-item-permissions">
+					<% _(agent.permissions).each(function(permission) { %>
+						<div class="team-card-item-permission-item"><%= permission %></div>
+					<% }); %>
+				</div>
+			</div>
+		<% }); %>
+	`
+	var teamCardTemplateFunction = _.template(teamCardTemp);
+
+	var teamManagerTemp = `
+		<% _(teamManagers).each(function(manager) { %>
+			<div class="team-managers-item">
+				<div class="team-managers-item-icon"></div>
+				<div class="team-managers-item-name"><%= manager %></div>
+			</div>
+		<% }); %>
+	`
+	var teamManagerTemplateFunction = _.template(teamManagerTemp);
+
+	var generatedTeamCardsTemp = teamCardTemplateFunction({agents: data.agents});
+	var generatedTeamManagersTeamp = teamManagerTemplateFunction({teamManagers: data.teamManagers});
+
+	$('.team-cards', $pageContainer).html(generatedTeamCardsTemp);
+	$('.team-managers-list', $pageContainer).html(generatedTeamManagersTeamp);
+
+	var storePath = '.agency_ignite_usage .hidden-team-cards';
+
+	var _renderTeamCards = function () {
+		var hiddenTeamCards = Bridge.Context.match(storePath, []);
+
+		hiddenTeamCards.forEach(function (val) {
+			$(`.team-card-item[val="${val}"]`, $pageContainer).addClass('hidden');
+		})
+	}
+
+	_renderTeamCards();
+
+	var $scrollRightClick = $('.team-card-scroll-button--right', $pageContainer);
+	var $scrollLeftClick = $('.team-card-scroll-button--left', $pageContainer);
+	var $scrollContainer = $('.team-cards', $pageContainer);
+
+	{% endblock %}
+
+	{% block js_ready %}
+	var $refreshClick = $('.refresh-button', $pageContainer);
+	var $removeTeamCardClick = $('.remove-button', $pageContainer);
+
+	var isPDF = $("body").hasClass("screenshot");
+
+	if (isPDF) {
+		$('.subslide-container', $pageContainer).html(generatedTeamCardsScreenshotTemp);
+		$('.team-managers-list', $pageContainer).html(generatedTeamManagersTeamp);
+		{{ branding_js.rendered() }}
+	}
+
+	var _renderScrollButton = function () {
+		if ($scrollContainer.get(0).scrollWidth > $scrollContainer.width()) {
+			$scrollRightClick.show();
+		} else {
+			$scrollRightClick.hide();
+		}
+		if ($scrollLeftClick.scrollLeft() === 0) {
+			$scrollLeftClick.hide();
+		} else {
+			$scrollLeftClick.show();
+		}
+	}
+
+	_renderScrollButton();
+
+	$removeTeamCardClick.on('click', function () {
+		var hiddenTeamCards = Bridge.Context.match(storePath, []);
+		var teamCardVal = $(this).closest('.team-card-item').attr('val');
+		hiddenTeamCards = [...hiddenTeamCards, teamCardVal];
+
+		Bridge.Event.trigger('master:updateHiddenTeamCards', hiddenTeamCards);
+	});
+
+	$refreshClick.on('click', function () {
+		$('.team-card-item', $pageContainer).removeClass('hidden');
+		Bridge.Event.trigger('master:updateHiddenTeamCards', []);
+	});
+
+	Bridge.Event.on('master:updateHiddenTeamCards', (hiddenTeamCards) => {
+		Bridge.Context.setPath(storePath, hiddenTeamCards);
+		_renderTeamCards();
+		_renderScrollButton();
+	})
+
+	$scrollRightClick.on('click', function () {
+		var teamCardWidth = $('.team-card-item', $pageContainer).outerWidth();
+		$scrollContainer.animate({scrollLeft: `+=${teamCardWidth}px`}, "slow")
+	})
+
+	$scrollLeftClick.on('click', function () {
+		var teamCardWidth = $('.team-card-item', $pageContainer).outerWidth();
+		$scrollContainer.animate({scrollLeft: `-=${teamCardWidth}px`}, "slow")
+	})
+
+	$scrollContainer.on('scroll', function () {
+		var scrollLeft = $(this).scrollLeft();
+		var scrollWidth = $(this).get(0).scrollWidth;
+		var width = $(this).width();
+
+		if (scrollWidth - width === scrollLeft) {
+			$scrollRightClick.fadeOut();
+		} else {
+			$scrollRightClick.fadeIn();
+		}
+
+		if (scrollLeft === 0) {
+			$scrollLeftClick.fadeOut();
+		} else {
+			$scrollLeftClick.fadeIn();
+		}
+	})
+
+	if (feverSegments != null) {
+		$pageContainer.find("[data-does-not-have-ignite]").text((feverSegments["Active user"]));
+		$pageContainer.find("[data-dormant-user]").text((feverSegments["Does not have Ignite"]));
+		$pageContainer.find("[data-active-user]").text((feverSegments["Dormant User"]));
+		$pageContainer.find("[data-power-user]").text((feverSegments["Power User"]));
+	}
+	{% endblock %}
+
+</script>

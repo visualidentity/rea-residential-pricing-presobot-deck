@@ -1,0 +1,15 @@
+{% macro slider_block(options) %}
+
+<div class="slider" data-slider>
+  <div class="slider_control--next">></div>
+  <div class="slider_control--prev"><</div>
+  <ul>
+	{% for item in options.sliderItems %}
+		<li>{{item.slide}}</li>
+	{% endfor %}
+  </ul>
+</div>
+<div class="slider_heading">{{options.sliderHeading}}</div>
+
+
+{% endmacro %}

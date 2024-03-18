@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 88 88" style="enable-background:new 0 0 88 88;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#828D99;}
+	.st3{fill:none;stroke:#828D99;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+	.st4{opacity:0;}
+	.st5{fill:#FFFFFF;}
+	.st6{fill:none;stroke:#00A4C7;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+	.st7{clip-path:url(#SVGID_2_);fill:#828D99;}
+	.st8{fill:none;stroke:#828D99;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#00A4C7;stroke-miterlimit:10;}
+</style>
+<g id="Layer_1" class="st0">
+	<title>Slice 1</title>
+	<desc>Created with Sketch.</desc>
+	<g id="Page-1" class="st1">
+		<g id="icons-_x2F_campaign-details---pebble">
+			<path id="Oval-5" class="st2" d="M43.8,87.5C19.6,87.5,0,67.9,0,43.8S19.6,0,43.8,0s43.8,19.6,43.8,43.8S67.9,87.5,43.8,87.5z
+				 M43.8,85C66.5,85,85,66.5,85,43.8S66.5,2.5,43.8,2.5S2.5,21,2.5,43.8S21,85,43.8,85z"/>
+			<path id="Path-Copy" class="st3" d="M54,33.1L39.9,19l-6.3,6.2v-1.6v-1.4c0-1-0.8-1.7-1.8-1.7H26c-1,0-1.8,0.8-1.8,1.7v12.2
+				L18,40.7h4.7v20.2c0,1.7,1.4,3.1,3.1,3.1h13.4"/>
+			<g id="icon---payments-_x26_-invoices" transform="translate(37.000000, 32.000000)" class="st4">
+				<rect id="Rectangle-17" class="st5" width="40" height="40"/>
+			</g>
+			<path id="Stroke-7501" class="st3" d="M55,39.2h18.3"/>
+			<path id="Stroke-7502" class="st3" d="M55,47.2h18.3"/>
+			<path id="Stroke-7503" class="st3" d="M55,55.2h18.3"/>
+			<path id="Stroke-7504" class="st6" d="M51,40c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2S51,38.9,51,40L51,40z"/>
+			<path id="Stroke-7505" class="st6" d="M51,48c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2S51,46.9,51,48L51,48z"/>
+			<path id="Stroke-7506" class="st6" d="M51,55c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2S51,53.9,51,55L51,55z"/>
+		</g>
+	</g>
+</g>
+<g id="Layer_2">
+	<g>
+		<defs>
+			<path id="SVGID_1_" d="M44.5,85.7c22.8,0,41.2-18.5,41.2-41.2S67.2,3.2,44.5,3.2S3.2,21.7,3.2,44.4S21.7,85.7,44.5,85.7z
+				 M44.5,88.2c-24.2,0-43.8-19.6-43.8-43.8S20.3,0.7,44.5,0.7s43.8,19.6,43.8,43.8S68.6,88.2,44.5,88.2z"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<rect x="-4.3" y="-4.3" class="st7" width="97.5" height="97.5"/>
+	</g>
+	<line class="st8" x1="36.7" y1="33.7" x2="65.7" y2="33.7"/>
+	<line class="st8" x1="36.7" y1="46.7" x2="65.7" y2="46.7"/>
+	<line class="st8" x1="36.7" y1="58.7" x2="65.7" y2="58.7"/>
+	<polygon class="st9" points="27.7,35.2 24.8,36.7 25.3,33.5 22.9,31.2 26.2,30.7 27.7,27.7 29.2,30.7 32.5,31.2 30.1,33.5 
+		30.6,36.7 	"/>
+	<polygon class="st9" points="27.7,48.2 24.8,49.7 25.3,46.5 22.9,44.2 26.2,43.7 27.7,40.7 29.2,43.7 32.5,44.2 30.1,46.5 
+		30.6,49.7 	"/>
+	<polygon class="st9" points="27.7,61.2 24.8,62.7 25.3,59.5 22.9,57.2 26.2,56.7 27.7,53.7 29.2,56.7 32.5,57.2 30.1,59.5 
+		30.6,62.7 	"/>
+</g>
+</svg>

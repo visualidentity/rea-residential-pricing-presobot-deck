@@ -1,0 +1,217 @@
+.agent-branded__control-block {
+    height: 200px;
+    border-radius: 8px;
+    width: 100%;
+    &--hide-controls {
+        height: 74px;
+	}
+
+	&--joined {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &--small-logo {
+        .branded-ph .brand-logo {
+            height: 45px;
+            top: 14px;
+        }
+	}
+	&--hide-strip {
+		height: auto;
+		background: none;
+		input {
+			background: none;
+		}
+		.input_text-autocomplete:not(.is-visible) {
+			background: none;
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+}
+
+.agent-branded__control-content {
+    height: 126px;
+    position: relative;
+    z-index: 1;
+}
+
+.branded_layout {
+    background: colour(l-grey-50);
+}
+
+.agent-branded__content {
+    border-radius: 8px;
+    width: 100%;
+    &--control-block {
+        margin-top: 30px;
+        height: 530px;
+        padding-top: 0px;
+    }
+    &--padded {
+        padding: 57px 0px;
+    }
+    &--padded-sides {
+        padding: 0px 72px;
+    }
+    .branded-ph {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    padding-top: 181px;
+    height: 760px;
+
+    &--joined {
+        margin-top: 0;
+
+        .stat-bar {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+}
+
+.branded-ph {
+    height: 74px;
+    background: colour(l-grey-50);
+    border-top-color: colour(l-grey-50);
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+    &::before {
+        display: none;
+    }
+    &:after {
+        //bourbon's triangle mixin is not working
+        content: '';
+        position: absolute;
+        bottom: -19px;
+        left: 50%;
+        @include transform(translateX(-50%));
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top-width: 20px;
+        border-top-style: solid;
+        border-top-color: inherit;
+    }
+    .brand-logo {
+        width: 300px;
+        height: 59px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 8px;
+        left: 24px;
+    }
+}
+
+.control-block__keys {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+    right: 72px;
+}
+
+.control-block__key {
+    display: inline-block;
+    padding-left: 23px;
+    margin-right: 12px;
+    font-size: 18px;
+    position: relative;
+    &:last-child {
+        margin-right: 0;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+		width: 11px;
+		height: 11px;
+		top: 4px;
+        border-radius: 50%;
+    }
+    &--you:before {
+        background: colour(bluestone)
+    }
+    &--market:before {
+        background: colour(pebble-50)
+    }
+}
+
+.stat-bar {
+    width: 100%;
+    height: 50px;
+    background: colour(pebble-50);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    .stat {
+        display: inline-block;
+        margin-top: 15px;
+        margin-right: 48px;
+        font-size: 18px;
+        color: colour(white);
+        &:last-child {
+            margin-right: 0;
+        }
+        &:first-child {
+            margin-left: 72px;
+        }
+    }
+}
+
+.agent-branded__control-block__refresh {
+    position: absolute;
+    cursor: pointer;
+    top: 29px;
+    right: 70px;
+    @include svg-background-div(20px, 20px, 20px, 'img/refresh.svg');
+}
+.light-background {
+    .agent-branded__control-block__refresh {
+        @include svg-background-div(20px, 20px, 20px, 'img/refresh-dark.svg');
+    }
+}
+.agent-branded__control-block__loading {
+    position: absolute;
+    top: 25px;
+    right: 112px;
+    background: url(img/loading.gif);
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: none;
+    &.loading {
+        display: block;
+    }
+}
+
+.depth_loading {
+    width: 100%;
+    height: 100%;
+    background-color: colour(l-grey);
+    position: absolute;
+    top: 0;
+    left: 0;
+    .background {
+        width: 100%;
+        height: 100%;
+        background-color: colour(l-grey);
+    }
+}
+
+.column-group.column-group--2.column-group--collapsed.hideOptions .column.column--span-1 {
+    &:first-child {
+        margin: 0 auto;
+        float: none;
+    }
+    &:nth-child(2) {
+        display: none;
+    }
+}

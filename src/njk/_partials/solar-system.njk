@@ -1,0 +1,50 @@
+{% set cls = cycler("up", "down") %}
+
+{% macro solar_system(options) %}
+	{% if options.suns %}
+		<!-- SUNS -->
+	{% endif %}
+	{% for sun in options.suns %}
+		<div class="comparison-system animator comparison-suns {{sun}}-sun">
+			<div class="planet-label animator">
+				<h6 class="realestate_name"></h6>
+				<h6 class="nielsen_value"><span class="highlight"></span>&nbsp;visits<sup>1</sup></h6>
+				<h6 class="pi_value"><span class="highlight"></span>&nbsp;page&nbsp;impressions<sup>2</sup></h6>
+				<h6 class="duration_value"><span class="highlight"></span>&nbsp;avg&nbsp;visit&nbsp;duration<sup>3</sup></h6>
+			</div>
+			<div class="realestate-planet animator">
+				<div class="planet-container">
+					<div class="planet animator"></div>
+					<div class="connector-line-container right">
+						<div class="connector-line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+	{% if options.planets %}
+		<!-- COMPARISON GALAXY -->
+	{% endif %}
+	{% for planet in options.planets %}
+		<div class="comparison-system animator comparison-galaxy planet-{{planet}}">
+			<div class="realestate-planet animator">
+				<div class="planet-container">
+					<div class="planet">
+						<div class="connector-line-container {{ cls.next() }}">
+							<div class="connector-line"></div>
+						</div>
+					</div>
+					<div class="planet-label animator">
+						<h6 class="realestate_name"></h6>
+						<h6 class="nielsen_value"><span class="highlight"></span>&nbsp;visits<sup>1</sup></h6>
+						<h6 class="pi_value"><span class="highlight"></span>&nbsp;page&nbsp;impressions<sup>2</sup></h6>
+						<h6 class="duration_value"><span class="highlight"></span>&nbsp;avg&nbsp;visit&nbsp;duration<sup>3</sup></h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endmacro %}
+
+{% set footer_copy = "1. Illustration scaled on the basis of the total number of visits to realestate.com.au’s website (excluding app) with competitor websites (excluding app) according to Nielsen Market Intelligence (industry standard endorsed by the IAB) Domestic Suite, main and m.site traffic for period of <span class='month-year'></span> (excludes apps). 2. Nielsen Market Intelligence, <span class='month-year'></span>. 3. Nielsen Monthly Ratings, <span class='month-year'></span>." %}

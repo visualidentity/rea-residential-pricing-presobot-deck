@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icons / search agent - pebble</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons-/-facebook-display--pebble">
+            <path d="M45,90 C20.1471863,90 0,69.8528137 0,45 C0,20.1471863 20.1471863,0 45,0 C69.8528137,0 90,20.1471863 90,45 C90,69.8528137 69.8528137,90 45,90 Z M45,87.4285714 C68.432653,87.4285714 87.4285714,68.432653 87.4285714,45 C87.4285714,21.567347 68.432653,2.57142857 45,2.57142857 C21.567347,2.57142857 2.57142857,21.567347 2.57142857,45 C2.57142857,68.432653 21.567347,87.4285714 45,87.4285714 Z" id="Oval-5" fill="#828D99" fill-rule="nonzero"></path>
+            <rect id="Rectangle-6" stroke="#828D99" stroke-width="1.5" x="21.9264706" y="24.0441176" width="46.1470588" height="45.0882353" rx="2"></rect>
+            <rect id="Rectangle-6-Copy-4" stroke="#828D99" stroke-width="1.5" x="21.9264706" y="24.0441176" width="46.1470588" height="4.85294118"></rect>
+            <rect id="Rectangle-6-Copy-2" stroke="#828D99" stroke-width="1.5" x="28.2794118" y="51.5735294" width="11.2058824" height="11.2058824"></rect>
+            <rect id="Rectangle-6-Copy-5" stroke="#828D99" stroke-width="1.5" x="28.2794118" y="34.6323529" width="11.2058824" height="11.2058824"></rect>
+            <rect id="Rectangle-6-Copy-3" stroke="#00A4C7" stroke-width="1.5" x="45.2205882" y="34.6323529" width="16.5" height="28.1470588"></rect>
+            <path d="M57.1764706,44.0996192 L55.3838409,44.0996192 C55.0287484,44.0996192 54.6700418,44.4709755 54.6700418,44.7465561 L54.6700418,46.5897842 L57.1719529,46.5897842 C57.0716596,48.0038293 56.8656517,49.295896 56.8656517,49.295896 L54.6573922,49.295896 L54.6573922,57.3076134 L51.3666879,57.3076134 L51.3666879,49.295896 L49.7647059,49.295896 L49.7647059,46.6006267 L51.3666879,46.6006267 L51.3666879,44.3950778 C51.3666879,43.991194 51.2853691,41.2941176 54.7387111,41.2941176 L57.1764706,41.2941176 L57.1764706,44.0996192" id="Fill-10" fill="#00A4C7" fill-rule="evenodd"></path>
+        </g>
+    </g>
+</svg>

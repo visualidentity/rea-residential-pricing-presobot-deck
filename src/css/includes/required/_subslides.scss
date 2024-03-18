@@ -1,0 +1,107 @@
+
+// --------------------------------------------------------
+// Classes required for functionality of subslides.js
+// --------------------------------------------------------
+
+// Styles in this file tie in with functionality in the slide.js and
+// subslide.js files. Be wary of making changes here, and make sure
+// you cross-reference the aforementioned files and test thoroughly
+
+article {
+	position: relative;
+	width: $slide-width;
+	height: $slide-height;
+
+	// Transition if the header needs to change colour between subslides
+	header h1 {
+		@include transition(color ease-in-out 250ms);
+		&.title-delay {
+			@include transition-delay(250ms);
+		}
+	}
+
+	// Subslide & slide-constant setup ------------------ */
+
+	.subslide {
+		position: absolute;
+		top: $slide-height;
+
+		&.page01 {
+			top: 0px;
+		}
+	}
+
+	.slide-constant {
+		position: absolute;
+		top: 0px;
+	}
+
+	.content {
+		position: absolute;
+		width: $slide-width;
+		height: $slide-height;
+		overflow: hidden;
+		box-sizing: border-box;
+		padding-top: $header-height;
+
+		&.page01 {
+			top: 0;
+		}
+
+		> footer {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: $footer-height;
+		}
+
+		/* Subslide layering  --------------------------- */
+
+		@for $i from 1 through 50 {
+			&#subslide-#{$i} {
+				z-index: #{$i}0;
+				@include translateZ(#{$i * 100}px);
+				footer {
+					@include translateZ(#{$i * 100 - 5}px);
+				}
+				&:after {
+					z-index: #{$i}9;
+					@include translateZ(#{$i * 100 + 90}px);
+				}
+			}
+		}
+
+		&.slide-constant {
+			z-index: 600;
+			@include translateZ(6000px);
+		}
+
+		/* Subslide cross fade animation ---------------- */
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: $slide-width;
+			height: $slide-height;
+			background-color: colour(black);
+			@include transition(all ease-in-out 500ms);
+			opacity: 0;
+			visibility: hidden;
+		}
+		&.fadeinslide {
+			&:after {
+				visibility: visible;
+				opacity: 0;
+			}
+		}
+		&.fadeoutslide {
+			&:after {
+				visibility: visible;
+				opacity: 0.5;
+			}
+		}
+	} //EO content
+
+} //EO article

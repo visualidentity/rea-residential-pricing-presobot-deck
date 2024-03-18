@@ -1,0 +1,24 @@
+{% macro interactive_process(options) %}
+	<div class="interactive-process">
+		<ul>
+			{% for item in options.items %}
+			<li>
+				<div {% if options.visibleAll %} class="process process-{{ loop.index0 }} process-icon-all" {% else %} class="process process-{{ loop.index0 }}" {% endif %}>
+					<div class="process-icon process-icon--{{ item.icon }}">
+						<div class="button" tabindex="{{ loop.index0 }}" >
+							<span class="addition" style="background: {{ options.buttonColour }};"></span>
+						</div>
+					</div>
+					<div class="process-text">
+						<h5>{{ item.title|safe }}</h5>
+						<p class="process-text__caption">{{ item.caption|safe }}</p>
+					</div>
+				</div>
+				<div class="process-arrow">
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+		<div class="process-text__disclaimer">{{ options.disclaimer|safe }}</div>
+	</div>
+{% endmacro %}

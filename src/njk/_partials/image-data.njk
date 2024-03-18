@@ -1,0 +1,29 @@
+{% macro image_data(options) %}
+	<div class="image-data {{options.classes}}">
+		{% if options.dynamic %}
+			<div class="image-data__image-container">
+				<div class="image-data__image image-data__dynamic"></div>
+			</div>
+		{% elif options.image  %}
+			<div class="image-data__image-container">
+				<div class="image-data__image image-data__image--{{options.image}}"></div>
+			</div>
+		{% endif %}
+		<div class="image-data__content">
+			{% if options.dynamic %}
+				<div class="image-data__heading"><h3 id="image-data__heading__dynamic"></h3></div>
+			{% else %}
+				<div class="image-data__heading"><h3>{{options.headingDefaultValue}}</h3></div>
+			{% endif %}
+			<div class="image-data__stats">
+				<div class="image-data__stat">
+					{% if options.dynamic %}
+						<span class="image-data__value" id="image-data__copy__dynamic"></span>
+					{% elif options.copy %}
+						<span class="image-data__value">{{options.copy}}</span>
+					{% endif %}
+				</div>				
+			</div>
+		</div>
+	</div>
+{% endmacro %}

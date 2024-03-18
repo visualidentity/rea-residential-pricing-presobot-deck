@@ -1,0 +1,173 @@
+@import "../../../../css/slides_common";
+
+#slideshow {
+	article#ignite_features_v2 {
+    header {
+      &:before {
+        background-color: #13A4AE;
+      }
+
+      h1 {
+        position: relative;
+        padding-top: 98px;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -70px;
+          right: -240px;
+          width: 228px;
+          height: 116px;
+          background-image: url('./img/ignite-logo.svg');
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+
+    .sub-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 641px;
+      height: 96%;
+      background-color: #F8F8F8;
+    }
+
+    .subslide-container {
+      transform: translateZ(6100px);
+			position: relative;
+			width: 100%;
+			height: 877px;
+			left: 0;
+			top: 0;
+			transform: none;
+
+      .subslide {
+        position: absolute;
+        opacity: 0;
+        transition: all .2s linear;
+
+        &#subslide-2 {
+          transform: translateZ(6100px);
+          display: flex;
+          justify-content: center;
+          z-index: 1000;
+          left: 2%;
+          width: 96%;
+          height: 115%;
+          padding: 10px;
+          box-shadow: 0px 4.75px 29.7px 0px #00000026;
+          background-color: white;
+        }
+        
+        &.active {
+          opacity: 1;
+
+          &#subslide-2 {
+            top: -130px;
+
+            .close-btn::after {
+              cursor: pointer;
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 25px;
+              height: 25px;
+              background-image: url('./img/close-icon.svg');
+              background-repeat: no-repeat;
+            }
+          }
+        }
+
+      }
+		}
+
+    .subslide__body {
+      display: flex;
+      height: 670px;
+
+      .column--1 {
+        flex-basis: 47%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 120px;
+
+        .item {
+          position: relative;
+          padding: 30px 24px 20px 90px;
+          border-bottom: 1px solid #E3E3E3;
+          .title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 28px;
+          }
+          .description {
+            margin-top: 10px;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 28px;
+          }
+  
+          &:after {
+            position: absolute;
+            top: 30px;
+            left: 25px;
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-repeat: no-repeat;
+          }
+  
+          &--1:after {
+            background-image: url('./img/icon-1.svg');
+          }
+          &--2:after {
+            background-image: url('./img/icon-2.svg');
+          }
+          &--3:after {
+            background-image: url('./img/icon-3.svg');
+          }
+        }
+
+        .cta-link {
+          display: block;
+          width: 376px;
+          margin-top: 24px;
+          border-radius: 8px;
+          background: #E4002B;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 55px;
+          color: white;
+          text-decoration: none;
+          text-align: center;
+        }
+      }
+
+      .column--2 {
+        cursor: pointer;
+        flex: 1;
+        background-image: url('./img/bg.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+      }
+    }
+  }
+
+  footer {
+    .rea-logo {
+      position: absolute;
+      right: 111px;
+      bottom: 47px;
+      width: 287px;
+      height: 51px;
+      background-image: url('./img/rea-logo.png');
+      background-size: 287px 51px;
+      transform: translateZ(10px);
+    }
+  }
+}

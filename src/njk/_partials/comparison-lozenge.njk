@@ -1,0 +1,48 @@
+
+{# lozenge macro #}
+{% macro lozenge(rea_figure, domain_figure) %}
+	{% set rea_percent = rea_figure / (rea_figure + domain_figure) * 100 | round %}
+	{% set domain_percent = domain_figure / (rea_figure + domain_figure) * 100 | round %}
+	{% set rea_percent_clean = rea_percent * 100 | round %}
+	{% set domain_percent_clean = domain_percent * 100 | round %}
+	<div class='compare-lozenge'>
+		<!-- Bars -->
+		<div class="bar bar-lhs bar-rea"></div>
+		<div class="bar bar-rhs bar-domain" style="width: {{ domain_percent}}%;"></div>
+		<!-- Figures -->
+		<div class="figure figure-lhs figure-rea" ><span>{{rea_percent}}</span>%</div>
+		<div class="figure figure-rhs figure-domain"> <span>{{domain_percent}}</span>%</div>
+	</div>
+{% endmacro %}
+
+{% macro thumbnailData() %}
+	var nationalThumbnailData = [
+        {
+           "search_type" : "Rent",
+           "searches" : "10575646",
+           "search_share" : "0.1623312000",
+           "competitor" : "Domain"
+        },
+        {
+           "search_type" : "Rent",
+           "search_share" : "0.8199175000",
+           "searches" : "53416540",
+           "competitor" : "REA"
+        }
+    ];
+
+    var stateThumbnailData = [
+        {
+           "searches" : "2487898",
+           "search_share" : "0.0381880200",
+           "competitor" : "Domain",
+           "search_type" : "Rent"
+        },
+        {
+           "search_share" : "0.2111764800",
+           "searches" : "13757889",
+           "competitor" : "REA",
+           "search_type" : "Rent"
+        }
+    ];
+{% endmacro %}

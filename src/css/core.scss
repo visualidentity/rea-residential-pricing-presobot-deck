@@ -1,0 +1,114 @@
+$output-bourbon-deprecation-warnings: false !default;
+@import 'bourbon';
+@import 'addons/prefixer';
+
+@import 'includes/fonts';
+@import 'includes/variables';
+@import 'includes/mixins';
+
+@import 'includes/components/sp_modes';
+@import 'includes/components/master_styles';
+
+/* Fonts --------------------------------------------------------------------- */
+
+@import 'fonts/fonts';
+
+/* Component Imports --------------------------------------------------------- */
+@import 'includes/components/cdk';
+@import 'includes/components/typography';
+@import 'includes/components/animation';
+@import 'includes/components/grid';
+@import 'includes/components/ie';
+@import 'includes/components/inputs';
+@import 'includes/components/control_block';
+@import 'includes/components/table';
+@import 'includes/components/colours';
+@import 'includes/components/preso_lockdown';
+@import 'includes/components/flex-grid';
+@import 'includes/components/slick';
+@import 'includes/components/breadcrumb';
+@import 'includes/components/accordion-icon';
+@import 'includes/components/summer-stats';
+@import 'includes/components/tabs';
+@import 'includes/components/table-performance';
+
+/* Common Styles ------------------------------------------------------------- */
+
+@import 'includes/required';
+@import 'includes/base_styles';
+
+@import 'includes/connector_lines';
+@import 'includes/transition';
+
+/* Deck Style Imports -------------------------------------------------------- */
+
+@import 'includes/deck_styles/title_slide';
+@import 'includes/deck_styles/product_suite_slide';
+@import 'includes/deck_styles/product_slide';
+@import 'includes/deck_styles/property_stat';
+@import 'includes/deck_styles/property_ad';
+@import 'includes/deck_styles/block';
+@import 'includes/deck_styles/product';
+@import 'includes/deck_styles/advert';
+@import 'includes/deck_styles/branding';
+@import 'includes/deck_styles/pie';
+
+@import 'includes/deck_styles/branded_layout';
+@import 'includes/deck_styles/branded_layout_new';
+@import 'includes/deck_styles/listing_stat';
+@import 'includes/deck_styles/market_comparison';
+@import 'includes/deck_styles/market_comparison_new';
+@import 'includes/deck_styles/agent_stat';
+@import 'includes/deck_styles/pie_style';
+@import 'includes/deck_styles/icon_data';
+@import 'includes/deck_styles/icon_data_new';
+@import 'includes/deck_styles/remove_icon';
+@import 'includes/deck_styles/reset_icon';
+@import 'includes/deck_styles/header_image';
+@import 'includes/deck_styles/header_legend';
+@import 'includes/deck_styles/option_selector';
+@import 'includes/deck_styles/slider';
+@import 'includes/deck_styles/connection_benefits';
+@import 'includes/deck_styles/subscription_table';
+@import 'includes/deck_styles/interactive_roi';
+@import 'includes/deck_styles/suburb_bar';
+@import 'includes/deck_styles/suburb_bar_new';
+@import 'includes/deck_styles/date_bar_new';
+@import 'includes/deck_styles/bar_graph';
+@import 'includes/deck_styles/agency_rankings';
+@import 'includes/deck_styles/interactive_listing';
+@import 'includes/deck_styles/subsection';
+@import 'includes/deck_styles/interactive_process';
+@import 'includes/deck_styles/footer_navigation';
+@import 'includes/deck_styles/subsection';
+@import 'includes/deck_styles/table_listing';
+@import 'includes/deck_styles/pricing_breakdown';
+@import 'includes/deck_styles/subslide-tabs';
+@import 'includes/deck_styles/subslide-modals';
+@import 'includes/deck_styles/audience_block';
+@import 'includes/deck_styles/table_compare';
+@import 'includes/deck_styles/stat_card';
+@import 'includes/deck_styles/interactive_boards';
+@import 'includes/deck_styles/arrowed_block';
+@import 'includes/deck_styles/additional_block';
+@import 'includes/deck_styles/static_tabs';
+@import 'includes/deck_styles/demo_slide';
+@import 'includes/deck_styles/step_events';
+
+@import 'includes/deck_styles/video_slide';
+@import 'includes/deck_styles/marketing_calculator';
+@import 'includes/deck_styles/comparison_slide';
+@import 'includes/deck_styles/accordian_button';
+@import 'includes/deck_styles/table_slide';
+
+@import 'includes/deck_styles/editable_text_region';
+@import 'includes/deck_styles/icon_text_grid';
+@import 'includes/deck_styles/icon_text_modal';
+@import 'includes/deck_styles/icon_block_list';
+@import 'includes/deck_styles/image_text_overlay';
+@import 'includes/deck_styles/title_image_text_card';
+@import 'includes/deck_styles/hybrid_tab';
+
+
+@import 'includes/slide-layouts/house-slide';
+

@@ -1,0 +1,214 @@
+.comparison {
+	width: 398px;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	.remove-icon {
+		right: 6px;
+		top: 49px;
+	}
+
+	.comparison__pie--container {
+		display: flex;
+		align-items: center;
+	}
+
+	.comparison__pie {
+		width: 100%;
+
+		.pie__stats {
+			top: 0;
+			left: 125px;
+		}
+
+		.pie__title {
+			font-size: 26px;
+		}
+
+		.pie__stat--one {
+			font-weight: 600;
+			font-size: 26px;
+			line-height: 33px;
+			color: #333136;
+		}
+
+		.pie__stat--two {
+			font-weight: 600;
+			font-size: 26px;
+			line-height: 33px;
+			color: #A39FA6;
+		}
+
+		.pie-chart {
+			width: 132px;
+			height: 132px;
+
+			&:before {
+				width: 78px;
+				height: 78px;
+			}
+
+			&:after {
+				width: 132px;
+				height: 132px;
+			}
+
+			.segment {
+				width: 60px;
+				left: 60px;
+				height: 120px;
+
+				.before {
+					height: 120px;
+					width: 60px;
+					left: -60px;
+					border-radius: 60px 0 0 60px;
+				}
+			}
+		}
+	}
+}
+
+.comparison__large {
+	height: 240px !important;
+}
+
+
+
+.comparison__title {
+	
+}
+
+.chart__bar {
+	height: 46px;
+	border-radius: 0px 10px 10px 0px;
+	position: relative;
+	font-size: 24px;
+	width: 0px;
+	@include transition(width 0.3s ease-out);
+	&.full {
+		width: 114px !important;
+		font-size: 40px;
+	}
+
+	&--one {
+		background: #333136;
+		margin-bottom: 22px;
+
+	}
+	&--two {
+		background: #A39FA6;
+	}
+
+	&:after {
+		content: attr(data-value);
+		position: absolute;
+		top: 50%;
+		@include transform(translateY(-50%));
+		font-size: inherit;
+		left: 115%;
+
+	}
+
+}
+
+.comparison__stat {
+
+	font-size: 30px;
+	font-weight: 900;
+
+	&:before {
+		content: ' ';
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		background-image: url('img/response.png');
+		background-size: 100px 100px;
+		vertical-align: middle;
+		margin-right: 20px;
+
+	}
+
+	.comparison-block--views & {
+		&:before {
+			background-image: url('img/marketing-response/views.png');
+			background-size: 100px 100px;
+		}
+	}
+
+	.comparison-block--mail & {
+		&:before {
+			background-image: url('img/marketing-response/mail.png');
+			background-size: 100px 100px;
+		}
+	}
+
+	.comparison-block--stars & {
+		&:before {
+			background-image: url('img/marketing-response/three-stars.png');
+			background-size: 100px 100px;
+		}
+	}
+
+	.comparison-block--people & {
+		&:before {
+			background-image: url('img/marketing-response/people.png');
+			background-size: 100px 100px;
+		}
+	}
+
+	.comparison-block--lock & {
+		&:before {
+			background-image: url('img/marketing-response/lock.png');
+			background-size: 100px 100px;
+		}
+	}
+}
+
+.comparision__chart {
+	height: 136px;
+	border-left: solid 1px colour(l-grey);
+	padding-top: 12px;
+	padding-bottom: 12px;
+	position: relative;
+	.info--comparison{
+		top: -64px;
+		left: 55%;
+		&:after {
+			right: 160px;
+		}
+	}
+
+	.info-text {
+	top:-64px;
+	left: 55%;
+	}
+	&--single-stat {
+		.chart__bar {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.pie__stats {
+	position: absolute;
+	top: 70px;
+	left: 169px;
+}
+
+.pie__stat {
+	display: block;
+}
+
+.comparison-block {
+	.comparison {
+		width: 328px;
+		margin-top: 37px;
+		&:last-child {
+			padding-bottom: 37px;
+		}
+	}
+}

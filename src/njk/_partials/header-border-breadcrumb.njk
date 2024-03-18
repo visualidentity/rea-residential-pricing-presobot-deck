@@ -1,0 +1,20 @@
+{% macro render(options) %}
+	<header class="slide-header-border slide-header-border--{{options.color}} {{options.classes}}">
+		<div class="slide-header-border__content text-left {{options.contentClasses}}">
+			{% if options.title %}
+				<h1 class="slide-header-border__title" {% if (options.cweKey) %} data-companywide-editable="{{options.cweKey}}_title_editable"{% endif %}>{{options.title | safe}}</h1>
+			{% endif %}
+			{% if options.subtitle %}
+				<h2 class="slide-header-border__sub-title" {% if (options.cweKey) %} data-companywide-editable="{{options.cweKey}}_subtitle_editable"{% endif %}>{{options.subtitle | safe}}</h2>
+			{% endif %}
+		</div>
+		{% if options.breadcrumb %}
+			<dl class="breadcrumb {{options.breadcrumb.classes}}">
+				<dd class="icon icon--{{options.breadcrumb.icon}}">{{options.breadcrumb.text}}</dd>
+			</dl>
+		{% endif %}
+		{% if options.refresh %}
+			<div class="refresh-button slide-header-border__refresh" data-refresh-header><span class="refresh-active">Reset</span><span class="refresh-inactive">{{options.refresh.message | safe}}</span></div>
+		{% endif %}
+	</header>
+{% endmacro %}

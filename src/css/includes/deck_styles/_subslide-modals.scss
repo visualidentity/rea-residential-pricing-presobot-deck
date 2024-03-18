@@ -1,0 +1,535 @@
+.subslide-modal {
+  z-index: 1;
+
+  &.subslide-container {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+  }
+
+  .content {
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+  }
+
+  #subslide-1 {
+    opacity: 1;
+  }
+
+  .content:after {
+    display: none;
+  }
+
+  .active {
+    opacity: 1;
+  }
+}
+
+.content__subslide-modal {
+  width: 1150px !important;
+  height: 756px !important;
+  padding: 30px !important;
+  background-color: white;
+  border: 1px solid #D9D9D9 !important;
+  overflow: visible !important;
+  border-radius: 5px;
+  box-shadow: 0 0 30px -12px;
+  left: 261px;
+
+  &:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-image: url('img/health-check/minus.svg');
+    background-size: contain;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    transform: rotate(90deg);
+
+    .master &,
+    .share_online & {
+      cursor: pointer;
+    }
+  }
+}
+
+.content__subslide-modal--timeline {
+  padding: 0 !important;
+  left: -120px;
+  height: 890px !important;
+  z-index: -1;
+
+  .december-timeline {
+    width: 1852px;
+    height: 52px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:before {
+      content: '';
+      width: 1800px;
+      height: 3px;
+      background-image: url('img/health-check/timeline-dotted.svg');
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:after {
+      content: 'Dec';
+      width: 52px;
+      height: 52px;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+      line-height: 3.2;
+      border-radius: 100%;
+      background-color: #2E2C30;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .january-timeline {
+    width: 1852px;
+    height: 52px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:before {
+      content: '';
+      width: 1800px;
+      height: 3px;
+      background-image: url('img/health-check/timeline-dotted.svg');
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:after {
+      content: 'Jan';
+      width: 52px;
+      height: 52px;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+      line-height: 3.2;
+      border-radius: 100%;
+      background-color: #2E2C30;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.content__subslide-modal--timeline__top {
+  width: 1920px;
+  height: 445px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content__subslide-modal--timeline__bottom {
+  width: 1920px;
+  height: 445px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.content__subslide-modal--box__container {
+  position: absolute;
+  top: 0;
+  min-width: 302px;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .4s ease-in-out;
+
+  .subslide-1 & {
+    opacity: 1;
+  }
+
+  .content__subslide-modal--timeline__top & {
+    &:after {
+      content: '';
+      width: 100%;
+      height: 50%;
+      background-color: white;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+    }
+
+    &.advantage {
+      &:before {
+        content: '';
+        width: 26px;
+        height: 208.65px;
+        background-image: url('img/health-check/advantage-line.svg');
+        background-size: contain;
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &.agency-marketplace {
+      &:before {
+        content: '';
+        width: 26px;
+        height: 272.65px;
+        background-image: url('img/health-check/agency-marketplace-line.svg');
+        background-size: contain;
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &.agency-services {
+      &:before {
+        content: '';
+        width: 26px;
+        height: 320px;
+        background-image: url('img/health-check/agency-services-line.svg');
+        background-size: contain;
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .content__subslide-modal--timeline__bottom & {
+    &:after {
+      content: '';
+      width: 100%;
+      height: 50%;
+      background-color: white;
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+    }
+
+    &.advantage {
+      &:before {
+        content: '';
+        width: 26px;
+        height: 208.65px;
+        background-image: url('img/health-check/advantage-line.svg');
+        background-size: contain;
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg);
+      }
+    }
+
+    &.agency-marketplace {
+      &:before {
+        content: '';
+        width: 26px;
+        height: 272.65px;
+        background-image: url('img/health-check/agency-marketplace-line.svg');
+        background-size: contain;
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg);
+      }
+    }
+
+    &.agency-services {
+      &:before {
+        content: '';
+        width: 26px;
+        height: 320px;
+        background-image: url('img/health-check/agency-services-line.svg');
+        background-size: contain;
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg);
+      }
+    }
+  }
+}
+
+.content__subslide-modal--box {
+  min-width: 230px;
+  padding: 18px;
+  padding-top: 70px;
+  font-size: 18px;
+  line-height: 23px;
+  background-color: #F2F0F4;
+  box-shadow: 0 0 30px -12px;
+  border: 1px solid #E3E4E3;
+  border-radius: 10px;
+  overflow: unset;
+  position: absolute;
+  z-index: 3;
+
+  .master &,
+  .share_online & {
+    cursor: pointer;
+  }
+
+  &:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-image: url('img/health-check/plus.svg');
+    position: absolute;
+    top: -15px;
+    right: -15px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 11px;
+  }
+
+  .line {
+    z-index: 1;
+  }
+
+  .advantage &:before {
+    width: 154px;
+    height: 34px;
+    background-image: url('img/health-check/advantage.png');
+    background-size: contain;
+  }
+
+  .agency-marketplace &:before {
+    width: 243px;
+    height: 34px;
+    background-image: url('img/health-check/agency-marketplace.png');
+    background-size: contain;
+  }
+
+  .agency-services &:before {
+    width: 243px;
+    height: 34px;
+    background-image: url('img/health-check/agency-services.png');
+    background-size: contain;
+  }
+}
+
+.subslide-modal__timeline {
+  width: 1071px;
+  height: 34.75px;
+  margin: auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.oct {
+    background-image: url('img/health-check/oct.png');
+  }
+
+  &.nov {
+    background-image: url('img/health-check/nov.png');
+  }
+
+  &.oct-dec {
+    background-image: url('img/health-check/oct-dec.png');
+  }
+
+  &.jan {
+    background-image: url('img/health-check/jan.png');
+  }
+
+  &.feb {
+    background-image: url('img/health-check/feb.png');
+  }
+
+  &.jan-feb {
+    background-image: url('img/health-check/jan-feb.png');
+  }
+
+  &.feb-mar {
+    background-image: url('img/health-check/feb-mar.png');
+  }
+
+  &.jan-mar {
+    background-image: url('img/health-check/jan-mar.png');
+  }
+
+  &.quarter-one {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/quarter-one.png');
+  }
+
+  &.quarter-four {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/quarter-four.png');
+  }
+
+  &.quarter-one--green {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/quarter-one--green.png');
+  }
+
+  &.quarter-three--green {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/quarter-three--green.png');
+  }
+
+  &.quarter-four--green {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/quarter-four--green.png');
+  }
+
+  &.full-year--blue {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/full-year--blue.png');
+  }
+
+  &.quarter-one--blue {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/quarter-one--blue.png');
+  }
+
+  &.quarter-one--quarter-three--blue {
+    width: 1064px;
+    height: 42px;
+    background-image: url('img/health-check/quarter-one--quarter-three--blue.png');
+  }
+}
+
+.subslide-modal__content {
+  margin-top: 85px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.subslide-modal__content--category {
+  margin-left: 2px;
+  margin-bottom: 85px;
+
+  &.advantage {
+    width: 154px;
+    height: 34px;
+    background-image: url('img/health-check/advantage.png');
+    background-size: contain;
+  }
+
+  &.agency-marketplace {
+    width: 243px;
+    height: 34px;
+    background-image: url('img/health-check/agency-marketplace.png');
+    background-size: contain;
+  }
+
+  &.agency-services {
+    width: 243px;
+    height: 34px;
+    background-image: url('img/health-check/agency-services.png');
+    background-size: contain;
+  }
+}
+
+.subslide-modal__content--title {
+  width: 452px;
+  min-height: 68px;
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 600;
+  margin-left: 8px;
+  margin-bottom: 30px;
+}
+
+.subslide-modal__content p {
+  width: 452px;
+  font-size: 23px;
+  font-weight: 100;
+  letter-spacing: .9px;
+  line-height: 33px;
+  color: #716E75;
+  margin-left: 8px;
+}
+
+.subslide-modal__content .subslide__img {
+  margin-right: 10px;
+}
+
+.content__subslide-modal--navigation {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -110px;
+  right: 0;
+  transition: all .4s ease-in-out;
+  z-index: 2;
+  opacity: 0;
+  height: 0;
+
+  .inactive {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  @for $i from 2 through 34 {
+    .subslide-#{$i} & {
+      opacity: 1;
+      display: block;
+      height: auto;
+    }
+  }
+
+  > div {
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+  }
+
+  .client &,
+  .screenshot & {
+    display: none;
+  }
+
+  .prev {
+    width: 56px;
+    height: 56px;
+    background-image: url('img/health-check/prev.svg');
+    background-size: contain;
+  }
+
+  .next {
+    margin-left: 1px;
+    width: 56px;
+    height: 56px;
+    background-image: url('img/health-check/next.svg');
+    background-size: contain;
+  }
+
+  .return {
+    margin-left: 8.5px;
+    width: 42px;
+    height: 36px;
+    background-image: url('img/health-check/return.svg');
+    background-size: contain;
+  }
+}

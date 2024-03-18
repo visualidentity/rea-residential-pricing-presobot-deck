@@ -1,0 +1,40 @@
+<style>
+	.block-content-bottom__icon {
+		background-image: url("../../src/sections/sales_product/slides/property_seekers_1/img/icon-global.svg");
+    	background-size: auto 70px;
+	}
+</style>
+
+{% set example = {
+	title: "Block - copy + icon",
+	id: "block_content_bottom",
+	example: block_wrapper.block_content_bottom({
+		icon: "icon-global",
+		copy: "Access a truly global audience through strong \nlocal brands, with a combinetd audience reach \nof more than 200 million visits a month*",
+		colour: "white"
+	}),
+	full: false,
+	example_classes: "bg-red block-height",
+	code_array: [{
+			language: 'django',
+			code: '
+block_wrapper.block_content_bottom({
+	icon: "icon-global",
+	copy: "Access a truly global audience through strong \/n\nlocal brands, with a combinetd audience reach \/n\nof more than 200 million visits a month*,
+	colour: "white"
+})
+			',
+			desc: "
+				The block content is aligned to the bottom by default. The following modifier can be added to align content to the top:
+				<ul>
+					<li>block-content-bottom--align-top</li>
+				</ul><br><br>
+
+				<p>
+				The block styles can be found in <span class='path'>css/includes/deck_styles/_block.scss</span>
+			"
+		}
+	]
+} %}
+
+{{ util.example_html(example) }}

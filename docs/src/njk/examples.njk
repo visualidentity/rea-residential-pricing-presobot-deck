@@ -1,0 +1,76 @@
+<div class="section" id="typography">
+	<h2 class="section_title">Typography</h2>
+
+	{% include src.docs + "/njk/typography/typography.njk" %}
+</div>
+
+<div class="section" id="coloursection">
+	<h2 class="section_title">Colours</h2>
+
+	{% include src.docs + "/njk/colours/colours.njk" %}
+</div>
+
+<div class="section" id="deckbase">
+	<h2 class="section_title">Deck Base</h2>
+
+	{% import src.deck + "/_partials/content-title.njk" as ct %}
+	{% include src.docs + "/njk/deckbase/content-title.njk" %}
+	{% include src.docs + "/njk/deckbase/section-title.njk" %}
+</div>
+
+<div class="section" id="components">
+	<h2 class="section_title">Components</h2>
+
+
+	{# Property Stats #}
+	{% import src.deck + "/_partials/property-stat.njk" as ps %}
+	{% include src.docs + "/njk/components/property-stat.njk" %}
+
+	{# Pie Charts #}
+	{% import src.deck + "/_partials/pie.njk" as pie %}
+	{% import src.deck + "/_partials/pie.njk.js" as pie_js %}
+	{% include src.docs + "/njk/components/pie-chart.njk" %}
+	{% include src.docs + "/njk/components/pie-chart-key.njk" %}
+
+	{# Blocks #}
+	{% import src.deck + "/_partials/block.njk" as block_wrapper %}
+	{% include src.docs + "/njk/components/block-step.njk" %}
+	{% include src.docs + "/njk/components/block-content-bottom.njk" %}
+	{% include src.docs + "/njk/components/block-benefits.njk" %}
+	{% include src.docs + "/njk/components/block-list-numbered.njk" %}
+	{% include src.docs + "/njk/components/block-service-icon.njk" %}
+	{% include src.docs + "/njk/components/block-benefits-checklist.njk" %}
+	{% include src.docs + "/njk/components/block-image.njk" %}
+
+	{# Branding #}
+	{% import src.deck + "/_partials/branding.njk" as branding %}
+	{% import src.deck + "/_partials/branding.njk.js" as branding_js %}
+	{% include src.docs + "/njk/components/branding.njk" %}
+
+	{# Preso Lockdown Loader #}
+	{% include src.docs + "/njk/components/preso-lockdown.njk" %}
+</div>
+
+<div class="section" id="grids">
+	<h2 class="section_title">Grids</h2>
+	{% include src.docs + "/njk/grids/grids-guide.njk" %}
+
+	<h2 class="section_title">Slide Examples</h2>
+	{% include src.docs + "/njk/grids/grid-two.njk" %}
+	{% include src.docs + "/njk/grids/grid-three.njk" %}
+	{% include src.docs + "/njk/grids/grid-four.njk" %}
+	{% include src.docs + "/njk/grids/grid-five.njk" %}
+	{% include src.docs + "/njk/grids/grid-modifiers.njk" %}
+</div>
+
+<div class="section" id="process">
+	<h2 class="section_title">Process docs</h2>
+
+	{% include src.docs + "/njk/process/process.njk" %}
+</div>
+
+<div class="section" id="docs">
+	<h2 class="section_title">Docs Examples</h2>
+
+	{% include src.docs + "/njk/docs/docs-examples.njk" %}
+</div>

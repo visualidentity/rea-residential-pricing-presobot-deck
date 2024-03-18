@@ -1,0 +1,31 @@
+.footer-navigation {
+	position: absolute;
+	left: 680px;
+	bottom: 70px;
+
+	span {
+		width: 92px;
+		padding: 12px 18px;
+		font-size: 26px;
+		color: #697684;
+	}
+
+	div {
+		width: 56px;
+		height: 56px;
+		padding: 14px 17px;
+		margin-right: 1px;
+		background: #333F48;
+	}
+
+	p {
+		font-size: 34px;
+		color: white;
+		transform: scale(0.8, 1.4);
+	}
+	div, span {
+		display: inline-block;
+	}
+}
+
+

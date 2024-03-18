@@ -1,0 +1,33 @@
+{% macro market_ranking(options) %}
+	<div class="icon-data-new {{options.classes}} {% if options.imageLeft %} icon-data-new--image-left {% endif %} {% if options.iconlist %} icon-data-new--iconlist {% endif %}">
+		{% if options.heading %}
+			<div class="icon-data-new__main-heading">
+				<h5>{{options.heading}}</h5>
+			</div>
+		{% endif %}
+
+		<div class="icon-data-new__container">
+			<div class="icon-data-new__image-container">
+				<div class="icon-data-new__ranking">
+					<span class="icon-data-new__ranking-number">0</span>
+					<span class="icon-data-new__ranking-title">{% if options.rankingTtitle %}{{options.rankingTtitle}}{% else %}Ranking{% endif%}</span>
+				</div>
+			</div>
+			<div class="icon-data-new__content">
+				{% if options.list %}
+					<ol class="icon-data-new__list">
+						{% for item in options.list %}
+							<li class="icon-data-new__list__item"><span class="icon-data-new__item__inner">{{item.value}}</span></li>
+						{% endfor %}
+					</ol>
+				{% else %}
+					<span class="icon-data-new__value">{{options.statisticDefaultValue}}</span>
+				{% endif %}
+				<div class="icon-data-new__heading"><h6>{{options.statisticHeadingDefaultValue}}</h6></div>
+			</div>
+		</div>
+
+	</div>
+{% endmacro %}
+
+

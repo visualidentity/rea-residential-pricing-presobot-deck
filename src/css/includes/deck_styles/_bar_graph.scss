@@ -1,0 +1,99 @@
+.multi-chart__inner {
+	height: 401px;
+	line-height: 401px;
+	width: 967px;
+	margin: 0 auto;
+	background-image: linear-gradient(180deg, #d8d8d8 1.25%, #ffffff 1.25%, #ffffff 50%, #d8d8d8 50%, #d8d8d8 51.25%, #ffffff 51.25%, #ffffff 100%);
+	background-size: 80.00px 80.00px;
+	text-align: center;
+	position: relative;
+}
+
+.multi-chart {
+
+	margin-top: 76px;
+	margin-bottom: 83px;
+}
+
+.multi-chart__item {
+	display: inline-block;
+	vertical-align: bottom;
+	line-height: normal;
+	width: 79px;
+	margin-bottom: -28px;
+	position: relative;
+	text-align: center;
+
+}
+.item__stat {
+	width: 10px;
+	position: absolute;
+	&--one {
+		background: colour(bluestone);
+		left: 38px;
+		&:after {
+			color: colour(bluestone);
+			bottom: -51px;
+			left: -2px;
+		}
+	}
+	&--two {
+		background: colour(pebble);
+		left: 48px;
+
+		&:after {
+			color: colour(pebble);
+			bottom: -32px;
+			left: -12px;
+		}
+	}
+	bottom: 28px;
+	height: 0px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	transform: rotatex(180deg);
+	@include transition(height 0.5s ease-out);
+
+}
+
+.item__key {
+	font-size: 14px;
+}
+
+
+
+.multi-chart__key {
+	font-size: 18px;
+	font-weight: 500;
+	position: absolute;
+	line-height: normal;
+	&--x {
+		top: 50%;
+		@include transform(translateY(-50%));
+		left: -61px;
+		transform: rotate(270deg);
+	}
+	&--y {
+		left: 0;
+		top: -36px;
+	}
+}
+
+.item__stat__values {
+	position: absolute;
+	font-size: inherit;
+	font-size: 17px;
+	font-weight: 500;
+	left: 50%;
+	@include transform(translateX(-50%));
+
+}
+.item__stat__value {
+	display: block;
+	&--one {
+		color: colour(bluestone);
+	}
+	&--two {
+		color: colour(pebble);
+	}
+}

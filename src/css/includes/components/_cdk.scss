@@ -1,0 +1,42 @@
+.c-cdk-utils {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	font-size: 16px;
+	text-align: center;
+	z-index: 100;
+	pointer-events: none;
+	&__inner {
+	  pointer-events: all;
+	  display: inline-flex;
+	  background-color: rgba(#fff, 0.5);
+	  height: 40px;
+	  padding: 0 10px;
+	  border-radius: 20px;
+	  border: 2px solid rgba(black, 0.6);
+	  align-items: center;
+	  justify-content: center;
+	}
+	&__title {
+	  margin-right: 10px;
+	  font-weight: 700;
+	}
+	&__subsection-heading {
+	  margin-right: 5px;
+	  margin-left: 20px;
+	  font-weight: 700;
+	}
+	&__link {
+	  pointer-events: all !important;
+	  text-decoration: none;
+	  margin-left: 10px;
+	  background-color: rgba(black, 0.6);
+	  color: white;
+	  border-radius: 12px;
+	  height: 24px;
+	  display: inline-flex;
+	  align-items: center;
+	  justify-content: center;
+	  padding: 6px 10px;
+	}
+  }

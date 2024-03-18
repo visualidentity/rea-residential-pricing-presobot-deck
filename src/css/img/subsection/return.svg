@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="32px" viewBox="0 0 36 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>buttons / return - grey</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Designs---Set-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Property-Management---Premiere-Listing---01---improved-search" transform="translate(-691.000000, -1013.000000)" stroke="#979797" stroke-width="2">
+            <g id="slide-controls" transform="translate(549.000000, 1001.000000)">
+                <g id="buttons-/-return---grey" transform="translate(142.000000, 13.000000)">
+                    <path d="M0,30 L23.5,30 C29.8512746,30 35,24.8512746 35,18.5 L35,18.5 C35,12.1487254 29.8512746,7 23.5,7 L11,7" id="Path-4"></path>
+                    <polyline id="Path-5" points="17 0 10 7 17 14"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

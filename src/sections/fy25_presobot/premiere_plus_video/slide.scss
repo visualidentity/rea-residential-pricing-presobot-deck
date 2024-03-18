@@ -1,0 +1,105 @@
+@import "../../../../css/_slides_common.scss";
+
+#slideshow {
+	article#premiere_plus_video {
+		background-color: white;
+		position: relative;
+
+		header {
+			width: 100%;
+			height: auto;
+			margin: 0;
+			padding-left: 120px;
+			padding-right: 120px;
+			padding-top: 110px;
+			padding-bottom: 0px;
+			transform: none;
+			&:before {
+				content: "";
+				width: 100%;
+				height: 20px;
+				background-color: #66408D;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			.breadcrumb {
+				dd {
+					min-width: 153px;
+					font-family: $font;
+					font-weight: 500;
+				}
+			}
+		}
+
+		.content {
+			padding-top: 170px;
+		}
+
+		.content-body {
+			height: 900px;
+			position: relative;
+			margin-top: 40px;
+		}
+
+		.slide-header-border__h1 {
+			font-weight: 600;
+			font-size: 55px;
+			line-height: 60px;
+			text-align: center;
+			color: #3e3b41;
+		}
+
+		.rea-logo {
+			background-image: url("./img/logo.png");
+			background-size: 287px 51px;
+			width: 287px;
+			height: 51px;
+		}
+
+		.premiere_plus_video-content {
+			width: 1340px;
+			height: 764px;
+			padding:10px 10px 10px 10px;
+			background:white;
+			border-radius:8px;
+			margin:auto;	
+			position:relative; 
+			box-shadow: 4px 5px 29px -1px rgba(0,0,0,0.3);
+		}
+
+		iframe {
+			width: 1320px;
+			height: 743.45px;
+		}
+
+		[data-video-container] a {
+			width: 100%;
+			height: 100%;
+			text-indent: -9999px;
+			display: none;
+		}
+
+		footer {
+			.rea-logo {
+				position: absolute;
+				bottom: 27px;
+				right: 111px;
+			}
+		}
+	}
+}
+
+body {
+	&.screenshot {
+		article#premiere_plus_video {
+			.link-for-pdf {
+				display: block;
+			}
+			iframe {
+				display: none;
+			}
+		}
+	}
+}

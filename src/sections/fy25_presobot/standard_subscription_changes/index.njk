@@ -1,0 +1,82 @@
+<article id="standard_subscription_changes">
+	{% import "./njk/_partials/header-border-breadcrumb.njk" as header %}
+
+	{{ header.render({
+		title: 'Changes to Standard listings',
+		color: 'red',
+		contentClasses: 'o-transition__children o-transition__children--fade-up',
+		cweKey: 'subscription_changes_header',
+		refresh: true,
+    refresh: {
+      message: 'Revert table data'
+    },
+		breadcrumb: {
+			text: 'Subscriptions',
+			icon: null,
+			classes: 'breadcrumb--red'
+		}
+	}) }}
+
+	<section class="page01 content">
+		<div class="content__body">
+      <div class="subscription-changes-container">
+        <div class="subscription-changes__body o-transition--fade-up o-transition__delay--250" data-text>
+          From 1 July 2024, free Standard listings, known as the Standard Cap, will no longer be included within your subscription and will be charged per listing.
+          <br />
+          <br />
+          Your Standard subscription cost and the cost of your buy and rent standard listings will remain the same.
+        </div>
+        <div class="subscription-changes__table o-transition--fade-up o-transition__delay--500" data-table>
+          <div class="subscription-changes__table--main">
+            <div data-companywide-editable="subscription_changes_r56378d2u9jciw">Your subscription price:</div>
+            <div data-amount>$XX</div>
+            <div>per month</div>
+            <div>as at <span data-month>&lt;March 2024&gt;</span></div>
+            <div data-companywide-editable="subscription_changes_hbv8j39eo">Your Standard listing prices:</div>
+          </div>
+          <div class="subscription-changes__table--sub-table">
+            <div data-buy>
+              <div data-companywide-editable="subscription_changes_sbyahux89w">Buy</div>
+              <div>
+                <div data-removeable="0">
+                  <div data-companywide-editable="subscription_changes_h4f0kvo4eo">Metro</div>
+                  <div data-companywide-editable="subscription_changes_th84fj9o0cp39eo">$199</div>
+                </div>
+                <div data-removeable="1">
+                  <div data-companywide-editable="subscription_changes_j94vokco">Regional</div>
+                  <div data-companywide-editable="subscription_changes_hvj94einciem">$99</div>
+                </div>
+              </div>
+            </div>
+            <div data-rent>
+              <div data-companywide-editable="subscription_changes_gh849je8cin">Rent</div>
+              <div>
+                <div data-removeable="2">
+                  <div data-companywide-editable="subscription_changes_if93ke0cow">Metro</div>
+                  <div data-companywide-editable="subscription_changes_g894ejc">$20</div>
+                </div>
+                <div data-removeable="3">
+                  <div data-companywide-editable="subscription_changes_g8vj9eci">Regional</div>
+                  <div data-companywide-editable="subscription_changes_r3h8ixws">$10</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</section>
+
+	<footer class="slide-footer">
+    <div class="disclaimer" data-companywide-editable="subscription_changes_rtjf349evkc0dpow" data-toolbar="list">
+      <ol>
+        <li>Prices are inclusive of GST</li>
+      </ol>
+    </div>
+		<div class="rea-logo"></div>
+	</footer>
+</article>
+
+<script type="text/javascript">
+	{% include './sections/fy25_presobot/slides/standard_subscription_changes/slide.js' %}
+</script>

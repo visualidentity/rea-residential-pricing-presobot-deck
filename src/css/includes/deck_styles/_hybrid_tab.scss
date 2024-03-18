@@ -1,0 +1,35 @@
+.hybrid-tab {
+  display: flex;
+  background-color: #F6F5F7;
+  border-radius: 100px;
+  overflow: hidden;
+  position: absolute;
+  left: 120px;
+  top: 48px;
+  z-index: 2;
+
+  &:after {
+    content: '';
+    width: 50%;
+    height: 100%;
+    border-radius: 100px;
+    transition: all .4s ease-in-out;
+  }
+
+  div {
+    color: #C4C4C4;
+    padding: 10px 20px;
+    height: 38px;
+    font-size: 13.27px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+
+    .master &,
+    .share_online & {
+      cursor: pointer;
+    }
+  }
+}

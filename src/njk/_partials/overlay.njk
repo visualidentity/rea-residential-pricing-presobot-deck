@@ -1,0 +1,14 @@
+{# Overlay macro #}
+{% macro overlay(options) %}
+    {% if options.num %}
+        {% set overlay_num = "overlay-" + options.num %}
+    {% else %}
+        {% set overlay_num = "" %}
+    {% endif %}
+
+    <div class="overlay {% if options.num %}overlay-{{ options.num }}{% endif %} {% if options.auto_responder %}auto-responder{% endif %} {% if options.classes %}{{ options.classes }}{% endif %}">
+        {% if options.content %}
+            {{ options.content }}
+        {% endif %}
+    </div>
+{% endmacro %}

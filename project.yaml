@@ -1,0 +1,291 @@
+version: 2
+name: "Residential Pricing Presobot"
+src: ./src
+dist: ./dist
+key: residential-pricing-presobot
+maintainer: daniel.phan@vi.com.au
+impostor: true
+screenshotpreferences:
+    backend: chrome
+    vector: true
+servers:
+    - title: Production
+      api: "https://rea-group.livepreso.com"
+    - title: Staging
+      api: "https://staging-rea-group.livepreso.com"
+common:
+    js:
+        - js/deck.js
+    css:
+        - css/core.css
+content_editors:
+    text:
+        colors:
+            - color: "e4002b"
+              title: "Red"
+            - color: "93227E"
+              title: "Purple"
+            - color: "ED8B00"
+              title: "Orange"
+            - color: "FFB200"
+              title: "Yellow"
+            - color: "00BEB3"
+              title: "Teal"
+            - color: "0084FF"
+              title: "Blue"
+            - color: "333f48"
+              title: "Bluestone"
+            - color: "697684"
+              title: "Pebble"
+            - color: "FFFFFF"
+              title: "White"
+        formats:
+            -
+                block: 'p'
+                title: 'Normal'
+            -
+                block: 'h3'
+                title: 'Large heading'
+            -
+                block: 'h4'
+                title: 'Medium heading'
+            -
+                block: 'h5'
+                title: 'Small heading'
+            -
+                block: 'blockquote'
+                title: 'Blockquote'
+feeds:
+    factsheet:
+        source: "http://{{ feed_host|default:'rea.storix.nextstudio.com.au' }}/sales_preso/suburb_data/{{ customer.state|safe }}/{{ suburbs|safeseq|join:'/' }}.json"
+        competitors:
+        source: /api/competitor-data/
+        preprocessors:
+            - UseServerHostname
+            - AuthenticateWithSalesPresoApi
+    marketshare:
+        source: "/api/marketshare-data/?code={{ customer.agent_code }}"
+        preprocessors:
+            - UseServerHostname
+            - AuthenticateWithSalesPresoApi
+    locations:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/locations"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    packages:
+        source: "/api-proxy/?url=https://api.realestate.com.au/pricing/v1/packages"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    dateRanges:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/date-ranges"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    dateRangesQuarterly:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/year-quarters-date-ranges"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    connectSellersAgentMatch:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/connect-sellers-agent-match"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    exclusiveAudience:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/audience-data/national-exclusive"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    ebrochurePricepoints:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/ebrochure-pricepoints"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    audienceOverviewPricingPreset:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/pricing-preset/audience-overview"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    audienceHighQualityLeads:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/audience-high-quality-leads"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    audienceOverviewReturnOnYourInvestment:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/audience-overview"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    agencyMarketplacePerformance:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/agency-marketplace-performance"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    agencyIgniteUsage:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/agency-ignite-usage"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    reaDemonstratesLeadershipFy24:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/pricing-preset/average-montly-visits"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    pricingMaps:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/resi-pricing-maps"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    advantagePlusFY24:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/advantage-plus-payments"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    agencyPerformancePremiereLuxe:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/luxepreset/{{customer.agent_code}}/top-properties-performance"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    advantagePlusFY2425:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/{{customer.agent_code}}/advantage-plus"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    agencyPerformance:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/your-prerformance-2022"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    amaxPerformance:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/pricing-preset/amax-campaign-performance/{{customer.agent_code}}"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    agentMarketplacePerformance:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/agent-marketplace-performance"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    pricingsale:
+        source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{feed_rca_host}}/rca/pricing/sale'
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    pricinglease:
+        source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{feed_rca_host}}/rca/pricing/lease'
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    premPlusScoreCard:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/{{customer.agent_code}}/prem-plus-score-card"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    premLuxeScoreCard:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/luxepreset/{{customer.agent_code}}/agent-scorecard"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    lvaEligibility:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/{{customer.agent_code}}/lva-eligibility"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    stateAgency:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/get-agency-state"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    subscriptionChanges:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/standard-cap/{{customer.agent_code}}/subscription-changes"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    yourAgencyPerformance:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/standard-cap/{{customer.agent_code}}/agency-performance"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+    websiteForTopProperties:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/luxepreset/website-top-properties"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
+hooks: js/hooks.js
+dimensions:
+    width: 1920
+    height: 1080
+templates:
+    -
+        key: divider
+        title: 'Divider'
+    -
+        key: split_50_50
+        title: '50/50 Split'
+    -
+        key: two_cards
+        title: 'Two Cards'
+    -
+        key: three_cards
+        title: 'Three Cards'
+    -
+        key: four_column
+        title: 'Four Column'
+    -
+        key: two_three_grid
+        title: 'Two/Three Grid'
+    -
+        key: one_four_grid
+        title: 'One/Four Grid'
+    -
+        key: youtube
+        title: 'YouTube'
+    -
+        key: editable_text
+        title: 'Editable Text'
+    -
+        key: dynamic_image
+        title: 'Dynamic Image'
+    -
+        key: temp_image
+        title: 'Temp Image'
+    -
+        key: product_showcase
+        title: 'Product Showcase'
+    -
+        key: product_showcase_laptop
+        title: 'Product Showcase - Laptop'
+    -
+        key: product_showcase_laptop_mobile
+        title: 'Product Showcase - Laptop & Mobile'
+    -
+        key: product_showcase_tablet
+        title: 'Product Showcase - Tablet'
+    -
+        key: feature_columns
+        title: 'Feature Columns'
+    -
+        key: feature_grid
+        title: 'Feature Grid'
+sections:    
+    -
+        key: fy25_presobot
+        title: 'FY25 Presobot'
+        slides:
+            - {key: audience_overview_return_on_your_investment, title: 'Audience Claims'}
+            - {key: best_roi_overview, title: 'Best ROI Overview', tags: [subslide_container]}
+            - {key: premiere_plus_video, title: 'Premiere+ Video'}
+            - {key: premiere_plus_claims, title: 'Premiere+ Claims'}
+            - {key: we_are_continually_investing_in_our_subscriptions, title: 'We are continually investing in our subscriptions'}  
+            - {key: fy25_agency_performance, title: 'Agency’s performance'}
+            - {key: fy25_premiere_plus, title: 'Premiere+', tags: [subslide_container]}
+            - {key: premiere_performance_highlight, title: 'Premiere+ Performance Highlight'}
+            - {key: premiere_performance_feature, title: 'Premiere+ Performance Feature'}
+            - {key: your_fy25_pricing_options, title: 'Your FY25 Pricing Options'}
+            - {key: ignite_features_v1, title: 'Ignite Features V1', tags: [subslide_container]}
+            - {key: ignite_features_v2, title: 'Ignite Features V2', tags: [subslide_container]}
+            - {key: agency_ignite_usage, title: 'Ignite Team Day-to-Day', tags: [subslide_container]}
+            - {key: standard_subscription_changes, title: 'Standard Subscription Changes'}
+            - {key: fy25_thankyou, title: 'Thank You'}  

@@ -1,0 +1,13 @@
+{# List macro #}
+{% macro list(options) %}
+	<ul class="{{ options.classes }}">
+		{% for item in options.items %}
+			{{ list_item(item) }}
+		{% endfor %}
+	</ul>
+{% endmacro %}
+
+{# List item macro #}
+{% macro list_item(item) %}
+	<li class="{{ item.classes }} {% if item.icon %} list-icon {{ item.icon }} {% endif %}">{{ item.copy }}</li>
+{% endmacro %}
