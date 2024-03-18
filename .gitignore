@@ -1,0 +1,37 @@
+
+node_modules
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.sass-cache
+dist
+#data
+
+# Mimosa folder #
+.mimosa
+
+# data_source folders #
+*/data_sources
+
+# local working files #
+working
+
+# Gulp generated files #
+*.map
+.updates
+
+# Sublime files #
+*.sublime-project
+*.sublime-workspace
+
+#!src/js/data
+
+#vs code
+.history
