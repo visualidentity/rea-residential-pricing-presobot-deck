@@ -208,8 +208,8 @@ feeds:
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
-    websiteForTopProperties:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/luxepreset/website-top-properties"
+    YourPricingOptions:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/rea18303'}}/pricingfy2425/{{customer.agent_code}}/your-pricing-options"
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
@@ -269,16 +269,16 @@ templates:
     -
         key: feature_grid
         title: 'Feature Grid'
-sections:    
+sections:
     -
         key: fy25_presobot
-        title: 'FY25 Presobot'
+        title: 'Presobot FY25'
         slides:
             - {key: audience_overview_return_on_your_investment, title: 'Audience Claims'}
             - {key: best_roi_overview, title: 'Best ROI Overview', tags: [subslide_container]}
             - {key: premiere_plus_video, title: 'Premiere+ Video'}
             - {key: premiere_plus_claims, title: 'Premiere+ Claims'}
-            - {key: we_are_continually_investing_in_our_subscriptions, title: 'We are continually investing in our subscriptions'}  
+            - {key: we_are_continually_investing_in_our_subscriptions, title: 'We are continually investing in our subscriptions'}
             - {key: fy25_agency_performance, title: 'Agency’s performance'}
             - {key: fy25_premiere_plus, title: 'Premiere+', tags: [subslide_container]}
             - {key: premiere_performance_highlight, title: 'Premiere+ Performance Highlight'}
@@ -288,4 +288,4 @@ sections:
             - {key: ignite_features_v2, title: 'Ignite Features V2', tags: [subslide_container]}
             - {key: agency_ignite_usage, title: 'Ignite Team Day-to-Day', tags: [subslide_container]}
             - {key: standard_subscription_changes, title: 'Standard Subscription Changes'}
-            - {key: fy25_thankyou, title: 'Thank You'}  
+            - {key: fy25_thankyou, title: 'Thank You'}

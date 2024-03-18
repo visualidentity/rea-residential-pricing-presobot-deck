@@ -1,0 +1,13 @@
+{% set options = {
+	id: "property_management",
+	subslides: false,
+	article_classes: "title-slide",
+	content_classes: ""
+} %}
+
+{% extends "./njk/base-section-title.njk" %}
+
+{% import "./njk/_partials/section-title.njk" as section_title %}
+{% block content %}
+	{{ section_title.title("Property Management Products") }}
+{% endblock %}

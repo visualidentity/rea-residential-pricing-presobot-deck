@@ -1,0 +1,138 @@
+{% set options = {
+	id: "premiere_property_rent",
+	article_classes: "",
+	ribbonless: true
+} %}
+
+{% set optionsHeader = {
+	title: "Premiere Listing",
+	titleClasses: "",
+	arrowColour: "blue",
+	subtitle: "The premiere way to showcase your property",
+	subtitleClasses: "",
+	animated: true,
+	includeReLogo: true
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-center.njk" as header %}
+{% block header_block %}
+	{{ header.title(options, optionsHeader) }}
+{% endblock %}
+
+{% block content %}
+
+	{# import 'block' macro #}
+	{% import "./njk/_partials/product.njk" as product %}
+	{% import "./njk/_partials/block.njk" as block_wrapper %}
+	{% import "./njk/_partials/branding.njk.js" as branding_js %}
+	{% import "./njk/_partials/animated_subsection.njk" as content %}
+	{% import "./njk/_partials/subsection-images.njk" as images %}
+	{% import "./sections/property_management/slides/premiere_property_rent/paths/paths.njk" as line %}
+	{# set content #}
+
+	{% set sections = [
+		{
+			'id': 1,
+			'position': 1,
+			'icon': 'screen-tick',
+			'line': line.listing_results(38),
+			'title': 'Showcase your agency and agents’ brands',
+			'body': 'Prominent agency and agent branding appears throughout the entire listing, building brand awareness with renters and landlords',
+			'animation': {
+				'x': 600,
+				'y': -75,
+				'scale': 1.56
+			}
+		},
+		{
+			'id': 4,
+			'position': 2,
+			'icon': 'person-tick',
+			'title': 'Stay top of mind with renters and landlords',
+			'body': 'Your property automatically rotates to the top of the search results every 15 days, so you’re top of mind with renters and landlords',
+			'animation': {
+				'x': 620,
+				'y': -50,
+				'scale': 1.66
+			}
+		},
+		{
+			'id': 2,
+			'position': 3,
+			'icon': 'eye-pebble',
+			'title': 'Higher views of your listing',
+			'disclaimers': [
+				"REA internal data (1 December 2018 – 31 March 2019)"
+			],
+			'body': 'Premiere is the largest listing available and receives 2.1 times more property page views than a Standard listing<sup>1</sup>',
+			'animation': {
+				'x': 620,
+				'y': -50,
+				'scale': 1.66
+			}
+		},
+		{
+			'id': 3,
+			'position': 4,
+			'line': line.more_enquiries(-115),
+			'icon': 'speech-pebble',
+			'title': 'Receive more enquires',
+			'disclaimers': [
+				"REA internal data (1 December 2018 – 31 March 2019)"
+			],
+			'body': 'Premiere listings receive 1.7 times more renter enquiries than a Standard listing<sup>1</sup>, with an enquiry form that follows when scrolling',
+			'animation': {
+				'x': 140,
+				'y': -50,
+				'scale': 1.66
+			}
+		}
+	] %}
+
+
+	{{content.animated_subsection({
+		'singleCategory': 'Premiere Listing',
+		'image': images.branded_listing({
+			name: 'premiere-property-rent-image',
+			components: [
+				{
+					'classes': 'branded-header'
+				},
+				{
+					'classes': 'branded-sidebar'
+				}
+			]
+		}),
+		'subsections': sections
+	})}}
+
+{% endblock %}
+
+{# {% block footer %}
+	{% import "./njk/_partials/footer.njk" as footer %}
+
+	{{ footer.footer({
+		disclaimer_sources: [
+			{
+				type: "Disclaimer",
+				text: "Premiere property will appear above Highlight property, Feature property and standard listing. Properties are ranked based on their depth tier and list date, and show according to search and sort criteria. Source: Adobe Analytics, March 2017 to February 2018."
+			}
+		],
+		disclaimer_target: true
+	}) }}
+{% endblock %} #}
+
+{% block js_ready %}
+	attachSlideEvents(["disclaimer"]);
+	var subsection = new attachSubsectionEvents({slide: $pageContainer, context: 'premiereEventState'});
+{% endblock %}
+
+
+{% block js_rendered %}
+	{% import "./index.njk.js" as js %}
+	{{ branding_js.rendered() }}
+{% endblock %}
+
