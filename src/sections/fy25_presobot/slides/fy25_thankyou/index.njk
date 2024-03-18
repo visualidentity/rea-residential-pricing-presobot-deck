@@ -1,0 +1,28 @@
+{% set options = {
+	id: "fy25_thankyou",
+	article_classes: "fy25_thankyou",
+	ribbonless: true,
+	cweKey: "fy25_thankyou"
+} %}
+
+{% extends "./njk/base.njk" %}
+
+{% block header_block %}
+	<header>
+		<dl class="breadcrumb breadcrumb--purple">
+			<dd class="icon icon--property-ads">Audience &amp; Insights</dd>
+		</dl>
+	</header>
+{% endblock %}
+
+{% block content %}
+	<div class="slide-wrapper o-transition__children o-transition__children--fade-up o-transition__delay--250">
+		<h1 class="slider-title o-transition--fade-up" data-companywide-editable="fy25_thankyou_title"> Thank you </h1>
+		<div class="slider-content" data-companywide-editable="fy25_thankyou_text"> For information on your FY25 pricing
+			options please contact your realestate.com.au account representative
+		</div>
+	</div>
+	<footer class="slide-footer">
+		<div class="rea-logo"></div>
+	</footer>
+{% endblock %}

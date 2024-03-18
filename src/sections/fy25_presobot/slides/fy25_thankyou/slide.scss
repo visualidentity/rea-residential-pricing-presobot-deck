@@ -1,0 +1,120 @@
+@import "../../../../css/includes/variables";
+@import "../../../../css/includes/mixins";
+
+#slideshow {
+	article#fy25_thankyou {
+		position: relative;
+		background-image: url("img/thankyou_bg.webp");
+
+		header {
+			width: 100%;
+			height: 270px;
+			margin: 0;
+			padding: 95px 120px 66px;
+			transform: none;
+			z-index: 0;
+
+			dl {
+				dd {
+					min-width: 225px;
+					padding: 12px 20px 12px 61px;
+					background-size: 25px 26px;
+					background-position: 24px 8px;
+					background-color: #E4002B;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 20px;
+
+					&.icon--property-ads {
+						background-image: url("img/audience_icon.svg");
+					}
+				}
+			}
+
+			h1 {
+				font-weight: 600;
+				font-size: 50px;
+				line-height: 55px;
+				color: #3e3b41;
+			}
+
+			&:before {
+				content: "";
+				width: 100%;
+				height: 20px;
+				background-color: #E4002B;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+
+		.text_narrow {
+			font-size: 30px !important;
+			font-weight: 600 !important;
+			color: #E4002B;
+			line-height: 30px !important;
+			display: inline-block;
+			margin-left: -5px;
+		}
+
+		.text_red {
+			font-size: 30px !important;
+			font-weight: 600 !important;
+			color: #E4002B;
+			line-height: 30px !important;
+		}
+
+		.slide-header-center {
+			z-index: 0;
+			font-size: 30px;
+
+			h1 {
+				font-size: 30px;
+				max-width: 1030px;
+				line-height: 36px;
+			}
+
+			.arrow {
+				margin-top: 10px;
+			}
+		}
+
+		.content-body {
+			margin-top: 0;
+			width: 1680px;
+			height: 100%;
+
+			.slide-wrapper {
+				.slider-title {
+					font-size: 100px;
+					font-weight: 600;
+					line-height: 110px;
+					padding-top: 170px;
+					padding-bottom: 34px;
+				}
+
+				.slider-content {
+					font-size: 35px;
+					font-weight: 500;
+					line-height: 42px;
+					width: 683px;
+				}
+			}
+		}
+
+
+		.slide-footer {
+			.rea-logo {
+				width: 287px;
+				height: 51px;
+				position: absolute;
+				right: -5px;
+				top: -10px;
+				background-image: url("img/logo-footer.png");
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}

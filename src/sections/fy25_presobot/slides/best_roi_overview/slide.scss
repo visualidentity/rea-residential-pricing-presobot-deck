@@ -276,12 +276,12 @@
 
 			.arrow-subslide {
 				content: "";
-				width: 10px;
-				height: 20px;
+				width: 105px;
+				height: 25px;
 				background-image: url("img/chevron.svg");
-				background-position: center;
+				background-position: top 3px right !important;
 				background-repeat: no-repeat;
-				background-size: contain;
+				background-size: 18px 18px;
 				position: absolute;
 				right: 34px;
 				top: 50%;
@@ -290,10 +290,10 @@
 
 			.master &:hover {
 
-				.arrow-subslide,
-				.arrow-subslide:hover {
-					background-image: url("img/chevron-red.svg");
-				}
+				// .arrow-subslide,
+				// .arrow-subslide:hover {
+				// 	background-image: url("img/chevron-red.svg");
+				// }
 			}
 		}
 
@@ -350,6 +350,11 @@
 				margin-right: 4px;
 			}
 		}
+ 
+		.purple.arrow-subslide {
+			color:#9C7BBE; 
+			background-image: url("img/chevron-purple.svg");
+		}
 
 		.purple .subslide-modal__content--category {
 			background-color: #66408D;
@@ -362,6 +367,11 @@
 				background-size: contain;
 				margin-right: 12.46px;
 			}
+		}
+
+		.blue.arrow-subslide {
+			color:#88C2DF;
+			background-image: url("img/chevron-blue.svg");
 		}
 
 		.blue .subslide-modal__content--category {
@@ -380,7 +390,12 @@
 			}
 		}
 
-		.green .subslide-modal__content--category {
+		.green.arrow-subslide {
+			color:#64CBD2;
+			background-image: url("img/chevron-green.svg");
+		}
+
+		.green.subslide-modal__content--category {
 			background-color: #13a4ae;
 			padding-left: 20.28px;
 			min-width: 176px;
@@ -393,6 +408,12 @@
 				background-image: url("img/service-icon.svg");
 				background-size: contain;
 			}
+		}
+
+		.grey.arrow-subslide { 
+			color:#B9B9B9;
+			background-image: url("img/chevron-grey.svg") !important;
+			right: -670px !important;
 		}
 
 		.grey {
