@@ -96,7 +96,7 @@ export default {
 		const agentMarketplacePerformanceAgents = (feeds && feeds.agentMarketplacePerformance ) || [];
 
 		// agentAgencyMarketplacePerformanceSlide.subslides = [];
-		agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides = [];
+		// agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides = [];
 
 		for(let i = 0; i < Math.ceil(agentMarketplacePerformanceAgents.length / 4); i++) {
 			// agentAgencyMarketplacePerformanceSlide.subslides.push({
@@ -107,13 +107,13 @@ export default {
 			// 	sequence: i
 			// });
 
-			agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides.push({
-				title: `agent marketplace performance page ${i + 1}`,
-				html_content: `<section class="subslide content page0${i+1}"></section>`,
-				slide: agentAgencyMarketplacePerformanceSubscriptionsSlide.url,
-				enabled: true,
-				sequence: i
-			});
+			// agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides.push({
+			// 	title: `agent marketplace performance page ${i + 1}`,
+			// 	html_content: `<section class="subslide content page0${i+1}"></section>`,
+			// 	slide: agentAgencyMarketplacePerformanceSubscriptionsSlide.url,
+			// 	enabled: true,
+			// 	sequence: i
+			// });
 		}
 
 		if(agentMarketplacePerformanceAgents.length === 0) {
@@ -125,22 +125,22 @@ export default {
 			// 	sequence: 0
 			// });
 
-			agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides.push({
-				title: `agent marketplace performance default`,
-				html_content: `<section class="suburb-searches-container subslide content page01"></section>`,
-				slide: agentAgencyMarketplacePerformanceSubscriptionsSlide.url,
-				enabled: true,
-				sequence: 0
-			});
+			// agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides.push({
+			// 	title: `agent marketplace performance default`,
+			// 	html_content: `<section class="suburb-searches-container subslide content page01"></section>`,
+			// 	slide: agentAgencyMarketplacePerformanceSubscriptionsSlide.url,
+			// 	enabled: true,
+			// 	sequence: 0
+			// });
 		}
 
-		const advantagePlusFY2425Items = (feeds && feeds.advantagePlusFY2425) && feeds.advantagePlusFY2425;
-		var advantagePlusSlide25 = _.find(flattenedSlides, function(slide) {
-			return slide.key === "advantage_plus_return_on_your_investment";
-		});
-		if (Object.keys(advantagePlusFY2425Items).length === 0) {
-			advantagePlusSlide25.visible = false;
-		}
+		// const advantagePlusFY2425Items = (feeds && feeds.advantagePlusFY2425) && feeds.advantagePlusFY2425;
+		// var advantagePlusSlide25 = _.find(flattenedSlides, function(slide) {
+		// 	return slide.key === "advantage_plus_return_on_your_investment";
+		// });
+		// if (Object.keys(advantagePlusFY2425Items).length === 0) {
+		// 	advantagePlusSlide25.visible = false;
+		// }
 
 		console.log({sections, feeds})
 		// Hide these slides if data empty
