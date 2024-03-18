@@ -142,6 +142,25 @@ export default {
 			advantagePlusSlide25.visible = false;
 		}
 
+		console.log({sections, feeds})
+		// Hide these slides if data empty
+		sections.forEach((section) => {
+			//Select these slides on Presobot FY25 pillar
+			if(section.key == 'fy25_presobot') { 
+				section.slides.forEach((slide) => {
+					// Show/hide particular slide with its endpoint
+					const isYourAgencyPerformanceHidden = slide.key === 'fy25_agency_performance' && !feeds.yourAgencyPerformance?.totalProperties;
+					const isSubscriptionChangesHidden = slide.key == 'standard_subscription_changes' && feeds.subscriptionChanges?.subscriptionName !== "Standard";
+					const isYourPricingOptionsHidden = slide.key == 'your_fy25_pricing_options' && (!Object.keys(feeds.YourPricingOptions).length || Object.values(feeds.YourPricingOptions).some(it => it === ''));
+					if (
+						isYourAgencyPerformanceHidden ||
+						isSubscriptionChangesHidden ||
+						isYourPricingOptionsHidden
+					) slide.visible = false;
+				});				
+			}
+		});
+
 		return sections;
 	}
 };
