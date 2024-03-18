@@ -278,7 +278,6 @@ sections:
             - {key: best_roi_overview, title: 'Best ROI Overview', tags: [subslide_container]}
             - {key: premiere_plus_video, title: 'Premiere+ Video'}
             - {key: premiere_plus_claims, title: 'Premiere+ Claims'}
-            - {key: we_are_continually_investing_in_our_subscriptions, title: 'We are continually investing in our subscriptions'}
             - {key: fy25_agency_performance, title: 'Agency’s performance'}
             - {key: fy25_premiere_plus, title: 'Premiere+', tags: [subslide_container]}
             - {key: premiere_performance_highlight, title: 'Premiere+ Performance Highlight'}
@@ -287,5 +286,6 @@ sections:
             - {key: ignite_features_v1, title: 'Ignite Features V1', tags: [subslide_container]}
             - {key: ignite_features_v2, title: 'Ignite Features V2', tags: [subslide_container]}
             - {key: agency_ignite_usage, title: 'Ignite Team Day-to-Day', tags: [subslide_container]}
+            - {key: we_are_continually_investing_in_our_subscriptions, title: 'We are continually investing in our subscriptions'}
             - {key: standard_subscription_changes, title: 'Standard Subscription Changes'}
             - {key: fy25_thankyou, title: 'Thank You'}
