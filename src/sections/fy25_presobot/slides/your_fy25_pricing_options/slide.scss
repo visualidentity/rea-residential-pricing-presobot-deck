@@ -109,17 +109,26 @@
 
 
 		.slide-footer {
-			position: static;
+			position: relative;
 
-			.disclaimer {
+			.footer--info {
+				position: absolute;
 				font-size: 32px;
 				font-weight: 600;
 				line-height: 24px;
 				height: 60px;
 				left: 0;
 				letter-spacing: -1.3px;
-				top: 70px;
+				top: 25px;
 				width: fit-content;
+			}
+			.disclaimer {
+				position: absolute;
+				font-size: 12px;
+				line-height: 13px;
+				font-weight: 300;
+				left: 0;
+				top: 80px
 			}
 
 			.rea-logo {
