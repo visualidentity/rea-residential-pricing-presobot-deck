@@ -55,14 +55,7 @@ content_editors:
             -
                 block: 'blockquote'
                 title: 'Blockquote'
-feeds:
-    factsheet:
-        source: "http://{{ feed_host|default:'rea.storix.nextstudio.com.au' }}/sales_preso/suburb_data/{{ customer.state|safe }}/{{ suburbs|safeseq|join:'/' }}.json"
-        competitors:
-        source: /api/competitor-data/
-        preprocessors:
-            - UseServerHostname
-            - AuthenticateWithSalesPresoApi
+feeds: 
     marketshare:
         source: "/api/marketshare-data/?code={{ customer.agent_code }}"
         preprocessors:
