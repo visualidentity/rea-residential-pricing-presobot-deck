@@ -39,16 +39,16 @@
 			</div>
 			<div class="team-card-badges">
 				<div class="team-card-badge-item">
+					<div class="badge badge--active-user"></div>
+					<div>Active user (<span data-active-user>0 </span>)</div>
+				</div>
+				<div class="team-card-badge-item">
 					<div class="badge badge--non-user"></div>
 					<div>Does not have Ignite (<span data-does-not-have-ignite>0 </span>)</div>
 				</div>
 				<div class="team-card-badge-item">
 					<div class="badge badge--dormant-user"></div>
 					<div>Dormant user (<span data-dormant-user>0 </span>)</div>
-				</div>
-				<div class="team-card-badge-item">
-					<div class="badge badge--active-user"></div>
-					<div>Active user (<span data-active-user>0 </span>)</div>
 				</div>
 				<div class="team-card-badge-item">
 					<div class="badge badge--power-user"></div>
@@ -126,16 +126,16 @@
 					</div>
 					<div class="team-card-badges">
 						<div class="team-card-badge-item">
+							<div class="badge badge--active-user"></div>
+							<div>Active user</div>
+						</div>
+						<div class="team-card-badge-item">
 							<div class="badge badge--non-user"></div>
 							<div>Does not have Ignite</div>
 						</div>
 						<div class="team-card-badge-item">
 							<div class="badge badge--dormant-user"></div>
 							<div>Dormant user</div>
-						</div>
-						<div class="team-card-badge-item">
-							<div class="badge badge--active-user"></div>
-							<div>Active user</div>
 						</div>
 						<div class="team-card-badge-item">
 							<div class="badge badge--power-user"></div>
@@ -293,9 +293,9 @@
 	})
 
 	if (feverSegments != null) {
-		$pageContainer.find("[data-does-not-have-ignite]").text((feverSegments["Active user"]));
-		$pageContainer.find("[data-dormant-user]").text((feverSegments["Does not have Ignite"]));
-		$pageContainer.find("[data-active-user]").text((feverSegments["Dormant User"]));
+		$pageContainer.find("[data-does-not-have-ignite]").text((feverSegments["Does not have Ignite"]));
+		$pageContainer.find("[data-dormant-user]").text((feverSegments["Dormant User"]));
+		$pageContainer.find("[data-active-user]").text((feverSegments["Active user"]));
 		$pageContainer.find("[data-power-user]").text((feverSegments["Power User"]));
 	}
 	{% endblock %}
