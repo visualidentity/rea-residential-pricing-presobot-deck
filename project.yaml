@@ -143,11 +143,6 @@ feeds:
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
-    agencyPerformancePremiereLuxe:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/luxepreset/{{customer.agent_code}}/top-properties-performance"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
     advantagePlusFY2425:
         source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/{{customer.agent_code}}/advantage-plus"
         preprocessors:
