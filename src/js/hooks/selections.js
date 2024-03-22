@@ -108,7 +108,7 @@ export default {
 					enabled: true,
 					sequence: i
 				});
-	
+
 				agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides.push({
 					title: `agent marketplace performance page ${i + 1}`,
 					html_content: `<section class="subslide content page0${i+1}"></section>`,
@@ -126,7 +126,7 @@ export default {
 					enabled: true,
 					sequence: 0
 				});
-	
+
 				agentAgencyMarketplacePerformanceSubscriptionsSlide.subslides.push({
 					title: `agent marketplace performance default`,
 					html_content: `<section class="suburb-searches-container subslide content page01"></section>`,
@@ -149,18 +149,21 @@ export default {
 		// Hide these slides if data empty
 		sections.forEach((section) => {
 			//Select these slides on Presobot FY25 pillar
-			if(section.key == 'fy25_presobot') { 
+			if(section.key == 'fy25_presobot') {
 				section.slides.forEach((slide) => {
 					// Show/hide particular slide with its endpoint
 					const isYourAgencyPerformanceHidden = slide.key === 'fy25_agency_performance' && !feeds.yourAgencyPerformance?.totalProperties;
 					const isSubscriptionChangesHidden = slide.key == 'standard_subscription_changes' && feeds.subscriptionChanges?.subscriptionName !== "Standard";
-					const isYourPricingOptionsHidden = slide.key == 'your_fy25_pricing_options' && (!Object.keys(feeds.YourPricingOptions).length || Object.values(feeds.YourPricingOptions).some(it => it === ''));
+					const isYourPricingOptionsHidden = slide.key == 'your_fy25_pricing_options' && (!Object.keys(feeds.YourPricingOptions).length || Object.values(feeds.YourPricingOptions).some(it => {
+						return it === '' || typeof it === 'undefined' || it === null;
+					}));
+
 					if (
 						isYourAgencyPerformanceHidden ||
 						isSubscriptionChangesHidden ||
 						isYourPricingOptionsHidden
 					) slide.visible = false;
-				});				
+				});
 			}
 		});
 
