@@ -73,12 +73,12 @@
 
 				&::after {
 					content: '';
-					background-image: url(img/chart.svg);
+					background-image: url(img/chart.svg?v5); 
 					height: 273px;
 					width: 157px;
 					background-repeat:no-repeat;
 					position: absolute;
-					bottom: 0;
+					bottom: 15px;
 					right: 51px;
 				}
 			}
