@@ -81,38 +81,8 @@ feeds:
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
-    connectSellersAgentMatch:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/connect-sellers-agent-match"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    exclusiveAudience:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/audience-data/national-exclusive"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    ebrochurePricepoints:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/ebrochure-pricepoints"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    audienceOverviewPricingPreset:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/pricing-preset/audience-overview"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    audienceHighQualityLeads:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/audience-high-quality-leads"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    audienceOverviewReturnOnYourInvestment:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/audience-overview"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    agencyMarketplacePerformance:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/agency-marketplace-performance"
+    pricingsale:
+        source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{feed_rca_host}}/rca/pricing/sale'
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
@@ -121,73 +91,8 @@ feeds:
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
-    reaDemonstratesLeadershipFy24:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/pricing-preset/average-montly-visits"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    pricingMaps:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/resi-pricing-maps"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    advantagePlusFY24:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/advantage-plus-payments"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    advantagePlusFY2425:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/{{customer.agent_code}}/advantage-plus"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    agencyPerformance:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/your-prerformance-2022"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    amaxPerformance:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/rea/pricing-preset/amax-campaign-performance/{{customer.agent_code}}"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    agentMarketplacePerformance:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/agent-marketplace-performance"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    pricingsale:
-        source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{feed_rca_host}}/rca/pricing/sale'
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    pricinglease:
-        source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{feed_rca_host}}/rca/pricing/lease'
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    premPlusScoreCard:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/{{customer.agent_code}}/prem-plus-score-card"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    premLuxeScoreCard:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/luxepreset/{{customer.agent_code}}/agent-scorecard"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    lvaEligibility:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/{{customer.agent_code}}/lva-eligibility"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    stateAgency:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/customer/{{customer.agent_code}}/get-agency-state"
-        preprocessors:
-            - AuthenticateWithSalesPresoApi
-            - UseServerHostname
-    subscriptionChanges:
-        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/standard-cap/{{customer.agent_code}}/subscription-changes"
+    audienceOverviewReturnOnYourInvestment:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/pricingfy2425/audience-overview"
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
@@ -196,11 +101,16 @@ feeds:
         preprocessors:
             - AuthenticateWithSalesPresoApi
             - UseServerHostname
+    subscriptionChanges:
+        source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/dev'}}/standard-cap/{{customer.agent_code}}/subscription-changes"
+        preprocessors:
+            - AuthenticateWithSalesPresoApi
+            - UseServerHostname
     YourPricingOptions:
         source: "/api-proxy/?url=https://{{vi_host|default:' d2xpnl9r21uz0w.cloudfront.net/rea18303'}}/pricingfy2425/{{customer.agent_code}}/your-pricing-options"
         preprocessors:
             - AuthenticateWithSalesPresoApi
-            - UseServerHostname
+            - UseServerHostname  
 hooks: js/hooks.js
 dimensions:
     width: 1920
